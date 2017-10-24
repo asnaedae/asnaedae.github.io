@@ -1,6 +1,6 @@
 ---
 title: Tracing firewalled hosts
-layout: single
+layout: post
 category:
 tags:
   - networking

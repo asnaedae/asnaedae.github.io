@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title:  "CentOS/RHEL 7"
 tags:
   - redhat

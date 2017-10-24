@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 redirect_from: /2007/08/28/node-603
 ---
 

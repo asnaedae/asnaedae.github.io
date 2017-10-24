@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 tags:
   - snmp
 redirect_from: /2008/09/26/argh-snmp-can-really-chafe/

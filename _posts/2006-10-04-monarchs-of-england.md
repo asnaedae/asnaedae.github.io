@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 redirect_from: /2006/10/04/node-215
 ---
 

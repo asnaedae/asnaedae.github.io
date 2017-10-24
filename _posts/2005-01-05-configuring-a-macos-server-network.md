@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 redirect_from: /2009/01/configuring-a-macos-server-network
 ---
 

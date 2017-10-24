@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 redirect_from:
   - /2008/01/10/node-637
   - /2008/01/node-640

@@ -1,6 +1,6 @@
 ---
 title: "Thoughts on Kubernetes"
-layout: single
+layout: post
 category:
 date: 2017-01-27 19:36:42 BST
 tags:

@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title:  "Vagrant error during plugin install"
 tags:
 - vagrant

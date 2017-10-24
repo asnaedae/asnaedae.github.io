@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title:  Parsing last log /var/log/wtmp
 tags:
 - unix

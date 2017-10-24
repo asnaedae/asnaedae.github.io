@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title:  Google travel tips
 tags:
   - travel

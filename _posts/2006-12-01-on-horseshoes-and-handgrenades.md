@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title:  On Horseshoes and Handgrenades
 tags:
 - life

@@ -1,6 +1,6 @@
 ---
 title: "Errors on features export"
-layout: single
+layout: post
 category:
 date: 2015-10-02 10:13:42 BST
 published: true

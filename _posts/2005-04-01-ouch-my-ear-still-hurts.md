@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 redirect_from: /ouch-my-ear-still-hurts/
 ---
 

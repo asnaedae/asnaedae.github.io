@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 redirect_from: /product-and-corporate-development/
 ---
 

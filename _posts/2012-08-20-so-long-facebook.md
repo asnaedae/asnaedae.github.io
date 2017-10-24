@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 redirect_from:
   - /2012/08/20/so-long-facebook/
   - /so-long-facebook/

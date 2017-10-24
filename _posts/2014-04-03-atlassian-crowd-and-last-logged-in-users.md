@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title:  "Crowd logged in users"
 tags:
   - atlassian

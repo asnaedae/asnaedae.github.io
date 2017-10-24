@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 redirect_from: /the-uk-and-snow/
 ---
 

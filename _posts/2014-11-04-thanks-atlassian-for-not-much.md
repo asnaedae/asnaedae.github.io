@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title:  "User access with Atlassian tools"
 tags:
   - atlassian

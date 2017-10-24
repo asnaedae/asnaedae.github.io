@@ -1,6 +1,6 @@
 ---
 title: "Capistrano changelog"
-layout: single
+layout: post
 date: 2015-01-28 18:24:00 GMT
 ---
 
@@ -8,7 +8,6 @@ date: 2015-01-28 18:24:00 GMT
 
 I needed a more atomic method of listing changes between two deployments whilst using capistrano, so used the following task to perform a git log between two revisions:
 
-{% gist asnaedae/8b139499d16d379754e1 %}
 
 use the following to display:
 

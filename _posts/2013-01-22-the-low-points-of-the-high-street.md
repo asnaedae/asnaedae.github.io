@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 redirect_from:
   - /2013/01/22/the-low-points-of-the-high-street/
   - /the-low-points-of-the-high-street/

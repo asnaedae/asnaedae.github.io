@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title:  "apple remote desktop and vnc"
 tags:
   - vnc

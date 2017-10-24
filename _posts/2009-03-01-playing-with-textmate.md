@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 redirect_from: /2009/03/01/playing-with-textmate/
 ---
 OMG (and other leet things), textmate has built in just about everything, ok probably

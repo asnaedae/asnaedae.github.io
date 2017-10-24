@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 redirect_from:
   - /2012/11/06/the-nature-of-grief/
   - /the-nature-of-grief/

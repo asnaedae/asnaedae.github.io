@@ -1,6 +1,6 @@
 ---
 title: "Fermi estimates"
-layout: single
+layout: post
 category:
 date: 2015-05-18 13:13:42 BST
 published: false

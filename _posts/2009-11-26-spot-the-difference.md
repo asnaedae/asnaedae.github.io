@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 redirect_from: /2009/11/26/spot-the-difference/
 
 ---

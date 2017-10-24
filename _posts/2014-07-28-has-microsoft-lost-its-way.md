@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title:  "Has microsoft lost it's way?"
 tags:
   - microsoft

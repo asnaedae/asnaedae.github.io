@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title:  "Using Agile at the right level"
 tags:
 - devops

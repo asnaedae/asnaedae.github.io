@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title:  "Moving git repositories"
 tags:
 - git

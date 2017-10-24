@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 tags:
   - osx
 redirect_from: /shining-a-light-on-spotlight/
