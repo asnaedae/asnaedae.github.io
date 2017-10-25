@@ -6,7 +6,11 @@
     "email": "Mike.Wallis@dubdubdub.co.uk",
     "phone": "+44 (0)7973 326078",
     "website": "https://dubdubdub.co.uk",
-    "summary": "An experienced Solution/Infrastructure/DevOps Architect and Team Leader with broad experience in delivering and running Open Source based programmes, including Continuous Delivery and Integration processes and tools, software architecture, and infrastructure.",
+    "summary": "An experienced Solution/Infrastructure/DevOps Architect and Team Leader with broad experience in delivering and running Open Source based programmes, including Continuous Delivery and Integration processes and tools, software architecture, and infrastructure.
+
+Operational management experience including the procurement, contract, vendor management, security, compliance and ongoing support of solutions.
+
+Strong interest in developing Home Automation and open source IoT software and hardware, and the integration of third party products and services.",
     "location": {
       "address": "85 Dorking Road",
       "postalCode": "KT18 7JU",
@@ -78,10 +82,16 @@
       "institution": "University of Dundee",
       "area": "Computer Science",
       "studyType": "Bachelor",
-      "startDate": "2011-06-01",
-      "endDate": "2014-01-01",
+      "startDate": "September 1992",
+      "endDate": "June 1995",
       "gpa": "",
       "courses": []
+    },
+    {
+      "institution": "Swanley Comprehensive School",
+      "studyType": "A-Levels",
+      "startDate": "September 1990",
+      "endDate" : "June 1992",
     }
   ],
   "awards": [],
@@ -122,8 +132,8 @@
   ],
   "references": [
     {
-      "name": "Erlich Bachman",
-      "reference": "It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company."
+      "name": "Available on Request",
+      "reference": "Available on Request."
     }
   ]
 }
