@@ -38,7 +38,7 @@ Strong interest in developing Home Automation and open source IoT software and h
       "website": "http://eigen.co",
       "startDate": "May 2017",
       "endDate": "Current",
-      "summary": "",
+      "summary": "Technologies Used: Ansible, Jenkins, Nexus, Kubernetes, Docker, Prometheus, Grafana, Influxdb, Gradle",
       "highlights": [
         "Work as a technical project manager across client engagements, helping the team deliver quality and handovers to the support team",
         "Implement process improvements to build, testing and deployments methodologies",
@@ -50,10 +50,10 @@ Strong interest in developing Home Automation and open source IoT software and h
     {
       "company": "PwC UK LLP",
       "position": "Senior Manager - DevOps Architecture",
-      "website": "http://uk.pwc.com",
+      "website": "http://www.pwc.co.uk/",
       "startDate": "June 2015",
       "endDate": "February 2017",
-      "summary": "",
+      "summary": "Technologies Used: Vagrant, Ansible, Jenkins, Nexus, Forgerock iDAM, MongoDB, Drupal CMS, Mulesoft ESB, Atlassian Tools, Kubernetes, OpenVSwitch, Docker/LXC, Grafana, ElasticSearch, Logstash, Amazon AWS, Azure",
       "highlights": [
         "Client based delivery work using Open Source based tooling and owning handover from build to run organisations. * Developer enablement: improving tooling and deployment processes to ensure code is managed into environments using Vagrant, Ansible, Jenkins and Atlassian Toolchains",
         "Infrastructure and systems engineering: including solution definition, security, costing, vendor selection, contract negotiation, and procurement aspects.",
@@ -64,19 +64,122 @@ Strong interest in developing Home Automation and open source IoT software and h
     {
       "company": "Capgemini PLC",
       "position": "Lead Engineer - Digital Services",
-      "website": "",
+      "website": "https://www.capgemini.com/gb-en/",
       "startDate": "April 2013",
       "endDate": "May 2015",
-      "summary": "",
+      "summary": "Technologies Used: Jenkins CI, Puppet, Drupal CMS, New Relic APM, Graphite, Capistrano, Atlassian Toolchain: Jira, Confluence, Stash and Crowd, Joyent Cloud, Rackspace Managed Cloud , Amazon AWS, Python",
       "highlights": [
         "Manage the Digital Services existing \"DevOps\" team.",
         "Install, configure, update and troubleshoot web services, application servers and other web infrastructure for a number of clients across E-commerce and Utility sectors.",
         "Ability to act as infrastructure/solution architect within projects as required, this includes solution design, performance tuning and configuration management.",
         ""
       ]
+    },
+    {
+      "company": "European Directories",
+      "position": "Devops Architect",
+      "website": "http://www.europeandirectories.com",
+      "startDate": "January 2012",
+      "endDate": "April 2013",
+      "summary": "Technologies Used: Hudson/Jenkins, Chef and custom scripts, Mongodb, MySQL, FAST ESP, Varnish Cache, CentOS/RHEL Linux - 300+ servers, Solaris 10, VMware ESX 4.x - 5.x - clusters with 500 virtual machines and 40TB of storage, F5 Network’s BIG-IP Load Balancers, Subversion, Nexus, Maven",
+      "highlights": [
+        "Maintain a high level view of emerging products and services and proactively chart infrastructure requirements for solution delivery across multiple channel (web, mobile etc) environments.",
+        "Be the Design Authority for infrastructure components encompassing functional and non-functional elements.",
+        "Define, design, maintain and evolve global deployment models and operating company localisation templates.",
+        "Vendor/Supplier engagement and rough order of magnitude calculations for project budgeting"
+      ]
+    },
+    {
+      "company": "European Directories",
+      "position": "Solution Architect",
+      "website": "http://www.europeandirectories.com",
+      "startDate": "August 2008",
+      "endDate": "January 2012",
+      "summary": "Technologies Used: Hudson/Jenkins, Chef and custom scripts, Mongodb, MySQL, FAST ESP, Varnish Cache, CentOS/RHEL Linux - 300+ servers, Solaris 10, VMware ESX 4.x - 5.x - clusters with 500 virtual machines and 40TB of storage, F5 Network’s BIG-IP Load Balancers, Subversion, Nexus, Maven",
+      "highlights": [
+        "Help guide strategy with Group CIO, CIO and Online Managing Director on both site performance, development practices and driving cost efficiencies.",
+        "Design, build and assist in the development and migration of a high capacity Internet Yellow Pages platform for the European Directories group websites and migrate all existing IYP sites onto this platform.",
+        "Design, build and administer all the development and testing environments for all internal and external development partners across the group.",
+        "Successfully implement an Active/Active mapping and routing platform using both TeleAtlas sourced and bespoke map tiles",
+        "Perform triage and diagnostic of issues that the hosting provider was unable to identify",
+        "Provide group level technical assistance when scoping projects"
+      ]
+    },
+    {
+      "company": "Escenic AS",
+      "position": "Senior Consultant",
+      "website": "http://www.escenic.com",
+      "startDate": "August 2007",
+      "endDate": "August 2008",
+      "summary": "Technologies Used: Centos 4.x Linux, Ubuntu Linux, Tomcat 5.x, Oracle Application Server, IBM WebSphere 5.x • Maven, Ant and Hudson CI, VMware Server, Subversion and Perforce 4.x, Varnish HTTP Cache 1.x, MemcacheD",
+      "highlights": [
+        "Installation/architectural and scaling support to Escenic customers, including configuration of caching, webservers, databases and network filesystems.",
+        "Coaching and training for aspects of the software stack and general website delivery.",
+        "Pre-sales assistance to the sales department."
+      ]
+    },
+    {
+      "company": "Symbian Software Limited",
+      "position": "Systems Analyst",
+      "website": "",
+      "startDate": "May 2007",
+      "endDate": "July 2007",
+      "summary": "",
+      "highlights": [
+        "Provide strategy for Symbian's Solaris and Redhat linux infrastructure, whilst looking to provide server consolidation onto a mixture of VMware ESX server clusters and Solaris 10 zones.",
+        "Implement a global rollout of Bluecoat proxy devices across US, Europe and Asian offices."
+      ]
+    },
+    {
+      "company": "News International Newspapers Limited",
+      "position": "Senior Technical Architect",
+      "website": "http://www.newsint.co.uk",
+      "startDate": "July 2006",
+      "endDate": "May 2007",
+      "summary": "Technology Used: Solaris 10 - 200+ servers, 400+ zones, Oracle 10g RAC - 4 nodes, 4TB DB storage, IBM Websphere 5.x, Tomcat 4.x, Java 1.5 - 1.6, Bluecoat HTTP Caches, F5 Network's BIG-IP Load Balancers, Subversion, SCCS, Ant, Bourne shell and Perl, MemcacheD",
+      "highlights": [
+        "Design, develop and document the new online platform as well as providing support and guidance to the technical teams and business units, utilising a multi-node Oracle 10g RAC cluster, and websphere clustering on Sun Opteron blade servers spread across 6 chassis.",
+        "Provide cost/benefit guidelines to key stakeholders for further investments and direction of maximising growth from existing invested infrastructure and software.",
+        "Consolidate some of the existing server real-estate into a Solaris 10 zone based platform"
+      ]
+    },
+
+    {
+      "company": "News International Newspapers Limited",
+      "position": "Senior Systems Administrator",
+      "website": "http://www.newsint.co.uk",
+      "startDate": "September 1997",
+      "endDate": "June 2006",
+      "summary": "Technology Used: Solaris 10 - 200+ servers, 400+ zones, Oracle 10g RAC - 4 nodes, 4TB DB storage, IBM Websphere 5.x, Tomcat 4.x, Java 1.5 - 1.6, Bluecoat HTTP Caches, F5 Network's BIG-IP Load Balancers, Subversion, SCCS, Ant, Bourne shell and Perl, MemcacheD",
+      "highlights": [
+        "Manage 100+ UNIX servers providing infrastructure behind the internet presences of News International's websites (The Times, The Sun, and Page3) including back-end systems, including Oracle * High-Availability Clusters and appliances.",
+        "Prepare capital expenditure requests for annual predicted growth and give justification on future platform requirements, this is to include the changes in physical environment and logical architecture to cater for the continuing three figure growth that the Online titles have since the beginning of the millennium.",
+        "Maintain the Linux servers and build/design bespoke Linux based appliances for the Newspaper production process"
+      ]
+    },
+    {
+      "company": "SBC Warburg",
+      "position": "Distributed Computing Engineer",
+      "website": "",
+      "startDate": "May 1997",
+      "endDate": "September 1997",
+      "summary": "",
+      "highlights": [
+        "To develop the UNIX client-server infrastructure and to implement and test new applications and servers.",
+        "Redesigned existing Naming Services and migrated from NIS to DNS to provide core machine name resolution."
+      ]
+    },
+
+
+
+  ],
+  "qualifications": [
+    {
+      "Baseline Personnel Security Standard (BPSS)" : "2015 - current",
+      "Certified Scrum Master": "2010 - current",
+      "Certified Scrum Developer": " - 2012 - current",
     }
   ],
-  "volunteer": [],
   "education": [
     {
       "institution": "University of Dundee",
@@ -92,28 +195,6 @@ Strong interest in developing Home Automation and open source IoT software and h
       "studyType": "A-Levels",
       "startDate": "September 1990",
       "endDate" : "June 1992",
-    }
-  ],
-  "awards": [],
-  "publications": [],
-  "skills": [
-    {
-      "name": "Web Development",
-      "level": "Master",
-      "keywords": [
-        "HTML",
-        "CSS",
-        "Javascript"
-      ]
-    },
-    {
-      "name": "Compression",
-      "level": "Master",
-      "keywords": [
-        "Mpeg",
-        "MP4",
-        "GIF"
-      ]
     }
   ],
   "languages": [
