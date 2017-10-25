@@ -1,0 +1,129 @@
+{
+  "basics": {
+    "name": "Mike Wallis",
+    "label": "DevOps Architect",
+    "picture": "",
+    "email": "Mike.Wallis@dubdubdub.co.uk",
+    "phone": "+44 (0)7973 326078",
+    "website": "https://dubdubdub.co.uk",
+    "summary": "An experienced Solution/Infrastructure/DevOps Architect and Team Leader with broad experience in delivering and running Open Source based programmes, including Continuous Delivery and Integration processes and tools, software architecture, and infrastructure.",
+    "location": {
+      "address": "85 Dorking Road",
+      "postalCode": "KT18 7JU",
+      "city": "Epsom",
+      "countryCode": "UK",
+      "region": "Surrey"
+    },
+    "profiles": [
+      {
+        "network": "Twitter",
+        "username": "asnaedae",
+        "url": ""
+      },
+      {
+        "network": "Github",
+        "username": "asnaedae",
+        "url": "https://github.com/asnaedae/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Eigen Software",
+      "position": "Software Manager",
+      "website": "http://eigen.co",
+      "startDate": "May 2017",
+      "endDate": "Current",
+      "summary": "",
+      "highlights": [
+        "Work as a technical project manager across client engagements, helping the team deliver quality and handovers to the support team",
+        "Implement process improvements to build, testing and deployments methodologies",
+        "Project cost and resource planning, including client engagements and forecasting of future team need",
+        "Work on delivering of technology prototypes to prove business value",
+        "Drive development improvements by the use of automation, containers, and test driven development"
+      ]
+    },
+    {
+      "company": "PwC UK LLP",
+      "position": "Senior Manager - DevOps Architecture",
+      "website": "http://uk.pwc.com",
+      "startDate": "June 2015",
+      "endDate": "February 2017",
+      "summary": "",
+      "highlights": [
+        "Client based delivery work using Open Source based tooling and owning handover from build to run organisations. * Developer enablement: improving tooling and deployment processes to ensure code is managed into environments using Vagrant, Ansible, Jenkins and Atlassian Toolchains",
+        "Infrastructure and systems engineering: including solution definition, security, costing, vendor selection, contract negotiation, and procurement aspects.",
+        "Solution Technical architecture, working with business and solution architects to define solution for a multi-tenanted SAAS platform and owning the hosting and release management work stream.",
+        "Installation, Configuration and Documentation of a number of Kubernetes clusters, including changes to build pipelines using groovy pipelines in Jenkins and ansible"
+      ]
+    },
+    {
+      "company": "Capgemini PLC",
+      "position": "Lead Engineer - Digital Services",
+      "website": "",
+      "startDate": "April 2013",
+      "endDate": "May 2015",
+      "summary": "",
+      "highlights": [
+        "Manage the Digital Services existing \"DevOps\" team.",
+        "Install, configure, update and troubleshoot web services, application servers and other web infrastructure for a number of clients across E-commerce and Utility sectors.",
+        "Ability to act as infrastructure/solution architect within projects as required, this includes solution design, performance tuning and configuration management.",
+        ""
+      ]
+    }
+  ],
+  "volunteer": [],
+  "education": [
+    {
+      "institution": "University of Dundee",
+      "area": "Computer Science",
+      "studyType": "Bachelor",
+      "startDate": "2011-06-01",
+      "endDate": "2014-01-01",
+      "gpa": "",
+      "courses": []
+    }
+  ],
+  "awards": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "Master",
+      "keywords": [
+        "HTML",
+        "CSS",
+        "Javascript"
+      ]
+    },
+    {
+      "name": "Compression",
+      "level": "Master",
+      "keywords": [
+        "Mpeg",
+        "MP4",
+        "GIF"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Wildlife",
+      "keywords": [
+        "Ferrets"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "Erlich Bachman",
+      "reference": "It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company."
+    }
+  ]
+}
