@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 lang: en-GB
-title: My Awesome Site
+title: Random notes from a nearby land
 email: mike@dubdubdub.co.uk
 description:
 baseurl: # the optional subpath of your site, e.g. "/blog"
