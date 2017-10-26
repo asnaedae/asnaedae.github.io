@@ -6,11 +6,7 @@
     "email": "Mike.Wallis@dubdubdub.co.uk",
     "phone": "+44 (0)7973 326078",
     "website": "https://dubdubdub.co.uk",
-    "summary": "An experienced Solution/Infrastructure/DevOps Architect and Team Leader with broad experience in delivering and running Open Source based programmes, including Continuous Delivery and Integration processes and tools, software architecture, and infrastructure.
-
-Operational management experience including the procurement, contract, vendor management, security, compliance and ongoing support of solutions.
-
-Strong interest in developing Home Automation and open source IoT software and hardware, and the integration of third party products and services.",
+    "summary": "An experienced Solution/Infrastructure/DevOps Architect and Team Leader with broad experience in delivering and running Open Source based programmes, including Continuous Delivery and Integration processes and tools, software architecture, and infrastructure.  Operational management experience including the procurement, contract, vendor management, security, compliance and ongoing support of solutions.  Strong interest in developing Home Automation and open source IoT software and hardware, and the integration of third party products and services.",
     "location": {
       "address": "85 Dorking Road",
       "postalCode": "KT18 7JU",
@@ -22,7 +18,7 @@ Strong interest in developing Home Automation and open source IoT software and h
       {
         "network": "Twitter",
         "username": "asnaedae",
-        "url": ""
+        "url": "https://twitter.com/asnaedae"
       },
       {
         "network": "Github",
@@ -168,33 +164,34 @@ Strong interest in developing Home Automation and open source IoT software and h
         "To develop the UNIX client-server infrastructure and to implement and test new applications and servers.",
         "Redesigned existing Naming Services and migrated from NIS to DNS to provide core machine name resolution."
       ]
-    },
-
-
-
+    }
   ],
   "qualifications": [
     {
       "Baseline Personnel Security Standard (BPSS)" : "2015 - current",
       "Certified Scrum Master": "2010 - current",
-      "Certified Scrum Developer": " - 2012 - current",
+      "Certified Scrum Developer": " - 2012 - current"
     }
   ],
   "education": [
     {
       "institution": "University of Dundee",
       "area": "Computer Science",
-      "studyType": "Bachelor",
+      "studyType": "Bachelor of Science",
       "startDate": "September 1992",
-      "endDate": "June 1995",
-      "gpa": "",
-      "courses": []
+      "endDate": "June 1995"
     },
     {
       "institution": "Swanley Comprehensive School",
       "studyType": "A-Levels",
       "startDate": "September 1990",
-      "endDate" : "June 1992",
+      "endDate": "June 1992",
+      "courses": [
+        "Chemistry",
+        "Mathematics (Pure)",
+        "Mathematics (Applied)",
+        "Physics"
+      ]
     }
   ],
   "languages": [
@@ -205,9 +202,18 @@ Strong interest in developing Home Automation and open source IoT software and h
   ],
   "interests": [
     {
-      "name": "Wildlife",
+      "name": "Internet of Things",
       "keywords": [
-        "Ferrets"
+        "Data analytics",
+        "Home Automation",
+        "Open Source Hardware"
+      ]
+    },{
+      "name": "Containers",
+      "keywords": [
+        "kubernetes",
+        "docker",
+        "solaris zones"
       ]
     }
   ],
