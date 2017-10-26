@@ -22,10 +22,10 @@ url: # the base hostname & protocol for your site e.g. "https://mmistakes.github
 author:
   name: Mike Wallis
   twitter: asnaedae
-  picture:
+  picture: "/images/avatar.jpg"
 twitter_username: asnaedae
 github_username: asnaedae
-logo: /images/site-logo.jpg
+logo: "/images/site-logo.jpg"
 
 # Build settings
 markdown: kramdown
