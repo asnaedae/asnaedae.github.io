@@ -29,11 +29,25 @@
   },
   "work": [
     {
+      "company": "Icon Solutions",
+      "position": "Senior Devops Lead, IPF",
+      "website": "https://iconsolutions.com",
+      "startDate": "February 2018",
+      "endDate": "Current",
+      "summary": "Technologies Used: Ansible, Jenkins, Nexus, Kubernetes, Docker",
+      "highlights": [
+        "Providing enterprise clients with advice and guidance on how to effectively take advantage of modern development operations principals for continuous integration and automated configuration management",
+        "Developing deep appreciation for client enterprise architecture and operating standards affecting infrastructure and application design decisions – Using this developed understanding to define and implement the DevOps standards for large scale software development projects",
+        "Leading clients in their adoption of industry best practices for addressing common DevOps challenges in areas such as merging and branching, versioning, etc",
+        "Taking a lead role in governing the development and application environment, responding to client / developer requests for resources, fixes and workarounds"
+      ]
+    },
+    {
       "company": "Eigen Software",
       "position": "Software Manager",
-      "website": "http://eigen.co",
+      "website": "https://eigen.co",
       "startDate": "May 2017",
-      "endDate": "Current",
+      "endDate": "February 2018",
       "summary": "Technologies Used: Ansible, Jenkins, Nexus, Kubernetes, Docker, Prometheus, Grafana, Influxdb, Gradle",
       "highlights": [
         "Work as a technical project manager across client engagements, helping the team deliver quality and handovers to the support team",
