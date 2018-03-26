@@ -2,7 +2,7 @@
 title: Adding tags to docker-maven-plugin
 layout: post
 category:
-date: 2018-03-26 16:36:42 BST
+date: 2018-03-26 12:36:42 BST
 tags:
   - containers
   - maven
