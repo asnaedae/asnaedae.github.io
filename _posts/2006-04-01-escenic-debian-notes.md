@@ -7,6 +7,7 @@ tags:
 redirect_from:
   - /2006/04/01/escenic-debian-notes/
   - /escenic-debian-notes/
+title:
 ---
 
 ### NON-FREE APT REPOSITORIES

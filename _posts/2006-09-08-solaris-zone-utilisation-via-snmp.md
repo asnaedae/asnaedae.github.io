@@ -6,6 +6,7 @@ tags:
 redirect_from:
   - /2006/09/08/
   - /solaris-zone-utilisation-via-snmp/
+title:
 ---
 
 It’s been a bug-bear for a long time for me that the CPU metrics when querying a Solaris 10 host are global and not zone specific (which of course makes sense, just makes it harder to track zone utilisation).

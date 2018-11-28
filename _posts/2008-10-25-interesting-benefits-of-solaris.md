@@ -1,5 +1,6 @@
 ---
 layout: post
+title: solaris
 tags:
   - solaris
   - fast esp
