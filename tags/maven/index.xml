@@ -7,6 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Mon, 26 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dubdubdub.co.uk/tags/maven/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +15,7 @@
     <item>
       <title>Adding tags to docker-maven-plugin</title>
       <link>https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/</guid>
       <description>Adding a latest tag to docker containers built by docker-maven-plugin

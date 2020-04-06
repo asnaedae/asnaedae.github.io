@@ -93,19 +93,26 @@
   <hr/>
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/"></a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/">User access with Atlassian tools</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2014-11-04T00:00:00Z">
+          Nov 4, 2014
         </time>
       </div>
     </div>
   </header>
   <div>
-    To save having to understand how the underlying db schema works: SQL Queries for JIRA
+    User access times with Atlassian tools You&rsquo;d be mistaken if you had a few searches on the internet and found the following page suggesting that you could just query the application cwd_user table except when using Crowd when you should query against the crowd cwd_user_attribute table.
+Unfortunately that might have been true back with Jira 4.3, although in the last few years mixing the Atlassian tools (with Crowd as SSO provider) this is no longer the case and I&rsquo;ve found the following MySQL query works well to find out login times for each application
   </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
   
 </article>
 
@@ -117,8 +124,8 @@
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2014-04-03T00:00:00Z">
+          Apr 3, 2014
         </time>
       </div>
     </div>
@@ -134,26 +141,19 @@ SELECT cwd_user.user_name AS Username, cwd_user.email_address AS &#34;Email Addr
   <hr/>
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/">User access with Atlassian tools</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/">SQL queries with Jira</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2012-08-13T00:00:00Z">
+          Aug 13, 2012
         </time>
       </div>
     </div>
   </header>
   <div>
-    User access times with Atlassian tools You&rsquo;d be mistaken if you had a few searches on the internet and found the following page suggesting that you could just query the application cwd_user table except when using Crowd when you should query against the crowd cwd_user_attribute table.
-Unfortunately that might have been true back with Jira 4.3, although in the last few years mixing the Atlassian tools (with Crowd as SSO provider) this is no longer the case and I&rsquo;ve found the following MySQL query works well to find out login times for each application
+    To save having to understand how the underlying db schema works: SQL Queries for JIRA
   </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
   
 </article>
 

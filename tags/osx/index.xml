@@ -7,10 +7,42 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright notice</copyright>
-    <lastBuildDate>Mon, 18 Jan 2010 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 May 2014 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dubdubdub.co.uk/tags/osx/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OSX and Vagrant!</title>
+      <link>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</link>
+      <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</guid>
+      <description>So whilst trying to get boxen to work I needed a good method to test, so of course I turned to Vagrant and standing on the works of others (namely Graham Gilbert ) I used the following steps:
+Requirements  Packer Vagrant VMware Fusion  Steps Download and install packer, the easiest method to do this I found was using homebrew
+$ brew install packer Cloning into &amp;#39;/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary&amp;#39;... remote: Reusing existing pack: 143, done.</description>
+    </item>
+    
+    <item>
+      <title>apple remote desktop and vnc</title>
+      <link>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</link>
+      <pubDate>Tue, 15 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</guid>
+      <description>Ahh, so Apple&amp;rsquo;s Remote Desktop is just a simpler implementation of the VNC protocol (I&amp;rsquo;m sure there&amp;rsquo;s some propriety extensions in there but it&amp;rsquo;s nice to know you can use vncclient to connect to a Mac.
+Options that work well for VNC:-
+[Connection] Host=$HOSTNAME [Options] UseLocalCursor=1 UseDesktopResize=1 FullScreen=0 FullColour=1 LowColourLevel=1 PreferredEncoding=hextile AutoSelect=0 Shared=0 SendPtrEvents=1 SendKeyEvents=1 SendCutText=1 AcceptCutText=1 DisableWinKeys=1 Emulate3=0 PointerEventInterval=0 Monitor= MenuKey=F8 AutoReconnect=1 Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.</description>
+    </item>
+    
+    <item>
+      <title>home brew fusion/hybrid drives on OS X</title>
+      <link>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</link>
+      <pubDate>Mon, 08 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</guid>
+      <description>There&amp;rsquo;s plenty of examples of doing this already but it&amp;rsquo;s as simple as:
+$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &amp;#34;fusion Drive&amp;#34; 100% Seems to be working so far, although with typical Apple there&amp;rsquo;s no documentation on how files/objects are moved between the SSD and HDD components</description>
+    </item>
     
     <item>
       <title>disabling atime in OS X</title>
@@ -70,38 +102,6 @@ $ sudo mdutil -i off / Error, no index found for volume. What worked to fix this
       <guid>https://dubdubdub.co.uk/posts/2008-02-07-recent-applications-window/</guid>
       <description>This little snippet will give you a new little window for all those recent applications you launch – I seem to have picked up a habit for closing applications down when I stop working with them for an hour or two (pages etc.)
 $ write com.apple.dock persistent-others -array-add \  &amp;#39;{ &amp;#34;tile-data&amp;#34; = { &amp;#34;list-type&amp;#34; = 1; }; &amp;#34;tile-type&amp;#34; = &amp;#34;recents-tile&amp;#34;; }&amp;#39; $ killall Dock </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</guid>
-      <description>There&amp;rsquo;s plenty of examples of doing this already but it&amp;rsquo;s as simple as:
-$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &amp;#34;fusion Drive&amp;#34; 100% Seems to be working so far, although with typical Apple there&amp;rsquo;s no documentation on how files/objects are moved between the SSD and HDD components</description>
-    </item>
-    
-    <item>
-      <title>apple remote desktop and vnc</title>
-      <link>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</guid>
-      <description>Ahh, so Apple&amp;rsquo;s Remote Desktop is just a simpler implementation of the VNC protocol (I&amp;rsquo;m sure there&amp;rsquo;s some propriety extensions in there but it&amp;rsquo;s nice to know you can use vncclient to connect to a Mac.
-Options that work well for VNC:-
-[Connection] Host=$HOSTNAME [Options] UseLocalCursor=1 UseDesktopResize=1 FullScreen=0 FullColour=1 LowColourLevel=1 PreferredEncoding=hextile AutoSelect=0 Shared=0 SendPtrEvents=1 SendKeyEvents=1 SendCutText=1 AcceptCutText=1 DisableWinKeys=1 Emulate3=0 PointerEventInterval=0 Monitor= MenuKey=F8 AutoReconnect=1 Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.</description>
-    </item>
-    
-    <item>
-      <title>OSX and Vagrant!</title>
-      <link>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</guid>
-      <description>So whilst trying to get boxen to work I needed a good method to test, so of course I turned to Vagrant and standing on the works of others (namely Graham Gilbert ) I used the following steps:
-Requirements  Packer Vagrant VMware Fusion  Steps Download and install packer, the easiest method to do this I found was using homebrew
-$ brew install packer Cloning into &amp;#39;/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary&amp;#39;... remote: Reusing existing pack: 143, done.</description>
     </item>
     
   </channel>

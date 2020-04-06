@@ -7,10 +7,276 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright notice</copyright>
-    <lastBuildDate>Wed, 07 Jul 2010 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dubdubdub.co.uk/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Adding tags to docker-maven-plugin</title>
+      <link>https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/</link>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/</guid>
+      <description>Adding a latest tag to docker containers built by docker-maven-plugin
+ &amp;lt;name&amp;gt;${project.artifactId}:${project.version}&amp;lt;/name&amp;gt; &amp;lt;build&amp;gt; &amp;lt;tags combine.children=&amp;quot;append&amp;quot;&amp;gt; &amp;lt;tag&amp;gt;latest&amp;lt;/tag&amp;gt; &amp;lt;/tags&amp;gt; &amp;lt;from&amp;gt;${base.docker.image}&amp;lt;/from&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>starting kubernetes</title>
+      <link>https://dubdubdub.co.uk/posts/2017-04-12/</link>
+      <pubDate>Wed, 12 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2017-04-12/</guid>
+      <description>Getting kubernetes to start with RBAC features enabled
+$ minikube start --vm-driver=xhyve \ 	--extra-config=apiserver.GenericServerRunOptions.AuthorizationMode=RBAC,--authorization-rbac-super-user=minikube-admin \ 	--kubernetes-version=v1.6.0 --memory=4096 --cpus 4 </description>
+    </item>
+    
+    <item>
+      <title>Thoughts on Kubernetes</title>
+      <link>https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/</link>
+      <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/</guid>
+      <description>Just a collection of annoyances on Kubernetes:
+kubectl config and multiple namespaces Seriously! The shear amount of YAML duplication if you have a large number of namespaces and clusters it quite rapidly becomes very annoying, do remember that this is YAML so you could have (ab)used anchors to copy commonly used fragments:
+apiVersion: v1 clusters: - cluster: server: https://cluster1.example.com name: cluster1 contexts: - context: &amp;amp;bar-ns cluster: cluster1 namespace: bar-namespace user: &amp;#34;cluster1-user&amp;#34; name: cluster1-bar-namespace - context: &amp;lt;&amp;lt;: *bar-ns namespace: foo-namespace name: cluster1-foo-namespace - context: &amp;lt;&amp;lt;: *bar-ns namespace: kube-system name: cluster1-kubesystem current-context: cluster1-foo-namespace kind: Config preferences: {} users: [] CURRENT NAME CLUSTER AUTHINFO NAMESPACE * cluster1-foo-namespace cluster1 foo-namespace cluster1-kubesystem cluster1 kube-system cluster1-bar-namespace cluster1 bar-namespace Except: as soon as you use kubectl config use-context it goes and helpfully writes back the expanded YAML structure.</description>
+    </item>
+    
+    <item>
+      <title>Errors on features export</title>
+      <link>https://dubdubdub.co.uk/posts/2015-10-02-features_export/</link>
+      <pubDate>Fri, 02 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2015-10-02-features_export/</guid>
+      <description>Had a strange error being reported when exporting features from a Drupal 7 instance, in that the resultant tar file was not extracting using any of the usual tools, such as tar etc.
+$ file features_export-7.x-1.0-alpha1.tar features_export-7.x-1.0-alpha1.tar: data File magic showed that the file was wrong, but looking at the file itself looked correct at first glance, and a look around on Drupal.org returned this old thread which lead me to</description>
+    </item>
+    
+    <item>
+      <title>Capistrano changelog</title>
+      <link>https://dubdubdub.co.uk/posts/2015-01-28-capistrano-changelog/</link>
+      <pubDate>Wed, 28 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2015-01-28-capistrano-changelog/</guid>
+      <description>Capistrano and Changelogs I needed a more atomic method of listing changes between two deployments whilst using capistrano, so used the following task to perform a git log between two revisions:
+use the following to display:
+$ cap deploy:changelog INFO Changes between 04e7f9a and 3fd3e88 releases INFO e7770ab Built Deployable files from Drush make 8f9d13c Built Deployable files from Drush make 3872d29 Built Deployable files from Drush make 193aaad Built Deployable files from Drush make You can then of course include within any other tasks using the normal capistrano methods</description>
+    </item>
+    
+    <item>
+      <title>User access with Atlassian tools</title>
+      <link>https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/</link>
+      <pubDate>Tue, 04 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/</guid>
+      <description>User access times with Atlassian tools You&amp;rsquo;d be mistaken if you had a few searches on the internet and found the following page suggesting that you could just query the application cwd_user table except when using Crowd when you should query against the crowd cwd_user_attribute table.
+Unfortunately that might have been true back with Jira 4.3, although in the last few years mixing the Atlassian tools (with Crowd as SSO provider) this is no longer the case and I&amp;rsquo;ve found the following MySQL query works well to find out login times for each application</description>
+    </item>
+    
+    <item>
+      <title>Using Agile at the right level</title>
+      <link>https://dubdubdub.co.uk/posts/2014-10-23-agile_at_the_correct_level/</link>
+      <pubDate>Thu, 23 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-10-23-agile_at_the_correct_level/</guid>
+      <description>Agile at the right level There has been lots of criticism that &amp;ldquo;Agile&amp;rdquo; is a poor way to run any form of IT development project, with the following comments being made to substantiate the statement:
+ No one uses &amp;ldquo;agile&amp;rdquo; in real world engineering It doesn&amp;rsquo;t scale It&amp;rsquo;s &amp;ldquo;new&amp;rdquo;  Indeed everyone seems to think that Royce&amp;rsquo;s original article in the 1970s was an example of a working project delivery method and miss that he presented it as a broken model.</description>
+    </item>
+    
+    <item>
+      <title>Devops technologies</title>
+      <link>https://dubdubdub.co.uk/posts/2014-10-15-devops_technologies/</link>
+      <pubDate>Wed, 15 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-10-15-devops_technologies/</guid>
+      <description>Source Control  subversion git (stash/Github/gitlab)  Integration Environment  API based infrastructure provider, e.g. vSphere/AWS/Rackspace Cloud Vagrant  Documentation  Markdown Wiki markup / Confluence  Build System The collection of tooling that enables continuous integration of commits by building the software, running any tests and deploying to integration environments.
+Status of all steps needs to be broadcast to all interested parties, and testing should include not just normal TDD/unit tests but also should look into the following:-</description>
+    </item>
+    
+    <item>
+      <title>CentOS/RHEL 7</title>
+      <link>https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/</link>
+      <pubDate>Mon, 13 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/</guid>
+      <description>So after many years the following changes I&amp;rsquo;ve so far run into with CentOS 7
+firewalld # firewall-cmd --zone=public --add-service=https success # firewall-cmd --zone=public --add-service=http success # firewall-cmd --zone=public --list-all public (default, active) interfaces: eth0 eth1 sources: services: dhcpv6-client http https ssh ports: masquerade: no forward-ports: icmp-blocks: rich rules: systemd # systemd enable nginx # ln -s &amp;#39;/usr/lib/systemd/system/nginx.service&amp;#39; &amp;#39;/etc/systemd/system/multi-user.target.wants/nginx.service&amp;#39; $ systemctl status nginx nginx.service - nginx - high performance web server Loaded: loaded (/usr/lib/systemd/system/nginx.</description>
+    </item>
+    
+    <item>
+      <title>Moving git repositories</title>
+      <link>https://dubdubdub.co.uk/posts/2014-10-08-moving-git-repositories/</link>
+      <pubDate>Wed, 08 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-10-08-moving-git-repositories/</guid>
+      <description>So whilst moving between github organisations - which is relatively straight forward, I also had to move some from Atlassian Stash unfortunately there&amp;rsquo;s not as simple a method to do this, but a good way of mirroring between two repos is as follows:
+$ git clone https://donor_repo/example1 --bare $ git remote set-url --push origin https://destination_repo/example2.git $ git fetch -p origin &amp;amp;&amp;amp; git push --mirror Simples.</description>
+    </item>
+    
+    <item>
+      <title>Vagrant error during plugin install</title>
+      <link>https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/</link>
+      <pubDate>Tue, 30 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/</guid>
+      <description>Had the following error being thrown when trying to install the vagrant-vbguest plugin:
+$ vagrant plugin install vagrant-vbguest Installing the &#39;vagrant-vbguest&#39; plugin. This can take a few minutes... Bundler, the underlying system Vagrant uses to install plugins, reported an error. The error is shown below. These errors are usually caused by misconfigured plugin installations or transient network issues. The error from Bundler is: An error occurred while installing ffi (1.9.5), and Bundler cannot continue.</description>
+    </item>
+    
+    <item>
+      <title>Useful business KPIs</title>
+      <link>https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/</link>
+      <pubDate>Mon, 04 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/</guid>
+      <description>Net Promoter score - how likely a customer will recommend customer profitability score - how much profit does individual customers bring to business after costs customer retention rate - loyalty and churn conversation rate - how well prospectives are turned into customers relative market share - how big a share of the pie do you have revenue growth rate - rate of increase of income net profit - income minus expenses net profit margin - percentage of revenue that is profit gross profit margin - profit generate per X of sales operating profit margin - operating income divided by revenue Return in investment - how much X investment generates in new income cash conversion cycle - how long it takes for ROI to happen capacity utilisation rate - how saturated are you resources?</description>
+    </item>
+    
+    <item>
+      <title>Has microsoft lost it&#39;s way?</title>
+      <link>https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/</link>
+      <pubDate>Mon, 28 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/</guid>
+      <description>I cannot help but feel, very probably not helped by the rest of the tech press that Microsoft is still struggling to understand what it&amp;rsquo;s core market is and how to move forward.
+Look at the current Microsoft mobile phone marketing Lumia:
+ Plus, you’ll stay productive on the go with Microsoft Office Mobile built in
+And with Microsoft Office and OneDrive (formerly SkyDrive) built in, you can keep on top of your work even when away from your desk</description>
+    </item>
+    
+    <item>
+      <title>moving to github</title>
+      <link>https://dubdubdub.co.uk/posts/2014-07-23-moving-to-github/</link>
+      <pubDate>Wed, 23 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-07-23-moving-to-github/</guid>
+      <description>So I&amp;rsquo;m a big dabbler when it comes to my personal site/pages, over the years I&amp;rsquo;ve moved from the following technologies/software to host:
+ Simple HTML - 1999 Roxen - 2005 Wordpress Drupal Wordpress (again) Blogger Ghost  I&amp;rsquo;ve had a dabble with Jekyll in the past (specifically Heckle) whilst I was playing with moving things to Ghost and given I have already migrated all of my content into Markdown it sounded like the best option (especially given I don&amp;rsquo;t have to then host the application somewhere)</description>
+    </item>
+    
+    <item>
+      <title>OSX and Vagrant!</title>
+      <link>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</link>
+      <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</guid>
+      <description>So whilst trying to get boxen to work I needed a good method to test, so of course I turned to Vagrant and standing on the works of others (namely Graham Gilbert ) I used the following steps:
+Requirements  Packer Vagrant VMware Fusion  Steps Download and install packer, the easiest method to do this I found was using homebrew
+$ brew install packer Cloning into &amp;#39;/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary&amp;#39;... remote: Reusing existing pack: 143, done.</description>
+    </item>
+    
+    <item>
+      <title>Crowd logged in users</title>
+      <link>https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/</link>
+      <pubDate>Thu, 03 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/</guid>
+      <description>This came in useful for me today to understand users that could be disabled from a crowd instance:
+SELECT cwd_user.user_name AS Username, cwd_user.email_address AS &amp;#34;Email Address&amp;#34;, from_unixtime(cwd_user_attribute.attribute_value/1000) AS &amp;#34;Last Logged In&amp;#34; FROM cwd_user LEFT OUTER JOIN cwd_user_attribute ON cwd_user_attribute.user_id = cwd_user.id AND cwd_user_attribute.attribute_name = &amp;#39;lastAuthenticated&amp;#39; WHERE active = &amp;#39;T&amp;#39; ORDER BY 3,2,1 ; </description>
+    </item>
+    
+    <item>
+      <title>apple remote desktop and vnc</title>
+      <link>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</link>
+      <pubDate>Tue, 15 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</guid>
+      <description>Ahh, so Apple&amp;rsquo;s Remote Desktop is just a simpler implementation of the VNC protocol (I&amp;rsquo;m sure there&amp;rsquo;s some propriety extensions in there but it&amp;rsquo;s nice to know you can use vncclient to connect to a Mac.
+Options that work well for VNC:-
+[Connection] Host=$HOSTNAME [Options] UseLocalCursor=1 UseDesktopResize=1 FullScreen=0 FullColour=1 LowColourLevel=1 PreferredEncoding=hextile AutoSelect=0 Shared=0 SendPtrEvents=1 SendKeyEvents=1 SendCutText=1 AcceptCutText=1 DisableWinKeys=1 Emulate3=0 PointerEventInterval=0 Monitor= MenuKey=F8 AutoReconnect=1 Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.</description>
+    </item>
+    
+    <item>
+      <title>google authenticator on NetGear ReadyNAS</title>
+      <link>https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/</link>
+      <pubDate>Tue, 15 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/</guid>
+      <description>First I had to ensure that the stock debian packages are available for installation:
+$ tail /etc/apt/sources.list deb http://archive.debian.org/debian etch main Install g++ and other dependencies
+$ apt-get install g++ libpam0g-dev Download google-authenticator source code:
+$ git clone https://code.google.com/p/google-authenticator/ $ cd google-authenticator/ $ ./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install Then simply follow the instructions over at here</description>
+    </item>
+    
+    <item>
+      <title>home brew fusion/hybrid drives on OS X</title>
+      <link>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</link>
+      <pubDate>Mon, 08 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</guid>
+      <description>There&amp;rsquo;s plenty of examples of doing this already but it&amp;rsquo;s as simple as:
+$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &amp;#34;fusion Drive&amp;#34; 100% Seems to be working so far, although with typical Apple there&amp;rsquo;s no documentation on how files/objects are moved between the SSD and HDD components</description>
+    </item>
+    
+    <item>
+      <title>HTTP Proxy with source IP on Tomcat</title>
+      <link>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</link>
+      <pubDate>Mon, 17 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</guid>
+      <description>Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&amp;rsquo;s Crowd it&amp;rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:
+&amp;lt;Valve className=&amp;#34;org.apache.catalina.valves.RemoteIpValve&amp;#34; internalProxies=&amp;#34;proxy_IP_address&amp;#34; remoteIpHeader=&amp;#34;x-forwarded-for&amp;#34; remoteIpProxiesHeader=&amp;#34;x-forwarded-by&amp;#34; protocolHeader=&amp;#34;x-forwarded-proto&amp;#34; /&amp;gt; &amp;lt;Valve className=&amp;#34;org.apache.catalina.valves.AccessLogValve&amp;#34; directory=&amp;#34;logs&amp;#34; prefix=&amp;#34;localhost_access.&amp;#34; suffix=&amp;#34;.log&amp;#34; pattern=&amp;#34;combined&amp;#34; resolveHosts=&amp;#34;false&amp;#34; /&amp;gt; The following should be used within nginx to forward that data into tomcat.
+proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Server $host; proxy_set_header X-Forwarded-For $remote_addr; </description>
+    </item>
+    
+    <item>
+      <title>Snow and the UK</title>
+      <link>https://dubdubdub.co.uk/posts/2013-01-22-the-uk-and-snow/</link>
+      <pubDate>Tue, 22 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-01-22-the-uk-and-snow/</guid>
+      <description>The normally busy Tuesday morning terminal at London City Airport looking distinctly quiet and lonely, so far most flights are looking cancelled or seriously delayed, this might be one of those &amp;ldquo;interesting days&amp;rdquo; that people look forward to.</description>
+    </item>
+    
+    <item>
+      <title>the low points of the high street</title>
+      <link>https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/</link>
+      <pubDate>Tue, 22 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/</guid>
+      <description>So in the last week we have had the announcement from both HMV and Blockbuster UK that they are entering administration and so cannot continue to trade as they used to, at the very least.
+I suspect it&amp;rsquo;s not very surprising that both companies primarily dealt with &amp;ldquo;media&amp;rdquo; of one form or the other that, with the increasing availability of bandwidth to end users, are easily converted to digital forms and so the intrinsic costs of bricks and motar stores become a serious overhead.</description>
+    </item>
+    
+    <item>
+      <title>on the nature of grief</title>
+      <link>https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/</link>
+      <pubDate>Tue, 06 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/</guid>
+      <description>It&amp;rsquo;s now been a month or so since my little brother Glyn passed away and I&amp;rsquo;ve noticed that after the initial shock of knowing that he is gone I&amp;rsquo;m still having periods of melancholy, sadness and dearly wishing and hoping that he was still here.
+This isn&amp;rsquo;t the five stages of grief as defined by Kübler-Ross, that is aimed at the patient themselves not the family although you can see the use of the framework but something altogether subtler and harder to describe.</description>
+    </item>
+    
+    <item>
+      <title>so long facebook</title>
+      <link>https://dubdubdub.co.uk/posts/2012-08-20-so-long-facebook/</link>
+      <pubDate>Mon, 20 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2012-08-20-so-long-facebook/</guid>
+      <description>Well today I made the decision to permanently delete my Facebook account, mostly because I just don&amp;rsquo;t trust it. Or them either, strangely liberating either way, Google plus works well for me so far.
+Suspect Twitter might be the next social site to be pruned.</description>
+    </item>
+    
+    <item>
+      <title>SQL queries with Jira</title>
+      <link>https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/</link>
+      <pubDate>Mon, 13 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/</guid>
+      <description>To save having to understand how the underlying db schema works: SQL Queries for JIRA</description>
+    </item>
+    
+    <item>
+      <title>business and product development</title>
+      <link>https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/</link>
+      <pubDate>Wed, 08 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/</guid>
+      <description>A post written by Tor started me thinking about business and product development, especially in this age of online products. Classically, and not so many years ago, a company would have years in which to develop and maintain a new product (such as friends-reunited) and then have years to recoup any investment and of course profit!
+However in the current markets, there are lots of people, with easy access to both the talent and technologies (developers and already pre-scaled technologies such as Amazon Web Services), that allows for almost any small startup to be able to deliver a globally accessible and scalable web application in essentially a very much shorter development cycle than many &amp;ldquo;classical&amp;rdquo; companies can manage.</description>
+    </item>
     
     <item>
       <title>jmx and firewalls</title>
@@ -491,252 +757,6 @@ services fail to start – basically forward/reverse DNS must match  greebo:~ lo
       <description>title: Moving to Drupal layout: post tags:
  drupal cms date: 2006-05-27   finally feel happy with drupal, finally! Problem is there&amp;rsquo;s not that many themes for it - in comparison to wordpress, and i&amp;rsquo;m not sure i want to spend all that time to get one that I like.
 But aside from a little hacking of this one, i&amp;rsquo;m pretty happy with it. (I wonder how long that&amp;rsquo;ll last =)</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/</guid>
-      <description>A post written by Tor started me thinking about business and product development, especially in this age of online products. Classically, and not so many years ago, a company would have years in which to develop and maintain a new product (such as friends-reunited) and then have years to recoup any investment and of course profit!
-However in the current markets, there are lots of people, with easy access to both the talent and technologies (developers and already pre-scaled technologies such as Amazon Web Services), that allows for almost any small startup to be able to deliver a globally accessible and scalable web application in essentially a very much shorter development cycle than many &amp;ldquo;classical&amp;rdquo; companies can manage.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/</guid>
-      <description>To save having to understand how the underlying db schema works: SQL Queries for JIRA</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://dubdubdub.co.uk/posts/2012-08-20-so-long-facebook/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2012-08-20-so-long-facebook/</guid>
-      <description>Well today I made the decision to permanently delete my Facebook account, mostly because I just don&amp;rsquo;t trust it. Or them either, strangely liberating either way, Google plus works well for me so far.
-Suspect Twitter might be the next social site to be pruned.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/</guid>
-      <description>It&amp;rsquo;s now been a month or so since my little brother Glyn passed away and I&amp;rsquo;ve noticed that after the initial shock of knowing that he is gone I&amp;rsquo;m still having periods of melancholy, sadness and dearly wishing and hoping that he was still here.
-This isn&amp;rsquo;t the five stages of grief as defined by Kübler-Ross, that is aimed at the patient themselves not the family although you can see the use of the framework but something altogether subtler and harder to describe.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/</guid>
-      <description>So in the last week we have had the announcement from both HMV and Blockbuster UK that they are entering administration and so cannot continue to trade as they used to, at the very least.
-I suspect it&amp;rsquo;s not very surprising that both companies primarily dealt with &amp;ldquo;media&amp;rdquo; of one form or the other that, with the increasing availability of bandwidth to end users, are easily converted to digital forms and so the intrinsic costs of bricks and motar stores become a serious overhead.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://dubdubdub.co.uk/posts/2013-01-22-the-uk-and-snow/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2013-01-22-the-uk-and-snow/</guid>
-      <description>The normally busy Tuesday morning terminal at London City Airport looking distinctly quiet and lonely, so far most flights are looking cancelled or seriously delayed, this might be one of those &amp;ldquo;interesting days&amp;rdquo; that people look forward to.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</guid>
-      <description>Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&amp;rsquo;s Crowd it&amp;rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:
-&amp;lt;Valve className=&amp;#34;org.apache.catalina.valves.RemoteIpValve&amp;#34; internalProxies=&amp;#34;proxy_IP_address&amp;#34; remoteIpHeader=&amp;#34;x-forwarded-for&amp;#34; remoteIpProxiesHeader=&amp;#34;x-forwarded-by&amp;#34; protocolHeader=&amp;#34;x-forwarded-proto&amp;#34; /&amp;gt; &amp;lt;Valve className=&amp;#34;org.apache.catalina.valves.AccessLogValve&amp;#34; directory=&amp;#34;logs&amp;#34; prefix=&amp;#34;localhost_access.&amp;#34; suffix=&amp;#34;.log&amp;#34; pattern=&amp;#34;combined&amp;#34; resolveHosts=&amp;#34;false&amp;#34; /&amp;gt; The following should be used within nginx to forward that data into tomcat.
-proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Server $host; proxy_set_header X-Forwarded-For $remote_addr; </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</guid>
-      <description>There&amp;rsquo;s plenty of examples of doing this already but it&amp;rsquo;s as simple as:
-$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &amp;#34;fusion Drive&amp;#34; 100% Seems to be working so far, although with typical Apple there&amp;rsquo;s no documentation on how files/objects are moved between the SSD and HDD components</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/</guid>
-      <description>First I had to ensure that the stock debian packages are available for installation:
-$ tail /etc/apt/sources.list deb http://archive.debian.org/debian etch main Install g++ and other dependencies
-$ apt-get install g++ libpam0g-dev Download google-authenticator source code:
-$ git clone https://code.google.com/p/google-authenticator/ $ cd google-authenticator/ $ ./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install Then simply follow the instructions over at here</description>
-    </item>
-    
-    <item>
-      <title>Adding tags to docker-maven-plugin</title>
-      <link>https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/</guid>
-      <description>Adding a latest tag to docker containers built by docker-maven-plugin
- &amp;lt;name&amp;gt;${project.artifactId}:${project.version}&amp;lt;/name&amp;gt; &amp;lt;build&amp;gt; &amp;lt;tags combine.children=&amp;quot;append&amp;quot;&amp;gt; &amp;lt;tag&amp;gt;latest&amp;lt;/tag&amp;gt; &amp;lt;/tags&amp;gt; &amp;lt;from&amp;gt;${base.docker.image}&amp;lt;/from&amp;gt; </description>
-    </item>
-    
-    <item>
-      <title>apple remote desktop and vnc</title>
-      <link>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</guid>
-      <description>Ahh, so Apple&amp;rsquo;s Remote Desktop is just a simpler implementation of the VNC protocol (I&amp;rsquo;m sure there&amp;rsquo;s some propriety extensions in there but it&amp;rsquo;s nice to know you can use vncclient to connect to a Mac.
-Options that work well for VNC:-
-[Connection] Host=$HOSTNAME [Options] UseLocalCursor=1 UseDesktopResize=1 FullScreen=0 FullColour=1 LowColourLevel=1 PreferredEncoding=hextile AutoSelect=0 Shared=0 SendPtrEvents=1 SendKeyEvents=1 SendCutText=1 AcceptCutText=1 DisableWinKeys=1 Emulate3=0 PointerEventInterval=0 Monitor= MenuKey=F8 AutoReconnect=1 Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.</description>
-    </item>
-    
-    <item>
-      <title>Capistrano changelog</title>
-      <link>https://dubdubdub.co.uk/posts/2015-01-28-capistrano-changelog/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2015-01-28-capistrano-changelog/</guid>
-      <description>Capistrano and Changelogs I needed a more atomic method of listing changes between two deployments whilst using capistrano, so used the following task to perform a git log between two revisions:
-use the following to display:
-$ cap deploy:changelog INFO Changes between 04e7f9a and 3fd3e88 releases INFO e7770ab Built Deployable files from Drush make 8f9d13c Built Deployable files from Drush make 3872d29 Built Deployable files from Drush make 193aaad Built Deployable files from Drush make You can then of course include within any other tasks using the normal capistrano methods</description>
-    </item>
-    
-    <item>
-      <title>CentOS/RHEL 7</title>
-      <link>https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/</guid>
-      <description>So after many years the following changes I&amp;rsquo;ve so far run into with CentOS 7
-firewalld # firewall-cmd --zone=public --add-service=https success # firewall-cmd --zone=public --add-service=http success # firewall-cmd --zone=public --list-all public (default, active) interfaces: eth0 eth1 sources: services: dhcpv6-client http https ssh ports: masquerade: no forward-ports: icmp-blocks: rich rules: systemd # systemd enable nginx # ln -s &amp;#39;/usr/lib/systemd/system/nginx.service&amp;#39; &amp;#39;/etc/systemd/system/multi-user.target.wants/nginx.service&amp;#39; $ systemctl status nginx nginx.service - nginx - high performance web server Loaded: loaded (/usr/lib/systemd/system/nginx.</description>
-    </item>
-    
-    <item>
-      <title>Crowd logged in users</title>
-      <link>https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/</guid>
-      <description>This came in useful for me today to understand users that could be disabled from a crowd instance:
-SELECT cwd_user.user_name AS Username, cwd_user.email_address AS &amp;#34;Email Address&amp;#34;, from_unixtime(cwd_user_attribute.attribute_value/1000) AS &amp;#34;Last Logged In&amp;#34; FROM cwd_user LEFT OUTER JOIN cwd_user_attribute ON cwd_user_attribute.user_id = cwd_user.id AND cwd_user_attribute.attribute_name = &amp;#39;lastAuthenticated&amp;#39; WHERE active = &amp;#39;T&amp;#39; ORDER BY 3,2,1 ; </description>
-    </item>
-    
-    <item>
-      <title>Errors on features export</title>
-      <link>https://dubdubdub.co.uk/posts/2015-10-02-features_export/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2015-10-02-features_export/</guid>
-      <description>Had a strange error being reported when exporting features from a Drupal 7 instance, in that the resultant tar file was not extracting using any of the usual tools, such as tar etc.
-$ file features_export-7.x-1.0-alpha1.tar features_export-7.x-1.0-alpha1.tar: data File magic showed that the file was wrong, but looking at the file itself looked correct at first glance, and a look around on Drupal.org returned this old thread which lead me to</description>
-    </item>
-    
-    <item>
-      <title>Has microsoft lost it&#39;s way?</title>
-      <link>https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/</guid>
-      <description>I cannot help but feel, very probably not helped by the rest of the tech press that Microsoft is still struggling to understand what it&amp;rsquo;s core market is and how to move forward.
-Look at the current Microsoft mobile phone marketing Lumia:
- Plus, you’ll stay productive on the go with Microsoft Office Mobile built in
-And with Microsoft Office and OneDrive (formerly SkyDrive) built in, you can keep on top of your work even when away from your desk</description>
-    </item>
-    
-    <item>
-      <title>Moving git repositories</title>
-      <link>https://dubdubdub.co.uk/posts/2014-10-08-moving-git-repositories/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2014-10-08-moving-git-repositories/</guid>
-      <description>So whilst moving between github organisations - which is relatively straight forward, I also had to move some from Atlassian Stash unfortunately there&amp;rsquo;s not as simple a method to do this, but a good way of mirroring between two repos is as follows:
-$ git clone https://donor_repo/example1 --bare $ git remote set-url --push origin https://destination_repo/example2.git $ git fetch -p origin &amp;amp;&amp;amp; git push --mirror Simples.</description>
-    </item>
-    
-    <item>
-      <title>moving to github</title>
-      <link>https://dubdubdub.co.uk/posts/2014-07-23-moving-to-github/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2014-07-23-moving-to-github/</guid>
-      <description>So I&amp;rsquo;m a big dabbler when it comes to my personal site/pages, over the years I&amp;rsquo;ve moved from the following technologies/software to host:
- Simple HTML - 1999 Roxen - 2005 Wordpress Drupal Wordpress (again) Blogger Ghost  I&amp;rsquo;ve had a dabble with Jekyll in the past (specifically Heckle) whilst I was playing with moving things to Ghost and given I have already migrated all of my content into Markdown it sounded like the best option (especially given I don&amp;rsquo;t have to then host the application somewhere)</description>
-    </item>
-    
-    <item>
-      <title>OSX and Vagrant!</title>
-      <link>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</guid>
-      <description>So whilst trying to get boxen to work I needed a good method to test, so of course I turned to Vagrant and standing on the works of others (namely Graham Gilbert ) I used the following steps:
-Requirements  Packer Vagrant VMware Fusion  Steps Download and install packer, the easiest method to do this I found was using homebrew
-$ brew install packer Cloning into &amp;#39;/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary&amp;#39;... remote: Reusing existing pack: 143, done.</description>
-    </item>
-    
-    <item>
-      <title>starting kubernetes</title>
-      <link>https://dubdubdub.co.uk/posts/2017-04-12/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2017-04-12/</guid>
-      <description>Getting kubernetes to start with RBAC features enabled
-$ minikube start --vm-driver=xhyve \ 	--extra-config=apiserver.GenericServerRunOptions.AuthorizationMode=RBAC,--authorization-rbac-super-user=minikube-admin \ 	--kubernetes-version=v1.6.0 --memory=4096 --cpus 4 </description>
-    </item>
-    
-    <item>
-      <title>Thoughts on Kubernetes</title>
-      <link>https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/</guid>
-      <description>Just a collection of annoyances on Kubernetes:
-kubectl config and multiple namespaces Seriously! The shear amount of YAML duplication if you have a large number of namespaces and clusters it quite rapidly becomes very annoying, do remember that this is YAML so you could have (ab)used anchors to copy commonly used fragments:
-apiVersion: v1 clusters: - cluster: server: https://cluster1.example.com name: cluster1 contexts: - context: &amp;amp;bar-ns cluster: cluster1 namespace: bar-namespace user: &amp;#34;cluster1-user&amp;#34; name: cluster1-bar-namespace - context: &amp;lt;&amp;lt;: *bar-ns namespace: foo-namespace name: cluster1-foo-namespace - context: &amp;lt;&amp;lt;: *bar-ns namespace: kube-system name: cluster1-kubesystem current-context: cluster1-foo-namespace kind: Config preferences: {} users: [] CURRENT NAME CLUSTER AUTHINFO NAMESPACE * cluster1-foo-namespace cluster1 foo-namespace cluster1-kubesystem cluster1 kube-system cluster1-bar-namespace cluster1 bar-namespace Except: as soon as you use kubectl config use-context it goes and helpfully writes back the expanded YAML structure.</description>
-    </item>
-    
-    <item>
-      <title>Useful business KPIs</title>
-      <link>https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/</guid>
-      <description>Net Promoter score - how likely a customer will recommend customer profitability score - how much profit does individual customers bring to business after costs customer retention rate - loyalty and churn conversation rate - how well prospectives are turned into customers relative market share - how big a share of the pie do you have revenue growth rate - rate of increase of income net profit - income minus expenses net profit margin - percentage of revenue that is profit gross profit margin - profit generate per X of sales operating profit margin - operating income divided by revenue Return in investment - how much X investment generates in new income cash conversion cycle - how long it takes for ROI to happen capacity utilisation rate - how saturated are you resources?</description>
-    </item>
-    
-    <item>
-      <title>User access with Atlassian tools</title>
-      <link>https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/</guid>
-      <description>User access times with Atlassian tools You&amp;rsquo;d be mistaken if you had a few searches on the internet and found the following page suggesting that you could just query the application cwd_user table except when using Crowd when you should query against the crowd cwd_user_attribute table.
-Unfortunately that might have been true back with Jira 4.3, although in the last few years mixing the Atlassian tools (with Crowd as SSO provider) this is no longer the case and I&amp;rsquo;ve found the following MySQL query works well to find out login times for each application</description>
-    </item>
-    
-    <item>
-      <title>Vagrant error during plugin install</title>
-      <link>https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/</guid>
-      <description>Had the following error being thrown when trying to install the vagrant-vbguest plugin:
-$ vagrant plugin install vagrant-vbguest Installing the &#39;vagrant-vbguest&#39; plugin. This can take a few minutes... Bundler, the underlying system Vagrant uses to install plugins, reported an error. The error is shown below. These errors are usually caused by misconfigured plugin installations or transient network issues. The error from Bundler is: An error occurred while installing ffi (1.9.5), and Bundler cannot continue.</description>
     </item>
     
   </channel>

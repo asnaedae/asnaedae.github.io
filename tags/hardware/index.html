@@ -93,6 +93,29 @@
   <hr/>
   <article>
   <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/">google authenticator on NetGear ReadyNAS</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2013-10-15T00:00:00Z">
+          Oct 15, 2013
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    First I had to ensure that the stock debian packages are available for installation:
+$ tail /etc/apt/sources.list deb http://archive.debian.org/debian etch main Install g++ and other dependencies
+$ apt-get install g++ libpam0g-dev Download google-authenticator source code:
+$ git clone https://code.google.com/p/google-authenticator/ $ cd google-authenticator/ $ ./configure &amp;&amp; make &amp;&amp; make install Then simply follow the instructions over at here
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
     <h2><a href="https://dubdubdub.co.uk/posts/2009-08-09-mac-pro-memory-layouts/">MacPro 2008 memory layouts</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
@@ -133,29 +156,6 @@ Quite a few guides on the interweb about how to do that, but I&rsquo;m still sli
       <li class="next"><a href="https://dubdubdub.co.uk/posts/2009-03-01-upgrading-the-playstation/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    First I had to ensure that the stock debian packages are available for installation:
-$ tail /etc/apt/sources.list deb http://archive.debian.org/debian etch main Install g++ and other dependencies
-$ apt-get install g++ libpam0g-dev Download google-authenticator source code:
-$ git clone https://code.google.com/p/google-authenticator/ $ cd google-authenticator/ $ ./configure &amp;&amp; make &amp;&amp; make install Then simply follow the instructions over at here
-  </div>
   
 </article>
 

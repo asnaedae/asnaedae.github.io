@@ -7,6 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Tue, 15 Oct 2013 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dubdubdub.co.uk/tags/vnc/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +15,7 @@
     <item>
       <title>apple remote desktop and vnc</title>
       <link>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 15 Oct 2013 00:00:00 +0000</pubDate>
       
       <guid>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</guid>
       <description>Ahh, so Apple&amp;rsquo;s Remote Desktop is just a simpler implementation of the VNC protocol (I&amp;rsquo;m sure there&amp;rsquo;s some propriety extensions in there but it&amp;rsquo;s nice to know you can use vncclient to connect to a Mac.

@@ -89,48 +89,24 @@
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2006-05-27-drupal/"></a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-09-26-interesting-posts-from-nanog/">queueing delays in IP</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2008-09-26T00:00:00Z">
+          Sep 26, 2008
         </time>
       </div>
     </div>
   </header>
   <div>
-    title: Moving to Drupal layout: post tags:
- drupal cms date: 2006-05-27   finally feel happy with drupal, finally! Problem is there&rsquo;s not that many themes for it - in comparison to wordpress, and i&rsquo;m not sure i want to spend all that time to get one that I like.
-But aside from a little hacking of this one, i&rsquo;m pretty happy with it. (I wonder how long that&rsquo;ll last =)
-  </div>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    A post written by Tor started me thinking about business and product development, especially in this age of online products. Classically, and not so many years ago, a company would have years in which to develop and maintain a new product (such as friends-reunited) and then have years to recoup any investment and of course profit!
-However in the current markets, there are lots of people, with easy access to both the talent and technologies (developers and already pre-scaled technologies such as Amazon Web Services), that allows for almost any small startup to be able to deliver a globally accessible and scalable web application in essentially a very much shorter development cycle than many &ldquo;classical&rdquo; companies can manage.
+    Following reply by iljitsch van Beijnum about queueing delays in IP, looked to be a good little summary.
+ The answer is that delay is only one aspect of performance, another important one is packet loss. As link bandwidth increases, queuing delays decrease proportionally. So if you’re using your 10 Mbps link with average 500 byte packets at 98% capacity, you’ll generally have a 49-packet queue. (queue = utilization / (1 - utilization)) Our 500 byte packets are transmitted at 0.
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2008-09-26-interesting-posts-from-nanog/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -142,18 +118,20 @@ However in the current markets, there are lots of people, with easy access to bo
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/"></a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-09-26-argh-snmp-can-really-chafe/">SNMP v1 and v2 differences</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2008-09-26T00:00:00Z">
+          Sep 26, 2008
         </time>
       </div>
     </div>
   </header>
   <div>
-    To save having to understand how the underlying db schema works: SQL Queries for JIRA
+    Using version 1:
+$ snmpget -c COMMSTRING -M /usr/local/share/snmp/mibs -v 1 \ 	-m USAGE-MIB:PROXY-MIB:REDLINE-STATS-MIB:REDLINE-STATS-MIB:REDLINE-CONFIG-MIB \ 	hostname REDLINE-STATS-MIB::sessActive.0 Error in packet Reason: (noSuchName) There is no such variable name in this MIB. Failed object: REDLINE-STATS-MIB::sessActive.0 Using version 2 (2c):
+$ snmpget -c COMMSTRING -M /usr/local/share/snmp/mibs -v 2c \ 	-m USAGE-MIB:PROXY-MIB:REDLINE-STATS-MIB:REDLINE-STATS-MIB:REDLINE-CONFIG-MIB \ 	hostname REDLINE-STATS-MIB::sessActive.0 REDLINE-STATS-MIB::sessActive.0 = Counter64: 12247 Slightly annoying that - but makes certain sense
   </div>
   
 </article>
@@ -164,49 +142,72 @@ However in the current markets, there are lots of people, with easy access to bo
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2012-08-20-so-long-facebook/"></a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-06-26-scaling-web-apps/">scaling web apps</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2008-06-26T00:00:00Z">
+          Jun 26, 2008
         </time>
       </div>
     </div>
   </header>
   <div>
-    Well today I made the decision to permanently delete my Facebook account, mostly because I just don&rsquo;t trust it. Or them either, strangely liberating either way, Google plus works well for me so far.
-Suspect Twitter might be the next social site to be pruned.
-  </div>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    It&rsquo;s now been a month or so since my little brother Glyn passed away and I&rsquo;ve noticed that after the initial shock of knowing that he is gone I&rsquo;m still having periods of melancholy, sadness and dearly wishing and hoping that he was still here.
-This isn&rsquo;t the five stages of grief as defined by Kübler-Ross, that is aimed at the patient themselves not the family although you can see the use of the framework but something altogether subtler and harder to describe.
+    A little video, thin on detail of course, but hints at some home truths on building/designing scale-able applications (and i’d go so far to say that they are applicable to ALL applications not just webapps)
+Of course, I know Ben Rockwood like’s his solaris and F5′s – but that’s not going to surprise many (and I just LOVE f5s)
+And here’s a blog entry with the details on /how/ that’s done:-
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2008-06-26-scaling-web-apps/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-04-14-snowing/">spring and snowing</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2008-04-14T00:00:00Z">
+          Apr 14, 2008
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Spring and snowing – of course this is normal for the time of year – honest! Nothing to do with any change in climate or anything cough
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-02-07-recent-applications-window/">recent applications in OS X</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2008-02-07T00:00:00Z">
+          Feb 7, 2008
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    This little snippet will give you a new little window for all those recent applications you launch – I seem to have picked up a habit for closing applications down when I stop working with them for an hour or two (pages etc.)
+$ write com.apple.dock persistent-others -array-add \  &#39;{ &#34;tile-data&#34; = { &#34;list-type&#34; = 1; }; &#34;tile-type&#34; = &#34;recents-tile&#34;; }&#39; $ killall Dock 
+  </div>
   
 </article>
 
@@ -219,7 +220,7 @@ This isn&rsquo;t the five stages of grief as defined by Kübler-Ross, that is ai
 
 <a class="newer-posts" href="/page/9/"><span aria-hidden="true">&laquo;</span> Newer Posts</a>
 
-  <span class="page-number">Page 10 of 14</span>
+  <span class="page-number">Page 10 of 15</span>
 
 <a class="older-posts" href="/page/11/">Older Posts <span aria-hidden="true">&raquo;</span></a>
 

@@ -93,6 +93,28 @@
   <hr/>
   <article>
   <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/">HTTP Proxy with source IP on Tomcat</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2013-06-17T00:00:00Z">
+          Jun 17, 2013
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&rsquo;s Crowd it&rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:
+&lt;Valve className=&#34;org.apache.catalina.valves.RemoteIpValve&#34; internalProxies=&#34;proxy_IP_address&#34; remoteIpHeader=&#34;x-forwarded-for&#34; remoteIpProxiesHeader=&#34;x-forwarded-by&#34; protocolHeader=&#34;x-forwarded-proto&#34; /&gt; &lt;Valve className=&#34;org.apache.catalina.valves.AccessLogValve&#34; directory=&#34;logs&#34; prefix=&#34;localhost_access.&#34; suffix=&#34;.log&#34; pattern=&#34;combined&#34; resolveHosts=&#34;false&#34; /&gt; The following should be used within nginx to forward that data into tomcat.
+proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Server $host; proxy_set_header X-Forwarded-For $remote_addr; 
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
     <h2><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">jmx and firewalls</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
@@ -194,28 +216,6 @@ $ su - escenic # fakeroot make-jpkg jdk-1_5_0_14-linux-i586.
       <li class="next"><a href="https://dubdubdub.co.uk/posts/2006-04-01-escenic-debian-notes/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&rsquo;s Crowd it&rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:
-&lt;Valve className=&#34;org.apache.catalina.valves.RemoteIpValve&#34; internalProxies=&#34;proxy_IP_address&#34; remoteIpHeader=&#34;x-forwarded-for&#34; remoteIpProxiesHeader=&#34;x-forwarded-by&#34; protocolHeader=&#34;x-forwarded-proto&#34; /&gt; &lt;Valve className=&#34;org.apache.catalina.valves.AccessLogValve&#34; directory=&#34;logs&#34; prefix=&#34;localhost_access.&#34; suffix=&#34;.log&#34; pattern=&#34;combined&#34; resolveHosts=&#34;false&#34; /&gt; The following should be used within nginx to forward that data into tomcat.
-proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Server $host; proxy_set_header X-Forwarded-For $remote_addr; 
-  </div>
   
 </article>
 

@@ -89,110 +89,19 @@
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2007-08-01-isync-fun/">playing with isync</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-21-snow-leopard-and-the-jvm/">snow leopard and Java</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2007-08-01T00:00:00Z">
-          Aug 1, 2007
+        <time datetime="2009-11-21T00:00:00Z">
+          Nov 21, 2009
         </time>
       </div>
     </div>
   </header>
   <div>
-    so one shiny nokia e65, and a bit of frustration, later; have found the following recipe for getting the phone to sync correctly with iSync.
-Firstly download the plugin from Nokia
-Then install and if you get a rather cryptic error like this:
-[Nokia E65] Device is not available or synchronization was cancelled. Close dialogs and applications on the phone and try again. Device “Nokia E65″ synchronization failed Looks like the Nokia installer drops the plugin into a strange location (originally it allowed isync to work once and then I got the error message
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-08-01-isync-fun/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2007-07-11-zones/">Solaris zone configuration</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2007-07-11T00:00:00Z">
-          Jul 11, 2007
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Configure the zone you want, this is just a basic configuration (suited to a name server - that inherits the global zones /var/named)
-# zonecfg -z solzone solzone: No such zone configured Use &#39;create&#39; to begin configuring a new zone. zonecfg:solzone&gt; create zonecfg:solzone&gt; set zonepath=/u01/zones/solzone zonecfg:solzone&gt; set autoboot=true zonecfg:solzone&gt; add net zonecfg:solzone:net&gt; set address=10.10.10.20/24 zonecfg:solzone:net&gt; set physical=bge0 zonecfg:solzone:net&gt; end zonecfg:solzone&gt; add fs zonecfg:solzone:fs&gt; set type=lofs zonecfg:solzone:fs&gt; set special=/u01/zonedata/solzone zonecfg:solzone:fs&gt; set dir=/u01 zonecfg:solzone:fs&gt; end zonecfg:solzone&gt; add inherit-pkg-dir zonecfg:solzone:inherit-pkg-dir&gt; set dir=/var/named zonecfg:solzone:inherit-pkg-dir&gt; end zonecfg:solzone&gt; add attr zonecfg:solzone:attr&gt; set name=comment zonecfg:solzone:attr&gt; set type=string zonecfg:solzone:attr&gt; set value=&#34;test solaris zone&#34; zonecfg:solzone:attr&gt; end zonecfg:solzone&gt; verify zonecfg:solzone&gt; commit zonecfg:solzone&gt; exit And now install and boot the zone
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-07-11-zones/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2007-07-10-db2-solaris10/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2007-07-10T00:00:00Z">
-          Jul 10, 2007
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Hmm, nice little error when trying to start db2 on solaris 10, stating that it was unable to start up the database and i should check my SHM settings!
-Arrgh!
-prctl reported correct project settings, so tried truss:-
-# truss -f db2start truss: cannot trace set-id or unreadable object file: db2start Cue alarm bells, proven by trusty &ldquo;ls&rdquo;:
-# truss -f db2start -rwsr-xr-x 1 root root 238584 Jul 10 12:28 db2start Add root to the user.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-07-10-db2-solaris10/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2007-07-03-crash-dump-analysis/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2007-07-03T00:00:00Z">
-          Jul 3, 2007
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Found this written by Frank Hofmann, very interestly little history lesson about the x86 chipset. (he also talks about how HOSTID is generated on solaris x86 - which shows how important it is to keep track of your /kernel/misc/sysinfo file for hostid locked software :D
+    So in a startling case of &ldquo;Apple knows best&rdquo; they have gone and removed the 1.5 JVM - I know it&rsquo;s pretty old and people were complaining about not having a 1.6 JVM for a long time - but really!
+So the following post steps you through re-enabling the 1.5 VM and now semi-happy days
   </div>
   
 </article>
@@ -203,20 +112,87 @@ prctl reported correct project settings, so tried truss:-
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2007-06-18-bluecoat-bits/"></a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2009-10-03-snmp-over-ssh-tunnels/">SNMP via SSH and netcat</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2007-06-18T00:00:00Z">
-          Jun 18, 2007
+        <time datetime="2009-10-03T00:00:00Z">
+          Oct 3, 2009
         </time>
       </div>
     </div>
   </header>
   <div>
-    Suppression of authentication log entries:-
-&lt;Exception&gt; exception.id=(”authentication_redirect_from_virtual_host”, “authentication_redirect_to_virtual_host”, “authentication_failed”) access_log[main](no) And to get a dump of the config, though the “unencrypted” option doesn’t seem to work on SGOS 4.2.3
-configure t line-vty length 0 show version show status show configuration with-keyrings unencrypted length 80 exit exit exit 
+    Sometimes you just need to tunnel UDP based protocols - such as SNMP - and the easiest ways is to use socat
+$ socat tcp4-listen:6667,reuseaddr,fork UDP:DESTINATION:161 $ socat udp4-listen:161,reuseaddr,fork tcp:localhost:6667 And in combination with your normal SSH tunnel
+$ ssh -L6667:localhost:6667 BASTION_HOST 
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2009-09-28-smokeping-and-measuring-soap-requests/">smokeping and SOAP</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2009-09-28T00:00:00Z">
+          Sep 28, 2009
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    We&rsquo;ve had an issue with performance of a SOAP interface, and here&rsquo;s how you go about setting up smokeping to time it:-
+extraargs = -H Content-Type:text/xml --data @/srv/scripts/soap_check/soap-test.xml urlformat = http://server.name.com/url/soap_url The only annoying problem is that the SOAP payload cannot be included as part of the command line, so any slaves would require the file manually copied into the same location
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2009-08-09-mac-pro-memory-layouts/">MacPro 2008 memory layouts</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2009-08-09T00:00:00Z">
+          Aug 9, 2009
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    2008 MacPro memory layout/installation
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2009-08-08-wii-and-macos/">wii and os x</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2009-08-08T00:00:00Z">
+          Aug 8, 2009
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    $ umount /Volumes/UNTITLED $ sudo ./wbfs -p /dev/disk4s1 init $ sudo ./wbfs -p /dev/disk4s1 df wbfs tot:298.08G used:0.08G free:298.00G $ sudo ./wbfs -p /dev/disk4s1 ls wbfs empty Then just use WBFS for macos X to add in the backup images you&rsquo;ve created previously.
   </div>
   
 </article>
@@ -230,7 +206,7 @@ configure t line-vty length 0 show version show status show configuration with-k
 
 <a class="newer-posts" href="/page/6/"><span aria-hidden="true">&laquo;</span> Newer Posts</a>
 
-  <span class="page-number">Page 7 of 14</span>
+  <span class="page-number">Page 7 of 15</span>
 
 <a class="older-posts" href="/page/8/">Older Posts <span aria-hidden="true">&raquo;</span></a>
 

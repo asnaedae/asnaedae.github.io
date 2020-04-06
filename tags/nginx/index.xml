@@ -7,14 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Mon, 17 Jun 2013 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dubdubdub.co.uk/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title></title>
+      <title>HTTP Proxy with source IP on Tomcat</title>
       <link>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 17 Jun 2013 00:00:00 +0000</pubDate>
       
       <guid>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</guid>
       <description>Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&amp;rsquo;s Crowd it&amp;rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:

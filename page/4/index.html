@@ -89,24 +89,48 @@
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2008-10-25-interesting-benefits-of-solaris/">Filesystem caching and performance</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/">Crowd logged in users</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2008-10-25T00:00:00Z">
-          Oct 25, 2008
+        <time datetime="2014-04-03T00:00:00Z">
+          Apr 3, 2014
         </time>
       </div>
     </div>
   </header>
   <div>
-    well this is slightly surprising, but in a very good way, and does lead to some interesting suggestions on how to best to improve matters, but look at the following graph of FAST ESP query latency:
-Notice that the average latency drops as we use the server more . . . but WHY? Well that&rsquo;s just because we&rsquo;re running the FAST indexes on a ZFS based file system and the L2 ARC cache is making it&rsquo;s presence felt
+    This came in useful for me today to understand users that could be disabled from a crowd instance:
+SELECT cwd_user.user_name AS Username, cwd_user.email_address AS &#34;Email Address&#34;, from_unixtime(cwd_user_attribute.attribute_value/1000) AS &#34;Last Logged In&#34; FROM cwd_user LEFT OUTER JOIN cwd_user_attribute ON cwd_user_attribute.user_id = cwd_user.id AND cwd_user_attribute.attribute_name = &#39;lastAuthenticated&#39; WHERE active = &#39;T&#39; ORDER BY 3,2,1 ; 
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/">apple remote desktop and vnc</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2013-10-15T00:00:00Z">
+          Oct 15, 2013
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Ahh, so Apple&rsquo;s Remote Desktop is just a simpler implementation of the VNC protocol (I&rsquo;m sure there&rsquo;s some propriety extensions in there but it&rsquo;s nice to know you can use vncclient to connect to a Mac.
+Options that work well for VNC:-
+[Connection] Host=$HOSTNAME [Options] UseLocalCursor=1 UseDesktopResize=1 FullScreen=0 FullColour=1 LowColourLevel=1 PreferredEncoding=hextile AutoSelect=0 Shared=0 SendPtrEvents=1 SendKeyEvents=1 SendCutText=1 AcceptCutText=1 DisableWinKeys=1 Emulate3=0 PointerEventInterval=0 Monitor= MenuKey=F8 AutoReconnect=1 Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2008-10-25-interesting-benefits-of-solaris/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -118,49 +142,21 @@ Notice that the average latency drops as we use the server more . . . but WHY? W
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2008-10-15-dladm/">dladm</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/">google authenticator on NetGear ReadyNAS</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2008-10-15T00:00:00Z">
-          Oct 15, 2008
+        <time datetime="2013-10-15T00:00:00Z">
+          Oct 15, 2013
         </time>
       </div>
     </div>
   </header>
   <div>
-    dladm is a new command with solaris 10 which can do many clever things (I think the general idea behind it is that ifconfig was becoming bloated with features and options that it was a good idea to break the link between the physical network provision and the logical usage)
-ie: dladm - physical link provision/configuration ifconfig - logical link configuration  Assuming a server with two gigabit ethernet connections connected to two switches (for physical resillience):-
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2008-10-15-dladm/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2008-10-06-massaman-curry/">Massaman curry</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2008-10-06T00:00:00Z">
-          Oct 6, 2008
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    well we made thai massaman curry over the weekend, and it it was pretty good - only downside is that we didn&rsquo;t make enough rice for a change! But the rice cooker took care of that.
-ingredients - for two
- 250g Chicken tblspn oil 1 red onion 200g new potatoes 175g reduced fat coconut milk 100ml chicken stock 30g roasted peanuts (not salted!)   put potatoes in steamer for 20 minutes to cook heat up pan, add oil and soften cut onion for 5 minutes add chicken and brown for 3 minutes, add 2 tspn of massaman curry paste cook for further 6 minutes add chicken stock and coconut milk and cover with saucepan lid cook for 30 minutes, add cooked potatoes and peanuts and cook for further 10 minutes serve  
+    First I had to ensure that the stock debian packages are available for installation:
+$ tail /etc/apt/sources.list deb http://archive.debian.org/debian etch main Install g++ and other dependencies
+$ apt-get install g++ libpam0g-dev Download google-authenticator source code:
+$ git clone https://code.google.com/p/google-authenticator/ $ cd google-authenticator/ $ ./configure &amp;&amp; make &amp;&amp; make install Then simply follow the instructions over at here
   </div>
   
 </article>
@@ -171,21 +167,19 @@ ingredients - for two
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2008-09-29-playing-with-tcptrace-and-xplot/">playing with TCP Trace</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/">home brew fusion/hybrid drives on OS X</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2008-09-29T00:00:00Z">
-          Sep 29, 2008
+        <time datetime="2013-07-08T00:00:00Z">
+          Jul 8, 2013
         </time>
       </div>
     </div>
   </header>
   <div>
-    # tcpdump -ni en0 port 80 -w output.trace # tcptrace -G output.trace # xplot *tput.xpl From the online manpage:
-Yellow: instantaneous packets Red: Throughput for the last few packets Blue: Throughput since the start of the stream/connection
-Other useful graphs:
- _owin.xpl - outstanding data/congestion _rtt.xpl - round trip time/time _ssize.xpl - segment size/time _tput.xpl - throughput/time _tsg.xpl - time sequence graph _tline.xpl - Timeline graph - W Richard Stevens style  Just some notes here so I don&rsquo;t forget the basics - manual over at here
+    There&rsquo;s plenty of examples of doing this already but it&rsquo;s as simple as:
+$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &#34;fusion Drive&#34; 100% Seems to be working so far, although with typical Apple there&rsquo;s no documentation on how files/objects are moved between the SSD and HDD components
   </div>
   
 </article>
@@ -196,26 +190,21 @@ Other useful graphs:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2008-09-26-interesting-posts-from-nanog/">queueing delays in IP</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/">HTTP Proxy with source IP on Tomcat</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2008-09-26T00:00:00Z">
-          Sep 26, 2008
+        <time datetime="2013-06-17T00:00:00Z">
+          Jun 17, 2013
         </time>
       </div>
     </div>
   </header>
   <div>
-    Following reply by iljitsch van Beijnum about queueing delays in IP, looked to be a good little summary.
- The answer is that delay is only one aspect of performance, another important one is packet loss. As link bandwidth increases, queuing delays decrease proportionally. So if you’re using your 10 Mbps link with average 500 byte packets at 98% capacity, you’ll generally have a 49-packet queue. (queue = utilization / (1 - utilization)) Our 500 byte packets are transmitted at 0.
+    Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&rsquo;s Crowd it&rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:
+&lt;Valve className=&#34;org.apache.catalina.valves.RemoteIpValve&#34; internalProxies=&#34;proxy_IP_address&#34; remoteIpHeader=&#34;x-forwarded-for&#34; remoteIpProxiesHeader=&#34;x-forwarded-by&#34; protocolHeader=&#34;x-forwarded-proto&#34; /&gt; &lt;Valve className=&#34;org.apache.catalina.valves.AccessLogValve&#34; directory=&#34;logs&#34; prefix=&#34;localhost_access.&#34; suffix=&#34;.log&#34; pattern=&#34;combined&#34; resolveHosts=&#34;false&#34; /&gt; The following should be used within nginx to forward that data into tomcat.
+proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Server $host; proxy_set_header X-Forwarded-For $remote_addr; 
   </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2008-09-26-interesting-posts-from-nanog/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
   
 </article>
 
@@ -228,7 +217,7 @@ Other useful graphs:
 
 <a class="newer-posts" href="/page/3/"><span aria-hidden="true">&laquo;</span> Newer Posts</a>
 
-  <span class="page-number">Page 4 of 14</span>
+  <span class="page-number">Page 4 of 15</span>
 
 <a class="older-posts" href="/page/5/">Older Posts <span aria-hidden="true">&raquo;</span></a>
 

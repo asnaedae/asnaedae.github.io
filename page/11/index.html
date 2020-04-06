@@ -89,24 +89,25 @@
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/"></a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-01-10-microsoft-buys-fast/">FAST purchase</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2008-01-10T00:00:00Z">
+          Jan 10, 2008
         </time>
       </div>
     </div>
   </header>
   <div>
-    So in the last week we have had the announcement from both HMV and Blockbuster UK that they are entering administration and so cannot continue to trade as they used to, at the very least.
-I suspect it&rsquo;s not very surprising that both companies primarily dealt with &ldquo;media&rdquo; of one form or the other that, with the increasing availability of bandwidth to end users, are easily converted to digital forms and so the intrinsic costs of bricks and motar stores become a serious overhead.
+    Oh interesting stuff there - I&rsquo;ve always liked the idea of FAST (not cheap as a search platform) but they&rsquo;ve certainly thought a bit about how to scale - will be interesting to see if this mean&rsquo;s a change to the supported platforms and roadmap moving forward
+ http://go.theregister.com/feed/www.theregister.co.uk/2008/01/08/microsoft_to_acquire_fast/ Wants to mine web with Fast buy
+Microsoft is to acquire Norwegian business search engine company Fast Search and Transfer for 6.
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2008-01-10-microsoft-buys-fast/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -118,18 +119,49 @@ I suspect it&rsquo;s not very surprising that both companies primarily dealt wit
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-01-22-the-uk-and-snow/"></a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-12-05-piracy/">piracy in the real world</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2007-12-05T00:00:00Z">
+          Dec 5, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    The normally busy Tuesday morning terminal at London City Airport looking distinctly quiet and lonely, so far most flights are looking cancelled or seriously delayed, this might be one of those &ldquo;interesting days&rdquo; that people look forward to.
+    well was quite strange this evening as I&rsquo;ve just finished Frederick Forsythe&rsquo;s &ldquo;The Afghan&rdquo;, which giving the game away slighly deals with some terrorists stealing a large ship or two. So I was having quite a sense of déjà-vu watching a documentary on one of the discovery channels about the same subject. Or of course it might just be that the film-makers read the same books!
+Though they did raise a few good points about the close of the cold war allowing for a large surge in the numbers of piracy encounters in recent years, as the drop in the numbers of regular navy vessels in the oceans fell, though I&rsquo;m also wondering if the increase in the freedom of information as well as increased availability of arms - such as the RPG7 - also has something to do with it.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-12-05-piracy/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-11-16-time-machine/">time machine with smbfs</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2007-11-16T00:00:00Z">
+          Nov 16, 2007
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Well there is some undocumented methods to make time machine work on non-locally attached storage, and although it might be disabled in patches - this works pretty well:
+As a regular user and in a terminal
+$ defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1 Then when you visit the time machine preferences you can choose a network share as a TM location. Now it&rsquo;s very tempting to get a little mac mini for some zfs/nfs goodness
   </div>
   
 </article>
@@ -140,21 +172,28 @@ I suspect it&rsquo;s not very surprising that both companies primarily dealt wit
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/"></a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-10-03-travel-tips/">Google travel tips</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2007-10-03T00:00:00Z">
+          Oct 3, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&rsquo;s Crowd it&rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:
-&lt;Valve className=&#34;org.apache.catalina.valves.RemoteIpValve&#34; internalProxies=&#34;proxy_IP_address&#34; remoteIpHeader=&#34;x-forwarded-for&#34; remoteIpProxiesHeader=&#34;x-forwarded-by&#34; protocolHeader=&#34;x-forwarded-proto&#34; /&gt; &lt;Valve className=&#34;org.apache.catalina.valves.AccessLogValve&#34; directory=&#34;logs&#34; prefix=&#34;localhost_access.&#34; suffix=&#34;.log&#34; pattern=&#34;combined&#34; resolveHosts=&#34;false&#34; /&gt; The following should be used within nginx to forward that data into tomcat.
-proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Server $host; proxy_set_header X-Forwarded-For $remote_addr; 
+    Heh, well ok, I didn&rsquo;t know but when abroad and you need to use google, it can be slightly tricky to use if you don&rsquo;t know the local language.
+So if you use :-
+Norwegian Google Homepage It&rsquo;ll change your default language to english - this also works with changing back to anything like
+Russian Google Homepage To swap yourself to Russian - very helpful - previously i was also hand adding ?
   </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-10-03-travel-tips/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
   
 </article>
 
@@ -164,44 +203,20 @@ proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $hos
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/"></a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-09-06-troubleshooting-escenic/">troubleshooting escenic</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2007-09-06T00:00:00Z">
+          Sep 6, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    There&rsquo;s plenty of examples of doing this already but it&rsquo;s as simple as:
-$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &#34;fusion Drive&#34; 100% Seems to be working so far, although with typical Apple there&rsquo;s no documentation on how files/objects are moved between the SSD and HDD components
-  </div>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    First I had to ensure that the stock debian packages are available for installation:
-$ tail /etc/apt/sources.list deb http://archive.debian.org/debian etch main Install g++ and other dependencies
-$ apt-get install g++ libpam0g-dev Download google-authenticator source code:
-$ git clone https://code.google.com/p/google-authenticator/ $ cd google-authenticator/ $ ./configure &amp;&amp; make &amp;&amp; make install Then simply follow the instructions over at here
+    Error:
+Internal error: There was a database error: \ java.security.AccessControlException: access denied \ (neo.xredsys.auth.UserPermission 1 create) Solution: You&rsquo;ve not followed the installation instructions and not changed the java.security settings:
+-Djava.security.policy=/u01/apps/escenic/engine-4.3-2/security/java.policy -Djava.security.auth.login.config=/u01/apps/escenic/engine-4.3-2/security/jaas.config 
   </div>
   
 </article>
@@ -215,7 +230,7 @@ $ git clone https://code.google.com/p/google-authenticator/ $ cd google-authenti
 
 <a class="newer-posts" href="/page/10/"><span aria-hidden="true">&laquo;</span> Newer Posts</a>
 
-  <span class="page-number">Page 11 of 14</span>
+  <span class="page-number">Page 11 of 15</span>
 
 <a class="older-posts" href="/page/12/">Older Posts <span aria-hidden="true">&raquo;</span></a>
 

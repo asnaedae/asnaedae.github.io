@@ -93,6 +93,27 @@
   <hr/>
   <article>
   <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/">home brew fusion/hybrid drives on OS X</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2013-07-08T00:00:00Z">
+          Jul 8, 2013
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    There&rsquo;s plenty of examples of doing this already but it&rsquo;s as simple as:
+$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &#34;fusion Drive&#34; 100% Seems to be working so far, although with typical Apple there&rsquo;s no documentation on how files/objects are moved between the SSD and HDD components
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
     <h2><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">disabling atime in OS X</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
@@ -133,27 +154,6 @@
   </header>
   <div>
     $ umount /Volumes/UNTITLED $ sudo ./wbfs -p /dev/disk4s1 init $ sudo ./wbfs -p /dev/disk4s1 df wbfs tot:298.08G used:0.08G free:298.00G $ sudo ./wbfs -p /dev/disk4s1 ls wbfs empty Then just use WBFS for macos X to add in the backup images you&rsquo;ve created previously.
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    There&rsquo;s plenty of examples of doing this already but it&rsquo;s as simple as:
-$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &#34;fusion Drive&#34; 100% Seems to be working so far, although with typical Apple there&rsquo;s no documentation on how files/objects are moved between the SSD and HDD components
   </div>
   
 </article>

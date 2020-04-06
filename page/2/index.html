@@ -89,117 +89,136 @@
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-10-03-snmp-over-ssh-tunnels/">SNMP via SSH and netcat</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/">User access with Atlassian tools</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2009-10-03T00:00:00Z">
-          Oct 3, 2009
+        <time datetime="2014-11-04T00:00:00Z">
+          Nov 4, 2014
         </time>
       </div>
     </div>
   </header>
   <div>
-    Sometimes you just need to tunnel UDP based protocols - such as SNMP - and the easiest ways is to use socat
-$ socat tcp4-listen:6667,reuseaddr,fork UDP:DESTINATION:161 $ socat udp4-listen:161,reuseaddr,fork tcp:localhost:6667 And in combination with your normal SSH tunnel
-$ ssh -L6667:localhost:6667 BASTION_HOST 
-  </div>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-09-28-smokeping-and-measuring-soap-requests/">smokeping and SOAP</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2009-09-28T00:00:00Z">
-          Sep 28, 2009
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    We&rsquo;ve had an issue with performance of a SOAP interface, and here&rsquo;s how you go about setting up smokeping to time it:-
-extraargs = -H Content-Type:text/xml --data @/srv/scripts/soap_check/soap-test.xml urlformat = http://server.name.com/url/soap_url The only annoying problem is that the SOAP payload cannot be included as part of the command line, so any slaves would require the file manually copied into the same location
-  </div>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-08-09-mac-pro-memory-layouts/">MacPro 2008 memory layouts</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2009-08-09T00:00:00Z">
-          Aug 9, 2009
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    2008 MacPro memory layout/installation
-  </div>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-08-08-wii-and-macos/">wii and os x</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2009-08-08T00:00:00Z">
-          Aug 8, 2009
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    $ umount /Volumes/UNTITLED $ sudo ./wbfs -p /dev/disk4s1 init $ sudo ./wbfs -p /dev/disk4s1 df wbfs tot:298.08G used:0.08G free:298.00G $ sudo ./wbfs -p /dev/disk4s1 ls wbfs empty Then just use WBFS for macos X to add in the backup images you&rsquo;ve created previously.
-  </div>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-07-31-utf8-and-mysql-databases/">utf8 and mysql</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2009-07-31T00:00:00Z">
-          Jul 31, 2009
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Nice bugs that no one seems to want to fix:-
-mysql&gt; create table test5 ( wibble varchar(500), PRIMARY KEY (wibble) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin; ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes mysql&gt; create table test5 ( wibble varchar(500), PRIMARY KEY (wibble) ) ENGINE=myisam DEFAULT CHARSET=utf8 COLLATE=utf8_bin; ERROR 1071 (42000): Specified key was too long; max key length is 1332 bytes And even with MySQL 6.
+    User access times with Atlassian tools You&rsquo;d be mistaken if you had a few searches on the internet and found the following page suggesting that you could just query the application cwd_user table except when using Crowd when you should query against the crowd cwd_user_attribute table.
+Unfortunately that might have been true back with Jira 4.3, although in the last few years mixing the Atlassian tools (with Crowd as SSO provider) this is no longer the case and I&rsquo;ve found the following MySQL query works well to find out login times for each application
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2009-07-31-utf8-and-mysql-databases/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-10-23-agile_at_the_correct_level/">Using Agile at the right level</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-10-23T00:00:00Z">
+          Oct 23, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Agile at the right level There has been lots of criticism that &ldquo;Agile&rdquo; is a poor way to run any form of IT development project, with the following comments being made to substantiate the statement:
+ No one uses &ldquo;agile&rdquo; in real world engineering It doesn&rsquo;t scale It&rsquo;s &ldquo;new&rdquo;  Indeed everyone seems to think that Royce&rsquo;s original article in the 1970s was an example of a working project delivery method and miss that he presented it as a broken model.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-10-23-agile_at_the_correct_level/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-10-15-devops_technologies/">Devops technologies</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-10-15T00:00:00Z">
+          Oct 15, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Source Control  subversion git (stash/Github/gitlab)  Integration Environment  API based infrastructure provider, e.g. vSphere/AWS/Rackspace Cloud Vagrant  Documentation  Markdown Wiki markup / Confluence  Build System The collection of tooling that enables continuous integration of commits by building the software, running any tests and deploying to integration environments.
+Status of all steps needs to be broadcast to all interested parties, and testing should include not just normal TDD/unit tests but also should look into the following:-
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-10-15-devops_technologies/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/">CentOS/RHEL 7</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-10-13T00:00:00Z">
+          Oct 13, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    So after many years the following changes I&rsquo;ve so far run into with CentOS 7
+firewalld # firewall-cmd --zone=public --add-service=https success # firewall-cmd --zone=public --add-service=http success # firewall-cmd --zone=public --list-all public (default, active) interfaces: eth0 eth1 sources: services: dhcpv6-client http https ssh ports: masquerade: no forward-ports: icmp-blocks: rich rules: systemd # systemd enable nginx # ln -s &#39;/usr/lib/systemd/system/nginx.service&#39; &#39;/etc/systemd/system/multi-user.target.wants/nginx.service&#39; $ systemctl status nginx nginx.service - nginx - high performance web server Loaded: loaded (/usr/lib/systemd/system/nginx.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-10-08-moving-git-repositories/">Moving git repositories</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-10-08T00:00:00Z">
+          Oct 8, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    So whilst moving between github organisations - which is relatively straight forward, I also had to move some from Atlassian Stash unfortunately there&rsquo;s not as simple a method to do this, but a good way of mirroring between two repos is as follows:
+$ git clone https://donor_repo/example1 --bare $ git remote set-url --push origin https://destination_repo/example2.git $ git fetch -p origin &amp;&amp; git push --mirror Simples.
+  </div>
   
 </article>
 
@@ -212,7 +231,7 @@ mysql&gt; create table test5 ( wibble varchar(500), PRIMARY KEY (wibble) ) ENGIN
 
 <a class="newer-posts" href="/"><span aria-hidden="true">&laquo;</span> Newer Posts</a>
 
-  <span class="page-number">Page 2 of 14</span>
+  <span class="page-number">Page 2 of 15</span>
 
 <a class="older-posts" href="/page/3/">Older Posts <span aria-hidden="true">&raquo;</span></a>
 

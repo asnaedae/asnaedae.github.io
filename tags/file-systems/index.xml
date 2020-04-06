@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright notice</copyright>
-    <lastBuildDate>Mon, 18 Jan 2010 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2013 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dubdubdub.co.uk/tags/file-systems/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>home brew fusion/hybrid drives on OS X</title>
+      <link>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</link>
+      <pubDate>Mon, 08 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</guid>
+      <description>There&amp;rsquo;s plenty of examples of doing this already but it&amp;rsquo;s as simple as:
+$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &amp;#34;fusion Drive&amp;#34; 100% Seems to be working so far, although with typical Apple there&amp;rsquo;s no documentation on how files/objects are moved between the SSD and HDD components</description>
+    </item>
     
     <item>
       <title>disabling atime in OS X</title>
@@ -30,16 +40,6 @@
       
       <guid>https://dubdubdub.co.uk/posts/2009-08-08-wii-and-macos/</guid>
       <description>$ umount /Volumes/UNTITLED $ sudo ./wbfs -p /dev/disk4s1 init $ sudo ./wbfs -p /dev/disk4s1 df wbfs tot:298.08G used:0.08G free:298.00G $ sudo ./wbfs -p /dev/disk4s1 ls wbfs empty Then just use WBFS for macos X to add in the backup images you&amp;rsquo;ve created previously.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</guid>
-      <description>There&amp;rsquo;s plenty of examples of doing this already but it&amp;rsquo;s as simple as:
-$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &amp;#34;fusion Drive&amp;#34; 100% Seems to be working so far, although with typical Apple there&amp;rsquo;s no documentation on how files/objects are moved between the SSD and HDD components</description>
     </item>
     
   </channel>

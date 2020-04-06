@@ -7,6 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Mon, 13 Oct 2014 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dubdubdub.co.uk/tags/redhat/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +15,7 @@
     <item>
       <title>CentOS/RHEL 7</title>
       <link>https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 13 Oct 2014 00:00:00 +0000</pubDate>
       
       <guid>https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/</guid>
       <description>So after many years the following changes I&amp;rsquo;ve so far run into with CentOS 7

@@ -7,29 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Tue, 30 Sep 2014 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dubdubdub.co.uk/tags/vagrant/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Vagrant error during plugin install</title>
+      <link>https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/</link>
+      <pubDate>Tue, 30 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/</guid>
+      <description>Had the following error being thrown when trying to install the vagrant-vbguest plugin:
+$ vagrant plugin install vagrant-vbguest Installing the &#39;vagrant-vbguest&#39; plugin. This can take a few minutes... Bundler, the underlying system Vagrant uses to install plugins, reported an error. The error is shown below. These errors are usually caused by misconfigured plugin installations or transient network issues. The error from Bundler is: An error occurred while installing ffi (1.9.5), and Bundler cannot continue.</description>
+    </item>
+    
+    <item>
       <title>OSX and Vagrant!</title>
       <link>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</guid>
       <description>So whilst trying to get boxen to work I needed a good method to test, so of course I turned to Vagrant and standing on the works of others (namely Graham Gilbert ) I used the following steps:
 Requirements  Packer Vagrant VMware Fusion  Steps Download and install packer, the easiest method to do this I found was using homebrew
 $ brew install packer Cloning into &amp;#39;/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary&amp;#39;... remote: Reusing existing pack: 143, done.</description>
-    </item>
-    
-    <item>
-      <title>Vagrant error during plugin install</title>
-      <link>https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/</guid>
-      <description>Had the following error being thrown when trying to install the vagrant-vbguest plugin:
-$ vagrant plugin install vagrant-vbguest Installing the &#39;vagrant-vbguest&#39; plugin. This can take a few minutes... Bundler, the underlying system Vagrant uses to install plugins, reported an error. The error is shown below. These errors are usually caused by misconfigured plugin installations or transient network issues. The error from Bundler is: An error occurred while installing ffi (1.9.5), and Bundler cannot continue.</description>
     </item>
     
   </channel>

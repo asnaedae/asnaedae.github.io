@@ -89,48 +89,24 @@
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/">Adding tags to docker-maven-plugin</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-08-28-balloons-everywhere/">balloons everywhere</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2007-08-28T00:00:00Z">
+          Aug 28, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    Adding a latest tag to docker containers built by docker-maven-plugin
- &lt;name&gt;${project.artifactId}:${project.version}&lt;/name&gt; &lt;build&gt; &lt;tags combine.children=&quot;append&quot;&gt; &lt;tag&gt;latest&lt;/tag&gt; &lt;/tags&gt; &lt;from&gt;${base.docker.image}&lt;/from&gt; 
-  </div>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/">apple remote desktop and vnc</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Ahh, so Apple&rsquo;s Remote Desktop is just a simpler implementation of the VNC protocol (I&rsquo;m sure there&rsquo;s some propriety extensions in there but it&rsquo;s nice to know you can use vncclient to connect to a Mac.
-Options that work well for VNC:-
-[Connection] Host=$HOSTNAME [Options] UseLocalCursor=1 UseDesktopResize=1 FullScreen=0 FullColour=1 LowColourLevel=1 PreferredEncoding=hextile AutoSelect=0 Shared=0 SendPtrEvents=1 SendKeyEvents=1 SendCutText=1 AcceptCutText=1 DisableWinKeys=1 Emulate3=0 PointerEventInterval=0 Monitor= MenuKey=F8 AutoReconnect=1 Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.
+    Well we were sitting down eating pizza, and watching the kids down below “losing” their balloons, after an hour or so there was a pretty large collection of them sitting around the roof. Now question is whether someone went up there to bring them down, or did they just wait a few days for the helium to leak out?
+Unfortunately, only had my phone with me – so not as nice a picture as it could’ve been – still, and interesting view.
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-08-28-balloons-everywhere/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -142,48 +118,26 @@ Options that work well for VNC:-
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2015-01-28-capistrano-changelog/">Capistrano changelog</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-08-01-isync-fun/">playing with isync</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2007-08-01T00:00:00Z">
+          Aug 1, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    Capistrano and Changelogs I needed a more atomic method of listing changes between two deployments whilst using capistrano, so used the following task to perform a git log between two revisions:
-use the following to display:
-$ cap deploy:changelog INFO Changes between 04e7f9a and 3fd3e88 releases INFO e7770ab Built Deployable files from Drush make 8f9d13c Built Deployable files from Drush make 3872d29 Built Deployable files from Drush make 193aaad Built Deployable files from Drush make You can then of course include within any other tasks using the normal capistrano methods
-  </div>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/">CentOS/RHEL 7</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    So after many years the following changes I&rsquo;ve so far run into with CentOS 7
-firewalld # firewall-cmd --zone=public --add-service=https success # firewall-cmd --zone=public --add-service=http success # firewall-cmd --zone=public --list-all public (default, active) interfaces: eth0 eth1 sources: services: dhcpv6-client http https ssh ports: masquerade: no forward-ports: icmp-blocks: rich rules: systemd # systemd enable nginx # ln -s &#39;/usr/lib/systemd/system/nginx.service&#39; &#39;/etc/systemd/system/multi-user.target.wants/nginx.service&#39; $ systemctl status nginx nginx.service - nginx - high performance web server Loaded: loaded (/usr/lib/systemd/system/nginx.
+    so one shiny nokia e65, and a bit of frustration, later; have found the following recipe for getting the phone to sync correctly with iSync.
+Firstly download the plugin from Nokia
+Then install and if you get a rather cryptic error like this:
+[Nokia E65] Device is not available or synchronization was cancelled. Close dialogs and applications on the phone and try again. Device “Nokia E65″ synchronization failed Looks like the Nokia installer drops the plugin into a strange location (originally it allowed isync to work once and then I got the error message
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-08-01-isync-fun/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -195,19 +149,79 @@ firewalld # firewall-cmd --zone=public --add-service=https success # firewall-cm
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/">Crowd logged in users</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-07-11-zones/">Solaris zone configuration</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2007-07-11T00:00:00Z">
+          Jul 11, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    This came in useful for me today to understand users that could be disabled from a crowd instance:
-SELECT cwd_user.user_name AS Username, cwd_user.email_address AS &#34;Email Address&#34;, from_unixtime(cwd_user_attribute.attribute_value/1000) AS &#34;Last Logged In&#34; FROM cwd_user LEFT OUTER JOIN cwd_user_attribute ON cwd_user_attribute.user_id = cwd_user.id AND cwd_user_attribute.attribute_name = &#39;lastAuthenticated&#39; WHERE active = &#39;T&#39; ORDER BY 3,2,1 ; 
+    Configure the zone you want, this is just a basic configuration (suited to a name server - that inherits the global zones /var/named)
+# zonecfg -z solzone solzone: No such zone configured Use &#39;create&#39; to begin configuring a new zone. zonecfg:solzone&gt; create zonecfg:solzone&gt; set zonepath=/u01/zones/solzone zonecfg:solzone&gt; set autoboot=true zonecfg:solzone&gt; add net zonecfg:solzone:net&gt; set address=10.10.10.20/24 zonecfg:solzone:net&gt; set physical=bge0 zonecfg:solzone:net&gt; end zonecfg:solzone&gt; add fs zonecfg:solzone:fs&gt; set type=lofs zonecfg:solzone:fs&gt; set special=/u01/zonedata/solzone zonecfg:solzone:fs&gt; set dir=/u01 zonecfg:solzone:fs&gt; end zonecfg:solzone&gt; add inherit-pkg-dir zonecfg:solzone:inherit-pkg-dir&gt; set dir=/var/named zonecfg:solzone:inherit-pkg-dir&gt; end zonecfg:solzone&gt; add attr zonecfg:solzone:attr&gt; set name=comment zonecfg:solzone:attr&gt; set type=string zonecfg:solzone:attr&gt; set value=&#34;test solaris zone&#34; zonecfg:solzone:attr&gt; end zonecfg:solzone&gt; verify zonecfg:solzone&gt; commit zonecfg:solzone&gt; exit And now install and boot the zone
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-07-11-zones/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-07-10-db2-solaris10/"></a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2007-07-10T00:00:00Z">
+          Jul 10, 2007
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Hmm, nice little error when trying to start db2 on solaris 10, stating that it was unable to start up the database and i should check my SHM settings!
+Arrgh!
+prctl reported correct project settings, so tried truss:-
+# truss -f db2start truss: cannot trace set-id or unreadable object file: db2start Cue alarm bells, proven by trusty &ldquo;ls&rdquo;:
+# truss -f db2start -rwsr-xr-x 1 root root 238584 Jul 10 12:28 db2start Add root to the user.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-07-10-db2-solaris10/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-07-03-crash-dump-analysis/"></a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2007-07-03T00:00:00Z">
+          Jul 3, 2007
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Found this written by Frank Hofmann, very interestly little history lesson about the x86 chipset. (he also talks about how HOSTID is generated on solaris x86 - which shows how important it is to keep track of your /kernel/misc/sysinfo file for hostid locked software :D
   </div>
   
 </article>
@@ -221,7 +235,7 @@ SELECT cwd_user.user_name AS Username, cwd_user.email_address AS &#34;Email Addr
 
 <a class="newer-posts" href="/page/11/"><span aria-hidden="true">&laquo;</span> Newer Posts</a>
 
-  <span class="page-number">Page 12 of 14</span>
+  <span class="page-number">Page 12 of 15</span>
 
 <a class="older-posts" href="/page/13/">Older Posts <span aria-hidden="true">&raquo;</span></a>
 

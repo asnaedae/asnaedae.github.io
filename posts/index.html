@@ -93,6 +93,648 @@
   <hr/>
   <article>
   <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/">Adding tags to docker-maven-plugin</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2018-03-26T00:00:00Z">
+          Mar 26, 2018
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Adding a latest tag to docker containers built by docker-maven-plugin
+ &lt;name&gt;${project.artifactId}:${project.version}&lt;/name&gt; &lt;build&gt; &lt;tags combine.children=&quot;append&quot;&gt; &lt;tag&gt;latest&lt;/tag&gt; &lt;/tags&gt; &lt;from&gt;${base.docker.image}&lt;/from&gt; 
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2017-04-12/">starting kubernetes</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2017-04-12T00:00:00Z">
+          Apr 12, 2017
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Getting kubernetes to start with RBAC features enabled
+$ minikube start --vm-driver=xhyve \ 	--extra-config=apiserver.GenericServerRunOptions.AuthorizationMode=RBAC,--authorization-rbac-super-user=minikube-admin \ 	--kubernetes-version=v1.6.0 --memory=4096 --cpus 4 
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/">Thoughts on Kubernetes</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2017-01-27T00:00:00Z">
+          Jan 27, 2017
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Just a collection of annoyances on Kubernetes:
+kubectl config and multiple namespaces Seriously! The shear amount of YAML duplication if you have a large number of namespaces and clusters it quite rapidly becomes very annoying, do remember that this is YAML so you could have (ab)used anchors to copy commonly used fragments:
+apiVersion: v1 clusters: - cluster: server: https://cluster1.example.com name: cluster1 contexts: - context: &amp;bar-ns cluster: cluster1 namespace: bar-namespace user: &#34;cluster1-user&#34; name: cluster1-bar-namespace - context: &lt;&lt;: *bar-ns namespace: foo-namespace name: cluster1-foo-namespace - context: &lt;&lt;: *bar-ns namespace: kube-system name: cluster1-kubesystem current-context: cluster1-foo-namespace kind: Config preferences: {} users: [] CURRENT NAME CLUSTER AUTHINFO NAMESPACE * cluster1-foo-namespace cluster1 foo-namespace cluster1-kubesystem cluster1 kube-system cluster1-bar-namespace cluster1 bar-namespace Except: as soon as you use kubectl config use-context it goes and helpfully writes back the expanded YAML structure.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2015-10-02-features_export/">Errors on features export</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2015-10-02T00:00:00Z">
+          Oct 2, 2015
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Had a strange error being reported when exporting features from a Drupal 7 instance, in that the resultant tar file was not extracting using any of the usual tools, such as tar etc.
+$ file features_export-7.x-1.0-alpha1.tar features_export-7.x-1.0-alpha1.tar: data File magic showed that the file was wrong, but looking at the file itself looked correct at first glance, and a look around on Drupal.org returned this old thread which lead me to
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2015-10-02-features_export/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2015-01-28-capistrano-changelog/">Capistrano changelog</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2015-01-28T00:00:00Z">
+          Jan 28, 2015
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Capistrano and Changelogs I needed a more atomic method of listing changes between two deployments whilst using capistrano, so used the following task to perform a git log between two revisions:
+use the following to display:
+$ cap deploy:changelog INFO Changes between 04e7f9a and 3fd3e88 releases INFO e7770ab Built Deployable files from Drush make 8f9d13c Built Deployable files from Drush make 3872d29 Built Deployable files from Drush make 193aaad Built Deployable files from Drush make You can then of course include within any other tasks using the normal capistrano methods
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/">User access with Atlassian tools</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-11-04T00:00:00Z">
+          Nov 4, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    User access times with Atlassian tools You&rsquo;d be mistaken if you had a few searches on the internet and found the following page suggesting that you could just query the application cwd_user table except when using Crowd when you should query against the crowd cwd_user_attribute table.
+Unfortunately that might have been true back with Jira 4.3, although in the last few years mixing the Atlassian tools (with Crowd as SSO provider) this is no longer the case and I&rsquo;ve found the following MySQL query works well to find out login times for each application
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-10-23-agile_at_the_correct_level/">Using Agile at the right level</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-10-23T00:00:00Z">
+          Oct 23, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Agile at the right level There has been lots of criticism that &ldquo;Agile&rdquo; is a poor way to run any form of IT development project, with the following comments being made to substantiate the statement:
+ No one uses &ldquo;agile&rdquo; in real world engineering It doesn&rsquo;t scale It&rsquo;s &ldquo;new&rdquo;  Indeed everyone seems to think that Royce&rsquo;s original article in the 1970s was an example of a working project delivery method and miss that he presented it as a broken model.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-10-23-agile_at_the_correct_level/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-10-15-devops_technologies/">Devops technologies</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-10-15T00:00:00Z">
+          Oct 15, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Source Control  subversion git (stash/Github/gitlab)  Integration Environment  API based infrastructure provider, e.g. vSphere/AWS/Rackspace Cloud Vagrant  Documentation  Markdown Wiki markup / Confluence  Build System The collection of tooling that enables continuous integration of commits by building the software, running any tests and deploying to integration environments.
+Status of all steps needs to be broadcast to all interested parties, and testing should include not just normal TDD/unit tests but also should look into the following:-
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-10-15-devops_technologies/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/">CentOS/RHEL 7</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-10-13T00:00:00Z">
+          Oct 13, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    So after many years the following changes I&rsquo;ve so far run into with CentOS 7
+firewalld # firewall-cmd --zone=public --add-service=https success # firewall-cmd --zone=public --add-service=http success # firewall-cmd --zone=public --list-all public (default, active) interfaces: eth0 eth1 sources: services: dhcpv6-client http https ssh ports: masquerade: no forward-ports: icmp-blocks: rich rules: systemd # systemd enable nginx # ln -s &#39;/usr/lib/systemd/system/nginx.service&#39; &#39;/etc/systemd/system/multi-user.target.wants/nginx.service&#39; $ systemctl status nginx nginx.service - nginx - high performance web server Loaded: loaded (/usr/lib/systemd/system/nginx.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-10-08-moving-git-repositories/">Moving git repositories</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-10-08T00:00:00Z">
+          Oct 8, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    So whilst moving between github organisations - which is relatively straight forward, I also had to move some from Atlassian Stash unfortunately there&rsquo;s not as simple a method to do this, but a good way of mirroring between two repos is as follows:
+$ git clone https://donor_repo/example1 --bare $ git remote set-url --push origin https://destination_repo/example2.git $ git fetch -p origin &amp;&amp; git push --mirror Simples.
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/">Vagrant error during plugin install</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-09-30T00:00:00Z">
+          Sep 30, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Had the following error being thrown when trying to install the vagrant-vbguest plugin:
+$ vagrant plugin install vagrant-vbguest Installing the 'vagrant-vbguest' plugin. This can take a few minutes... Bundler, the underlying system Vagrant uses to install plugins, reported an error. The error is shown below. These errors are usually caused by misconfigured plugin installations or transient network issues. The error from Bundler is: An error occurred while installing ffi (1.9.5), and Bundler cannot continue.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/">Useful business KPIs</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-08-04T00:00:00Z">
+          Aug 4, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Net Promoter score - how likely a customer will recommend customer profitability score - how much profit does individual customers bring to business after costs customer retention rate - loyalty and churn conversation rate - how well prospectives are turned into customers relative market share - how big a share of the pie do you have revenue growth rate - rate of increase of income net profit - income minus expenses net profit margin - percentage of revenue that is profit gross profit margin - profit generate per X of sales operating profit margin - operating income divided by revenue Return in investment - how much X investment generates in new income cash conversion cycle - how long it takes for ROI to happen capacity utilisation rate - how saturated are you resources?
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/">Has microsoft lost it&#39;s way?</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-07-28T00:00:00Z">
+          Jul 28, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    I cannot help but feel, very probably not helped by the rest of the tech press that Microsoft is still struggling to understand what it&rsquo;s core market is and how to move forward.
+Look at the current Microsoft mobile phone marketing Lumia:
+ Plus, you’ll stay productive on the go with Microsoft Office Mobile built in
+And with Microsoft Office and OneDrive (formerly SkyDrive) built in, you can keep on top of your work even when away from your desk
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-07-23-moving-to-github/">moving to github</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-07-23T00:00:00Z">
+          Jul 23, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    So I&rsquo;m a big dabbler when it comes to my personal site/pages, over the years I&rsquo;ve moved from the following technologies/software to host:
+ Simple HTML - 1999 Roxen - 2005 Wordpress Drupal Wordpress (again) Blogger Ghost  I&rsquo;ve had a dabble with Jekyll in the past (specifically Heckle) whilst I was playing with moving things to Ghost and given I have already migrated all of my content into Markdown it sounded like the best option (especially given I don&rsquo;t have to then host the application somewhere)
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-07-23-moving-to-github/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/">OSX and Vagrant!</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-05-12T00:00:00Z">
+          May 12, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    So whilst trying to get boxen to work I needed a good method to test, so of course I turned to Vagrant and standing on the works of others (namely Graham Gilbert ) I used the following steps:
+Requirements  Packer Vagrant VMware Fusion  Steps Download and install packer, the easiest method to do this I found was using homebrew
+$ brew install packer Cloning into &#39;/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary&#39;... remote: Reusing existing pack: 143, done.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/">Crowd logged in users</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-04-03T00:00:00Z">
+          Apr 3, 2014
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    This came in useful for me today to understand users that could be disabled from a crowd instance:
+SELECT cwd_user.user_name AS Username, cwd_user.email_address AS &#34;Email Address&#34;, from_unixtime(cwd_user_attribute.attribute_value/1000) AS &#34;Last Logged In&#34; FROM cwd_user LEFT OUTER JOIN cwd_user_attribute ON cwd_user_attribute.user_id = cwd_user.id AND cwd_user_attribute.attribute_name = &#39;lastAuthenticated&#39; WHERE active = &#39;T&#39; ORDER BY 3,2,1 ; 
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/">apple remote desktop and vnc</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2013-10-15T00:00:00Z">
+          Oct 15, 2013
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Ahh, so Apple&rsquo;s Remote Desktop is just a simpler implementation of the VNC protocol (I&rsquo;m sure there&rsquo;s some propriety extensions in there but it&rsquo;s nice to know you can use vncclient to connect to a Mac.
+Options that work well for VNC:-
+[Connection] Host=$HOSTNAME [Options] UseLocalCursor=1 UseDesktopResize=1 FullScreen=0 FullColour=1 LowColourLevel=1 PreferredEncoding=hextile AutoSelect=0 Shared=0 SendPtrEvents=1 SendKeyEvents=1 SendCutText=1 AcceptCutText=1 DisableWinKeys=1 Emulate3=0 PointerEventInterval=0 Monitor= MenuKey=F8 AutoReconnect=1 Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/">google authenticator on NetGear ReadyNAS</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2013-10-15T00:00:00Z">
+          Oct 15, 2013
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    First I had to ensure that the stock debian packages are available for installation:
+$ tail /etc/apt/sources.list deb http://archive.debian.org/debian etch main Install g++ and other dependencies
+$ apt-get install g++ libpam0g-dev Download google-authenticator source code:
+$ git clone https://code.google.com/p/google-authenticator/ $ cd google-authenticator/ $ ./configure &amp;&amp; make &amp;&amp; make install Then simply follow the instructions over at here
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/">home brew fusion/hybrid drives on OS X</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2013-07-08T00:00:00Z">
+          Jul 8, 2013
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    There&rsquo;s plenty of examples of doing this already but it&rsquo;s as simple as:
+$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &#34;fusion Drive&#34; 100% Seems to be working so far, although with typical Apple there&rsquo;s no documentation on how files/objects are moved between the SSD and HDD components
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/">HTTP Proxy with source IP on Tomcat</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2013-06-17T00:00:00Z">
+          Jun 17, 2013
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&rsquo;s Crowd it&rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:
+&lt;Valve className=&#34;org.apache.catalina.valves.RemoteIpValve&#34; internalProxies=&#34;proxy_IP_address&#34; remoteIpHeader=&#34;x-forwarded-for&#34; remoteIpProxiesHeader=&#34;x-forwarded-by&#34; protocolHeader=&#34;x-forwarded-proto&#34; /&gt; &lt;Valve className=&#34;org.apache.catalina.valves.AccessLogValve&#34; directory=&#34;logs&#34; prefix=&#34;localhost_access.&#34; suffix=&#34;.log&#34; pattern=&#34;combined&#34; resolveHosts=&#34;false&#34; /&gt; The following should be used within nginx to forward that data into tomcat.
+proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Server $host; proxy_set_header X-Forwarded-For $remote_addr; 
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-01-22-the-uk-and-snow/">Snow and the UK</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2013-01-22T00:00:00Z">
+          Jan 22, 2013
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    The normally busy Tuesday morning terminal at London City Airport looking distinctly quiet and lonely, so far most flights are looking cancelled or seriously delayed, this might be one of those &ldquo;interesting days&rdquo; that people look forward to.
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/">the low points of the high street</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2013-01-22T00:00:00Z">
+          Jan 22, 2013
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    So in the last week we have had the announcement from both HMV and Blockbuster UK that they are entering administration and so cannot continue to trade as they used to, at the very least.
+I suspect it&rsquo;s not very surprising that both companies primarily dealt with &ldquo;media&rdquo; of one form or the other that, with the increasing availability of bandwidth to end users, are easily converted to digital forms and so the intrinsic costs of bricks and motar stores become a serious overhead.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/">on the nature of grief</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2012-11-06T00:00:00Z">
+          Nov 6, 2012
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    It&rsquo;s now been a month or so since my little brother Glyn passed away and I&rsquo;ve noticed that after the initial shock of knowing that he is gone I&rsquo;m still having periods of melancholy, sadness and dearly wishing and hoping that he was still here.
+This isn&rsquo;t the five stages of grief as defined by Kübler-Ross, that is aimed at the patient themselves not the family although you can see the use of the framework but something altogether subtler and harder to describe.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2012-08-20-so-long-facebook/">so long facebook</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2012-08-20T00:00:00Z">
+          Aug 20, 2012
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Well today I made the decision to permanently delete my Facebook account, mostly because I just don&rsquo;t trust it. Or them either, strangely liberating either way, Google plus works well for me so far.
+Suspect Twitter might be the next social site to be pruned.
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/">SQL queries with Jira</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2012-08-13T00:00:00Z">
+          Aug 13, 2012
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    To save having to understand how the underlying db schema works: SQL Queries for JIRA
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/">business and product development</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2012-08-08T00:00:00Z">
+          Aug 8, 2012
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    A post written by Tor started me thinking about business and product development, especially in this age of online products. Classically, and not so many years ago, a company would have years in which to develop and maintain a new product (such as friends-reunited) and then have years to recoup any investment and of course profit!
+However in the current markets, there are lots of people, with easy access to both the talent and technologies (developers and already pre-scaled technologies such as Amazon Web Services), that allows for almost any small startup to be able to deliver a globally accessible and scalable web application in essentially a very much shorter development cycle than many &ldquo;classical&rdquo; companies can manage.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
     <h2><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">jmx and firewalls</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
@@ -1223,594 +1865,6 @@ services fail to start – basically forward/reverse DNS must match  greebo:~ lo
  drupal cms date: 2006-05-27   finally feel happy with drupal, finally! Problem is there&rsquo;s not that many themes for it - in comparison to wordpress, and i&rsquo;m not sure i want to spend all that time to get one that I like.
 But aside from a little hacking of this one, i&rsquo;m pretty happy with it. (I wonder how long that&rsquo;ll last =)
   </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    A post written by Tor started me thinking about business and product development, especially in this age of online products. Classically, and not so many years ago, a company would have years in which to develop and maintain a new product (such as friends-reunited) and then have years to recoup any investment and of course profit!
-However in the current markets, there are lots of people, with easy access to both the talent and technologies (developers and already pre-scaled technologies such as Amazon Web Services), that allows for almost any small startup to be able to deliver a globally accessible and scalable web application in essentially a very much shorter development cycle than many &ldquo;classical&rdquo; companies can manage.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    To save having to understand how the underlying db schema works: SQL Queries for JIRA
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2012-08-20-so-long-facebook/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Well today I made the decision to permanently delete my Facebook account, mostly because I just don&rsquo;t trust it. Or them either, strangely liberating either way, Google plus works well for me so far.
-Suspect Twitter might be the next social site to be pruned.
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    It&rsquo;s now been a month or so since my little brother Glyn passed away and I&rsquo;ve noticed that after the initial shock of knowing that he is gone I&rsquo;m still having periods of melancholy, sadness and dearly wishing and hoping that he was still here.
-This isn&rsquo;t the five stages of grief as defined by Kübler-Ross, that is aimed at the patient themselves not the family although you can see the use of the framework but something altogether subtler and harder to describe.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    So in the last week we have had the announcement from both HMV and Blockbuster UK that they are entering administration and so cannot continue to trade as they used to, at the very least.
-I suspect it&rsquo;s not very surprising that both companies primarily dealt with &ldquo;media&rdquo; of one form or the other that, with the increasing availability of bandwidth to end users, are easily converted to digital forms and so the intrinsic costs of bricks and motar stores become a serious overhead.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-01-22-the-uk-and-snow/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    The normally busy Tuesday morning terminal at London City Airport looking distinctly quiet and lonely, so far most flights are looking cancelled or seriously delayed, this might be one of those &ldquo;interesting days&rdquo; that people look forward to.
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&rsquo;s Crowd it&rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:
-&lt;Valve className=&#34;org.apache.catalina.valves.RemoteIpValve&#34; internalProxies=&#34;proxy_IP_address&#34; remoteIpHeader=&#34;x-forwarded-for&#34; remoteIpProxiesHeader=&#34;x-forwarded-by&#34; protocolHeader=&#34;x-forwarded-proto&#34; /&gt; &lt;Valve className=&#34;org.apache.catalina.valves.AccessLogValve&#34; directory=&#34;logs&#34; prefix=&#34;localhost_access.&#34; suffix=&#34;.log&#34; pattern=&#34;combined&#34; resolveHosts=&#34;false&#34; /&gt; The following should be used within nginx to forward that data into tomcat.
-proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Server $host; proxy_set_header X-Forwarded-For $remote_addr; 
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    There&rsquo;s plenty of examples of doing this already but it&rsquo;s as simple as:
-$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &#34;fusion Drive&#34; 100% Seems to be working so far, although with typical Apple there&rsquo;s no documentation on how files/objects are moved between the SSD and HDD components
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/"></a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    First I had to ensure that the stock debian packages are available for installation:
-$ tail /etc/apt/sources.list deb http://archive.debian.org/debian etch main Install g++ and other dependencies
-$ apt-get install g++ libpam0g-dev Download google-authenticator source code:
-$ git clone https://code.google.com/p/google-authenticator/ $ cd google-authenticator/ $ ./configure &amp;&amp; make &amp;&amp; make install Then simply follow the instructions over at here
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/">Adding tags to docker-maven-plugin</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Adding a latest tag to docker containers built by docker-maven-plugin
- &lt;name&gt;${project.artifactId}:${project.version}&lt;/name&gt; &lt;build&gt; &lt;tags combine.children=&quot;append&quot;&gt; &lt;tag&gt;latest&lt;/tag&gt; &lt;/tags&gt; &lt;from&gt;${base.docker.image}&lt;/from&gt; 
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/">apple remote desktop and vnc</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Ahh, so Apple&rsquo;s Remote Desktop is just a simpler implementation of the VNC protocol (I&rsquo;m sure there&rsquo;s some propriety extensions in there but it&rsquo;s nice to know you can use vncclient to connect to a Mac.
-Options that work well for VNC:-
-[Connection] Host=$HOSTNAME [Options] UseLocalCursor=1 UseDesktopResize=1 FullScreen=0 FullColour=1 LowColourLevel=1 PreferredEncoding=hextile AutoSelect=0 Shared=0 SendPtrEvents=1 SendKeyEvents=1 SendCutText=1 AcceptCutText=1 DisableWinKeys=1 Emulate3=0 PointerEventInterval=0 Monitor= MenuKey=F8 AutoReconnect=1 Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2015-01-28-capistrano-changelog/">Capistrano changelog</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Capistrano and Changelogs I needed a more atomic method of listing changes between two deployments whilst using capistrano, so used the following task to perform a git log between two revisions:
-use the following to display:
-$ cap deploy:changelog INFO Changes between 04e7f9a and 3fd3e88 releases INFO e7770ab Built Deployable files from Drush make 8f9d13c Built Deployable files from Drush make 3872d29 Built Deployable files from Drush make 193aaad Built Deployable files from Drush make You can then of course include within any other tasks using the normal capistrano methods
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/">CentOS/RHEL 7</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    So after many years the following changes I&rsquo;ve so far run into with CentOS 7
-firewalld # firewall-cmd --zone=public --add-service=https success # firewall-cmd --zone=public --add-service=http success # firewall-cmd --zone=public --list-all public (default, active) interfaces: eth0 eth1 sources: services: dhcpv6-client http https ssh ports: masquerade: no forward-ports: icmp-blocks: rich rules: systemd # systemd enable nginx # ln -s &#39;/usr/lib/systemd/system/nginx.service&#39; &#39;/etc/systemd/system/multi-user.target.wants/nginx.service&#39; $ systemctl status nginx nginx.service - nginx - high performance web server Loaded: loaded (/usr/lib/systemd/system/nginx.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/">Crowd logged in users</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    This came in useful for me today to understand users that could be disabled from a crowd instance:
-SELECT cwd_user.user_name AS Username, cwd_user.email_address AS &#34;Email Address&#34;, from_unixtime(cwd_user_attribute.attribute_value/1000) AS &#34;Last Logged In&#34; FROM cwd_user LEFT OUTER JOIN cwd_user_attribute ON cwd_user_attribute.user_id = cwd_user.id AND cwd_user_attribute.attribute_name = &#39;lastAuthenticated&#39; WHERE active = &#39;T&#39; ORDER BY 3,2,1 ; 
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2015-10-02-features_export/">Errors on features export</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Had a strange error being reported when exporting features from a Drupal 7 instance, in that the resultant tar file was not extracting using any of the usual tools, such as tar etc.
-$ file features_export-7.x-1.0-alpha1.tar features_export-7.x-1.0-alpha1.tar: data File magic showed that the file was wrong, but looking at the file itself looked correct at first glance, and a look around on Drupal.org returned this old thread which lead me to
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2015-10-02-features_export/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/">Has microsoft lost it&#39;s way?</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    I cannot help but feel, very probably not helped by the rest of the tech press that Microsoft is still struggling to understand what it&rsquo;s core market is and how to move forward.
-Look at the current Microsoft mobile phone marketing Lumia:
- Plus, you’ll stay productive on the go with Microsoft Office Mobile built in
-And with Microsoft Office and OneDrive (formerly SkyDrive) built in, you can keep on top of your work even when away from your desk
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2014-10-08-moving-git-repositories/">Moving git repositories</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    So whilst moving between github organisations - which is relatively straight forward, I also had to move some from Atlassian Stash unfortunately there&rsquo;s not as simple a method to do this, but a good way of mirroring between two repos is as follows:
-$ git clone https://donor_repo/example1 --bare $ git remote set-url --push origin https://destination_repo/example2.git $ git fetch -p origin &amp;&amp; git push --mirror Simples.
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2014-07-23-moving-to-github/">moving to github</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    So I&rsquo;m a big dabbler when it comes to my personal site/pages, over the years I&rsquo;ve moved from the following technologies/software to host:
- Simple HTML - 1999 Roxen - 2005 Wordpress Drupal Wordpress (again) Blogger Ghost  I&rsquo;ve had a dabble with Jekyll in the past (specifically Heckle) whilst I was playing with moving things to Ghost and given I have already migrated all of my content into Markdown it sounded like the best option (especially given I don&rsquo;t have to then host the application somewhere)
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-07-23-moving-to-github/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/">OSX and Vagrant!</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    So whilst trying to get boxen to work I needed a good method to test, so of course I turned to Vagrant and standing on the works of others (namely Graham Gilbert ) I used the following steps:
-Requirements  Packer Vagrant VMware Fusion  Steps Download and install packer, the easiest method to do this I found was using homebrew
-$ brew install packer Cloning into &#39;/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary&#39;... remote: Reusing existing pack: 143, done.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2017-04-12/">starting kubernetes</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Getting kubernetes to start with RBAC features enabled
-$ minikube start --vm-driver=xhyve \ 	--extra-config=apiserver.GenericServerRunOptions.AuthorizationMode=RBAC,--authorization-rbac-super-user=minikube-admin \ 	--kubernetes-version=v1.6.0 --memory=4096 --cpus 4 
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/">Thoughts on Kubernetes</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Just a collection of annoyances on Kubernetes:
-kubectl config and multiple namespaces Seriously! The shear amount of YAML duplication if you have a large number of namespaces and clusters it quite rapidly becomes very annoying, do remember that this is YAML so you could have (ab)used anchors to copy commonly used fragments:
-apiVersion: v1 clusters: - cluster: server: https://cluster1.example.com name: cluster1 contexts: - context: &amp;bar-ns cluster: cluster1 namespace: bar-namespace user: &#34;cluster1-user&#34; name: cluster1-bar-namespace - context: &lt;&lt;: *bar-ns namespace: foo-namespace name: cluster1-foo-namespace - context: &lt;&lt;: *bar-ns namespace: kube-system name: cluster1-kubesystem current-context: cluster1-foo-namespace kind: Config preferences: {} users: [] CURRENT NAME CLUSTER AUTHINFO NAMESPACE * cluster1-foo-namespace cluster1 foo-namespace cluster1-kubesystem cluster1 kube-system cluster1-bar-namespace cluster1 bar-namespace Except: as soon as you use kubectl config use-context it goes and helpfully writes back the expanded YAML structure.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/">Useful business KPIs</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Net Promoter score - how likely a customer will recommend customer profitability score - how much profit does individual customers bring to business after costs customer retention rate - loyalty and churn conversation rate - how well prospectives are turned into customers relative market share - how big a share of the pie do you have revenue growth rate - rate of increase of income net profit - income minus expenses net profit margin - percentage of revenue that is profit gross profit margin - profit generate per X of sales operating profit margin - operating income divided by revenue Return in investment - how much X investment generates in new income cash conversion cycle - how long it takes for ROI to happen capacity utilisation rate - how saturated are you resources?
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/">User access with Atlassian tools</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    User access times with Atlassian tools You&rsquo;d be mistaken if you had a few searches on the internet and found the following page suggesting that you could just query the application cwd_user table except when using Crowd when you should query against the crowd cwd_user_attribute table.
-Unfortunately that might have been true back with Jira 4.3, although in the last few years mixing the Atlassian tools (with Crowd as SSO provider) this is no longer the case and I&rsquo;ve found the following MySQL query works well to find out login times for each application
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/">Vagrant error during plugin install</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Had the following error being thrown when trying to install the vagrant-vbguest plugin:
-$ vagrant plugin install vagrant-vbguest Installing the 'vagrant-vbguest' plugin. This can take a few minutes... Bundler, the underlying system Vagrant uses to install plugins, reported an error. The error is shown below. These errors are usually caused by misconfigured plugin installations or transient network issues. The error from Bundler is: An error occurred while installing ffi (1.9.5), and Bundler cannot continue.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
   
 </article>
 

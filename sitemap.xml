@@ -3,32 +3,282 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/</loc>
+    <lastmod>2018-03-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/containers/</loc>
+    <lastmod>2018-03-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/maven/</loc>
+    <lastmod>2018-03-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/</loc>
+    <lastmod>2018-03-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/</loc>
+    <lastmod>2018-03-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/</loc>
+    <lastmod>2018-03-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/kubernetes/</loc>
+    <lastmod>2017-04-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2017-04-12/</loc>
+    <lastmod>2017-04-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/</loc>
+    <lastmod>2017-01-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/drupal/</loc>
+    <lastmod>2015-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2015-10-02-features_export/</loc>
+    <lastmod>2015-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2015-01-28-capistrano-changelog/</loc>
+    <lastmod>2015-01-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/atlassian/</loc>
+    <lastmod>2014-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/sql/</loc>
+    <lastmod>2014-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/</loc>
+    <lastmod>2014-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/devops/</loc>
+    <lastmod>2014-10-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2014-10-23-agile_at_the_correct_level/</loc>
+    <lastmod>2014-10-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2014-10-15-devops_technologies/</loc>
+    <lastmod>2014-10-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/</loc>
+    <lastmod>2014-10-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/redhat/</loc>
+    <lastmod>2014-10-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/git/</loc>
+    <lastmod>2014-10-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2014-10-08-moving-git-repositories/</loc>
+    <lastmod>2014-10-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/vagrant/</loc>
+    <lastmod>2014-09-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/</loc>
+    <lastmod>2014-09-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/business/</loc>
+    <lastmod>2014-08-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/</loc>
+    <lastmod>2014-08-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/</loc>
+    <lastmod>2014-07-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/microsoft/</loc>
+    <lastmod>2014-07-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/github/</loc>
+    <lastmod>2014-07-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/markdown/</loc>
+    <lastmod>2014-07-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2014-07-23-moving-to-github/</loc>
+    <lastmod>2014-07-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/osx/</loc>
+    <lastmod>2014-05-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</loc>
+    <lastmod>2014-05-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/</loc>
+    <lastmod>2014-04-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</loc>
+    <lastmod>2013-10-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/</loc>
+    <lastmod>2013-10-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/hardware/</loc>
+    <lastmod>2013-10-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/linux/</loc>
+    <lastmod>2013-10-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/vnc/</loc>
+    <lastmod>2013-10-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/file-systems/</loc>
+    <lastmod>2013-07-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/fusion/</loc>
+    <lastmod>2013-07-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</loc>
+    <lastmod>2013-07-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/hybrid/</loc>
+    <lastmod>2013-07-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/ssd/</loc>
+    <lastmod>2013-07-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</loc>
+    <lastmod>2013-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/java/</loc>
+    <lastmod>2013-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/nginx/</loc>
+    <lastmod>2013-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/tags/tomcat/</loc>
+    <lastmod>2013-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2013-01-22-the-uk-and-snow/</loc>
+    <lastmod>2013-01-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/</loc>
+    <lastmod>2013-01-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/</loc>
+    <lastmod>2012-11-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2012-08-20-so-long-facebook/</loc>
+    <lastmod>2012-08-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/</loc>
+    <lastmod>2012-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/</loc>
+    <lastmod>2012-08-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://dubdubdub.co.uk/tags/debugging/</loc>
     <lastmod>2010-07-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dubdubdub.co.uk/tags/java/</loc>
-    <lastmod>2010-07-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/</loc>
-    <lastmod>2010-07-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/</loc>
-    <lastmod>2010-07-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/</loc>
-    <lastmod>2010-07-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/</loc>
     <lastmod>2010-07-07T00:00:00+00:00</lastmod>
   </url>
   
@@ -39,16 +289,6 @@
   
   <url>
     <loc>https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/</loc>
-    <lastmod>2010-01-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/file-systems/</loc>
-    <lastmod>2010-01-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/osx/</loc>
     <lastmod>2010-01-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -90,11 +330,6 @@
   <url>
     <loc>https://dubdubdub.co.uk/tags/soap/</loc>
     <lastmod>2009-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/hardware/</loc>
-    <lastmod>2009-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -278,11 +513,6 @@
   </url>
   
   <url>
-    <loc>https://dubdubdub.co.uk/tags/sql/</loc>
-    <lastmod>2007-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://dubdubdub.co.uk/tags/travel/</loc>
     <lastmod>2007-10-03T00:00:00+00:00</lastmod>
   </url>
@@ -378,11 +608,6 @@
   </url>
   
   <url>
-    <loc>https://dubdubdub.co.uk/tags/tomcat/</loc>
-    <lastmod>2006-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://dubdubdub.co.uk/posts/2006-01-03-traceroute-to-firewalled-hosts/</loc>
     <lastmod>2006-01-03T00:00:00+00:00</lastmod>
   </url>
@@ -413,163 +638,7 @@
   </url>
   
   <url>
-    <loc>https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2012-08-20-so-long-facebook/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2013-01-22-the-uk-and-snow/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/atlassian/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/business/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2015-01-28-capistrano-changelog/</loc>
-  </url>
-  
-  <url>
     <loc>https://dubdubdub.co.uk/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/containers/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/drupal/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2015-10-02-features_export/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/git/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/github/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/kubernetes/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/linux/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/markdown/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/maven/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/microsoft/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2014-10-08-moving-git-repositories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2014-07-23-moving-to-github/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/nginx/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/redhat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2017-04-12/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/vagrant/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dubdubdub.co.uk/tags/vnc/</loc>
   </url>
   
 </urlset>

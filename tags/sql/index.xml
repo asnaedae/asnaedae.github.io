@@ -7,10 +7,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright notice</copyright>
-    <lastBuildDate>Wed, 03 Oct 2007 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Nov 2014 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dubdubdub.co.uk/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>User access with Atlassian tools</title>
+      <link>https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/</link>
+      <pubDate>Tue, 04 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/</guid>
+      <description>User access times with Atlassian tools You&amp;rsquo;d be mistaken if you had a few searches on the internet and found the following page suggesting that you could just query the application cwd_user table except when using Crowd when you should query against the crowd cwd_user_attribute table.
+Unfortunately that might have been true back with Jira 4.3, although in the last few years mixing the Atlassian tools (with Crowd as SSO provider) this is no longer the case and I&amp;rsquo;ve found the following MySQL query works well to find out login times for each application</description>
+    </item>
+    
+    <item>
+      <title>Crowd logged in users</title>
+      <link>https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/</link>
+      <pubDate>Thu, 03 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/</guid>
+      <description>This came in useful for me today to understand users that could be disabled from a crowd instance:
+SELECT cwd_user.user_name AS Username, cwd_user.email_address AS &amp;#34;Email Address&amp;#34;, from_unixtime(cwd_user_attribute.attribute_value/1000) AS &amp;#34;Last Logged In&amp;#34; FROM cwd_user LEFT OUTER JOIN cwd_user_attribute ON cwd_user_attribute.user_id = cwd_user.id AND cwd_user_attribute.attribute_name = &amp;#39;lastAuthenticated&amp;#39; WHERE active = &amp;#39;T&amp;#39; ORDER BY 3,2,1 ; </description>
+    </item>
+    
+    <item>
+      <title>SQL queries with Jira</title>
+      <link>https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/</link>
+      <pubDate>Mon, 13 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/</guid>
+      <description>To save having to understand how the underlying db schema works: SQL Queries for JIRA</description>
+    </item>
     
     <item>
       <title>Google travel tips</title>
@@ -22,35 +51,6 @@
 So if you use :-
 Norwegian Google Homepage It&amp;rsquo;ll change your default language to english - this also works with changing back to anything like
 Russian Google Homepage To swap yourself to Russian - very helpful - previously i was also hand adding ?</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/</guid>
-      <description>To save having to understand how the underlying db schema works: SQL Queries for JIRA</description>
-    </item>
-    
-    <item>
-      <title>Crowd logged in users</title>
-      <link>https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/</guid>
-      <description>This came in useful for me today to understand users that could be disabled from a crowd instance:
-SELECT cwd_user.user_name AS Username, cwd_user.email_address AS &amp;#34;Email Address&amp;#34;, from_unixtime(cwd_user_attribute.attribute_value/1000) AS &amp;#34;Last Logged In&amp;#34; FROM cwd_user LEFT OUTER JOIN cwd_user_attribute ON cwd_user_attribute.user_id = cwd_user.id AND cwd_user_attribute.attribute_name = &amp;#39;lastAuthenticated&amp;#39; WHERE active = &amp;#39;T&amp;#39; ORDER BY 3,2,1 ; </description>
-    </item>
-    
-    <item>
-      <title>User access with Atlassian tools</title>
-      <link>https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/</guid>
-      <description>User access times with Atlassian tools You&amp;rsquo;d be mistaken if you had a few searches on the internet and found the following page suggesting that you could just query the application cwd_user table except when using Crowd when you should query against the crowd cwd_user_attribute table.
-Unfortunately that might have been true back with Jira 4.3, although in the last few years mixing the Atlassian tools (with Crowd as SSO provider) this is no longer the case and I&amp;rsquo;ve found the following MySQL query works well to find out login times for each application</description>
     </item>
     
   </channel>
