@@ -89,26 +89,69 @@
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">jmx and firewalls</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2009-03-31-sign-fail/">signage failure</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-07-07T00:00:00Z">
-          Jul 7, 2010
+        <time datetime="2009-03-31T00:00:00Z">
+          Mar 31, 2009
         </time>
       </div>
     </div>
   </header>
   <div>
-    So at least with Java 1.6 the JVM can use SOCKS for proxying RMI requests, so to get the wonderful jvisualvm (think 1.5 visualGC) working use the following incantations. This requires the initial RMI registry port is open to the client. First the initial SSH to server enabling the SOCKS tunnel
-{% highlight bash %} $ ssh -D localhost:9696 servername {% endhighlight %}
-And now for jvisualvm:
-{% highlight bash %} $ jvisualvm
+    Notice this in Cambridge today – looks like a wee fail to me (there was a few more than the two bikes in the picture along the wall outside the college)
+“Please do not lean cycles against this wall”
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2009-03-01-playing-with-textmate/">textmate</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2009-03-01T00:00:00Z">
+          Mar 1, 2009
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    OMG (and other leet things), textmate has built in just about everything, ok probably faster using a real web browser to post a blog, but I&rsquo;ll have to see how useful the svn and SQL bundles are.
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2009-03-01-upgrading-the-playstation/">upgrading the playstation 3</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2009-03-01T00:00:00Z">
+          Mar 1, 2009
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Well finally borrowed an USB disk big enough - though the actual backup of the playstation ended up at 8GB it complained about fitting on my USB drive. So aside from a simple backup of the old drive via the XMB tool. Replace the old 40GB 2.5&rdquo; SATA drive with a nice shiny 320GB model (and then restored from the USB drive)
+Quite a few guides on the interweb about how to do that, but I&rsquo;m still slightly shocked that Sony are using standard parts these days!
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2009-03-01-upgrading-the-playstation/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -120,24 +163,25 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">searching java log files</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2009-01-14-shining-a-light-on-spotlight/">managing spotlight indexing</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-06-30T00:00:00Z">
-          Jun 30, 2010
+        <time datetime="2009-01-14T00:00:00Z">
+          Jan 14, 2009
         </time>
       </div>
     </div>
   </header>
   <div>
-    So debugging java can be a mighty pain, a little few lines of ways to make it simpler.
-# grep -m 1 -n &#39;^2010-06-30 14:20:&#39; catalina.out 11746233:2010-06-30 14:20:01,011 DEBUG com.beginning.of.line # grep -m 1 -n &#39;^2010-06-30 14:21:&#39; catalina.out 11747788:2010-06-30 14:21:00,161 WARN org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended # sed -n &#39;11746233,11747788p&#39; &lt; catalina.out This gives start line and end line between any two greps and then the body of the log file from those two lines.
+    Show the status of spotlight on volumes:
+$ mdutil -sa /Shared Items/Public: Indexing enabled. /Volumes/Time Machine/Shared Items/Backups: Indexing and searching disabled. /Users: Indexing enabled. /Volumes/pool1: Indexing and searching disabled. /Shared Items/Backups: Indexing enabled. /Groups: Indexing enabled. I was receiving a few errors when trying to spotlight for applications (well they didn&rsquo;t appear) - running
+$ sudo mdutil -i off / Error, no index found for volume. What worked to fix this for me was to move the main volume into the privacy section of spotlight and reboot (though i&rsquo;d expect restarting fseventd might have the same effect) and then remove the volume from Privacy, 10 minutes later and disk has re-indexed and spotlight is working correctly.
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2009-01-14-shining-a-light-on-spotlight/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -149,72 +193,27 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">disabling atime in OS X</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-12-30-playing-with-mercurial/">mercurial SCM</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-01-18T00:00:00Z">
-          Jan 18, 2010
+        <time datetime="2008-12-30T00:00:00Z">
+          Dec 30, 2008
         </time>
       </div>
     </div>
   </header>
   <div>
-    Create the following plist file somewhere useful, e.g. /Library/LaunchDaemons/com.local.noatime.plist
-&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; dict&gt; &lt;key&gt;Label&lt;/key&gt; &lt;string&gt;com.my.noatime&lt;/string&gt; &lt;key&gt;ProgramArguments&lt;/key&gt; &lt;array&gt; &lt;string&gt;mount&lt;/string&gt; &lt;string&gt;-vuwo&lt;/string&gt; &lt;string&gt;noatime&lt;/string&gt; &lt;string&gt;/&lt;/string&gt; &lt;/array&gt; &lt;key&gt;RunAtLoad&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; &lt;/plist&gt; Then run the following to pick up the change, or indeed, reboot:
-% sudo launchctl load /Library/LaunchDaemons/com.local.noatime.plist And you should now see the root file system mounted with noatime option, which should improve longevity of SSD boot drives
+    Well, been playing with opensolaris and they use mercurial as a DSVN - and another benefit of that over git is that the command set is very much similar to SVN/Subversion - which is important for us people who /don&rsquo;t/ use it every day.
+Migrating was straight-forward:
+$ mkdir ~/svn &amp;&amp; cd ~/svn $ hgimportsvn https://dubdubdub.co.uk/svn/mike $ find . -name .svn -type d | xargs rm -rf One thing to note when using - which took me a bit of reading to realise - it&rsquo;s distributed, so if you&rsquo;ve your own local copy - you have to commit and then push/pull changes out!
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2008-12-30-playing-with-mercurial/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-26-spot-the-difference/">spot the difference</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2009-11-26T00:00:00Z">
-          Nov 26, 2009
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    
-  </div>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-21-snow-leopard-and-the-jvm/">snow leopard and Java</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2009-11-21T00:00:00Z">
-          Nov 21, 2009
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    So in a startling case of &ldquo;Apple knows best&rdquo; they have gone and removed the 1.5 JVM - I know it&rsquo;s pretty old and people were complaining about not having a 1.6 JVM for a long time - but really!
-So the following post steps you through re-enabling the 1.5 VM and now semi-happy days
-  </div>
   
 </article>
 
@@ -225,9 +224,11 @@ So the following post steps you through re-enabling the 1.5 VM and now semi-happ
   <hr />
 
 
-  <span class="page-number">Page 1 of 14</span>
+<a class="newer-posts" href="/page/2/"><span aria-hidden="true">&laquo;</span> Newer Posts</a>
 
-<a class="older-posts" href="/page/2/">Older Posts <span aria-hidden="true">&raquo;</span></a>
+  <span class="page-number">Page 3 of 14</span>
+
+<a class="older-posts" href="/page/4/">Older Posts <span aria-hidden="true">&raquo;</span></a>
 
 </nav>
 

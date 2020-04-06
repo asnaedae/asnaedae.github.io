@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hardware on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/hardware/</link>
+    <description>Recent content in hardware on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Sun, 09 Aug 2009 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MacPro 2008 memory layouts</title>
+      <link>https://dubdubdub.co.uk/posts/2009-08-09-mac-pro-memory-layouts/</link>
+      <pubDate>Sun, 09 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-08-09-mac-pro-memory-layouts/</guid>
+      <description>2008 MacPro memory layout/installation</description>
+    </item>
+    
+    <item>
+      <title>upgrading the playstation 3</title>
+      <link>https://dubdubdub.co.uk/posts/2009-03-01-upgrading-the-playstation/</link>
+      <pubDate>Sun, 01 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-03-01-upgrading-the-playstation/</guid>
+      <description>Well finally borrowed an USB disk big enough - though the actual backup of the playstation ended up at 8GB it complained about fitting on my USB drive. So aside from a simple backup of the old drive via the XMB tool. Replace the old 40GB 2.5&amp;rdquo; SATA drive with a nice shiny 320GB model (and then restored from the USB drive)
+Quite a few guides on the interweb about how to do that, but I&amp;rsquo;m still slightly shocked that Sony are using standard parts these days!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/</guid>
+      <description>First I had to ensure that the stock debian packages are available for installation:
+$ tail /etc/apt/sources.list deb http://archive.debian.org/debian etch main Install g++ and other dependencies
+$ apt-get install g++ libpam0g-dev Download google-authenticator source code:
+$ git clone https://code.google.com/p/google-authenticator/ $ cd google-authenticator/ $ ./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install Then simply follow the instructions over at here</description>
+    </item>
+    
+  </channel>
+</rss>

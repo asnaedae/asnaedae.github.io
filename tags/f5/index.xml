@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>f5 on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/f5/</link>
+    <description>Recent content in f5 on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Thu, 26 Jun 2008 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/f5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>scaling web apps</title>
+      <link>https://dubdubdub.co.uk/posts/2008-06-26-scaling-web-apps/</link>
+      <pubDate>Thu, 26 Jun 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-06-26-scaling-web-apps/</guid>
+      <description>A little video, thin on detail of course, but hints at some home truths on building/designing scale-able applications (and i’d go so far to say that they are applicable to ALL applications not just webapps)
+Of course, I know Ben Rockwood like’s his solaris and F5′s – but that’s not going to surprise many (and I just LOVE f5s)
+And here’s a blog entry with the details on /how/ that’s done:-</description>
+    </item>
+    
+  </channel>
+</rss>

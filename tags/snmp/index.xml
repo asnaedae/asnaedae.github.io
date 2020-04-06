@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>snmp on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/snmp/</link>
+    <description>Recent content in snmp on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Sat, 03 Oct 2009 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/snmp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SNMP via SSH and netcat</title>
+      <link>https://dubdubdub.co.uk/posts/2009-10-03-snmp-over-ssh-tunnels/</link>
+      <pubDate>Sat, 03 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-10-03-snmp-over-ssh-tunnels/</guid>
+      <description>Sometimes you just need to tunnel UDP based protocols - such as SNMP - and the easiest ways is to use socat
+$ socat tcp4-listen:6667,reuseaddr,fork UDP:DESTINATION:161 $ socat udp4-listen:161,reuseaddr,fork tcp:localhost:6667 And in combination with your normal SSH tunnel
+$ ssh -L6667:localhost:6667 BASTION_HOST </description>
+    </item>
+    
+    <item>
+      <title>SNMP v1 and v2 differences</title>
+      <link>https://dubdubdub.co.uk/posts/2008-09-26-argh-snmp-can-really-chafe/</link>
+      <pubDate>Fri, 26 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-09-26-argh-snmp-can-really-chafe/</guid>
+      <description>Using version 1:
+$ snmpget -c COMMSTRING -M /usr/local/share/snmp/mibs -v 1 \ 	-m USAGE-MIB:PROXY-MIB:REDLINE-STATS-MIB:REDLINE-STATS-MIB:REDLINE-CONFIG-MIB \ 	hostname REDLINE-STATS-MIB::sessActive.0 Error in packet Reason: (noSuchName) There is no such variable name in this MIB. Failed object: REDLINE-STATS-MIB::sessActive.0 Using version 2 (2c):
+$ snmpget -c COMMSTRING -M /usr/local/share/snmp/mibs -v 2c \ 	-m USAGE-MIB:PROXY-MIB:REDLINE-STATS-MIB:REDLINE-STATS-MIB:REDLINE-CONFIG-MIB \ 	hostname REDLINE-STATS-MIB::sessActive.0 REDLINE-STATS-MIB::sessActive.0 = Counter64: 12247 Slightly annoying that - but makes certain sense</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2006-09-08-solaris-zone-utilisation-via-snmp/</link>
+      <pubDate>Fri, 08 Sep 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2006-09-08-solaris-zone-utilisation-via-snmp/</guid>
+      <description>It’s been a bug-bear for a long time for me that the CPU metrics when querying a Solaris 10 host are global and not zone specific (which of course makes sense, just makes it harder to track zone utilisation).
+So finally wrote a basic perl script that will provide that information via a SNMP mib, output looks like the following:
+&amp;gt; snmpwalk -v 1 -c public localhost .1.3.6.1.4.1.2021.255.7 UCD-SNMP-MIB::ucdavis.255.7.0 = STRING: &amp;#34;Zone name&amp;#34; UCD-SNMP-MIB::ucdavis.</description>
+    </item>
+    
+  </channel>
+</rss>

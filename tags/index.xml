@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/</link>
+    <description>Recent content in Tags on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Wed, 07 Jul 2010 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>debugging</title>
+      <link>https://dubdubdub.co.uk/tags/debugging/</link>
+      <pubDate>Wed, 07 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/debugging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://dubdubdub.co.uk/tags/java/</link>
+      <pubDate>Wed, 07 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>file systems</title>
+      <link>https://dubdubdub.co.uk/tags/file-systems/</link>
+      <pubDate>Mon, 18 Jan 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/file-systems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>osx</title>
+      <link>https://dubdubdub.co.uk/tags/osx/</link>
+      <pubDate>Mon, 18 Jan 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/osx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>snmp</title>
+      <link>https://dubdubdub.co.uk/tags/snmp/</link>
+      <pubDate>Sat, 03 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/snmp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>performance</title>
+      <link>https://dubdubdub.co.uk/tags/performance/</link>
+      <pubDate>Mon, 28 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>smokeping</title>
+      <link>https://dubdubdub.co.uk/tags/smokeping/</link>
+      <pubDate>Mon, 28 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/smokeping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>soap</title>
+      <link>https://dubdubdub.co.uk/tags/soap/</link>
+      <pubDate>Mon, 28 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/soap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hardware</title>
+      <link>https://dubdubdub.co.uk/tags/hardware/</link>
+      <pubDate>Sun, 09 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/hardware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wii</title>
+      <link>https://dubdubdub.co.uk/tags/wii/</link>
+      <pubDate>Sat, 08 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/wii/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>https://dubdubdub.co.uk/tags/mysql/</link>
+      <pubDate>Fri, 31 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>playstation</title>
+      <link>https://dubdubdub.co.uk/tags/playstation/</link>
+      <pubDate>Sun, 01 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/playstation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ps3</title>
+      <link>https://dubdubdub.co.uk/tags/ps3/</link>
+      <pubDate>Sun, 01 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/ps3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dsvn</title>
+      <link>https://dubdubdub.co.uk/tags/dsvn/</link>
+      <pubDate>Tue, 30 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/dsvn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mercurial</title>
+      <link>https://dubdubdub.co.uk/tags/mercurial/</link>
+      <pubDate>Tue, 30 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/mercurial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Solaris</title>
+      <link>https://dubdubdub.co.uk/tags/solaris/</link>
+      <pubDate>Tue, 30 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/solaris/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fast esp</title>
+      <link>https://dubdubdub.co.uk/tags/fast-esp/</link>
+      <pubDate>Sat, 25 Oct 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/fast-esp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dladm</title>
+      <link>https://dubdubdub.co.uk/tags/dladm/</link>
+      <pubDate>Wed, 15 Oct 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/dladm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>food</title>
+      <link>https://dubdubdub.co.uk/tags/food/</link>
+      <pubDate>Mon, 06 Oct 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/food/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>networking</title>
+      <link>https://dubdubdub.co.uk/tags/networking/</link>
+      <pubDate>Mon, 29 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/networking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bigip</title>
+      <link>https://dubdubdub.co.uk/tags/bigip/</link>
+      <pubDate>Thu, 26 Jun 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/bigip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>f5</title>
+      <link>https://dubdubdub.co.uk/tags/f5/</link>
+      <pubDate>Thu, 26 Jun 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/f5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>irules</title>
+      <link>https://dubdubdub.co.uk/tags/irules/</link>
+      <pubDate>Thu, 26 Jun 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/irules/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dock</title>
+      <link>https://dubdubdub.co.uk/tags/dock/</link>
+      <pubDate>Thu, 07 Feb 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/dock/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sql</title>
+      <link>https://dubdubdub.co.uk/tags/sql/</link>
+      <pubDate>Wed, 03 Oct 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>travel</title>
+      <link>https://dubdubdub.co.uk/tags/travel/</link>
+      <pubDate>Wed, 03 Oct 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/travel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bluecoat</title>
+      <link>https://dubdubdub.co.uk/tags/bluecoat/</link>
+      <pubDate>Mon, 18 Jun 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/bluecoat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>logging</title>
+      <link>https://dubdubdub.co.uk/tags/logging/</link>
+      <pubDate>Mon, 18 Jun 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/logging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>humour</title>
+      <link>https://dubdubdub.co.uk/tags/humour/</link>
+      <pubDate>Mon, 09 Apr 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/humour/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>life</title>
+      <link>https://dubdubdub.co.uk/tags/life/</link>
+      <pubDate>Fri, 01 Dec 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/life/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>escenic</title>
+      <link>https://dubdubdub.co.uk/tags/escenic/</link>
+      <pubDate>Sat, 01 Apr 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/escenic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tomcat</title>
+      <link>https://dubdubdub.co.uk/tags/tomcat/</link>
+      <pubDate>Sat, 01 Apr 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/tomcat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unix</title>
+      <link>https://dubdubdub.co.uk/tags/unix/</link>
+      <pubDate>Thu, 09 Mar 2000 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/unix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>atlassian</title>
+      <link>https://dubdubdub.co.uk/tags/atlassian/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/atlassian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>business</title>
+      <link>https://dubdubdub.co.uk/tags/business/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/business/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>containers</title>
+      <link>https://dubdubdub.co.uk/tags/containers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>drupal</title>
+      <link>https://dubdubdub.co.uk/tags/drupal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/drupal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://dubdubdub.co.uk/tags/git/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://dubdubdub.co.uk/tags/github/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://dubdubdub.co.uk/tags/kubernetes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://dubdubdub.co.uk/tags/linux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>markdown</title>
+      <link>https://dubdubdub.co.uk/tags/markdown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>maven</title>
+      <link>https://dubdubdub.co.uk/tags/maven/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/maven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>microsoft</title>
+      <link>https://dubdubdub.co.uk/tags/microsoft/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/microsoft/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nginx</title>
+      <link>https://dubdubdub.co.uk/tags/nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redhat</title>
+      <link>https://dubdubdub.co.uk/tags/redhat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/redhat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vagrant</title>
+      <link>https://dubdubdub.co.uk/tags/vagrant/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/vagrant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vnc</title>
+      <link>https://dubdubdub.co.uk/tags/vnc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/tags/vnc/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

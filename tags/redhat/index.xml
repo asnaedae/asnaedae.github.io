@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redhat on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/redhat/</link>
+    <description>Recent content in redhat on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/redhat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CentOS/RHEL 7</title>
+      <link>https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/</guid>
+      <description>So after many years the following changes I&amp;rsquo;ve so far run into with CentOS 7
+firewalld # firewall-cmd --zone=public --add-service=https success # firewall-cmd --zone=public --add-service=http success # firewall-cmd --zone=public --list-all public (default, active) interfaces: eth0 eth1 sources: services: dhcpv6-client http https ssh ports: masquerade: no forward-ports: icmp-blocks: rich rules: systemd # systemd enable nginx # ln -s &amp;#39;/usr/lib/systemd/system/nginx.service&amp;#39; &amp;#39;/etc/systemd/system/multi-user.target.wants/nginx.service&amp;#39; $ systemctl status nginx nginx.service - nginx - high performance web server Loaded: loaded (/usr/lib/systemd/system/nginx.</description>
+    </item>
+    
+  </channel>
+</rss>

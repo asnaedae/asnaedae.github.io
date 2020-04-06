@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/nginx/</link>
+    <description>Recent content in nginx on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</guid>
+      <description>Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&amp;rsquo;s Crowd it&amp;rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:
+&amp;lt;Valve className=&amp;#34;org.apache.catalina.valves.RemoteIpValve&amp;#34; internalProxies=&amp;#34;proxy_IP_address&amp;#34; remoteIpHeader=&amp;#34;x-forwarded-for&amp;#34; remoteIpProxiesHeader=&amp;#34;x-forwarded-by&amp;#34; protocolHeader=&amp;#34;x-forwarded-proto&amp;#34; /&amp;gt; &amp;lt;Valve className=&amp;#34;org.apache.catalina.valves.AccessLogValve&amp;#34; directory=&amp;#34;logs&amp;#34; prefix=&amp;#34;localhost_access.&amp;#34; suffix=&amp;#34;.log&amp;#34; pattern=&amp;#34;combined&amp;#34; resolveHosts=&amp;#34;false&amp;#34; /&amp;gt; The following should be used within nginx to forward that data into tomcat.
+proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Server $host; proxy_set_header X-Forwarded-For $remote_addr; </description>
+    </item>
+    
+  </channel>
+</rss>

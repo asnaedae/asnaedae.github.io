@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/linux/</link>
+    <description>Recent content in linux on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/</guid>
+      <description>First I had to ensure that the stock debian packages are available for installation:
+$ tail /etc/apt/sources.list deb http://archive.debian.org/debian etch main Install g++ and other dependencies
+$ apt-get install g++ libpam0g-dev Download google-authenticator source code:
+$ git clone https://code.google.com/p/google-authenticator/ $ cd google-authenticator/ $ ./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install Then simply follow the instructions over at here</description>
+    </item>
+    
+  </channel>
+</rss>

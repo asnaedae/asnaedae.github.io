@@ -3,19 +3,19 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Mike&#39;s ramblings" />
+  <meta property="og:title" content=" file systems &middot;  Mike&#39;s ramblings" />
   
   <meta name="theme-color" content="#f0f0f0" />
  
   <meta property="og:site_name" content="Mike&#39;s ramblings" />
-  <meta property="og:url" content="https://dubdubdub.co.uk/" />
+  <meta property="og:url" content="https://dubdubdub.co.uk/tags/file-systems/" />
   
   
   <meta property="og:type" content="website" />
   
 
   <title>
-     Mike&#39;s ramblings
+     file systems &middot;  Mike&#39;s ramblings
   </title>
 
   <link rel="stylesheet" href="https://dubdubdub.co.uk/css/bootstrap.min.css" />
@@ -25,8 +25,6 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
   <link rel="shortcut icon" href="https://dubdubdub.co.uk/images/favicon.ico" />
   <link rel="apple-touch-icon" href="https://dubdubdub.co.uk/images/apple-touch-icon.png" />
-  
-  <link href="https://dubdubdub.co.uk/index.xml" rel="alternate" type="application/rss+xml" title="Mike&#39;s ramblings" />
   
 </head>
 <body>
@@ -74,8 +72,13 @@
 </div>
 
       
+      <a href="https://dubdubdub.co.uk/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
       
-      <a href="https://dubdubdub.co.uk/index.xml" class="btn-header btn-subscribe hidden-xs">
+      
+      <a href="https://dubdubdub.co.uk/tags/file-systems/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
       </a>
@@ -84,69 +87,10 @@
   </header>
   <main class="container">
 
-<div class="article-list">
-  
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">jmx and firewalls</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2010-07-07T00:00:00Z">
-          Jul 7, 2010
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    So at least with Java 1.6 the JVM can use SOCKS for proxying RMI requests, so to get the wonderful jvisualvm (think 1.5 visualGC) working use the following incantations. This requires the initial RMI registry port is open to the client. First the initial SSH to server enabling the SOCKS tunnel
-{% highlight bash %} $ ssh -D localhost:9696 servername {% endhighlight %}
-And now for jvisualvm:
-{% highlight bash %} $ jvisualvm
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
+<section class="article-list">
+  <h1>file systems</h1>
   
   <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">searching java log files</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2010-06-30T00:00:00Z">
-          Jun 30, 2010
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    So debugging java can be a mighty pain, a little few lines of ways to make it simpler.
-# grep -m 1 -n &#39;^2010-06-30 14:20:&#39; catalina.out 11746233:2010-06-30 14:20:01,011 DEBUG com.beginning.of.line # grep -m 1 -n &#39;^2010-06-30 14:21:&#39; catalina.out 11747788:2010-06-30 14:21:00,161 WARN org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended # sed -n &#39;11746233,11747788p&#39; &lt; catalina.out This gives start line and end line between any two greps and then the body of the log file from those two lines.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
   <article>
   <header>
     <h2><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">disabling atime in OS X</a></h2>
@@ -174,63 +118,48 @@ And now for jvisualvm:
 </article>
 
   
-  
   <hr/>
-  
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-26-spot-the-difference/">spot the difference</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2009-08-08-wii-and-macos/">wii and os x</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2009-11-26T00:00:00Z">
-          Nov 26, 2009
+        <time datetime="2009-08-08T00:00:00Z">
+          Aug 8, 2009
         </time>
       </div>
     </div>
   </header>
   <div>
-    
+    $ umount /Volumes/UNTITLED $ sudo ./wbfs -p /dev/disk4s1 init $ sudo ./wbfs -p /dev/disk4s1 df wbfs tot:298.08G used:0.08G free:298.00G $ sudo ./wbfs -p /dev/disk4s1 ls wbfs empty Then just use WBFS for macos X to add in the backup images you&rsquo;ve created previously.
   </div>
   
 </article>
 
   
-  
   <hr/>
-  
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-21-snow-leopard-and-the-jvm/">snow leopard and Java</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/"></a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2009-11-21T00:00:00Z">
-          Nov 21, 2009
+        <time datetime="0001-01-01T00:00:00Z">
+          Jan 1, 0001
         </time>
       </div>
     </div>
   </header>
   <div>
-    So in a startling case of &ldquo;Apple knows best&rdquo; they have gone and removed the 1.5 JVM - I know it&rsquo;s pretty old and people were complaining about not having a 1.6 JVM for a long time - but really!
-So the following post steps you through re-enabling the 1.5 VM and now semi-happy days
+    There&rsquo;s plenty of examples of doing this already but it&rsquo;s as simple as:
+$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &#34;fusion Drive&#34; 100% Seems to be working so far, although with typical Apple there&rsquo;s no documentation on how files/objects are moved between the SSD and HDD components
   </div>
   
 </article>
 
   
-</div>
-<nav class="pagination" role="navigation">
-
-  <hr />
-
-
-  <span class="page-number">Page 1 of 14</span>
-
-<a class="older-posts" href="/page/2/">Older Posts <span aria-hidden="true">&raquo;</span></a>
-
-</nav>
-
+</section>
   </main>
   <footer class="container global-footer">
     <div class="copyright-note pull-left">

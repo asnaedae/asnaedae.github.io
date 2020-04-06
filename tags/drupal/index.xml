@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>drupal on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/drupal/</link>
+    <description>Recent content in drupal on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/drupal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Errors on features export</title>
+      <link>https://dubdubdub.co.uk/posts/2015-10-02-features_export/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2015-10-02-features_export/</guid>
+      <description>Had a strange error being reported when exporting features from a Drupal 7 instance, in that the resultant tar file was not extracting using any of the usual tools, such as tar etc.
+$ file features_export-7.x-1.0-alpha1.tar features_export-7.x-1.0-alpha1.tar: data File magic showed that the file was wrong, but looking at the file itself looked correct at first glance, and a look around on Drupal.org returned this old thread which lead me to</description>
+    </item>
+    
+  </channel>
+</rss>

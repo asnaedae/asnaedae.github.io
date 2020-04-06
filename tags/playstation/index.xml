@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>playstation on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/playstation/</link>
+    <description>Recent content in playstation on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Sun, 01 Mar 2009 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/playstation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>upgrading the playstation 3</title>
+      <link>https://dubdubdub.co.uk/posts/2009-03-01-upgrading-the-playstation/</link>
+      <pubDate>Sun, 01 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-03-01-upgrading-the-playstation/</guid>
+      <description>Well finally borrowed an USB disk big enough - though the actual backup of the playstation ended up at 8GB it complained about fitting on my USB drive. So aside from a simple backup of the old drive via the XMB tool. Replace the old 40GB 2.5&amp;rdquo; SATA drive with a nice shiny 320GB model (and then restored from the USB drive)
+Quite a few guides on the interweb about how to do that, but I&amp;rsquo;m still slightly shocked that Sony are using standard parts these days!</description>
+    </item>
+    
+  </channel>
+</rss>

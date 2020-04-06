@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wii on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/wii/</link>
+    <description>Recent content in wii on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Sat, 08 Aug 2009 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/wii/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>wii and os x</title>
+      <link>https://dubdubdub.co.uk/posts/2009-08-08-wii-and-macos/</link>
+      <pubDate>Sat, 08 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-08-08-wii-and-macos/</guid>
+      <description>$ umount /Volumes/UNTITLED $ sudo ./wbfs -p /dev/disk4s1 init $ sudo ./wbfs -p /dev/disk4s1 df wbfs tot:298.08G used:0.08G free:298.00G $ sudo ./wbfs -p /dev/disk4s1 ls wbfs empty Then just use WBFS for macos X to add in the backup images you&amp;rsquo;ve created previously.</description>
+    </item>
+    
+  </channel>
+</rss>

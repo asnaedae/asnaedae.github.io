@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dladm on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/dladm/</link>
+    <description>Recent content in dladm on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Wed, 15 Oct 2008 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/dladm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>dladm</title>
+      <link>https://dubdubdub.co.uk/posts/2008-10-15-dladm/</link>
+      <pubDate>Wed, 15 Oct 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-10-15-dladm/</guid>
+      <description>dladm is a new command with solaris 10 which can do many clever things (I think the general idea behind it is that ifconfig was becoming bloated with features and options that it was a good idea to break the link between the physical network provision and the logical usage)
+ie: dladm - physical link provision/configuration ifconfig - logical link configuration  Assuming a server with two gigabit ethernet connections connected to two switches (for physical resillience):-</description>
+    </item>
+    
+  </channel>
+</rss>

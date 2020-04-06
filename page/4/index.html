@@ -89,26 +89,24 @@
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">jmx and firewalls</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-10-25-interesting-benefits-of-solaris/">Filesystem caching and performance</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-07-07T00:00:00Z">
-          Jul 7, 2010
+        <time datetime="2008-10-25T00:00:00Z">
+          Oct 25, 2008
         </time>
       </div>
     </div>
   </header>
   <div>
-    So at least with Java 1.6 the JVM can use SOCKS for proxying RMI requests, so to get the wonderful jvisualvm (think 1.5 visualGC) working use the following incantations. This requires the initial RMI registry port is open to the client. First the initial SSH to server enabling the SOCKS tunnel
-{% highlight bash %} $ ssh -D localhost:9696 servername {% endhighlight %}
-And now for jvisualvm:
-{% highlight bash %} $ jvisualvm
+    well this is slightly surprising, but in a very good way, and does lead to some interesting suggestions on how to best to improve matters, but look at the following graph of FAST ESP query latency:
+Notice that the average latency drops as we use the server more . . . but WHY? Well that&rsquo;s just because we&rsquo;re running the FAST indexes on a ZFS based file system and the L2 ARC cache is making it&rsquo;s presence felt
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2008-10-25-interesting-benefits-of-solaris/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -120,24 +118,24 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">searching java log files</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-10-15-dladm/">dladm</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-06-30T00:00:00Z">
-          Jun 30, 2010
+        <time datetime="2008-10-15T00:00:00Z">
+          Oct 15, 2008
         </time>
       </div>
     </div>
   </header>
   <div>
-    So debugging java can be a mighty pain, a little few lines of ways to make it simpler.
-# grep -m 1 -n &#39;^2010-06-30 14:20:&#39; catalina.out 11746233:2010-06-30 14:20:01,011 DEBUG com.beginning.of.line # grep -m 1 -n &#39;^2010-06-30 14:21:&#39; catalina.out 11747788:2010-06-30 14:21:00,161 WARN org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended # sed -n &#39;11746233,11747788p&#39; &lt; catalina.out This gives start line and end line between any two greps and then the body of the log file from those two lines.
+    dladm is a new command with solaris 10 which can do many clever things (I think the general idea behind it is that ifconfig was becoming bloated with features and options that it was a good idea to break the link between the physical network provision and the logical usage)
+ie: dladm - physical link provision/configuration ifconfig - logical link configuration  Assuming a server with two gigabit ethernet connections connected to two switches (for physical resillience):-
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2008-10-15-dladm/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -149,72 +147,75 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">disabling atime in OS X</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-10-06-massaman-curry/">Massaman curry</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-01-18T00:00:00Z">
-          Jan 18, 2010
+        <time datetime="2008-10-06T00:00:00Z">
+          Oct 6, 2008
         </time>
       </div>
     </div>
   </header>
   <div>
-    Create the following plist file somewhere useful, e.g. /Library/LaunchDaemons/com.local.noatime.plist
-&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; dict&gt; &lt;key&gt;Label&lt;/key&gt; &lt;string&gt;com.my.noatime&lt;/string&gt; &lt;key&gt;ProgramArguments&lt;/key&gt; &lt;array&gt; &lt;string&gt;mount&lt;/string&gt; &lt;string&gt;-vuwo&lt;/string&gt; &lt;string&gt;noatime&lt;/string&gt; &lt;string&gt;/&lt;/string&gt; &lt;/array&gt; &lt;key&gt;RunAtLoad&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; &lt;/plist&gt; Then run the following to pick up the change, or indeed, reboot:
-% sudo launchctl load /Library/LaunchDaemons/com.local.noatime.plist And you should now see the root file system mounted with noatime option, which should improve longevity of SSD boot drives
+    well we made thai massaman curry over the weekend, and it it was pretty good - only downside is that we didn&rsquo;t make enough rice for a change! But the rice cooker took care of that.
+ingredients - for two
+ 250g Chicken tblspn oil 1 red onion 200g new potatoes 175g reduced fat coconut milk 100ml chicken stock 30g roasted peanuts (not salted!)   put potatoes in steamer for 20 minutes to cook heat up pan, add oil and soften cut onion for 5 minutes add chicken and brown for 3 minutes, add 2 tspn of massaman curry paste cook for further 6 minutes add chicken stock and coconut milk and cover with saucepan lid cook for 30 minutes, add cooked potatoes and peanuts and cook for further 10 minutes serve  
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-09-29-playing-with-tcptrace-and-xplot/">playing with TCP Trace</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2008-09-29T00:00:00Z">
+          Sep 29, 2008
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    # tcpdump -ni en0 port 80 -w output.trace # tcptrace -G output.trace # xplot *tput.xpl From the online manpage:
+Yellow: instantaneous packets Red: Throughput for the last few packets Blue: Throughput since the start of the stream/connection
+Other useful graphs:
+ _owin.xpl - outstanding data/congestion _rtt.xpl - round trip time/time _ssize.xpl - segment size/time _tput.xpl - throughput/time _tsg.xpl - time sequence graph _tline.xpl - Timeline graph - W Richard Stevens style  Just some notes here so I don&rsquo;t forget the basics - manual over at here
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-09-26-interesting-posts-from-nanog/">queueing delays in IP</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2008-09-26T00:00:00Z">
+          Sep 26, 2008
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Following reply by iljitsch van Beijnum about queueing delays in IP, looked to be a good little summary.
+ The answer is that delay is only one aspect of performance, another important one is packet loss. As link bandwidth increases, queuing delays decrease proportionally. So if you’re using your 10 Mbps link with average 500 byte packets at 98% capacity, you’ll generally have a 49-packet queue. (queue = utilization / (1 - utilization)) Our 500 byte packets are transmitted at 0.
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2008-09-26-interesting-posts-from-nanog/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-26-spot-the-difference/">spot the difference</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2009-11-26T00:00:00Z">
-          Nov 26, 2009
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    
-  </div>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-21-snow-leopard-and-the-jvm/">snow leopard and Java</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2009-11-21T00:00:00Z">
-          Nov 21, 2009
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    So in a startling case of &ldquo;Apple knows best&rdquo; they have gone and removed the 1.5 JVM - I know it&rsquo;s pretty old and people were complaining about not having a 1.6 JVM for a long time - but really!
-So the following post steps you through re-enabling the 1.5 VM and now semi-happy days
-  </div>
   
 </article>
 
@@ -225,9 +226,11 @@ So the following post steps you through re-enabling the 1.5 VM and now semi-happ
   <hr />
 
 
-  <span class="page-number">Page 1 of 14</span>
+<a class="newer-posts" href="/page/3/"><span aria-hidden="true">&laquo;</span> Newer Posts</a>
 
-<a class="older-posts" href="/page/2/">Older Posts <span aria-hidden="true">&raquo;</span></a>
+  <span class="page-number">Page 4 of 14</span>
+
+<a class="older-posts" href="/page/5/">Older Posts <span aria-hidden="true">&raquo;</span></a>
 
 </nav>
 

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" networking &middot;  Mike&#39;s ramblings" />
+  
+  <meta name="theme-color" content="#f0f0f0" />
+ 
+  <meta property="og:site_name" content="Mike&#39;s ramblings" />
+  <meta property="og:url" content="https://dubdubdub.co.uk/tags/networking/" />
+  
+  
+  <meta property="og:type" content="website" />
+  
+
+  <title>
+     networking &middot;  Mike&#39;s ramblings
+  </title>
+
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/main.css" />
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/github.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="shortcut icon" href="https://dubdubdub.co.uk/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://dubdubdub.co.uk/images/apple-touch-icon.png" />
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://dubdubdub.co.uk/">Mike&#39;s ramblings</a></h1>
+      
+      <div class="tag-line">
+        Short subtitle/tagline of your blog
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="#ZgotmplZ">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  <a href="https://github.com/asnaedae" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  <a href="https://reddit.com/user/asnaedae" target="_blank">
+    <i class="fa fa-reddit-alien"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://linkedin.com/in/mikewallis" target="_blank">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  <a href="https://keybase.io/asnaedae" target="_blank">
+    <i class="fa fa-key"></i>
+  </a>
+  
+</div>
+
+      
+      <a href="https://dubdubdub.co.uk/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+      <a href="https://dubdubdub.co.uk/tags/networking/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+      
+    </section>
+  </header>
+  <main class="container">
+
+<section class="article-list">
+  <h1>networking</h1>
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-09-29-playing-with-tcptrace-and-xplot/">playing with TCP Trace</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2008-09-29T00:00:00Z">
+          Sep 29, 2008
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    # tcpdump -ni en0 port 80 -w output.trace # tcptrace -G output.trace # xplot *tput.xpl From the online manpage:
+Yellow: instantaneous packets Red: Throughput for the last few packets Blue: Throughput since the start of the stream/connection
+Other useful graphs:
+ _owin.xpl - outstanding data/congestion _rtt.xpl - round trip time/time _ssize.xpl - segment size/time _tput.xpl - throughput/time _tsg.xpl - time sequence graph _tline.xpl - Timeline graph - W Richard Stevens style  Just some notes here so I don&rsquo;t forget the basics - manual over at here
+  </div>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2008-09-26-interesting-posts-from-nanog/">queueing delays in IP</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2008-09-26T00:00:00Z">
+          Sep 26, 2008
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Following reply by iljitsch van Beijnum about queueing delays in IP, looked to be a good little summary.
+ The answer is that delay is only one aspect of performance, another important one is packet loss. As link bandwidth increases, queuing delays decrease proportionally. So if you’re using your 10 Mbps link with average 500 byte packets at 98% capacity, you’ll generally have a 49-packet queue. (queue = utilization / (1 - utilization)) Our 500 byte packets are transmitted at 0.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2008-09-26-interesting-posts-from-nanog/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2006-01-03-traceroute-to-firewalled-hosts/">Tracing firewalled hosts</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2006-01-03T00:00:00Z">
+          Jan 3, 2006
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Nice little tool called tcptraceroute, just uses TCP syns instead of ICMP/UDP to give you a more meaningful traceroute; still relies on ICMP time exceeded messages, but still, every little helps when trying to debug someone elses problem!
+  </div>
+  
+</article>
+
+  
+</section>
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      &copy; Copyright notice
+    </div>
+    <div class="sns-links hidden-print">
+  
+  <a href="#ZgotmplZ">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  <a href="https://github.com/asnaedae" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  <a href="https://reddit.com/user/asnaedae" target="_blank">
+    <i class="fa fa-reddit-alien"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://linkedin.com/in/mikewallis" target="_blank">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  <a href="https://keybase.io/asnaedae" target="_blank">
+    <i class="fa fa-key"></i>
+  </a>
+  
+</div>
+
+  </footer>
+
+  <script src="https://dubdubdub.co.uk/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'Your Google Analytics tracking id', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+  
+</body>
+</html>
+
+

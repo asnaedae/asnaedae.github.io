@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bluecoat on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/bluecoat/</link>
+    <description>Recent content in bluecoat on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Mon, 18 Jun 2007 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/bluecoat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2007-06-18-bluecoat-bits/</link>
+      <pubDate>Mon, 18 Jun 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-06-18-bluecoat-bits/</guid>
+      <description>Suppression of authentication log entries:-
+&amp;lt;Exception&amp;gt; exception.id=(”authentication_redirect_from_virtual_host”, “authentication_redirect_to_virtual_host”, “authentication_failed”) access_log[main](no) And to get a dump of the config, though the “unencrypted” option doesn’t seem to work on SGOS 4.2.3
+configure t line-vty length 0 show version show status show configuration with-keyrings unencrypted length 80 exit exit exit </description>
+    </item>
+    
+  </channel>
+</rss>

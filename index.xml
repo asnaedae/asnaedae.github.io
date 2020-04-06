@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/</link>
+    <description>Recent content on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Wed, 07 Jul 2010 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>jmx and firewalls</title>
+      <link>https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/</link>
+      <pubDate>Wed, 07 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/</guid>
+      <description>So at least with Java 1.6 the JVM can use SOCKS for proxying RMI requests, so to get the wonderful jvisualvm (think 1.5 visualGC) working use the following incantations. This requires the initial RMI registry port is open to the client. First the initial SSH to server enabling the SOCKS tunnel
+{% highlight bash %} $ ssh -D localhost:9696 servername {% endhighlight %}
+And now for jvisualvm:
+{% highlight bash %} $ jvisualvm</description>
+    </item>
+    
+    <item>
+      <title>searching java log files</title>
+      <link>https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/</link>
+      <pubDate>Wed, 30 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/</guid>
+      <description>So debugging java can be a mighty pain, a little few lines of ways to make it simpler.
+# grep -m 1 -n &amp;#39;^2010-06-30 14:20:&amp;#39; catalina.out 11746233:2010-06-30 14:20:01,011 DEBUG com.beginning.of.line # grep -m 1 -n &amp;#39;^2010-06-30 14:21:&amp;#39; catalina.out 11747788:2010-06-30 14:21:00,161 WARN org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended # sed -n &amp;#39;11746233,11747788p&amp;#39; &amp;lt; catalina.out This gives start line and end line between any two greps and then the body of the log file from those two lines.</description>
+    </item>
+    
+    <item>
+      <title>disabling atime in OS X</title>
+      <link>https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/</link>
+      <pubDate>Mon, 18 Jan 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/</guid>
+      <description>Create the following plist file somewhere useful, e.g. /Library/LaunchDaemons/com.local.noatime.plist
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;!DOCTYPE plist PUBLIC &amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34; &amp;#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;#34;&amp;gt; &amp;lt;plist version=&amp;#34;1.0&amp;#34;&amp;gt; dict&amp;gt; &amp;lt;key&amp;gt;Label&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;com.my.noatime&amp;lt;/string&amp;gt; &amp;lt;key&amp;gt;ProgramArguments&amp;lt;/key&amp;gt; &amp;lt;array&amp;gt; &amp;lt;string&amp;gt;mount&amp;lt;/string&amp;gt; &amp;lt;string&amp;gt;-vuwo&amp;lt;/string&amp;gt; &amp;lt;string&amp;gt;noatime&amp;lt;/string&amp;gt; &amp;lt;string&amp;gt;/&amp;lt;/string&amp;gt; &amp;lt;/array&amp;gt; &amp;lt;key&amp;gt;RunAtLoad&amp;lt;/key&amp;gt; &amp;lt;true/&amp;gt; &amp;lt;/dict&amp;gt; &amp;lt;/plist&amp;gt; Then run the following to pick up the change, or indeed, reboot:
+% sudo launchctl load /Library/LaunchDaemons/com.local.noatime.plist And you should now see the root file system mounted with noatime option, which should improve longevity of SSD boot drives</description>
+    </item>
+    
+    <item>
+      <title>spot the difference</title>
+      <link>https://dubdubdub.co.uk/posts/2009-11-26-spot-the-difference/</link>
+      <pubDate>Thu, 26 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-11-26-spot-the-difference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>snow leopard and Java</title>
+      <link>https://dubdubdub.co.uk/posts/2009-11-21-snow-leopard-and-the-jvm/</link>
+      <pubDate>Sat, 21 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-11-21-snow-leopard-and-the-jvm/</guid>
+      <description>So in a startling case of &amp;ldquo;Apple knows best&amp;rdquo; they have gone and removed the 1.5 JVM - I know it&amp;rsquo;s pretty old and people were complaining about not having a 1.6 JVM for a long time - but really!
+So the following post steps you through re-enabling the 1.5 VM and now semi-happy days</description>
+    </item>
+    
+    <item>
+      <title>SNMP via SSH and netcat</title>
+      <link>https://dubdubdub.co.uk/posts/2009-10-03-snmp-over-ssh-tunnels/</link>
+      <pubDate>Sat, 03 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-10-03-snmp-over-ssh-tunnels/</guid>
+      <description>Sometimes you just need to tunnel UDP based protocols - such as SNMP - and the easiest ways is to use socat
+$ socat tcp4-listen:6667,reuseaddr,fork UDP:DESTINATION:161 $ socat udp4-listen:161,reuseaddr,fork tcp:localhost:6667 And in combination with your normal SSH tunnel
+$ ssh -L6667:localhost:6667 BASTION_HOST </description>
+    </item>
+    
+    <item>
+      <title>smokeping and SOAP</title>
+      <link>https://dubdubdub.co.uk/posts/2009-09-28-smokeping-and-measuring-soap-requests/</link>
+      <pubDate>Mon, 28 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-09-28-smokeping-and-measuring-soap-requests/</guid>
+      <description>We&amp;rsquo;ve had an issue with performance of a SOAP interface, and here&amp;rsquo;s how you go about setting up smokeping to time it:-
+extraargs = -H Content-Type:text/xml --data @/srv/scripts/soap_check/soap-test.xml urlformat = http://server.name.com/url/soap_url The only annoying problem is that the SOAP payload cannot be included as part of the command line, so any slaves would require the file manually copied into the same location</description>
+    </item>
+    
+    <item>
+      <title>MacPro 2008 memory layouts</title>
+      <link>https://dubdubdub.co.uk/posts/2009-08-09-mac-pro-memory-layouts/</link>
+      <pubDate>Sun, 09 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-08-09-mac-pro-memory-layouts/</guid>
+      <description>2008 MacPro memory layout/installation</description>
+    </item>
+    
+    <item>
+      <title>wii and os x</title>
+      <link>https://dubdubdub.co.uk/posts/2009-08-08-wii-and-macos/</link>
+      <pubDate>Sat, 08 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-08-08-wii-and-macos/</guid>
+      <description>$ umount /Volumes/UNTITLED $ sudo ./wbfs -p /dev/disk4s1 init $ sudo ./wbfs -p /dev/disk4s1 df wbfs tot:298.08G used:0.08G free:298.00G $ sudo ./wbfs -p /dev/disk4s1 ls wbfs empty Then just use WBFS for macos X to add in the backup images you&amp;rsquo;ve created previously.</description>
+    </item>
+    
+    <item>
+      <title>utf8 and mysql</title>
+      <link>https://dubdubdub.co.uk/posts/2009-07-31-utf8-and-mysql-databases/</link>
+      <pubDate>Fri, 31 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-07-31-utf8-and-mysql-databases/</guid>
+      <description>Nice bugs that no one seems to want to fix:-
+mysql&amp;gt; create table test5 ( wibble varchar(500), PRIMARY KEY (wibble) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin; ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes mysql&amp;gt; create table test5 ( wibble varchar(500), PRIMARY KEY (wibble) ) ENGINE=myisam DEFAULT CHARSET=utf8 COLLATE=utf8_bin; ERROR 1071 (42000): Specified key was too long; max key length is 1332 bytes And even with MySQL 6.</description>
+    </item>
+    
+    <item>
+      <title>signage failure</title>
+      <link>https://dubdubdub.co.uk/posts/2009-03-31-sign-fail/</link>
+      <pubDate>Tue, 31 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-03-31-sign-fail/</guid>
+      <description>Notice this in Cambridge today – looks like a wee fail to me (there was a few more than the two bikes in the picture along the wall outside the college)
+“Please do not lean cycles against this wall”</description>
+    </item>
+    
+    <item>
+      <title>textmate</title>
+      <link>https://dubdubdub.co.uk/posts/2009-03-01-playing-with-textmate/</link>
+      <pubDate>Sun, 01 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-03-01-playing-with-textmate/</guid>
+      <description>OMG (and other leet things), textmate has built in just about everything, ok probably faster using a real web browser to post a blog, but I&amp;rsquo;ll have to see how useful the svn and SQL bundles are.</description>
+    </item>
+    
+    <item>
+      <title>upgrading the playstation 3</title>
+      <link>https://dubdubdub.co.uk/posts/2009-03-01-upgrading-the-playstation/</link>
+      <pubDate>Sun, 01 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-03-01-upgrading-the-playstation/</guid>
+      <description>Well finally borrowed an USB disk big enough - though the actual backup of the playstation ended up at 8GB it complained about fitting on my USB drive. So aside from a simple backup of the old drive via the XMB tool. Replace the old 40GB 2.5&amp;rdquo; SATA drive with a nice shiny 320GB model (and then restored from the USB drive)
+Quite a few guides on the interweb about how to do that, but I&amp;rsquo;m still slightly shocked that Sony are using standard parts these days!</description>
+    </item>
+    
+    <item>
+      <title>managing spotlight indexing</title>
+      <link>https://dubdubdub.co.uk/posts/2009-01-14-shining-a-light-on-spotlight/</link>
+      <pubDate>Wed, 14 Jan 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-01-14-shining-a-light-on-spotlight/</guid>
+      <description>Show the status of spotlight on volumes:
+$ mdutil -sa /Shared Items/Public: Indexing enabled. /Volumes/Time Machine/Shared Items/Backups: Indexing and searching disabled. /Users: Indexing enabled. /Volumes/pool1: Indexing and searching disabled. /Shared Items/Backups: Indexing enabled. /Groups: Indexing enabled. I was receiving a few errors when trying to spotlight for applications (well they didn&amp;rsquo;t appear) - running
+$ sudo mdutil -i off / Error, no index found for volume. What worked to fix this for me was to move the main volume into the privacy section of spotlight and reboot (though i&amp;rsquo;d expect restarting fseventd might have the same effect) and then remove the volume from Privacy, 10 minutes later and disk has re-indexed and spotlight is working correctly.</description>
+    </item>
+    
+    <item>
+      <title>mercurial SCM</title>
+      <link>https://dubdubdub.co.uk/posts/2008-12-30-playing-with-mercurial/</link>
+      <pubDate>Tue, 30 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-12-30-playing-with-mercurial/</guid>
+      <description>Well, been playing with opensolaris and they use mercurial as a DSVN - and another benefit of that over git is that the command set is very much similar to SVN/Subversion - which is important for us people who /don&amp;rsquo;t/ use it every day.
+Migrating was straight-forward:
+$ mkdir ~/svn &amp;amp;&amp;amp; cd ~/svn $ hgimportsvn https://dubdubdub.co.uk/svn/mike $ find . -name .svn -type d | xargs rm -rf One thing to note when using - which took me a bit of reading to realise - it&amp;rsquo;s distributed, so if you&amp;rsquo;ve your own local copy - you have to commit and then push/pull changes out!</description>
+    </item>
+    
+    <item>
+      <title>Filesystem caching and performance</title>
+      <link>https://dubdubdub.co.uk/posts/2008-10-25-interesting-benefits-of-solaris/</link>
+      <pubDate>Sat, 25 Oct 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-10-25-interesting-benefits-of-solaris/</guid>
+      <description>well this is slightly surprising, but in a very good way, and does lead to some interesting suggestions on how to best to improve matters, but look at the following graph of FAST ESP query latency:
+Notice that the average latency drops as we use the server more . . . but WHY? Well that&amp;rsquo;s just because we&amp;rsquo;re running the FAST indexes on a ZFS based file system and the L2 ARC cache is making it&amp;rsquo;s presence felt</description>
+    </item>
+    
+    <item>
+      <title>dladm</title>
+      <link>https://dubdubdub.co.uk/posts/2008-10-15-dladm/</link>
+      <pubDate>Wed, 15 Oct 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-10-15-dladm/</guid>
+      <description>dladm is a new command with solaris 10 which can do many clever things (I think the general idea behind it is that ifconfig was becoming bloated with features and options that it was a good idea to break the link between the physical network provision and the logical usage)
+ie: dladm - physical link provision/configuration ifconfig - logical link configuration  Assuming a server with two gigabit ethernet connections connected to two switches (for physical resillience):-</description>
+    </item>
+    
+    <item>
+      <title>Massaman curry</title>
+      <link>https://dubdubdub.co.uk/posts/2008-10-06-massaman-curry/</link>
+      <pubDate>Mon, 06 Oct 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-10-06-massaman-curry/</guid>
+      <description>well we made thai massaman curry over the weekend, and it it was pretty good - only downside is that we didn&amp;rsquo;t make enough rice for a change! But the rice cooker took care of that.
+ingredients - for two
+ 250g Chicken tblspn oil 1 red onion 200g new potatoes 175g reduced fat coconut milk 100ml chicken stock 30g roasted peanuts (not salted!)   put potatoes in steamer for 20 minutes to cook heat up pan, add oil and soften cut onion for 5 minutes add chicken and brown for 3 minutes, add 2 tspn of massaman curry paste cook for further 6 minutes add chicken stock and coconut milk and cover with saucepan lid cook for 30 minutes, add cooked potatoes and peanuts and cook for further 10 minutes serve  </description>
+    </item>
+    
+    <item>
+      <title>playing with TCP Trace</title>
+      <link>https://dubdubdub.co.uk/posts/2008-09-29-playing-with-tcptrace-and-xplot/</link>
+      <pubDate>Mon, 29 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-09-29-playing-with-tcptrace-and-xplot/</guid>
+      <description># tcpdump -ni en0 port 80 -w output.trace # tcptrace -G output.trace # xplot *tput.xpl From the online manpage:
+Yellow: instantaneous packets Red: Throughput for the last few packets Blue: Throughput since the start of the stream/connection
+Other useful graphs:
+ _owin.xpl - outstanding data/congestion _rtt.xpl - round trip time/time _ssize.xpl - segment size/time _tput.xpl - throughput/time _tsg.xpl - time sequence graph _tline.xpl - Timeline graph - W Richard Stevens style  Just some notes here so I don&amp;rsquo;t forget the basics - manual over at here</description>
+    </item>
+    
+    <item>
+      <title>queueing delays in IP</title>
+      <link>https://dubdubdub.co.uk/posts/2008-09-26-interesting-posts-from-nanog/</link>
+      <pubDate>Fri, 26 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-09-26-interesting-posts-from-nanog/</guid>
+      <description>Following reply by iljitsch van Beijnum about queueing delays in IP, looked to be a good little summary.
+ The answer is that delay is only one aspect of performance, another important one is packet loss. As link bandwidth increases, queuing delays decrease proportionally. So if you’re using your 10 Mbps link with average 500 byte packets at 98% capacity, you’ll generally have a 49-packet queue. (queue = utilization / (1 - utilization)) Our 500 byte packets are transmitted at 0.</description>
+    </item>
+    
+    <item>
+      <title>SNMP v1 and v2 differences</title>
+      <link>https://dubdubdub.co.uk/posts/2008-09-26-argh-snmp-can-really-chafe/</link>
+      <pubDate>Fri, 26 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-09-26-argh-snmp-can-really-chafe/</guid>
+      <description>Using version 1:
+$ snmpget -c COMMSTRING -M /usr/local/share/snmp/mibs -v 1 \ 	-m USAGE-MIB:PROXY-MIB:REDLINE-STATS-MIB:REDLINE-STATS-MIB:REDLINE-CONFIG-MIB \ 	hostname REDLINE-STATS-MIB::sessActive.0 Error in packet Reason: (noSuchName) There is no such variable name in this MIB. Failed object: REDLINE-STATS-MIB::sessActive.0 Using version 2 (2c):
+$ snmpget -c COMMSTRING -M /usr/local/share/snmp/mibs -v 2c \ 	-m USAGE-MIB:PROXY-MIB:REDLINE-STATS-MIB:REDLINE-STATS-MIB:REDLINE-CONFIG-MIB \ 	hostname REDLINE-STATS-MIB::sessActive.0 REDLINE-STATS-MIB::sessActive.0 = Counter64: 12247 Slightly annoying that - but makes certain sense</description>
+    </item>
+    
+    <item>
+      <title>scaling web apps</title>
+      <link>https://dubdubdub.co.uk/posts/2008-06-26-scaling-web-apps/</link>
+      <pubDate>Thu, 26 Jun 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-06-26-scaling-web-apps/</guid>
+      <description>A little video, thin on detail of course, but hints at some home truths on building/designing scale-able applications (and i’d go so far to say that they are applicable to ALL applications not just webapps)
+Of course, I know Ben Rockwood like’s his solaris and F5′s – but that’s not going to surprise many (and I just LOVE f5s)
+And here’s a blog entry with the details on /how/ that’s done:-</description>
+    </item>
+    
+    <item>
+      <title>spring and snowing</title>
+      <link>https://dubdubdub.co.uk/posts/2008-04-14-snowing/</link>
+      <pubDate>Mon, 14 Apr 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-04-14-snowing/</guid>
+      <description>Spring and snowing – of course this is normal for the time of year – honest! Nothing to do with any change in climate or anything cough</description>
+    </item>
+    
+    <item>
+      <title>recent applications in OS X</title>
+      <link>https://dubdubdub.co.uk/posts/2008-02-07-recent-applications-window/</link>
+      <pubDate>Thu, 07 Feb 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-02-07-recent-applications-window/</guid>
+      <description>This little snippet will give you a new little window for all those recent applications you launch – I seem to have picked up a habit for closing applications down when I stop working with them for an hour or two (pages etc.)
+$ write com.apple.dock persistent-others -array-add \  &amp;#39;{ &amp;#34;tile-data&amp;#34; = { &amp;#34;list-type&amp;#34; = 1; }; &amp;#34;tile-type&amp;#34; = &amp;#34;recents-tile&amp;#34;; }&amp;#39; $ killall Dock </description>
+    </item>
+    
+    <item>
+      <title>FAST purchase</title>
+      <link>https://dubdubdub.co.uk/posts/2008-01-10-microsoft-buys-fast/</link>
+      <pubDate>Thu, 10 Jan 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-01-10-microsoft-buys-fast/</guid>
+      <description>Oh interesting stuff there - I&amp;rsquo;ve always liked the idea of FAST (not cheap as a search platform) but they&amp;rsquo;ve certainly thought a bit about how to scale - will be interesting to see if this mean&amp;rsquo;s a change to the supported platforms and roadmap moving forward
+ http://go.theregister.com/feed/www.theregister.co.uk/2008/01/08/microsoft_to_acquire_fast/ Wants to mine web with Fast buy
+Microsoft is to acquire Norwegian business search engine company Fast Search and Transfer for 6.</description>
+    </item>
+    
+    <item>
+      <title>piracy in the real world</title>
+      <link>https://dubdubdub.co.uk/posts/2007-12-05-piracy/</link>
+      <pubDate>Wed, 05 Dec 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-12-05-piracy/</guid>
+      <description>well was quite strange this evening as I&amp;rsquo;ve just finished Frederick Forsythe&amp;rsquo;s &amp;ldquo;The Afghan&amp;rdquo;, which giving the game away slighly deals with some terrorists stealing a large ship or two. So I was having quite a sense of déjà-vu watching a documentary on one of the discovery channels about the same subject. Or of course it might just be that the film-makers read the same books!
+Though they did raise a few good points about the close of the cold war allowing for a large surge in the numbers of piracy encounters in recent years, as the drop in the numbers of regular navy vessels in the oceans fell, though I&amp;rsquo;m also wondering if the increase in the freedom of information as well as increased availability of arms - such as the RPG7 - also has something to do with it.</description>
+    </item>
+    
+    <item>
+      <title>time machine with smbfs</title>
+      <link>https://dubdubdub.co.uk/posts/2007-11-16-time-machine/</link>
+      <pubDate>Fri, 16 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-11-16-time-machine/</guid>
+      <description>Well there is some undocumented methods to make time machine work on non-locally attached storage, and although it might be disabled in patches - this works pretty well:
+As a regular user and in a terminal
+$ defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1 Then when you visit the time machine preferences you can choose a network share as a TM location. Now it&amp;rsquo;s very tempting to get a little mac mini for some zfs/nfs goodness</description>
+    </item>
+    
+    <item>
+      <title>Google travel tips</title>
+      <link>https://dubdubdub.co.uk/posts/2007-10-03-travel-tips/</link>
+      <pubDate>Wed, 03 Oct 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-10-03-travel-tips/</guid>
+      <description>Heh, well ok, I didn&amp;rsquo;t know but when abroad and you need to use google, it can be slightly tricky to use if you don&amp;rsquo;t know the local language.
+So if you use :-
+Norwegian Google Homepage It&amp;rsquo;ll change your default language to english - this also works with changing back to anything like
+Russian Google Homepage To swap yourself to Russian - very helpful - previously i was also hand adding ?</description>
+    </item>
+    
+    <item>
+      <title>troubleshooting escenic</title>
+      <link>https://dubdubdub.co.uk/posts/2007-09-06-troubleshooting-escenic/</link>
+      <pubDate>Thu, 06 Sep 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-09-06-troubleshooting-escenic/</guid>
+      <description>Error:
+Internal error: There was a database error: \ java.security.AccessControlException: access denied \ (neo.xredsys.auth.UserPermission 1 create) Solution: You&amp;rsquo;ve not followed the installation instructions and not changed the java.security settings:
+-Djava.security.policy=/u01/apps/escenic/engine-4.3-2/security/java.policy -Djava.security.auth.login.config=/u01/apps/escenic/engine-4.3-2/security/jaas.config </description>
+    </item>
+    
+    <item>
+      <title>balloons everywhere</title>
+      <link>https://dubdubdub.co.uk/posts/2007-08-28-balloons-everywhere/</link>
+      <pubDate>Tue, 28 Aug 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-08-28-balloons-everywhere/</guid>
+      <description>Well we were sitting down eating pizza, and watching the kids down below “losing” their balloons, after an hour or so there was a pretty large collection of them sitting around the roof. Now question is whether someone went up there to bring them down, or did they just wait a few days for the helium to leak out?
+Unfortunately, only had my phone with me – so not as nice a picture as it could’ve been – still, and interesting view.</description>
+    </item>
+    
+    <item>
+      <title>playing with isync</title>
+      <link>https://dubdubdub.co.uk/posts/2007-08-01-isync-fun/</link>
+      <pubDate>Wed, 01 Aug 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-08-01-isync-fun/</guid>
+      <description>so one shiny nokia e65, and a bit of frustration, later; have found the following recipe for getting the phone to sync correctly with iSync.
+Firstly download the plugin from Nokia
+Then install and if you get a rather cryptic error like this:
+[Nokia E65] Device is not available or synchronization was cancelled. Close dialogs and applications on the phone and try again. Device “Nokia E65″ synchronization failed Looks like the Nokia installer drops the plugin into a strange location (originally it allowed isync to work once and then I got the error message</description>
+    </item>
+    
+    <item>
+      <title>Solaris zone configuration</title>
+      <link>https://dubdubdub.co.uk/posts/2007-07-11-zones/</link>
+      <pubDate>Wed, 11 Jul 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-07-11-zones/</guid>
+      <description>Configure the zone you want, this is just a basic configuration (suited to a name server - that inherits the global zones /var/named)
+# zonecfg -z solzone solzone: No such zone configured Use &amp;#39;create&amp;#39; to begin configuring a new zone. zonecfg:solzone&amp;gt; create zonecfg:solzone&amp;gt; set zonepath=/u01/zones/solzone zonecfg:solzone&amp;gt; set autoboot=true zonecfg:solzone&amp;gt; add net zonecfg:solzone:net&amp;gt; set address=10.10.10.20/24 zonecfg:solzone:net&amp;gt; set physical=bge0 zonecfg:solzone:net&amp;gt; end zonecfg:solzone&amp;gt; add fs zonecfg:solzone:fs&amp;gt; set type=lofs zonecfg:solzone:fs&amp;gt; set special=/u01/zonedata/solzone zonecfg:solzone:fs&amp;gt; set dir=/u01 zonecfg:solzone:fs&amp;gt; end zonecfg:solzone&amp;gt; add inherit-pkg-dir zonecfg:solzone:inherit-pkg-dir&amp;gt; set dir=/var/named zonecfg:solzone:inherit-pkg-dir&amp;gt; end zonecfg:solzone&amp;gt; add attr zonecfg:solzone:attr&amp;gt; set name=comment zonecfg:solzone:attr&amp;gt; set type=string zonecfg:solzone:attr&amp;gt; set value=&amp;#34;test solaris zone&amp;#34; zonecfg:solzone:attr&amp;gt; end zonecfg:solzone&amp;gt; verify zonecfg:solzone&amp;gt; commit zonecfg:solzone&amp;gt; exit And now install and boot the zone</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2007-07-10-db2-solaris10/</link>
+      <pubDate>Tue, 10 Jul 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-07-10-db2-solaris10/</guid>
+      <description>Hmm, nice little error when trying to start db2 on solaris 10, stating that it was unable to start up the database and i should check my SHM settings!
+Arrgh!
+prctl reported correct project settings, so tried truss:-
+# truss -f db2start truss: cannot trace set-id or unreadable object file: db2start Cue alarm bells, proven by trusty &amp;ldquo;ls&amp;rdquo;:
+# truss -f db2start -rwsr-xr-x 1 root root 238584 Jul 10 12:28 db2start Add root to the user.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2007-07-03-crash-dump-analysis/</link>
+      <pubDate>Tue, 03 Jul 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-07-03-crash-dump-analysis/</guid>
+      <description>Found this written by Frank Hofmann, very interestly little history lesson about the x86 chipset. (he also talks about how HOSTID is generated on solaris x86 - which shows how important it is to keep track of your /kernel/misc/sysinfo file for hostid locked software :D</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2007-06-18-bluecoat-bits/</link>
+      <pubDate>Mon, 18 Jun 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-06-18-bluecoat-bits/</guid>
+      <description>Suppression of authentication log entries:-
+&amp;lt;Exception&amp;gt; exception.id=(”authentication_redirect_from_virtual_host”, “authentication_redirect_to_virtual_host”, “authentication_failed”) access_log[main](no) And to get a dump of the config, though the “unencrypted” option doesn’t seem to work on SGOS 4.2.3
+configure t line-vty length 0 show version show status show configuration with-keyrings unencrypted length 80 exit exit exit </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2007-04-09-building-to-specification/</link>
+      <pubDate>Mon, 09 Apr 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-04-09-building-to-specification/</guid>
+      <description> An elephant: A mouse built to government specifications
+ </description>
+    </item>
+    
+    <item>
+      <title>On Horseshoes and Handgrenades</title>
+      <link>https://dubdubdub.co.uk/posts/2006-12-01-on-horseshoes-and-handgrenades/</link>
+      <pubDate>Fri, 01 Dec 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2006-12-01-on-horseshoes-and-handgrenades/</guid>
+      <description>So was at airport yesterday, woke up early to make sure we&amp;rsquo;d get there in time, lo and behold TimesOnline on the 5am BBC bulletin, and as soon as they mentioned the two sets of &amp;ldquo;BA planes&amp;rdquo; and &amp;ldquo;radiation&amp;rdquo; I just knew it&amp;rsquo;d be on the flights to Domodedevo!
+Aside from that, airport was nice and quiet, sitting around before check-in, up wanders a gentleman and asks if we&amp;rsquo;re flying to Moscow, so I reply in the affirmative and a few questions later I find myself in front of a Channel 4 TV camera - DOH!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2006-11-16-multiregion-lg/</link>
+      <pubDate>Thu, 16 Nov 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2006-11-16-multiregion-lg/</guid>
+      <description>Finally found the hidden menu for the DVD player (LG DNX 190UH):-
+Turn On the unit with the remote controller Wait until &amp;ldquo;no disc&amp;rdquo; appears in the unit&amp;rsquo;s display Press PAUSE, 3, 1, 4, 1, 5, 9
+This brings up the menu, select the region code that you want to change to or select 0 for multi-region. Press PAUSE to exit.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2006-10-04-monarchs-of-england/</link>
+      <pubDate>Wed, 04 Oct 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2006-10-04-monarchs-of-england/</guid>
+      <description>Willy, Willy, Harry, Ste, Harry, Dick, John, Harry three, One, two, three Neds, Richard two, Henries four, five, six – then who? Edwards four, five, Dick the bad, Harries twain and Ned the lad, Mary, Bessie, James the vain, Charlie, Charlie, James again, William &amp;amp; Mary, Anna Gloria, Four Georges, William and Victoria, Edward, George, then Ned the eighth quickly goes and abdicat’th, leaving George, then Liz the second, and with Charlie next it’s reckoned.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2006-09-08-solaris-zone-utilisation-via-snmp/</link>
+      <pubDate>Fri, 08 Sep 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2006-09-08-solaris-zone-utilisation-via-snmp/</guid>
+      <description>It’s been a bug-bear for a long time for me that the CPU metrics when querying a Solaris 10 host are global and not zone specific (which of course makes sense, just makes it harder to track zone utilisation).
+So finally wrote a basic perl script that will provide that information via a SNMP mib, output looks like the following:
+&amp;gt; snmpwalk -v 1 -c public localhost .1.3.6.1.4.1.2021.255.7 UCD-SNMP-MIB::ucdavis.255.7.0 = STRING: &amp;#34;Zone name&amp;#34; UCD-SNMP-MIB::ucdavis.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2006-04-01-escenic-debian-notes/</link>
+      <pubDate>Sat, 01 Apr 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2006-04-01-escenic-debian-notes/</guid>
+      <description>NON-FREE APT REPOSITORIES Install openssh package if not already installed
+# apt-get install openssh-server Add the following to /etc/apt/sources.list:
+deb http://oss.oracle.com/debian unstable main non-free deb http://ftp.uk.debian.org/debian etch main contrib non-free # apt-get update Install Async IO library for Oracle
+# apt-get install libaio Install optional extras for converting the JVM to a .deb
+# apt-get install build-essential fakeroot java-package # download sun binary JDK Create the ”deb” package:
+$ su - escenic # fakeroot make-jpkg jdk-1_5_0_14-linux-i586.</description>
+    </item>
+    
+    <item>
+      <title>Tracing firewalled hosts</title>
+      <link>https://dubdubdub.co.uk/posts/2006-01-03-traceroute-to-firewalled-hosts/</link>
+      <pubDate>Tue, 03 Jan 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2006-01-03-traceroute-to-firewalled-hosts/</guid>
+      <description>Nice little tool called tcptraceroute, just uses TCP syns instead of ICMP/UDP to give you a more meaningful traceroute; still relies on ICMP time exceeded messages, but still, every little helps when trying to debug someone elses problem!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2005-04-01-ouch-my-ear-still-hurts/</link>
+      <pubDate>Fri, 01 Apr 2005 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2005-04-01-ouch-my-ear-still-hurts/</guid>
+      <description>well, finally tried out CQB (close quarter battle), definitely seems to be lot of full-auto with hicap mags, so you’re looking at pretty much being suppressed/suppressing all the time - so normally you move and get shot down in a hail of plastic!
+Had a restricted ammo loadout game which was seriously good fun, Mr MP5K with a midcap worked really well in semi-auto mode. Got a few kills before running out of ammo (bloody glock got a jam - go figure)</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2005-01-05-configuring-a-macos-server-network/</link>
+      <pubDate>Wed, 05 Jan 2005 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2005-01-05-configuring-a-macos-server-network/</guid>
+      <description>So installed Leopard server over the weekend and here’s some notes and annoyances I’ve hit (and overcame)
+services fail to start – basically forward/reverse DNS must match  greebo:~ localad$ sudo changeip -checkhostname Primary address = 172.16.10.196 Current HostName = greebo.snarc.co.uk DNS HostName = greebo.snarc.co.uk  names match. There is nothing to change.
+ So I cheated and am running split horizon DNS, I’ve not done the following – but is here as a reminder (and if I ever have enough disk space)</description>
+    </item>
+    
+    <item>
+      <title>Parsing last log /var/log/wtmp</title>
+      <link>https://dubdubdub.co.uk/posts/2000-03-09-parsing-last/</link>
+      <pubDate>Thu, 09 Mar 2000 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2000-03-09-parsing-last/</guid>
+      <description>#!/bin/sh # total_logged_in - parses ``last&#39;&#39; ouput to something more sensible. # if you give it a parameter, it will only display last information for # that user last $1 | nawk &#39; { if (NF = 10 &amp;amp;&amp;amp; $10 != &amp;quot;in&amp;quot;) { gsub(/\(/, &amp;quot;&amp;quot;, $10); gsub(/\)/, &amp;quot;&amp;quot;, $10); split($10, a, &amp;quot;:&amp;quot;) if (split(a[1], b, &amp;quot;+&amp;quot;) == 1) { mins=(a[1]*60+a[2]) user[$1] += mins entry[$1]++ } else { mins=(b[1]*1440+b[2]*60+a[2])	user[$1] += mins entry[$1]++ } } } END { printf(&amp;quot;Person \t&amp;lt;DD:HH:MM&amp;gt;\Total Con\n&amp;quot;) print &amp;quot;===========================&amp;quot; for ( person in user ) { mins = user[person] nohours = int(mins/60) mins -= nohours*60 nodays = int(nohours/24) nohours -= nodays*24 printf(&amp;quot;%-10s &amp;lt;%.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2006-05-27-drupal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2006-05-27-drupal/</guid>
+      <description>title: Moving to Drupal layout: post tags:
+ drupal cms date: 2006-05-27   finally feel happy with drupal, finally! Problem is there&amp;rsquo;s not that many themes for it - in comparison to wordpress, and i&amp;rsquo;m not sure i want to spend all that time to get one that I like.
+But aside from a little hacking of this one, i&amp;rsquo;m pretty happy with it. (I wonder how long that&amp;rsquo;ll last =)</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2012-08-08-product-and-corporate-development/</guid>
+      <description>A post written by Tor started me thinking about business and product development, especially in this age of online products. Classically, and not so many years ago, a company would have years in which to develop and maintain a new product (such as friends-reunited) and then have years to recoup any investment and of course profit!
+However in the current markets, there are lots of people, with easy access to both the talent and technologies (developers and already pre-scaled technologies such as Amazon Web Services), that allows for almost any small startup to be able to deliver a globally accessible and scalable web application in essentially a very much shorter development cycle than many &amp;ldquo;classical&amp;rdquo; companies can manage.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2012-08-13-jira-sql-magic/</guid>
+      <description>To save having to understand how the underlying db schema works: SQL Queries for JIRA</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2012-08-20-so-long-facebook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2012-08-20-so-long-facebook/</guid>
+      <description>Well today I made the decision to permanently delete my Facebook account, mostly because I just don&amp;rsquo;t trust it. Or them either, strangely liberating either way, Google plus works well for me so far.
+Suspect Twitter might be the next social site to be pruned.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2012-11-06-the-nature-of-grief/</guid>
+      <description>It&amp;rsquo;s now been a month or so since my little brother Glyn passed away and I&amp;rsquo;ve noticed that after the initial shock of knowing that he is gone I&amp;rsquo;m still having periods of melancholy, sadness and dearly wishing and hoping that he was still here.
+This isn&amp;rsquo;t the five stages of grief as defined by Kübler-Ross, that is aimed at the patient themselves not the family although you can see the use of the framework but something altogether subtler and harder to describe.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-01-22-the-low-points-of-the-high-street/</guid>
+      <description>So in the last week we have had the announcement from both HMV and Blockbuster UK that they are entering administration and so cannot continue to trade as they used to, at the very least.
+I suspect it&amp;rsquo;s not very surprising that both companies primarily dealt with &amp;ldquo;media&amp;rdquo; of one form or the other that, with the increasing availability of bandwidth to end users, are easily converted to digital forms and so the intrinsic costs of bricks and motar stores become a serious overhead.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2013-01-22-the-uk-and-snow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-01-22-the-uk-and-snow/</guid>
+      <description>The normally busy Tuesday morning terminal at London City Airport looking distinctly quiet and lonely, so far most flights are looking cancelled or seriously delayed, this might be one of those &amp;ldquo;interesting days&amp;rdquo; that people look forward to.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</guid>
+      <description>Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&amp;rsquo;s Crowd it&amp;rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:
+&amp;lt;Valve className=&amp;#34;org.apache.catalina.valves.RemoteIpValve&amp;#34; internalProxies=&amp;#34;proxy_IP_address&amp;#34; remoteIpHeader=&amp;#34;x-forwarded-for&amp;#34; remoteIpProxiesHeader=&amp;#34;x-forwarded-by&amp;#34; protocolHeader=&amp;#34;x-forwarded-proto&amp;#34; /&amp;gt; &amp;lt;Valve className=&amp;#34;org.apache.catalina.valves.AccessLogValve&amp;#34; directory=&amp;#34;logs&amp;#34; prefix=&amp;#34;localhost_access.&amp;#34; suffix=&amp;#34;.log&amp;#34; pattern=&amp;#34;combined&amp;#34; resolveHosts=&amp;#34;false&amp;#34; /&amp;gt; The following should be used within nginx to forward that data into tomcat.
+proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Server $host; proxy_set_header X-Forwarded-For $remote_addr; </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</guid>
+      <description>There&amp;rsquo;s plenty of examples of doing this already but it&amp;rsquo;s as simple as:
+$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &amp;#34;fusion Drive&amp;#34; 100% Seems to be working so far, although with typical Apple there&amp;rsquo;s no documentation on how files/objects are moved between the SSD and HDD components</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-10-15-google-authenticator-on-readynas/</guid>
+      <description>First I had to ensure that the stock debian packages are available for installation:
+$ tail /etc/apt/sources.list deb http://archive.debian.org/debian etch main Install g++ and other dependencies
+$ apt-get install g++ libpam0g-dev Download google-authenticator source code:
+$ git clone https://code.google.com/p/google-authenticator/ $ cd google-authenticator/ $ ./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install Then simply follow the instructions over at here</description>
+    </item>
+    
+    <item>
+      <title>Adding tags to docker-maven-plugin</title>
+      <link>https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/</guid>
+      <description>Adding a latest tag to docker containers built by docker-maven-plugin
+ &amp;lt;name&amp;gt;${project.artifactId}:${project.version}&amp;lt;/name&amp;gt; &amp;lt;build&amp;gt; &amp;lt;tags combine.children=&amp;quot;append&amp;quot;&amp;gt; &amp;lt;tag&amp;gt;latest&amp;lt;/tag&amp;gt; &amp;lt;/tags&amp;gt; &amp;lt;from&amp;gt;${base.docker.image}&amp;lt;/from&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>apple remote desktop and vnc</title>
+      <link>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</guid>
+      <description>Ahh, so Apple&amp;rsquo;s Remote Desktop is just a simpler implementation of the VNC protocol (I&amp;rsquo;m sure there&amp;rsquo;s some propriety extensions in there but it&amp;rsquo;s nice to know you can use vncclient to connect to a Mac.
+Options that work well for VNC:-
+[Connection] Host=$HOSTNAME [Options] UseLocalCursor=1 UseDesktopResize=1 FullScreen=0 FullColour=1 LowColourLevel=1 PreferredEncoding=hextile AutoSelect=0 Shared=0 SendPtrEvents=1 SendKeyEvents=1 SendCutText=1 AcceptCutText=1 DisableWinKeys=1 Emulate3=0 PointerEventInterval=0 Monitor= MenuKey=F8 AutoReconnect=1 Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.</description>
+    </item>
+    
+    <item>
+      <title>Capistrano changelog</title>
+      <link>https://dubdubdub.co.uk/posts/2015-01-28-capistrano-changelog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2015-01-28-capistrano-changelog/</guid>
+      <description>Capistrano and Changelogs I needed a more atomic method of listing changes between two deployments whilst using capistrano, so used the following task to perform a git log between two revisions:
+use the following to display:
+$ cap deploy:changelog INFO Changes between 04e7f9a and 3fd3e88 releases INFO e7770ab Built Deployable files from Drush make 8f9d13c Built Deployable files from Drush make 3872d29 Built Deployable files from Drush make 193aaad Built Deployable files from Drush make You can then of course include within any other tasks using the normal capistrano methods</description>
+    </item>
+    
+    <item>
+      <title>CentOS/RHEL 7</title>
+      <link>https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/</guid>
+      <description>So after many years the following changes I&amp;rsquo;ve so far run into with CentOS 7
+firewalld # firewall-cmd --zone=public --add-service=https success # firewall-cmd --zone=public --add-service=http success # firewall-cmd --zone=public --list-all public (default, active) interfaces: eth0 eth1 sources: services: dhcpv6-client http https ssh ports: masquerade: no forward-ports: icmp-blocks: rich rules: systemd # systemd enable nginx # ln -s &amp;#39;/usr/lib/systemd/system/nginx.service&amp;#39; &amp;#39;/etc/systemd/system/multi-user.target.wants/nginx.service&amp;#39; $ systemctl status nginx nginx.service - nginx - high performance web server Loaded: loaded (/usr/lib/systemd/system/nginx.</description>
+    </item>
+    
+    <item>
+      <title>Crowd logged in users</title>
+      <link>https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-04-03-atlassian-crowd-and-last-logged-in-users/</guid>
+      <description>This came in useful for me today to understand users that could be disabled from a crowd instance:
+SELECT cwd_user.user_name AS Username, cwd_user.email_address AS &amp;#34;Email Address&amp;#34;, from_unixtime(cwd_user_attribute.attribute_value/1000) AS &amp;#34;Last Logged In&amp;#34; FROM cwd_user LEFT OUTER JOIN cwd_user_attribute ON cwd_user_attribute.user_id = cwd_user.id AND cwd_user_attribute.attribute_name = &amp;#39;lastAuthenticated&amp;#39; WHERE active = &amp;#39;T&amp;#39; ORDER BY 3,2,1 ; </description>
+    </item>
+    
+    <item>
+      <title>Errors on features export</title>
+      <link>https://dubdubdub.co.uk/posts/2015-10-02-features_export/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2015-10-02-features_export/</guid>
+      <description>Had a strange error being reported when exporting features from a Drupal 7 instance, in that the resultant tar file was not extracting using any of the usual tools, such as tar etc.
+$ file features_export-7.x-1.0-alpha1.tar features_export-7.x-1.0-alpha1.tar: data File magic showed that the file was wrong, but looking at the file itself looked correct at first glance, and a look around on Drupal.org returned this old thread which lead me to</description>
+    </item>
+    
+    <item>
+      <title>Has microsoft lost it&#39;s way?</title>
+      <link>https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/</guid>
+      <description>I cannot help but feel, very probably not helped by the rest of the tech press that Microsoft is still struggling to understand what it&amp;rsquo;s core market is and how to move forward.
+Look at the current Microsoft mobile phone marketing Lumia:
+ Plus, you’ll stay productive on the go with Microsoft Office Mobile built in
+And with Microsoft Office and OneDrive (formerly SkyDrive) built in, you can keep on top of your work even when away from your desk</description>
+    </item>
+    
+    <item>
+      <title>Moving git repositories</title>
+      <link>https://dubdubdub.co.uk/posts/2014-10-08-moving-git-repositories/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-10-08-moving-git-repositories/</guid>
+      <description>So whilst moving between github organisations - which is relatively straight forward, I also had to move some from Atlassian Stash unfortunately there&amp;rsquo;s not as simple a method to do this, but a good way of mirroring between two repos is as follows:
+$ git clone https://donor_repo/example1 --bare $ git remote set-url --push origin https://destination_repo/example2.git $ git fetch -p origin &amp;amp;&amp;amp; git push --mirror Simples.</description>
+    </item>
+    
+    <item>
+      <title>moving to github</title>
+      <link>https://dubdubdub.co.uk/posts/2014-07-23-moving-to-github/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-07-23-moving-to-github/</guid>
+      <description>So I&amp;rsquo;m a big dabbler when it comes to my personal site/pages, over the years I&amp;rsquo;ve moved from the following technologies/software to host:
+ Simple HTML - 1999 Roxen - 2005 Wordpress Drupal Wordpress (again) Blogger Ghost  I&amp;rsquo;ve had a dabble with Jekyll in the past (specifically Heckle) whilst I was playing with moving things to Ghost and given I have already migrated all of my content into Markdown it sounded like the best option (especially given I don&amp;rsquo;t have to then host the application somewhere)</description>
+    </item>
+    
+    <item>
+      <title>OSX and Vagrant!</title>
+      <link>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</guid>
+      <description>So whilst trying to get boxen to work I needed a good method to test, so of course I turned to Vagrant and standing on the works of others (namely Graham Gilbert ) I used the following steps:
+Requirements  Packer Vagrant VMware Fusion  Steps Download and install packer, the easiest method to do this I found was using homebrew
+$ brew install packer Cloning into &amp;#39;/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary&amp;#39;... remote: Reusing existing pack: 143, done.</description>
+    </item>
+    
+    <item>
+      <title>starting kubernetes</title>
+      <link>https://dubdubdub.co.uk/posts/2017-04-12/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2017-04-12/</guid>
+      <description>Getting kubernetes to start with RBAC features enabled
+$ minikube start --vm-driver=xhyve \ 	--extra-config=apiserver.GenericServerRunOptions.AuthorizationMode=RBAC,--authorization-rbac-super-user=minikube-admin \ 	--kubernetes-version=v1.6.0 --memory=4096 --cpus 4 </description>
+    </item>
+    
+    <item>
+      <title>Thoughts on Kubernetes</title>
+      <link>https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/</guid>
+      <description>Just a collection of annoyances on Kubernetes:
+kubectl config and multiple namespaces Seriously! The shear amount of YAML duplication if you have a large number of namespaces and clusters it quite rapidly becomes very annoying, do remember that this is YAML so you could have (ab)used anchors to copy commonly used fragments:
+apiVersion: v1 clusters: - cluster: server: https://cluster1.example.com name: cluster1 contexts: - context: &amp;amp;bar-ns cluster: cluster1 namespace: bar-namespace user: &amp;#34;cluster1-user&amp;#34; name: cluster1-bar-namespace - context: &amp;lt;&amp;lt;: *bar-ns namespace: foo-namespace name: cluster1-foo-namespace - context: &amp;lt;&amp;lt;: *bar-ns namespace: kube-system name: cluster1-kubesystem current-context: cluster1-foo-namespace kind: Config preferences: {} users: [] CURRENT NAME CLUSTER AUTHINFO NAMESPACE * cluster1-foo-namespace cluster1 foo-namespace cluster1-kubesystem cluster1 kube-system cluster1-bar-namespace cluster1 bar-namespace Except: as soon as you use kubectl config use-context it goes and helpfully writes back the expanded YAML structure.</description>
+    </item>
+    
+    <item>
+      <title>Useful business KPIs</title>
+      <link>https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/</guid>
+      <description>Net Promoter score - how likely a customer will recommend customer profitability score - how much profit does individual customers bring to business after costs customer retention rate - loyalty and churn conversation rate - how well prospectives are turned into customers relative market share - how big a share of the pie do you have revenue growth rate - rate of increase of income net profit - income minus expenses net profit margin - percentage of revenue that is profit gross profit margin - profit generate per X of sales operating profit margin - operating income divided by revenue Return in investment - how much X investment generates in new income cash conversion cycle - how long it takes for ROI to happen capacity utilisation rate - how saturated are you resources?</description>
+    </item>
+    
+    <item>
+      <title>User access with Atlassian tools</title>
+      <link>https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/</guid>
+      <description>User access times with Atlassian tools You&amp;rsquo;d be mistaken if you had a few searches on the internet and found the following page suggesting that you could just query the application cwd_user table except when using Crowd when you should query against the crowd cwd_user_attribute table.
+Unfortunately that might have been true back with Jira 4.3, although in the last few years mixing the Atlassian tools (with Crowd as SSO provider) this is no longer the case and I&amp;rsquo;ve found the following MySQL query works well to find out login times for each application</description>
+    </item>
+    
+    <item>
+      <title>Vagrant error during plugin install</title>
+      <link>https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/</guid>
+      <description>Had the following error being thrown when trying to install the vagrant-vbguest plugin:
+$ vagrant plugin install vagrant-vbguest Installing the &#39;vagrant-vbguest&#39; plugin. This can take a few minutes... Bundler, the underlying system Vagrant uses to install plugins, reported an error. The error is shown below. These errors are usually caused by misconfigured plugin installations or transient network issues. The error from Bundler is: An error occurred while installing ffi (1.9.5), and Bundler cannot continue.</description>
+    </item>
+    
+  </channel>
+</rss>

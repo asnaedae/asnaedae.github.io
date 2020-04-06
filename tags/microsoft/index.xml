@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>microsoft on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/microsoft/</link>
+    <description>Recent content in microsoft on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Has microsoft lost it&#39;s way?</title>
+      <link>https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-07-28-has-microsoft-lost-its-way/</guid>
+      <description>I cannot help but feel, very probably not helped by the rest of the tech press that Microsoft is still struggling to understand what it&amp;rsquo;s core market is and how to move forward.
+Look at the current Microsoft mobile phone marketing Lumia:
+ Plus, you’ll stay productive on the go with Microsoft Office Mobile built in
+And with Microsoft Office and OneDrive (formerly SkyDrive) built in, you can keep on top of your work even when away from your desk</description>
+    </item>
+    
+  </channel>
+</rss>

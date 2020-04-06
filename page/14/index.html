@@ -89,26 +89,48 @@
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">jmx and firewalls</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2017-04-12/">starting kubernetes</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-07-07T00:00:00Z">
-          Jul 7, 2010
+        <time datetime="0001-01-01T00:00:00Z">
+          Jan 1, 0001
         </time>
       </div>
     </div>
   </header>
   <div>
-    So at least with Java 1.6 the JVM can use SOCKS for proxying RMI requests, so to get the wonderful jvisualvm (think 1.5 visualGC) working use the following incantations. This requires the initial RMI registry port is open to the client. First the initial SSH to server enabling the SOCKS tunnel
-{% highlight bash %} $ ssh -D localhost:9696 servername {% endhighlight %}
-And now for jvisualvm:
-{% highlight bash %} $ jvisualvm
+    Getting kubernetes to start with RBAC features enabled
+$ minikube start --vm-driver=xhyve \ 	--extra-config=apiserver.GenericServerRunOptions.AuthorizationMode=RBAC,--authorization-rbac-super-user=minikube-admin \ 	--kubernetes-version=v1.6.0 --memory=4096 --cpus 4 
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/">Thoughts on Kubernetes</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="0001-01-01T00:00:00Z">
+          Jan 1, 0001
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Just a collection of annoyances on Kubernetes:
+kubectl config and multiple namespaces Seriously! The shear amount of YAML duplication if you have a large number of namespaces and clusters it quite rapidly becomes very annoying, do remember that this is YAML so you could have (ab)used anchors to copy commonly used fragments:
+apiVersion: v1 clusters: - cluster: server: https://cluster1.example.com name: cluster1 contexts: - context: &amp;bar-ns cluster: cluster1 namespace: bar-namespace user: &#34;cluster1-user&#34; name: cluster1-bar-namespace - context: &lt;&lt;: *bar-ns namespace: foo-namespace name: cluster1-foo-namespace - context: &lt;&lt;: *bar-ns namespace: kube-system name: cluster1-kubesystem current-context: cluster1-foo-namespace kind: Config preferences: {} users: [] CURRENT NAME CLUSTER AUTHINFO NAMESPACE * cluster1-foo-namespace cluster1 foo-namespace cluster1-kubesystem cluster1 kube-system cluster1-bar-namespace cluster1 bar-namespace Except: as soon as you use kubectl config use-context it goes and helpfully writes back the expanded YAML structure.
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -120,24 +142,23 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">searching java log files</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/">Useful business KPIs</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-06-30T00:00:00Z">
-          Jun 30, 2010
+        <time datetime="0001-01-01T00:00:00Z">
+          Jan 1, 0001
         </time>
       </div>
     </div>
   </header>
   <div>
-    So debugging java can be a mighty pain, a little few lines of ways to make it simpler.
-# grep -m 1 -n &#39;^2010-06-30 14:20:&#39; catalina.out 11746233:2010-06-30 14:20:01,011 DEBUG com.beginning.of.line # grep -m 1 -n &#39;^2010-06-30 14:21:&#39; catalina.out 11747788:2010-06-30 14:21:00,161 WARN org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended # sed -n &#39;11746233,11747788p&#39; &lt; catalina.out This gives start line and end line between any two greps and then the body of the log file from those two lines.
+    Net Promoter score - how likely a customer will recommend customer profitability score - how much profit does individual customers bring to business after costs customer retention rate - loyalty and churn conversation rate - how well prospectives are turned into customers relative market share - how big a share of the pie do you have revenue growth rate - rate of increase of income net profit - income minus expenses net profit margin - percentage of revenue that is profit gross profit margin - profit generate per X of sales operating profit margin - operating income divided by revenue Return in investment - how much X investment generates in new income cash conversion cycle - how long it takes for ROI to happen capacity utilisation rate - how saturated are you resources?
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -149,25 +170,24 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">disabling atime in OS X</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/">User access with Atlassian tools</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-01-18T00:00:00Z">
-          Jan 18, 2010
+        <time datetime="0001-01-01T00:00:00Z">
+          Jan 1, 0001
         </time>
       </div>
     </div>
   </header>
   <div>
-    Create the following plist file somewhere useful, e.g. /Library/LaunchDaemons/com.local.noatime.plist
-&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; dict&gt; &lt;key&gt;Label&lt;/key&gt; &lt;string&gt;com.my.noatime&lt;/string&gt; &lt;key&gt;ProgramArguments&lt;/key&gt; &lt;array&gt; &lt;string&gt;mount&lt;/string&gt; &lt;string&gt;-vuwo&lt;/string&gt; &lt;string&gt;noatime&lt;/string&gt; &lt;string&gt;/&lt;/string&gt; &lt;/array&gt; &lt;key&gt;RunAtLoad&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; &lt;/plist&gt; Then run the following to pick up the change, or indeed, reboot:
-% sudo launchctl load /Library/LaunchDaemons/com.local.noatime.plist And you should now see the root file system mounted with noatime option, which should improve longevity of SSD boot drives
+    User access times with Atlassian tools You&rsquo;d be mistaken if you had a few searches on the internet and found the following page suggesting that you could just query the application cwd_user table except when using Crowd when you should query against the crowd cwd_user_attribute table.
+Unfortunately that might have been true back with Jira 4.3, although in the last few years mixing the Atlassian tools (with Crowd as SSO provider) this is no longer the case and I&rsquo;ve found the following MySQL query works well to find out login times for each application
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -179,42 +199,26 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-26-spot-the-difference/">spot the difference</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/">Vagrant error during plugin install</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2009-11-26T00:00:00Z">
-          Nov 26, 2009
+        <time datetime="0001-01-01T00:00:00Z">
+          Jan 1, 0001
         </time>
       </div>
     </div>
   </header>
   <div>
-    
+    Had the following error being thrown when trying to install the vagrant-vbguest plugin:
+$ vagrant plugin install vagrant-vbguest Installing the 'vagrant-vbguest' plugin. This can take a few minutes... Bundler, the underlying system Vagrant uses to install plugins, reported an error. The error is shown below. These errors are usually caused by misconfigured plugin installations or transient network issues. The error from Bundler is: An error occurred while installing ffi (1.9.5), and Bundler cannot continue.
   </div>
   
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-21-snow-leopard-and-the-jvm/">snow leopard and Java</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2009-11-21T00:00:00Z">
-          Nov 21, 2009
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    So in a startling case of &ldquo;Apple knows best&rdquo; they have gone and removed the 1.5 JVM - I know it&rsquo;s pretty old and people were complaining about not having a 1.6 JVM for a long time - but really!
-So the following post steps you through re-enabling the 1.5 VM and now semi-happy days
-  </div>
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
   
 </article>
 
@@ -225,9 +229,9 @@ So the following post steps you through re-enabling the 1.5 VM and now semi-happ
   <hr />
 
 
-  <span class="page-number">Page 1 of 14</span>
+<a class="newer-posts" href="/page/13/"><span aria-hidden="true">&laquo;</span> Newer Posts</a>
 
-<a class="older-posts" href="/page/2/">Older Posts <span aria-hidden="true">&raquo;</span></a>
+  <span class="page-number">Page 14 of 14</span>
 
 </nav>
 

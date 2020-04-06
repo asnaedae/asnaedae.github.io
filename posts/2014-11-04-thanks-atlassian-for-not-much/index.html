@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" User access with Atlassian tools &middot;  Mike&#39;s ramblings" />
+  
+  <meta name="theme-color" content="#f0f0f0" />
+ 
+  <meta property="og:site_name" content="Mike&#39;s ramblings" />
+  <meta property="og:url" content="https://dubdubdub.co.uk/posts/2014-11-04-thanks-atlassian-for-not-much/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="0001-01-01T00:00:00Z" />
+  
+  <meta property="og:article:tag" content="atlassian" />
+  
+  <meta property="og:article:tag" content="sql" />
+  
+  
+
+  <title>
+     User access with Atlassian tools &middot;  Mike&#39;s ramblings
+  </title>
+
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/main.css" />
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/github.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="shortcut icon" href="https://dubdubdub.co.uk/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://dubdubdub.co.uk/images/apple-touch-icon.png" />
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://dubdubdub.co.uk/">Mike&#39;s ramblings</a></h1>
+      
+      <div class="tag-line">
+        Short subtitle/tagline of your blog
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="#ZgotmplZ">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  <a href="https://github.com/asnaedae" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  <a href="https://reddit.com/user/asnaedae" target="_blank">
+    <i class="fa fa-reddit-alien"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://linkedin.com/in/mikewallis" target="_blank">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  <a href="https://keybase.io/asnaedae" target="_blank">
+    <i class="fa fa-key"></i>
+  </a>
+  
+</div>
+
+      
+      <a href="https://dubdubdub.co.uk/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">User access with Atlassian tools</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="0001-01-01T00:00:00Z">
+          Jan 1, 0001
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://dubdubdub.co.uk//tags/atlassian">#atlassian</a></span>
+        
+        <span class="post-tag small"><a href="https://dubdubdub.co.uk//tags/sql">#sql</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <h3 id="user-access-times-with-atlassian-tools">User access times with Atlassian tools</h3>
+<p>You&rsquo;d be mistaken if you had a few searches on the internet and found the following <a href="https://confluence.atlassian.com/display/JIRAKB/Retrieve+last+login+dates+for+users+from+the+database">page</a> suggesting that you could just query the application <code>cwd_user</code> table except when using <a href="http://www.atlassian.com/software/crowd">Crowd</a> when you should query against the crowd <code>cwd_user_attribute</code> table.</p>
+<p>Unfortunately that might have been true back with <a href="http://www.atlassian.com/software/jira">Jira</a> 4.3, although in the last few years mixing the Atlassian tools (with <a href="http://www.atlassian.com/software/crowd">Crowd</a> as SSO provider) this is no longer the case and I&rsquo;ve found the following MySQL query works well to find out login times for each application</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">c</span>.user_name <span style="color:#66d9ef">AS</span> Username,
+<span style="color:#66d9ef">c</span>.email_address <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Email Address</span><span style="color:#e6db74">&#34;</span>,
+from_unixtime(cua.attribute_value<span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span>) <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Crowd Access</span><span style="color:#e6db74">&#34;</span>,
+j.updated_date <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Jira Access</span><span style="color:#e6db74">&#34;</span>,
+co.updated_date <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Confluence Access</span><span style="color:#e6db74">&#34;</span>,
+s.updated_date <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Stash Access</span><span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">FROM</span>
+  crowddb.cwd_user <span style="color:#66d9ef">c</span>,
+  jiradb.cwd_user j,
+  crowddb.cwd_user_attribute cua,
+  confluencedb.cwd_user co,
+  stashdb.cwd_user s
+<span style="color:#66d9ef">WHERE</span>  <span style="color:#66d9ef">c</span>.active <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">T</span><span style="color:#e6db74">&#39;</span>
+<span style="color:#66d9ef">AND</span> <span style="color:#66d9ef">c</span>.user_name <span style="color:#f92672">=</span> j.user_name
+<span style="color:#66d9ef">AND</span> <span style="color:#66d9ef">c</span>.user_name <span style="color:#f92672">=</span> co.user_name
+<span style="color:#66d9ef">AND</span> <span style="color:#66d9ef">c</span>.user_name <span style="color:#f92672">=</span> s.user_name
+<span style="color:#66d9ef">AND</span> cua.user_id <span style="color:#f92672">=</span> <span style="color:#66d9ef">c</span>.id
+<span style="color:#66d9ef">AND</span> cua.attribute_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">lastAuthenticated</span><span style="color:#e6db74">&#39;</span>
+<span style="color:#66d9ef">AND</span> DATE_SUB(CURDATE(),INTERVAL <span style="color:#ae81ff">60</span> <span style="color:#66d9ef">DAY</span>) <span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span> from_unixtime(cua.attribute_value<span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span>)
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>;
+</code></pre></div><p>And you should end up query data similar to:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">+</span><span style="color:#75715e">--------------+-------------------+---------------------+---------------------+---------------------+---------------------+
+</span><span style="color:#75715e"></span><span style="color:#f92672">|</span> Username     <span style="color:#f92672">|</span> Email Address     <span style="color:#f92672">|</span> Crowd <span style="color:#66d9ef">Access</span>        <span style="color:#f92672">|</span> Jira <span style="color:#66d9ef">Access</span>         <span style="color:#f92672">|</span> Confluence <span style="color:#66d9ef">Access</span>   <span style="color:#f92672">|</span> Stash <span style="color:#66d9ef">Access</span>        <span style="color:#f92672">|</span>
+<span style="color:#f92672">+</span><span style="color:#75715e">--------------+-------------------+---------------------+---------------------+---------------------+---------------------+
+</span><span style="color:#75715e"></span><span style="color:#f92672">|</span> user1        <span style="color:#f92672">|</span> user1<span style="color:#f92672">@</span>example.com <span style="color:#f92672">|</span> <span style="color:#ae81ff">2013</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span> <span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span> <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2013</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span> <span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span> <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> user2        <span style="color:#f92672">|</span> user2<span style="color:#f92672">@</span>example.com <span style="color:#f92672">|</span> <span style="color:#ae81ff">2013</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span> <span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span> <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2013</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span> <span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span> <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> user3        <span style="color:#f92672">|</span> user3<span style="color:#f92672">@</span>example.com <span style="color:#f92672">|</span> <span style="color:#ae81ff">2013</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span> <span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span> <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2013</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span> <span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span> <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span>
+<span style="color:#f92672">+</span><span style="color:#75715e">--------------+-------------------+---------------------+---------------------+---------------------+---------------------+
+</span></code></pre></div>
+  </section>
+  <footer>
+    
+    
+    
+    <section class="author-info row">
+      <div class="author-avatar col-md-2">
+        
+        <img alt="Author Avatar" src="/path/to/avatar" />
+        
+      </div>
+      <div class="author-meta col-md-6">
+        
+        <h1 class="author-name text-primary">Mike Wallis</h1>
+        
+        
+        <div class="author-bio">Your short bio</div>
+        
+      </div>
+      
+      <div class="author-contact col-md-4">
+        <a href="#ZgotmplZ">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+      </div>
+      
+    </section>
+    <ul class="pager">
+      
+      <li class="previous"><a href="https://dubdubdub.co.uk/posts/2014-09-30-vagrant-plugin-error/"><span aria-hidden="true">&larr;</span>Older</a></li>
+      
+      
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-08-04-business-kpis/">Newer<span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      &copy; Copyright notice
+    </div>
+    <div class="sns-links hidden-print">
+  
+  <a href="#ZgotmplZ">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  <a href="https://github.com/asnaedae" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  <a href="https://reddit.com/user/asnaedae" target="_blank">
+    <i class="fa fa-reddit-alien"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://linkedin.com/in/mikewallis" target="_blank">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  <a href="https://keybase.io/asnaedae" target="_blank">
+    <i class="fa fa-key"></i>
+  </a>
+  
+</div>
+
+  </footer>
+
+  <script src="https://dubdubdub.co.uk/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'Your Google Analytics tracking id', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+  
+</body>
+</html>
+

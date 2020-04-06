@@ -89,26 +89,26 @@
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">jmx and firewalls</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-08-01-isync-fun/">playing with isync</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-07-07T00:00:00Z">
-          Jul 7, 2010
+        <time datetime="2007-08-01T00:00:00Z">
+          Aug 1, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    So at least with Java 1.6 the JVM can use SOCKS for proxying RMI requests, so to get the wonderful jvisualvm (think 1.5 visualGC) working use the following incantations. This requires the initial RMI registry port is open to the client. First the initial SSH to server enabling the SOCKS tunnel
-{% highlight bash %} $ ssh -D localhost:9696 servername {% endhighlight %}
-And now for jvisualvm:
-{% highlight bash %} $ jvisualvm
+    so one shiny nokia e65, and a bit of frustration, later; have found the following recipe for getting the phone to sync correctly with iSync.
+Firstly download the plugin from Nokia
+Then install and if you get a rather cryptic error like this:
+[Nokia E65] Device is not available or synchronization was cancelled. Close dialogs and applications on the phone and try again. Device “Nokia E65″ synchronization failed Looks like the Nokia installer drops the plugin into a strange location (originally it allowed isync to work once and then I got the error message
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-08-01-isync-fun/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -120,24 +120,24 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">searching java log files</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-07-11-zones/">Solaris zone configuration</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-06-30T00:00:00Z">
-          Jun 30, 2010
+        <time datetime="2007-07-11T00:00:00Z">
+          Jul 11, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    So debugging java can be a mighty pain, a little few lines of ways to make it simpler.
-# grep -m 1 -n &#39;^2010-06-30 14:20:&#39; catalina.out 11746233:2010-06-30 14:20:01,011 DEBUG com.beginning.of.line # grep -m 1 -n &#39;^2010-06-30 14:21:&#39; catalina.out 11747788:2010-06-30 14:21:00,161 WARN org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended # sed -n &#39;11746233,11747788p&#39; &lt; catalina.out This gives start line and end line between any two greps and then the body of the log file from those two lines.
+    Configure the zone you want, this is just a basic configuration (suited to a name server - that inherits the global zones /var/named)
+# zonecfg -z solzone solzone: No such zone configured Use &#39;create&#39; to begin configuring a new zone. zonecfg:solzone&gt; create zonecfg:solzone&gt; set zonepath=/u01/zones/solzone zonecfg:solzone&gt; set autoboot=true zonecfg:solzone&gt; add net zonecfg:solzone:net&gt; set address=10.10.10.20/24 zonecfg:solzone:net&gt; set physical=bge0 zonecfg:solzone:net&gt; end zonecfg:solzone&gt; add fs zonecfg:solzone:fs&gt; set type=lofs zonecfg:solzone:fs&gt; set special=/u01/zonedata/solzone zonecfg:solzone:fs&gt; set dir=/u01 zonecfg:solzone:fs&gt; end zonecfg:solzone&gt; add inherit-pkg-dir zonecfg:solzone:inherit-pkg-dir&gt; set dir=/var/named zonecfg:solzone:inherit-pkg-dir&gt; end zonecfg:solzone&gt; add attr zonecfg:solzone:attr&gt; set name=comment zonecfg:solzone:attr&gt; set type=string zonecfg:solzone:attr&gt; set value=&#34;test solaris zone&#34; zonecfg:solzone:attr&gt; end zonecfg:solzone&gt; verify zonecfg:solzone&gt; commit zonecfg:solzone&gt; exit And now install and boot the zone
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-07-11-zones/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -149,25 +149,27 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">disabling atime in OS X</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-07-10-db2-solaris10/"></a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-01-18T00:00:00Z">
-          Jan 18, 2010
+        <time datetime="2007-07-10T00:00:00Z">
+          Jul 10, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    Create the following plist file somewhere useful, e.g. /Library/LaunchDaemons/com.local.noatime.plist
-&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; dict&gt; &lt;key&gt;Label&lt;/key&gt; &lt;string&gt;com.my.noatime&lt;/string&gt; &lt;key&gt;ProgramArguments&lt;/key&gt; &lt;array&gt; &lt;string&gt;mount&lt;/string&gt; &lt;string&gt;-vuwo&lt;/string&gt; &lt;string&gt;noatime&lt;/string&gt; &lt;string&gt;/&lt;/string&gt; &lt;/array&gt; &lt;key&gt;RunAtLoad&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; &lt;/plist&gt; Then run the following to pick up the change, or indeed, reboot:
-% sudo launchctl load /Library/LaunchDaemons/com.local.noatime.plist And you should now see the root file system mounted with noatime option, which should improve longevity of SSD boot drives
+    Hmm, nice little error when trying to start db2 on solaris 10, stating that it was unable to start up the database and i should check my SHM settings!
+Arrgh!
+prctl reported correct project settings, so tried truss:-
+# truss -f db2start truss: cannot trace set-id or unreadable object file: db2start Cue alarm bells, proven by trusty &ldquo;ls&rdquo;:
+# truss -f db2start -rwsr-xr-x 1 root root 238584 Jul 10 12:28 db2start Add root to the user.
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-07-10-db2-solaris10/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -179,18 +181,18 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-26-spot-the-difference/">spot the difference</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-07-03-crash-dump-analysis/"></a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2009-11-26T00:00:00Z">
-          Nov 26, 2009
+        <time datetime="2007-07-03T00:00:00Z">
+          Jul 3, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    
+    Found this written by Frank Hofmann, very interestly little history lesson about the x86 chipset. (he also talks about how HOSTID is generated on solaris x86 - which shows how important it is to keep track of your /kernel/misc/sysinfo file for hostid locked software :D
   </div>
   
 </article>
@@ -201,19 +203,20 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-21-snow-leopard-and-the-jvm/">snow leopard and Java</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-06-18-bluecoat-bits/"></a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2009-11-21T00:00:00Z">
-          Nov 21, 2009
+        <time datetime="2007-06-18T00:00:00Z">
+          Jun 18, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    So in a startling case of &ldquo;Apple knows best&rdquo; they have gone and removed the 1.5 JVM - I know it&rsquo;s pretty old and people were complaining about not having a 1.6 JVM for a long time - but really!
-So the following post steps you through re-enabling the 1.5 VM and now semi-happy days
+    Suppression of authentication log entries:-
+&lt;Exception&gt; exception.id=(”authentication_redirect_from_virtual_host”, “authentication_redirect_to_virtual_host”, “authentication_failed”) access_log[main](no) And to get a dump of the config, though the “unencrypted” option doesn’t seem to work on SGOS 4.2.3
+configure t line-vty length 0 show version show status show configuration with-keyrings unencrypted length 80 exit exit exit 
   </div>
   
 </article>
@@ -225,9 +228,11 @@ So the following post steps you through re-enabling the 1.5 VM and now semi-happ
   <hr />
 
 
-  <span class="page-number">Page 1 of 14</span>
+<a class="newer-posts" href="/page/6/"><span aria-hidden="true">&laquo;</span> Newer Posts</a>
 
-<a class="older-posts" href="/page/2/">Older Posts <span aria-hidden="true">&raquo;</span></a>
+  <span class="page-number">Page 7 of 14</span>
+
+<a class="older-posts" href="/page/8/">Older Posts <span aria-hidden="true">&raquo;</span></a>
 
 </nav>
 

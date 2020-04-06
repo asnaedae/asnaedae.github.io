@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/git/</link>
+    <description>Recent content in git on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Moving git repositories</title>
+      <link>https://dubdubdub.co.uk/posts/2014-10-08-moving-git-repositories/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-10-08-moving-git-repositories/</guid>
+      <description>So whilst moving between github organisations - which is relatively straight forward, I also had to move some from Atlassian Stash unfortunately there&amp;rsquo;s not as simple a method to do this, but a good way of mirroring between two repos is as follows:
+$ git clone https://donor_repo/example1 --bare $ git remote set-url --push origin https://destination_repo/example2.git $ git fetch -p origin &amp;amp;&amp;amp; git push --mirror Simples.</description>
+    </item>
+    
+  </channel>
+</rss>

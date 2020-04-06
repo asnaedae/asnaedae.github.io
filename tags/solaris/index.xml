@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Solaris on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/solaris/</link>
+    <description>Recent content in Solaris on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Tue, 30 Dec 2008 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/solaris/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mercurial SCM</title>
+      <link>https://dubdubdub.co.uk/posts/2008-12-30-playing-with-mercurial/</link>
+      <pubDate>Tue, 30 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-12-30-playing-with-mercurial/</guid>
+      <description>Well, been playing with opensolaris and they use mercurial as a DSVN - and another benefit of that over git is that the command set is very much similar to SVN/Subversion - which is important for us people who /don&amp;rsquo;t/ use it every day.
+Migrating was straight-forward:
+$ mkdir ~/svn &amp;amp;&amp;amp; cd ~/svn $ hgimportsvn https://dubdubdub.co.uk/svn/mike $ find . -name .svn -type d | xargs rm -rf One thing to note when using - which took me a bit of reading to realise - it&amp;rsquo;s distributed, so if you&amp;rsquo;ve your own local copy - you have to commit and then push/pull changes out!</description>
+    </item>
+    
+    <item>
+      <title>Filesystem caching and performance</title>
+      <link>https://dubdubdub.co.uk/posts/2008-10-25-interesting-benefits-of-solaris/</link>
+      <pubDate>Sat, 25 Oct 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-10-25-interesting-benefits-of-solaris/</guid>
+      <description>well this is slightly surprising, but in a very good way, and does lead to some interesting suggestions on how to best to improve matters, but look at the following graph of FAST ESP query latency:
+Notice that the average latency drops as we use the server more . . . but WHY? Well that&amp;rsquo;s just because we&amp;rsquo;re running the FAST indexes on a ZFS based file system and the L2 ARC cache is making it&amp;rsquo;s presence felt</description>
+    </item>
+    
+    <item>
+      <title>dladm</title>
+      <link>https://dubdubdub.co.uk/posts/2008-10-15-dladm/</link>
+      <pubDate>Wed, 15 Oct 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-10-15-dladm/</guid>
+      <description>dladm is a new command with solaris 10 which can do many clever things (I think the general idea behind it is that ifconfig was becoming bloated with features and options that it was a good idea to break the link between the physical network provision and the logical usage)
+ie: dladm - physical link provision/configuration ifconfig - logical link configuration  Assuming a server with two gigabit ethernet connections connected to two switches (for physical resillience):-</description>
+    </item>
+    
+    <item>
+      <title>Solaris zone configuration</title>
+      <link>https://dubdubdub.co.uk/posts/2007-07-11-zones/</link>
+      <pubDate>Wed, 11 Jul 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-07-11-zones/</guid>
+      <description>Configure the zone you want, this is just a basic configuration (suited to a name server - that inherits the global zones /var/named)
+# zonecfg -z solzone solzone: No such zone configured Use &amp;#39;create&amp;#39; to begin configuring a new zone. zonecfg:solzone&amp;gt; create zonecfg:solzone&amp;gt; set zonepath=/u01/zones/solzone zonecfg:solzone&amp;gt; set autoboot=true zonecfg:solzone&amp;gt; add net zonecfg:solzone:net&amp;gt; set address=10.10.10.20/24 zonecfg:solzone:net&amp;gt; set physical=bge0 zonecfg:solzone:net&amp;gt; end zonecfg:solzone&amp;gt; add fs zonecfg:solzone:fs&amp;gt; set type=lofs zonecfg:solzone:fs&amp;gt; set special=/u01/zonedata/solzone zonecfg:solzone:fs&amp;gt; set dir=/u01 zonecfg:solzone:fs&amp;gt; end zonecfg:solzone&amp;gt; add inherit-pkg-dir zonecfg:solzone:inherit-pkg-dir&amp;gt; set dir=/var/named zonecfg:solzone:inherit-pkg-dir&amp;gt; end zonecfg:solzone&amp;gt; add attr zonecfg:solzone:attr&amp;gt; set name=comment zonecfg:solzone:attr&amp;gt; set type=string zonecfg:solzone:attr&amp;gt; set value=&amp;#34;test solaris zone&amp;#34; zonecfg:solzone:attr&amp;gt; end zonecfg:solzone&amp;gt; verify zonecfg:solzone&amp;gt; commit zonecfg:solzone&amp;gt; exit And now install and boot the zone</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2006-09-08-solaris-zone-utilisation-via-snmp/</link>
+      <pubDate>Fri, 08 Sep 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2006-09-08-solaris-zone-utilisation-via-snmp/</guid>
+      <description>It’s been a bug-bear for a long time for me that the CPU metrics when querying a Solaris 10 host are global and not zone specific (which of course makes sense, just makes it harder to track zone utilisation).
+So finally wrote a basic perl script that will provide that information via a SNMP mib, output looks like the following:
+&amp;gt; snmpwalk -v 1 -c public localhost .1.3.6.1.4.1.2021.255.7 UCD-SNMP-MIB::ucdavis.255.7.0 = STRING: &amp;#34;Zone name&amp;#34; UCD-SNMP-MIB::ucdavis.</description>
+    </item>
+    
+  </channel>
+</rss>

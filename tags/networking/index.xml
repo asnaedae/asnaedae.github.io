@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>networking on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/networking/</link>
+    <description>Recent content in networking on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Mon, 29 Sep 2008 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>playing with TCP Trace</title>
+      <link>https://dubdubdub.co.uk/posts/2008-09-29-playing-with-tcptrace-and-xplot/</link>
+      <pubDate>Mon, 29 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-09-29-playing-with-tcptrace-and-xplot/</guid>
+      <description># tcpdump -ni en0 port 80 -w output.trace # tcptrace -G output.trace # xplot *tput.xpl From the online manpage:
+Yellow: instantaneous packets Red: Throughput for the last few packets Blue: Throughput since the start of the stream/connection
+Other useful graphs:
+ _owin.xpl - outstanding data/congestion _rtt.xpl - round trip time/time _ssize.xpl - segment size/time _tput.xpl - throughput/time _tsg.xpl - time sequence graph _tline.xpl - Timeline graph - W Richard Stevens style  Just some notes here so I don&amp;rsquo;t forget the basics - manual over at here</description>
+    </item>
+    
+    <item>
+      <title>queueing delays in IP</title>
+      <link>https://dubdubdub.co.uk/posts/2008-09-26-interesting-posts-from-nanog/</link>
+      <pubDate>Fri, 26 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-09-26-interesting-posts-from-nanog/</guid>
+      <description>Following reply by iljitsch van Beijnum about queueing delays in IP, looked to be a good little summary.
+ The answer is that delay is only one aspect of performance, another important one is packet loss. As link bandwidth increases, queuing delays decrease proportionally. So if you’re using your 10 Mbps link with average 500 byte packets at 98% capacity, you’ll generally have a 49-packet queue. (queue = utilization / (1 - utilization)) Our 500 byte packets are transmitted at 0.</description>
+    </item>
+    
+    <item>
+      <title>Tracing firewalled hosts</title>
+      <link>https://dubdubdub.co.uk/posts/2006-01-03-traceroute-to-firewalled-hosts/</link>
+      <pubDate>Tue, 03 Jan 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2006-01-03-traceroute-to-firewalled-hosts/</guid>
+      <description>Nice little tool called tcptraceroute, just uses TCP syns instead of ICMP/UDP to give you a more meaningful traceroute; still relies on ICMP time exceeded messages, but still, every little helps when trying to debug someone elses problem!</description>
+    </item>
+    
+  </channel>
+</rss>

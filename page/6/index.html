@@ -89,26 +89,24 @@
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">jmx and firewalls</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-12-05-piracy/">piracy in the real world</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-07-07T00:00:00Z">
-          Jul 7, 2010
+        <time datetime="2007-12-05T00:00:00Z">
+          Dec 5, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    So at least with Java 1.6 the JVM can use SOCKS for proxying RMI requests, so to get the wonderful jvisualvm (think 1.5 visualGC) working use the following incantations. This requires the initial RMI registry port is open to the client. First the initial SSH to server enabling the SOCKS tunnel
-{% highlight bash %} $ ssh -D localhost:9696 servername {% endhighlight %}
-And now for jvisualvm:
-{% highlight bash %} $ jvisualvm
+    well was quite strange this evening as I&rsquo;ve just finished Frederick Forsythe&rsquo;s &ldquo;The Afghan&rdquo;, which giving the game away slighly deals with some terrorists stealing a large ship or two. So I was having quite a sense of déjà-vu watching a documentary on one of the discovery channels about the same subject. Or of course it might just be that the film-makers read the same books!
+Though they did raise a few good points about the close of the cold war allowing for a large surge in the numbers of piracy encounters in recent years, as the drop in the numbers of regular navy vessels in the oceans fell, though I&rsquo;m also wondering if the increase in the freedom of information as well as increased availability of arms - such as the RPG7 - also has something to do with it.
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-12-05-piracy/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -120,24 +118,50 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">searching java log files</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-11-16-time-machine/">time machine with smbfs</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-06-30T00:00:00Z">
-          Jun 30, 2010
+        <time datetime="2007-11-16T00:00:00Z">
+          Nov 16, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    So debugging java can be a mighty pain, a little few lines of ways to make it simpler.
-# grep -m 1 -n &#39;^2010-06-30 14:20:&#39; catalina.out 11746233:2010-06-30 14:20:01,011 DEBUG com.beginning.of.line # grep -m 1 -n &#39;^2010-06-30 14:21:&#39; catalina.out 11747788:2010-06-30 14:21:00,161 WARN org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended # sed -n &#39;11746233,11747788p&#39; &lt; catalina.out This gives start line and end line between any two greps and then the body of the log file from those two lines.
+    Well there is some undocumented methods to make time machine work on non-locally attached storage, and although it might be disabled in patches - this works pretty well:
+As a regular user and in a terminal
+$ defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1 Then when you visit the time machine preferences you can choose a network share as a TM location. Now it&rsquo;s very tempting to get a little mac mini for some zfs/nfs goodness
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-10-03-travel-tips/">Google travel tips</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2007-10-03T00:00:00Z">
+          Oct 3, 2007
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Heh, well ok, I didn&rsquo;t know but when abroad and you need to use google, it can be slightly tricky to use if you don&rsquo;t know the local language.
+So if you use :-
+Norwegian Google Homepage It&rsquo;ll change your default language to english - this also works with changing back to anything like
+Russian Google Homepage To swap yourself to Russian - very helpful - previously i was also hand adding ?
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-10-03-travel-tips/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -149,72 +173,50 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">disabling atime in OS X</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-09-06-troubleshooting-escenic/">troubleshooting escenic</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-01-18T00:00:00Z">
-          Jan 18, 2010
+        <time datetime="2007-09-06T00:00:00Z">
+          Sep 6, 2007
         </time>
       </div>
     </div>
   </header>
   <div>
-    Create the following plist file somewhere useful, e.g. /Library/LaunchDaemons/com.local.noatime.plist
-&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; dict&gt; &lt;key&gt;Label&lt;/key&gt; &lt;string&gt;com.my.noatime&lt;/string&gt; &lt;key&gt;ProgramArguments&lt;/key&gt; &lt;array&gt; &lt;string&gt;mount&lt;/string&gt; &lt;string&gt;-vuwo&lt;/string&gt; &lt;string&gt;noatime&lt;/string&gt; &lt;string&gt;/&lt;/string&gt; &lt;/array&gt; &lt;key&gt;RunAtLoad&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; &lt;/plist&gt; Then run the following to pick up the change, or indeed, reboot:
-% sudo launchctl load /Library/LaunchDaemons/com.local.noatime.plist And you should now see the root file system mounted with noatime option, which should improve longevity of SSD boot drives
+    Error:
+Internal error: There was a database error: \ java.security.AccessControlException: access denied \ (neo.xredsys.auth.UserPermission 1 create) Solution: You&rsquo;ve not followed the installation instructions and not changed the java.security settings:
+-Djava.security.policy=/u01/apps/escenic/engine-4.3-2/security/java.policy -Djava.security.auth.login.config=/u01/apps/escenic/engine-4.3-2/security/jaas.config 
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2007-08-28-balloons-everywhere/">balloons everywhere</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2007-08-28T00:00:00Z">
+          Aug 28, 2007
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Well we were sitting down eating pizza, and watching the kids down below “losing” their balloons, after an hour or so there was a pretty large collection of them sitting around the roof. Now question is whether someone went up there to bring them down, or did they just wait a few days for the helium to leak out?
+Unfortunately, only had my phone with me – so not as nice a picture as it could’ve been – still, and interesting view.
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2007-08-28-balloons-everywhere/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-26-spot-the-difference/">spot the difference</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2009-11-26T00:00:00Z">
-          Nov 26, 2009
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    
-  </div>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-21-snow-leopard-and-the-jvm/">snow leopard and Java</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2009-11-21T00:00:00Z">
-          Nov 21, 2009
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    So in a startling case of &ldquo;Apple knows best&rdquo; they have gone and removed the 1.5 JVM - I know it&rsquo;s pretty old and people were complaining about not having a 1.6 JVM for a long time - but really!
-So the following post steps you through re-enabling the 1.5 VM and now semi-happy days
-  </div>
   
 </article>
 
@@ -225,9 +227,11 @@ So the following post steps you through re-enabling the 1.5 VM and now semi-happ
   <hr />
 
 
-  <span class="page-number">Page 1 of 14</span>
+<a class="newer-posts" href="/page/5/"><span aria-hidden="true">&laquo;</span> Newer Posts</a>
 
-<a class="older-posts" href="/page/2/">Older Posts <span aria-hidden="true">&raquo;</span></a>
+  <span class="page-number">Page 6 of 14</span>
+
+<a class="older-posts" href="/page/7/">Older Posts <span aria-hidden="true">&raquo;</span></a>
 
 </nav>
 

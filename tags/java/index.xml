@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/java/</link>
+    <description>Recent content in java on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Wed, 07 Jul 2010 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>jmx and firewalls</title>
+      <link>https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/</link>
+      <pubDate>Wed, 07 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/</guid>
+      <description>So at least with Java 1.6 the JVM can use SOCKS for proxying RMI requests, so to get the wonderful jvisualvm (think 1.5 visualGC) working use the following incantations. This requires the initial RMI registry port is open to the client. First the initial SSH to server enabling the SOCKS tunnel
+{% highlight bash %} $ ssh -D localhost:9696 servername {% endhighlight %}
+And now for jvisualvm:
+{% highlight bash %} $ jvisualvm</description>
+    </item>
+    
+    <item>
+      <title>searching java log files</title>
+      <link>https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/</link>
+      <pubDate>Wed, 30 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/</guid>
+      <description>So debugging java can be a mighty pain, a little few lines of ways to make it simpler.
+# grep -m 1 -n &amp;#39;^2010-06-30 14:20:&amp;#39; catalina.out 11746233:2010-06-30 14:20:01,011 DEBUG com.beginning.of.line # grep -m 1 -n &amp;#39;^2010-06-30 14:21:&amp;#39; catalina.out 11747788:2010-06-30 14:21:00,161 WARN org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended # sed -n &amp;#39;11746233,11747788p&amp;#39; &amp;lt; catalina.out This gives start line and end line between any two greps and then the body of the log file from those two lines.</description>
+    </item>
+    
+    <item>
+      <title>snow leopard and Java</title>
+      <link>https://dubdubdub.co.uk/posts/2009-11-21-snow-leopard-and-the-jvm/</link>
+      <pubDate>Sat, 21 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2009-11-21-snow-leopard-and-the-jvm/</guid>
+      <description>So in a startling case of &amp;ldquo;Apple knows best&amp;rdquo; they have gone and removed the 1.5 JVM - I know it&amp;rsquo;s pretty old and people were complaining about not having a 1.6 JVM for a long time - but really!
+So the following post steps you through re-enabling the 1.5 VM and now semi-happy days</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2006-04-01-escenic-debian-notes/</link>
+      <pubDate>Sat, 01 Apr 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2006-04-01-escenic-debian-notes/</guid>
+      <description>NON-FREE APT REPOSITORIES Install openssh package if not already installed
+# apt-get install openssh-server Add the following to /etc/apt/sources.list:
+deb http://oss.oracle.com/debian unstable main non-free deb http://ftp.uk.debian.org/debian etch main contrib non-free # apt-get update Install Async IO library for Oracle
+# apt-get install libaio Install optional extras for converting the JVM to a .deb
+# apt-get install build-essential fakeroot java-package # download sun binary JDK Create the ”deb” package:
+$ su - escenic # fakeroot make-jpkg jdk-1_5_0_14-linux-i586.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</guid>
+      <description>Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&amp;rsquo;s Crowd it&amp;rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:
+&amp;lt;Valve className=&amp;#34;org.apache.catalina.valves.RemoteIpValve&amp;#34; internalProxies=&amp;#34;proxy_IP_address&amp;#34; remoteIpHeader=&amp;#34;x-forwarded-for&amp;#34; remoteIpProxiesHeader=&amp;#34;x-forwarded-by&amp;#34; protocolHeader=&amp;#34;x-forwarded-proto&amp;#34; /&amp;gt; &amp;lt;Valve className=&amp;#34;org.apache.catalina.valves.AccessLogValve&amp;#34; directory=&amp;#34;logs&amp;#34; prefix=&amp;#34;localhost_access.&amp;#34; suffix=&amp;#34;.log&amp;#34; pattern=&amp;#34;combined&amp;#34; resolveHosts=&amp;#34;false&amp;#34; /&amp;gt; The following should be used within nginx to forward that data into tomcat.
+proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Server $host; proxy_set_header X-Forwarded-For $remote_addr; </description>
+    </item>
+    
+  </channel>
+</rss>

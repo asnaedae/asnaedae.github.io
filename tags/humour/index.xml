@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>humour on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/humour/</link>
+    <description>Recent content in humour on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Mon, 09 Apr 2007 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/humour/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://dubdubdub.co.uk/posts/2007-04-09-building-to-specification/</link>
+      <pubDate>Mon, 09 Apr 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2007-04-09-building-to-specification/</guid>
+      <description> An elephant: A mouse built to government specifications
+ </description>
+    </item>
+    
+  </channel>
+</rss>

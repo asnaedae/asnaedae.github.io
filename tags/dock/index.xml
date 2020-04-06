@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dock on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/dock/</link>
+    <description>Recent content in dock on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Thu, 07 Feb 2008 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/dock/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>recent applications in OS X</title>
+      <link>https://dubdubdub.co.uk/posts/2008-02-07-recent-applications-window/</link>
+      <pubDate>Thu, 07 Feb 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2008-02-07-recent-applications-window/</guid>
+      <description>This little snippet will give you a new little window for all those recent applications you launch – I seem to have picked up a habit for closing applications down when I stop working with them for an hour or two (pages etc.)
+$ write com.apple.dock persistent-others -array-add \  &amp;#39;{ &amp;#34;tile-data&amp;#34; = { &amp;#34;list-type&amp;#34; = 1; }; &amp;#34;tile-type&amp;#34; = &amp;#34;recents-tile&amp;#34;; }&amp;#39; $ killall Dock </description>
+    </item>
+    
+  </channel>
+</rss>

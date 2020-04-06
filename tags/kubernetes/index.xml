@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/kubernetes/</link>
+    <description>Recent content in kubernetes on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>starting kubernetes</title>
+      <link>https://dubdubdub.co.uk/posts/2017-04-12/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2017-04-12/</guid>
+      <description>Getting kubernetes to start with RBAC features enabled
+$ minikube start --vm-driver=xhyve \ 	--extra-config=apiserver.GenericServerRunOptions.AuthorizationMode=RBAC,--authorization-rbac-super-user=minikube-admin \ 	--kubernetes-version=v1.6.0 --memory=4096 --cpus 4 </description>
+    </item>
+    
+    <item>
+      <title>Thoughts on Kubernetes</title>
+      <link>https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2017-01-27-kubernetes-thoughts/</guid>
+      <description>Just a collection of annoyances on Kubernetes:
+kubectl config and multiple namespaces Seriously! The shear amount of YAML duplication if you have a large number of namespaces and clusters it quite rapidly becomes very annoying, do remember that this is YAML so you could have (ab)used anchors to copy commonly used fragments:
+apiVersion: v1 clusters: - cluster: server: https://cluster1.example.com name: cluster1 contexts: - context: &amp;amp;bar-ns cluster: cluster1 namespace: bar-namespace user: &amp;#34;cluster1-user&amp;#34; name: cluster1-bar-namespace - context: &amp;lt;&amp;lt;: *bar-ns namespace: foo-namespace name: cluster1-foo-namespace - context: &amp;lt;&amp;lt;: *bar-ns namespace: kube-system name: cluster1-kubesystem current-context: cluster1-foo-namespace kind: Config preferences: {} users: [] CURRENT NAME CLUSTER AUTHINFO NAMESPACE * cluster1-foo-namespace cluster1 foo-namespace cluster1-kubesystem cluster1 kube-system cluster1-bar-namespace cluster1 bar-namespace Except: as soon as you use kubectl config use-context it goes and helpfully writes back the expanded YAML structure.</description>
+    </item>
+    
+  </channel>
+</rss>

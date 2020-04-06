@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vnc on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/vnc/</link>
+    <description>Recent content in vnc on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/vnc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>apple remote desktop and vnc</title>
+      <link>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2013-10-15-apple-remote-desktop-and-vnc/</guid>
+      <description>Ahh, so Apple&amp;rsquo;s Remote Desktop is just a simpler implementation of the VNC protocol (I&amp;rsquo;m sure there&amp;rsquo;s some propriety extensions in there but it&amp;rsquo;s nice to know you can use vncclient to connect to a Mac.
+Options that work well for VNC:-
+[Connection] Host=$HOSTNAME [Options] UseLocalCursor=1 UseDesktopResize=1 FullScreen=0 FullColour=1 LowColourLevel=1 PreferredEncoding=hextile AutoSelect=0 Shared=0 SendPtrEvents=1 SendKeyEvents=1 SendCutText=1 AcceptCutText=1 DisableWinKeys=1 Emulate3=0 PointerEventInterval=0 Monitor= MenuKey=F8 AutoReconnect=1 Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.</description>
+    </item>
+    
+  </channel>
+</rss>

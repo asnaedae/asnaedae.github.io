@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" managing spotlight indexing &middot;  Mike&#39;s ramblings" />
+  
+  <meta name="theme-color" content="#f0f0f0" />
+ 
+  <meta property="og:site_name" content="Mike&#39;s ramblings" />
+  <meta property="og:url" content="https://dubdubdub.co.uk/posts/2009-01-14-shining-a-light-on-spotlight/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2009-01-14T00:00:00Z" />
+  
+  <meta property="og:article:tag" content="osx" />
+  
+  
+
+  <title>
+     managing spotlight indexing &middot;  Mike&#39;s ramblings
+  </title>
+
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/main.css" />
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/github.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="shortcut icon" href="https://dubdubdub.co.uk/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://dubdubdub.co.uk/images/apple-touch-icon.png" />
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://dubdubdub.co.uk/">Mike&#39;s ramblings</a></h1>
+      
+      <div class="tag-line">
+        Short subtitle/tagline of your blog
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="#ZgotmplZ">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  <a href="https://github.com/asnaedae" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  <a href="https://reddit.com/user/asnaedae" target="_blank">
+    <i class="fa fa-reddit-alien"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://linkedin.com/in/mikewallis" target="_blank">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  <a href="https://keybase.io/asnaedae" target="_blank">
+    <i class="fa fa-key"></i>
+  </a>
+  
+</div>
+
+      
+      <a href="https://dubdubdub.co.uk/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">managing spotlight indexing</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2009-01-14T00:00:00Z">
+          Jan 14, 2009
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://dubdubdub.co.uk//tags/osx">#osx</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>Show the status of spotlight on volumes:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mdutil -sa
+/Shared Items/Public:
+Indexing enabled.
+/Volumes/Time Machine/Shared Items/Backups:
+Indexing and searching disabled.
+/Users:
+Indexing enabled.
+/Volumes/pool1:
+Indexing and searching disabled.
+	/Shared Items/Backups:
+Indexing enabled.
+	/Groups:
+Indexing enabled.
+</code></pre></div><p>I was receiving a few errors when trying to spotlight for applications (well they didn&rsquo;t appear) - running</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo mdutil -i off /
+Error, no index found <span style="color:#66d9ef">for</span> volume.
+</code></pre></div><p>What worked to fix this for me was to move the main volume into the privacy section of spotlight and reboot (though i&rsquo;d expect restarting fseventd might have the same effect) and then remove the volume from Privacy, 10 minutes later and disk has re-indexed and spotlight is working correctly.</p>
+
+  </section>
+  <footer>
+    
+    
+    
+    <section class="author-info row">
+      <div class="author-avatar col-md-2">
+        
+        <img alt="Author Avatar" src="/path/to/avatar" />
+        
+      </div>
+      <div class="author-meta col-md-6">
+        
+        <h1 class="author-name text-primary">Mike Wallis</h1>
+        
+        
+        <div class="author-bio">Your short bio</div>
+        
+      </div>
+      
+      <div class="author-contact col-md-4">
+        <a href="#ZgotmplZ">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+      </div>
+      
+    </section>
+    <ul class="pager">
+      
+      <li class="previous"><a href="https://dubdubdub.co.uk/posts/2008-12-30-playing-with-mercurial/"><span aria-hidden="true">&larr;</span>Older</a></li>
+      
+      
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2009-03-01-upgrading-the-playstation/">Newer<span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      &copy; Copyright notice
+    </div>
+    <div class="sns-links hidden-print">
+  
+  <a href="#ZgotmplZ">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  <a href="https://github.com/asnaedae" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  <a href="https://reddit.com/user/asnaedae" target="_blank">
+    <i class="fa fa-reddit-alien"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://linkedin.com/in/mikewallis" target="_blank">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  <a href="https://keybase.io/asnaedae" target="_blank">
+    <i class="fa fa-key"></i>
+  </a>
+  
+</div>
+
+  </footer>
+
+  <script src="https://dubdubdub.co.uk/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'Your Google Analytics tracking id', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+  
+</body>
+</html>
+

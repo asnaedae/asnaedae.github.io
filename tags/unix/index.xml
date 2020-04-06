@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>unix on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/unix/</link>
+    <description>Recent content in unix on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Thu, 09 Mar 2000 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/unix/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Parsing last log /var/log/wtmp</title>
+      <link>https://dubdubdub.co.uk/posts/2000-03-09-parsing-last/</link>
+      <pubDate>Thu, 09 Mar 2000 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2000-03-09-parsing-last/</guid>
+      <description>#!/bin/sh # total_logged_in - parses ``last&#39;&#39; ouput to something more sensible. # if you give it a parameter, it will only display last information for # that user last $1 | nawk &#39; { if (NF = 10 &amp;amp;&amp;amp; $10 != &amp;quot;in&amp;quot;) { gsub(/\(/, &amp;quot;&amp;quot;, $10); gsub(/\)/, &amp;quot;&amp;quot;, $10); split($10, a, &amp;quot;:&amp;quot;) if (split(a[1], b, &amp;quot;+&amp;quot;) == 1) { mins=(a[1]*60+a[2]) user[$1] += mins entry[$1]++ } else { mins=(b[1]*1440+b[2]*60+a[2])	user[$1] += mins entry[$1]++ } } } END { printf(&amp;quot;Person \t&amp;lt;DD:HH:MM&amp;gt;\Total Con\n&amp;quot;) print &amp;quot;===========================&amp;quot; for ( person in user ) { mins = user[person] nohours = int(mins/60) mins -= nohours*60 nodays = int(nohours/24) nohours -= nodays*24 printf(&amp;quot;%-10s &amp;lt;%.</description>
+    </item>
+    
+  </channel>
+</rss>

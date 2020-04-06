@@ -3,19 +3,19 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Mike&#39;s ramblings" />
+  <meta property="og:title" content=" java &middot;  Mike&#39;s ramblings" />
   
   <meta name="theme-color" content="#f0f0f0" />
  
   <meta property="og:site_name" content="Mike&#39;s ramblings" />
-  <meta property="og:url" content="https://dubdubdub.co.uk/" />
+  <meta property="og:url" content="https://dubdubdub.co.uk/tags/java/" />
   
   
   <meta property="og:type" content="website" />
   
 
   <title>
-     Mike&#39;s ramblings
+     java &middot;  Mike&#39;s ramblings
   </title>
 
   <link rel="stylesheet" href="https://dubdubdub.co.uk/css/bootstrap.min.css" />
@@ -25,8 +25,6 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
   <link rel="shortcut icon" href="https://dubdubdub.co.uk/images/favicon.ico" />
   <link rel="apple-touch-icon" href="https://dubdubdub.co.uk/images/apple-touch-icon.png" />
-  
-  <link href="https://dubdubdub.co.uk/index.xml" rel="alternate" type="application/rss+xml" title="Mike&#39;s ramblings" />
   
 </head>
 <body>
@@ -74,8 +72,13 @@
 </div>
 
       
+      <a href="https://dubdubdub.co.uk/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
       
-      <a href="https://dubdubdub.co.uk/index.xml" class="btn-header btn-subscribe hidden-xs">
+      
+      <a href="https://dubdubdub.co.uk/tags/java/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
       </a>
@@ -84,9 +87,10 @@
   </header>
   <main class="container">
 
-<div class="article-list">
+<section class="article-list">
+  <h1>java</h1>
   
-  
+  <hr/>
   <article>
   <header>
     <h2><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">jmx and firewalls</a></h2>
@@ -115,9 +119,7 @@ And now for jvisualvm:
 </article>
 
   
-  
   <hr/>
-  
   <article>
   <header>
     <h2><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">searching java log files</a></h2>
@@ -144,61 +146,7 @@ And now for jvisualvm:
 </article>
 
   
-  
   <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">disabling atime in OS X</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2010-01-18T00:00:00Z">
-          Jan 18, 2010
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Create the following plist file somewhere useful, e.g. /Library/LaunchDaemons/com.local.noatime.plist
-&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; dict&gt; &lt;key&gt;Label&lt;/key&gt; &lt;string&gt;com.my.noatime&lt;/string&gt; &lt;key&gt;ProgramArguments&lt;/key&gt; &lt;array&gt; &lt;string&gt;mount&lt;/string&gt; &lt;string&gt;-vuwo&lt;/string&gt; &lt;string&gt;noatime&lt;/string&gt; &lt;string&gt;/&lt;/string&gt; &lt;/array&gt; &lt;key&gt;RunAtLoad&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; &lt;/plist&gt; Then run the following to pick up the change, or indeed, reboot:
-% sudo launchctl load /Library/LaunchDaemons/com.local.noatime.plist And you should now see the root file system mounted with noatime option, which should improve longevity of SSD boot drives
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-26-spot-the-difference/">spot the difference</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2009-11-26T00:00:00Z">
-          Nov 26, 2009
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    
-  </div>
-  
-</article>
-
-  
-  
-  <hr/>
-  
   <article>
   <header>
     <h2><a href="https://dubdubdub.co.uk/posts/2009-11-21-snow-leopard-and-the-jvm/">snow leopard and Java</a></h2>
@@ -219,18 +167,60 @@ So the following post steps you through re-enabling the 1.5 VM and now semi-happ
 </article>
 
   
-</div>
-<nav class="pagination" role="navigation">
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2006-04-01-escenic-debian-notes/"></a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2006-04-01T00:00:00Z">
+          Apr 1, 2006
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    NON-FREE APT REPOSITORIES Install openssh package if not already installed
+# apt-get install openssh-server Add the following to /etc/apt/sources.list:
+deb http://oss.oracle.com/debian unstable main non-free deb http://ftp.uk.debian.org/debian etch main contrib non-free # apt-get update Install Async IO library for Oracle
+# apt-get install libaio Install optional extras for converting the JVM to a .deb
+# apt-get install build-essential fakeroot java-package # download sun binary JDK Create the ”deb” package:
+$ su - escenic # fakeroot make-jpkg jdk-1_5_0_14-linux-i586.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2006-04-01-escenic-debian-notes/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
 
-  <hr />
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/"></a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="0001-01-01T00:00:00Z">
+          Jan 1, 0001
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&rsquo;s Crowd it&rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:
+&lt;Valve className=&#34;org.apache.catalina.valves.RemoteIpValve&#34; internalProxies=&#34;proxy_IP_address&#34; remoteIpHeader=&#34;x-forwarded-for&#34; remoteIpProxiesHeader=&#34;x-forwarded-by&#34; protocolHeader=&#34;x-forwarded-proto&#34; /&gt; &lt;Valve className=&#34;org.apache.catalina.valves.AccessLogValve&#34; directory=&#34;logs&#34; prefix=&#34;localhost_access.&#34; suffix=&#34;.log&#34; pattern=&#34;combined&#34; resolveHosts=&#34;false&#34; /&gt; The following should be used within nginx to forward that data into tomcat.
+proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Server $host; proxy_set_header X-Forwarded-For $remote_addr; 
+  </div>
+  
+</article>
 
-
-  <span class="page-number">Page 1 of 14</span>
-
-<a class="older-posts" href="/page/2/">Older Posts <span aria-hidden="true">&raquo;</span></a>
-
-</nav>
-
+  
+</section>
   </main>
   <footer class="container global-footer">
     <div class="copyright-note pull-left">

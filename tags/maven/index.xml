@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>maven on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/maven/</link>
+    <description>Recent content in maven on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Adding tags to docker-maven-plugin</title>
+      <link>https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2018-03-26-maven_docker_aliases/</guid>
+      <description>Adding a latest tag to docker containers built by docker-maven-plugin
+ &amp;lt;name&amp;gt;${project.artifactId}:${project.version}&amp;lt;/name&amp;gt; &amp;lt;build&amp;gt; &amp;lt;tags combine.children=&amp;quot;append&amp;quot;&amp;gt; &amp;lt;tag&amp;gt;latest&amp;lt;/tag&amp;gt; &amp;lt;/tags&amp;gt; &amp;lt;from&amp;gt;${base.docker.image}&amp;lt;/from&amp;gt; </description>
+    </item>
+    
+  </channel>
+</rss>

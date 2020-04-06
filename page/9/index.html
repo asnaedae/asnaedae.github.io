@@ -89,26 +89,28 @@
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">jmx and firewalls</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2006-04-01-escenic-debian-notes/"></a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-07-07T00:00:00Z">
-          Jul 7, 2010
+        <time datetime="2006-04-01T00:00:00Z">
+          Apr 1, 2006
         </time>
       </div>
     </div>
   </header>
   <div>
-    So at least with Java 1.6 the JVM can use SOCKS for proxying RMI requests, so to get the wonderful jvisualvm (think 1.5 visualGC) working use the following incantations. This requires the initial RMI registry port is open to the client. First the initial SSH to server enabling the SOCKS tunnel
-{% highlight bash %} $ ssh -D localhost:9696 servername {% endhighlight %}
-And now for jvisualvm:
-{% highlight bash %} $ jvisualvm
+    NON-FREE APT REPOSITORIES Install openssh package if not already installed
+# apt-get install openssh-server Add the following to /etc/apt/sources.list:
+deb http://oss.oracle.com/debian unstable main non-free deb http://ftp.uk.debian.org/debian etch main contrib non-free # apt-get update Install Async IO library for Oracle
+# apt-get install libaio Install optional extras for converting the JVM to a .deb
+# apt-get install build-essential fakeroot java-package # download sun binary JDK Create the ”deb” package:
+$ su - escenic # fakeroot make-jpkg jdk-1_5_0_14-linux-i586.
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-07-07-jmx-and-firewalls-or-how-to-hate-rmi-slightly-less/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2006-04-01-escenic-debian-notes/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -120,24 +122,46 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">searching java log files</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2006-01-03-traceroute-to-firewalled-hosts/">Tracing firewalled hosts</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-06-30T00:00:00Z">
-          Jun 30, 2010
+        <time datetime="2006-01-03T00:00:00Z">
+          Jan 3, 2006
         </time>
       </div>
     </div>
   </header>
   <div>
-    So debugging java can be a mighty pain, a little few lines of ways to make it simpler.
-# grep -m 1 -n &#39;^2010-06-30 14:20:&#39; catalina.out 11746233:2010-06-30 14:20:01,011 DEBUG com.beginning.of.line # grep -m 1 -n &#39;^2010-06-30 14:21:&#39; catalina.out 11747788:2010-06-30 14:21:00,161 WARN org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended # sed -n &#39;11746233,11747788p&#39; &lt; catalina.out This gives start line and end line between any two greps and then the body of the log file from those two lines.
+    Nice little tool called tcptraceroute, just uses TCP syns instead of ICMP/UDP to give you a more meaningful traceroute; still relies on ICMP time exceeded messages, but still, every little helps when trying to debug someone elses problem!
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://dubdubdub.co.uk/posts/2005-04-01-ouch-my-ear-still-hurts/"></a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2005-04-01T00:00:00Z">
+          Apr 1, 2005
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    well, finally tried out CQB (close quarter battle), definitely seems to be lot of full-auto with hicap mags, so you’re looking at pretty much being suppressed/suppressing all the time - so normally you move and get shot down in a hail of plastic!
+Had a restricted ammo loadout game which was seriously good fun, Mr MP5K with a midcap worked really well in semi-auto mode. Got a few kills before running out of ammo (bloody glock got a jam - go figure)
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-06-30-java-log-files/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2005-04-01-ouch-my-ear-still-hurts/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -149,25 +173,25 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">disabling atime in OS X</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2005-01-05-configuring-a-macos-server-network/"></a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2010-01-18T00:00:00Z">
-          Jan 18, 2010
+        <time datetime="2005-01-05T00:00:00Z">
+          Jan 5, 2005
         </time>
       </div>
     </div>
   </header>
   <div>
-    Create the following plist file somewhere useful, e.g. /Library/LaunchDaemons/com.local.noatime.plist
-&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; dict&gt; &lt;key&gt;Label&lt;/key&gt; &lt;string&gt;com.my.noatime&lt;/string&gt; &lt;key&gt;ProgramArguments&lt;/key&gt; &lt;array&gt; &lt;string&gt;mount&lt;/string&gt; &lt;string&gt;-vuwo&lt;/string&gt; &lt;string&gt;noatime&lt;/string&gt; &lt;string&gt;/&lt;/string&gt; &lt;/array&gt; &lt;key&gt;RunAtLoad&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; &lt;/plist&gt; Then run the following to pick up the change, or indeed, reboot:
-% sudo launchctl load /Library/LaunchDaemons/com.local.noatime.plist And you should now see the root file system mounted with noatime option, which should improve longevity of SSD boot drives
+    So installed Leopard server over the weekend and here’s some notes and annoyances I’ve hit (and overcame)
+services fail to start – basically forward/reverse DNS must match  greebo:~ localad$ sudo changeip -checkhostname Primary address = 172.16.10.196 Current HostName = greebo.snarc.co.uk DNS HostName = greebo.snarc.co.uk  names match. There is nothing to change.
+ So I cheated and am running split horizon DNS, I’ve not done the following – but is here as a reminder (and if I ever have enough disk space)
   </div>
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://dubdubdub.co.uk/posts/2010-01-18-disabling-atime-on-osx/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2005-01-05-configuring-a-macos-server-network/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -179,42 +203,25 @@ And now for jvisualvm:
   
   <article>
   <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-26-spot-the-difference/">spot the difference</a></h2>
+    <h2><a href="https://dubdubdub.co.uk/posts/2000-03-09-parsing-last/">Parsing last log /var/log/wtmp</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2009-11-26T00:00:00Z">
-          Nov 26, 2009
+        <time datetime="2000-03-09T00:00:00Z">
+          Mar 9, 2000
         </time>
       </div>
     </div>
   </header>
   <div>
-    
+    #!/bin/sh # total_logged_in - parses ``last'' ouput to something more sensible. # if you give it a parameter, it will only display last information for # that user last $1 | nawk ' { if (NF = 10 &amp;&amp; $10 != &quot;in&quot;) { gsub(/\(/, &quot;&quot;, $10); gsub(/\)/, &quot;&quot;, $10); split($10, a, &quot;:&quot;) if (split(a[1], b, &quot;+&quot;) == 1) { mins=(a[1]*60+a[2]) user[$1] += mins entry[$1]++ } else { mins=(b[1]*1440+b[2]*60+a[2])	user[$1] += mins entry[$1]++ } } } END { printf(&quot;Person \t&lt;DD:HH:MM&gt;\Total Con\n&quot;) print &quot;===========================&quot; for ( person in user ) { mins = user[person] nohours = int(mins/60) mins -= nohours*60 nodays = int(nohours/24) nohours -= nodays*24 printf(&quot;%-10s &lt;%.
   </div>
   
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://dubdubdub.co.uk/posts/2009-11-21-snow-leopard-and-the-jvm/">snow leopard and Java</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2009-11-21T00:00:00Z">
-          Nov 21, 2009
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    So in a startling case of &ldquo;Apple knows best&rdquo; they have gone and removed the 1.5 JVM - I know it&rsquo;s pretty old and people were complaining about not having a 1.6 JVM for a long time - but really!
-So the following post steps you through re-enabling the 1.5 VM and now semi-happy days
-  </div>
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2000-03-09-parsing-last/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
   
 </article>
 
@@ -225,9 +232,11 @@ So the following post steps you through re-enabling the 1.5 VM and now semi-happ
   <hr />
 
 
-  <span class="page-number">Page 1 of 14</span>
+<a class="newer-posts" href="/page/8/"><span aria-hidden="true">&laquo;</span> Newer Posts</a>
 
-<a class="older-posts" href="/page/2/">Older Posts <span aria-hidden="true">&raquo;</span></a>
+  <span class="page-number">Page 9 of 14</span>
+
+<a class="older-posts" href="/page/10/">Older Posts <span aria-hidden="true">&raquo;</span></a>
 
 </nav>
 
