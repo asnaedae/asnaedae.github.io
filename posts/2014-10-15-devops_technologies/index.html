@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Devops technologies &middot;  Mike&#39;s ramblings" />
+  
+  <meta name="theme-color" content="#f0f0f0" />
+ 
+  <meta property="og:site_name" content="Mike&#39;s ramblings" />
+  <meta property="og:url" content="https://dubdubdub.co.uk/posts/2014-10-15-devops_technologies/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2014-10-15T00:00:00Z" />
+  
+  <meta property="og:article:tag" content="devops" />
+  
+  
+
+  <title>
+     Devops technologies &middot;  Mike&#39;s ramblings
+  </title>
+
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/main.css" />
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://dubdubdub.co.uk/css/github.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="shortcut icon" href="https://dubdubdub.co.uk/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://dubdubdub.co.uk/images/apple-touch-icon.png" />
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://dubdubdub.co.uk/">Mike&#39;s ramblings</a></h1>
+      
+      <div class="tag-line">
+        Short subtitle/tagline of your blog
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="#ZgotmplZ">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  <a href="https://github.com/asnaedae" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  <a href="https://reddit.com/user/asnaedae" target="_blank">
+    <i class="fa fa-reddit-alien"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://linkedin.com/in/mikewallis" target="_blank">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  <a href="https://keybase.io/asnaedae" target="_blank">
+    <i class="fa fa-key"></i>
+  </a>
+  
+</div>
+
+      
+      <a href="https://dubdubdub.co.uk/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Devops technologies</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2014-10-15T00:00:00Z">
+          Oct 15, 2014
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://dubdubdub.co.uk//tags/devops">#devops</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <h3 id="source-control">Source Control</h3>
+<ul>
+<li>subversion</li>
+<li>git (stash/Github/gitlab)</li>
+</ul>
+<h3 id="integration-environment">Integration Environment</h3>
+<ul>
+<li>API based infrastructure provider, e.g. vSphere/AWS/Rackspace Cloud</li>
+<li>Vagrant</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li>Markdown</li>
+<li>Wiki markup / Confluence</li>
+</ul>
+<h3 id="build-system">Build System</h3>
+<p>The collection of tooling that enables continuous integration of commits
+by building the software, running any tests and deploying to integration
+environments.</p>
+<p>Status of all steps needs to be broadcast to all interested parties, and
+testing should include not just normal TDD/unit tests but also should look
+into the following:-</p>
+<ul>
+<li>security</li>
+<li>infrastructure regression</li>
+<li>code lint</li>
+<li>performance</li>
+</ul>
+<p>General technologies below</p>
+<ul>
+<li>Jenkins</li>
+<li>Puppet/Hiera (enabling)</li>
+<li>serverspec (enabling)</li>
+<li>Docker (emerging/enabling)</li>
+</ul>
+<h3 id="monitoringmetricslogging">Monitoring/Metrics/Logging</h3>
+<ul>
+<li>New Relic</li>
+<li>Sensu</li>
+<li>Graphite</li>
+<li>Logstash/ElasticSearch</li>
+<li>Kibana/Grafana</li>
+<li>SAAS - logentries, boundary networks (emerging)</li>
+</ul>
+<h3 id="communications">Communications</h3>
+<ul>
+<li>skype</li>
+<li>slack (emerging)</li>
+<li>hubot [https://hubot.github.com]</li>
+</ul>
+<h3 id="code-review">Code Review</h3>
+<p>This group should enable team members to improve code quality, and ensure that</p>
+<ul>
+<li>integrated with git provider typically</li>
+<li>pull requests / peer review for merge into branch/master</li>
+</ul>
+<h3 id="issue-tracking">Issue Tracking</h3>
+<ul>
+<li>Atlassian Jira</li>
+</ul>
+<h3 id="operating-systemsdistributions">Operating Systems/Distributions</h3>
+<ul>
+<li>Centos/RHEL</li>
+<li>CoreOS (emerging)</li>
+</ul>
+<h3 id="databasesdatastore">Databases/Datastore</h3>
+<ul>
+<li>MySQL</li>
+<li>MongoDB</li>
+<li>Redis -</li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <section class="author-info row">
+      <div class="author-avatar col-md-2">
+        
+        <img alt="Author Avatar" src="/path/to/avatar" />
+        
+      </div>
+      <div class="author-meta col-md-6">
+        
+        <h1 class="author-name text-primary">Mike Wallis</h1>
+        
+        
+        <div class="author-bio">Your short bio</div>
+        
+      </div>
+      
+      <div class="author-contact col-md-4">
+        <a href="#ZgotmplZ">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+      </div>
+      
+    </section>
+    <ul class="pager">
+      
+      <li class="previous"><a href="https://dubdubdub.co.uk/posts/2014-10-13-redhat7-changes/"><span aria-hidden="true">&larr;</span>Older</a></li>
+      
+      
+      <li class="next"><a href="https://dubdubdub.co.uk/posts/2014-10-23-agile_at_the_correct_level/">Newer<span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      &copy; Copyright notice
+    </div>
+    <div class="sns-links hidden-print">
+  
+  <a href="#ZgotmplZ">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  <a href="https://github.com/asnaedae" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  <a href="https://reddit.com/user/asnaedae" target="_blank">
+    <i class="fa fa-reddit-alien"></i>
+  </a>
+  
+  
+  
+  
+  <a href="https://linkedin.com/in/mikewallis" target="_blank">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  <a href="https://keybase.io/asnaedae" target="_blank">
+    <i class="fa fa-key"></i>
+  </a>
+  
+</div>
+
+  </footer>
+
+  <script src="https://dubdubdub.co.uk/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'Your Google Analytics tracking id', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+  
+</body>
+</html>
+

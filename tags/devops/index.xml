@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>devops on Mike&#39;s ramblings</title>
+    <link>https://dubdubdub.co.uk/tags/devops/</link>
+    <description>Recent content in devops on Mike&#39;s ramblings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Thu, 23 Oct 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dubdubdub.co.uk/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using Agile at the right level</title>
+      <link>https://dubdubdub.co.uk/posts/2014-10-23-agile_at_the_correct_level/</link>
+      <pubDate>Thu, 23 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-10-23-agile_at_the_correct_level/</guid>
+      <description>Agile at the right level There has been lots of criticism that &amp;ldquo;Agile&amp;rdquo; is a poor way to run any form of IT development project, with the following comments being made to substantiate the statement:
+ No one uses &amp;ldquo;agile&amp;rdquo; in real world engineering It doesn&amp;rsquo;t scale It&amp;rsquo;s &amp;ldquo;new&amp;rdquo;  Indeed everyone seems to think that Royce&amp;rsquo;s original article in the 1970s was an example of a working project delivery method and miss that he presented it as a broken model.</description>
+    </item>
+    
+    <item>
+      <title>Devops technologies</title>
+      <link>https://dubdubdub.co.uk/posts/2014-10-15-devops_technologies/</link>
+      <pubDate>Wed, 15 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dubdubdub.co.uk/posts/2014-10-15-devops_technologies/</guid>
+      <description>Source Control  subversion git (stash/Github/gitlab)  Integration Environment  API based infrastructure provider, e.g. vSphere/AWS/Rackspace Cloud Vagrant  Documentation  Markdown Wiki markup / Confluence  Build System The collection of tooling that enables continuous integration of commits by building the software, running any tests and deploying to integration environments.
+Status of all steps needs to be broadcast to all interested parties, and testing should include not just normal TDD/unit tests but also should look into the following:-</description>
+    </item>
+    
+  </channel>
+</rss>
