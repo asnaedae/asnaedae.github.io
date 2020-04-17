@@ -112,51 +112,68 @@
     </div>
   </header>
   <section>
-    <p>Just a collection of annoyances on Kubernetes:</p>
+    
+
+<p>Just a collection of annoyances on Kubernetes:</p>
+
 <h1 id="kubectl-config-and-multiple-namespaces">kubectl config and multiple namespaces</h1>
+
 <p><em>Seriously!</em> The shear amount of YAML duplication if you have a large
 number of namespaces and clusters it quite rapidly becomes very annoying,
 do remember that this is YAML so you could have (ab)used anchors to copy
 commonly used fragments:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#66d9ef">apiVersion</span>: v1
-    <span style="color:#66d9ef">clusters</span>:
-    - <span style="color:#66d9ef">cluster</span>:
-        <span style="color:#66d9ef">server</span>: https://cluster1.example.com
-      <span style="color:#66d9ef">name</span>: cluster1
-    <span style="color:#66d9ef">contexts</span>:
-    - <span style="color:#66d9ef">context</span>: <span style="color:#75715e">&amp;bar-ns</span>
-        <span style="color:#66d9ef">cluster</span>: cluster1
-        <span style="color:#66d9ef">namespace</span>: bar-namespace
-        <span style="color:#66d9ef">user</span>: <span style="color:#e6db74">&#34;cluster1-user&#34;</span>
-      <span style="color:#66d9ef">name</span>: cluster1-bar-namespace
-    - <span style="color:#66d9ef">context</span>:
-        <span style="color:#66d9ef">&lt;&lt;</span>: <span style="color:#75715e">*bar-ns</span>
-        <span style="color:#66d9ef">namespace</span>: foo-namespace
-      <span style="color:#66d9ef">name</span>: cluster1-foo-namespace
-    - <span style="color:#66d9ef">context</span>:
-        <span style="color:#66d9ef">&lt;&lt;</span>: <span style="color:#75715e">*bar-ns</span>
-        <span style="color:#66d9ef">namespace</span>: kube-system
-      <span style="color:#66d9ef">name</span>: cluster1-kubesystem
-    <span style="color:#66d9ef">current-context</span>: cluster1-foo-namespace
-    <span style="color:#66d9ef">kind</span>: Config
-    <span style="color:#66d9ef">preferences</span>: {}
-    <span style="color:#66d9ef">users</span>: []
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">CURRENT   NAME                     CLUSTER    AUTHINFO   NAMESPACE
+
+<pre><code class="language-yaml">    apiVersion: v1
+    clusters:
+    - cluster:
+        server: https://cluster1.example.com
+      name: cluster1
+    contexts:
+    - context: &amp;bar-ns
+        cluster: cluster1
+        namespace: bar-namespace
+        user: &quot;cluster1-user&quot;
+      name: cluster1-bar-namespace
+    - context:
+        &lt;&lt;: *bar-ns
+        namespace: foo-namespace
+      name: cluster1-foo-namespace
+    - context:
+        &lt;&lt;: *bar-ns
+        namespace: kube-system
+      name: cluster1-kubesystem
+    current-context: cluster1-foo-namespace
+    kind: Config
+    preferences: {}
+    users: []
+</code></pre>
+
+<pre><code class="language-bash">CURRENT   NAME                     CLUSTER    AUTHINFO   NAMESPACE
 *         cluster1-foo-namespace   cluster1              foo-namespace
           cluster1-kubesystem      cluster1              kube-system
           cluster1-bar-namespace   cluster1              bar-namespace
-</code></pre></div><p><em>Except:</em> as soon as you use <code>kubectl config use-context</code> it goes and
+</code></pre>
+
+<p><em>Except:</em> as soon as you use <code>kubectl config use-context</code> it goes and
 helpfully writes back the expanded YAML structure. This makes sense but is
 remarkably unhelpful as it goes.</p>
+
 <p>You can of course template a number of ~/.kube/CONFIG_FILES and then use the following to switch:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ export KUBECONFIG<span style="color:#f92672">=</span>~/.kube/config-a
+
+<pre><code class="language-bash">$ export KUBECONFIG=~/.kube/config-a
 $ kubectl get pods
-</code></pre></div><h1 id="documentation">Documentation</h1>
+</code></pre>
+
+<h1 id="documentation">Documentation</h1>
+
 <p>Maybe it&rsquo;s the rapid pace of change within the software, but it&rsquo;s full of
 holes, and yes I should raise pull requests for changes to the documentation,
 but look at the <a href="https://kubernetes.io/docs/getting-started-guides/centos/centos_manual_config/">CentOS instructions</a></p>
+
 <p>Where the repo contains packages for Kubernetes 1.1.0 - from 2015!</p>
+
 <h1 id="dns">DNS</h1>
+
 <p>Headless services without selectors are very helpful, but unfortunately a TTL of 30 seconds that is currently fixed can be limiting.</p>
 
   </section>

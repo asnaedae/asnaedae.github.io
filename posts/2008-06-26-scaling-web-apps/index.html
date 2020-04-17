@@ -117,19 +117,26 @@
   </header>
   <section>
     <p>A little video, thin on detail of course, but hints at some home truths on building/designing scale-able applications (and i’d go so far to say that they are applicable to ALL applications not just webapps)</p>
-<p><img src="http://joyent.vo.llnwd.net/o25/videos/LinkedIn-Bumpersticker-LED-Scaling-Rails.m4v" alt="Building Scaleable Rails Apps"></p>
+
+<p><img src="http://joyent.vo.llnwd.net/o25/videos/LinkedIn-Bumpersticker-LED-Scaling-Rails.m4v" alt="Building Scaleable Rails Apps" /></p>
+
 <p>Of course, I know Ben Rockwood like’s his solaris and F5′s – but that’s not going to surprise many (and I just LOVE f5s)</p>
+
 <p>And here’s a blog entry with the details on /how/ that’s done:-</p>
+
 <p><a href="http://www.joyeur.com/2008/04/18/the-wonders-of-fbref-and-irules-serving-pages-from-facebooks-cache">FBRef and iRules</a></p>
-<p>. . . basically as simple as:-</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tcl" data-lang="tcl">when HTTP_REQUEST <span style="color:#66d9ef">{</span>
-	<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">{</span> <span style="color:#66d9ef">[</span>HTTP<span style="color:#f92672">:</span><span style="color:#f92672">:</span>uri<span style="color:#66d9ef">]</span> contains <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">/</span><span style="color:#e6db74">p</span><span style="color:#e6db74">o</span><span style="color:#e6db74">p</span><span style="color:#e6db74">u</span><span style="color:#e6db74">l</span><span style="color:#e6db74">a</span><span style="color:#e6db74">r</span><span style="color:#e6db74">_</span><span style="color:#e6db74">s</span><span style="color:#e6db74">o</span><span style="color:#e6db74">m</span><span style="color:#e6db74">e</span><span style="color:#e6db74">t</span><span style="color:#e6db74">h</span><span style="color:#e6db74">i</span><span style="color:#e6db74">n</span><span style="color:#e6db74">g</span><span style="color:#e6db74">/</span><span style="color:#e6db74">l</span><span style="color:#e6db74">i</span><span style="color:#e6db74">s</span><span style="color:#e6db74">t</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">}</span> <span style="color:#66d9ef">{</span>
-		HTTP<span style="color:#f92672">:</span><span style="color:#f92672">:</span>respond <span style="color:#ae81ff">200</span> content <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&lt;</span><span style="color:#e6db74">f</span><span style="color:#e6db74">b</span><span style="color:#e6db74">:</span><span style="color:#e6db74">r</span><span style="color:#e6db74">e</span><span style="color:#e6db74">f</span><span style="color:#e6db74"> </span><span style="color:#e6db74">h</span><span style="color:#e6db74">a</span><span style="color:#e6db74">n</span><span style="color:#e6db74">d</span><span style="color:#e6db74">l</span><span style="color:#e6db74">e</span><span style="color:#e6db74">=</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">[</span><span style="color:#e6db74">H</span><span style="color:#e6db74">T</span><span style="color:#e6db74">T</span><span style="color:#e6db74">P</span><span style="color:#e6db74">:</span><span style="color:#e6db74">:</span><span style="color:#e6db74">u</span><span style="color:#e6db74">r</span><span style="color:#e6db74">i</span><span style="color:#e6db74">]</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/</span><span style="color:#e6db74">&gt;</span><span style="color:#e6db74">&#34;</span>
-	<span style="color:#66d9ef">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">{</span>
+
+<p>&hellip; basically as simple as:-</p>
+
+<pre><code class="language-tcl">when HTTP_REQUEST {
+	if { [HTTP::uri] contains &quot;/popular_something/list&quot;} {
+		HTTP::respond 200 content &quot;&lt;fb:ref handle='[HTTP::uri]'/&gt;&quot;
+	} else {
 		pool facebook.application_server_pool
-	<span style="color:#66d9ef">}</span>
-<span style="color:#66d9ef">}</span>
-</code></pre></div>
+	}
+}
+</code></pre>
+
   </section>
   <footer>
     

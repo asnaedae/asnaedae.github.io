@@ -109,6 +109,7 @@
   </header>
   <section>
     <p>Had the following error being thrown when trying to install the <code>vagrant-vbguest</code> plugin:</p>
+
 <pre><code>$  vagrant plugin install vagrant-vbguest
 Installing the 'vagrant-vbguest' plugin. This can take a few minutes...
 Bundler, the underlying system Vagrant uses to install plugins,
@@ -123,24 +124,34 @@ Gem::Installer::ExtensionBuildError: ERROR: Failed to build gem native extension
 
     /Applications/Vagrant/embedded/bin/ruby extconf.rb
 checking for ffi.h... *** extconf.rb failed ***
-</code></pre><p>Followed the trail of suspects, including the above note to install the &lsquo;ffi&rsquo; gem, and noticed that:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gcc --version
+</code></pre>
+
+<p>Followed the trail of suspects, including the above note to install the &lsquo;ffi&rsquo; gem, and noticed that:</p>
+
+<pre><code class="language-bash">$ gcc --version
 
 
 Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo.
-</code></pre></div><p>Well, ok, we can do that:-</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo gcc --version
+</code></pre>
+
+<p>Well, ok, we can do that:-</p>
+
+<pre><code class="language-bash">$ sudo gcc --version
 
 
 You have not agreed to the Xcode license agreements. You must agree to both license agreements below in order to use Xcode.
 
-Hit the Enter key to view the license agreements at <span style="color:#e6db74">&#39;/Applications/Xcode.app/Contents/Resources/English.lproj/License.rtf&#39;</span>
+Hit the Enter key to view the license agreements at '/Applications/Xcode.app/Contents/Resources/English.lproj/License.rtf'
 ...
-</code></pre></div><p>Now the plugin installs without errors:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$  vagrant plugin install vagrant-vbguest
-Installing the <span style="color:#e6db74">&#39;vagrant-vbguest&#39;</span> plugin. This can take a few minutes...
-Installed the plugin <span style="color:#e6db74">&#39;vagrant-vbguest (0.10.0)&#39;</span>!
-</code></pre></div>
+</code></pre>
+
+<p>Now the plugin installs without errors:</p>
+
+<pre><code class="language-bash">$  vagrant plugin install vagrant-vbguest
+Installing the 'vagrant-vbguest' plugin. This can take a few minutes...
+Installed the plugin 'vagrant-vbguest (0.10.0)'!
+</code></pre>
+
   </section>
   <footer>
     

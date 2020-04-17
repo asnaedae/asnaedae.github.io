@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ssd on Mike&#39;s ramblings</title>
@@ -19,7 +19,7 @@
       
       <guid>https://dubdubdub.co.uk/posts/2013-07-08-osx-homebrew-fusion-drives/</guid>
       <description>There&amp;rsquo;s plenty of examples of doing this already but it&amp;rsquo;s as simple as:
-$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &amp;#34;fusion Drive&amp;#34; 100% Seems to be working so far, although with typical Apple there&amp;rsquo;s no documentation on how files/objects are moved between the SSD and HDD components</description>
+$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &amp;quot;fusion Drive&amp;quot; 100%  Seems to be working so far, although with typical Apple there&amp;rsquo;s no documentation on how files/objects are moved between the SSD and HDD components</description>
     </item>
     
   </channel>

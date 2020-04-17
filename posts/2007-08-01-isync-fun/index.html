@@ -105,15 +105,23 @@
   </header>
   <section>
     <p>so one shiny nokia e65, and a bit of frustration, later; have found the following recipe for getting the phone to sync correctly with iSync.</p>
+
 <p>Firstly download the plugin from <a href="http://www.nokia.com/A4299040">Nokia</a></p>
+
 <p>Then install and if you get a rather cryptic error like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>Nokia E65<span style="color:#f92672">]</span> Device is not available or synchronization was cancelled.
+
+<pre><code class="language-bash">[Nokia E65] Device is not available or synchronization was cancelled.
 Close dialogs and applications on the phone and try again.
 Device “Nokia E65″ synchronization failed
-</code></pre></div><p>Looks like the Nokia installer drops the plugin into a strange location (originally it allowed isync to work once and then I got the error message</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd /Applications/iSync.app/Contents/PlugIns/
+</code></pre>
+
+<p>Looks like the Nokia installer drops the plugin into a strange location (originally it allowed isync to work once and then I got the error message</p>
+
+<pre><code class="language-bash">$ cd /Applications/iSync.app/Contents/PlugIns/
 $ mv Nokia-E65.phoneplugin/ ApplePhoneConduit.syncdevice/Contents/PlugIns/
-</code></pre></div><p>Once this is done, restart isync and all should work!</p>
+</code></pre>
+
+<p>Once this is done, restart isync and all should work!</p>
 
   </section>
   <footer>

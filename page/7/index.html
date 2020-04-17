@@ -124,8 +124,8 @@ So the following post steps you through re-enabling the 1.5 VM and now semi-happ
   </header>
   <div>
     Sometimes you just need to tunnel UDP based protocols - such as SNMP - and the easiest ways is to use socat
-$ socat tcp4-listen:6667,reuseaddr,fork UDP:DESTINATION:161 $ socat udp4-listen:161,reuseaddr,fork tcp:localhost:6667 And in combination with your normal SSH tunnel
-$ ssh -L6667:localhost:6667 BASTION_HOST 
+$ socat tcp4-listen:6667,reuseaddr,fork UDP:DESTINATION:161 $ socat udp4-listen:161,reuseaddr,fork tcp:localhost:6667  And in combination with your normal SSH tunnel
+$ ssh -L6667:localhost:6667 BASTION_HOST  
   </div>
   
 </article>
@@ -148,7 +148,7 @@ $ ssh -L6667:localhost:6667 BASTION_HOST
   </header>
   <div>
     We&rsquo;ve had an issue with performance of a SOAP interface, and here&rsquo;s how you go about setting up smokeping to time it:-
-extraargs = -H Content-Type:text/xml --data @/srv/scripts/soap_check/soap-test.xml urlformat = http://server.name.com/url/soap_url The only annoying problem is that the SOAP payload cannot be included as part of the command line, so any slaves would require the file manually copied into the same location
+extraargs = -H Content-Type:text/xml --data @/srv/scripts/soap_check/soap-test.xml urlformat = http://server.name.com/url/soap_url  The only annoying problem is that the SOAP payload cannot be included as part of the command line, so any slaves would require the file manually copied into the same location
   </div>
   
 </article>
@@ -192,7 +192,7 @@ extraargs = -H Content-Type:text/xml --data @/srv/scripts/soap_check/soap-test.x
     </div>
   </header>
   <div>
-    $ umount /Volumes/UNTITLED $ sudo ./wbfs -p /dev/disk4s1 init $ sudo ./wbfs -p /dev/disk4s1 df wbfs tot:298.08G used:0.08G free:298.00G $ sudo ./wbfs -p /dev/disk4s1 ls wbfs empty Then just use WBFS for macos X to add in the backup images you&rsquo;ve created previously.
+    $ umount /Volumes/UNTITLED $ sudo ./wbfs -p /dev/disk4s1 init $ sudo ./wbfs -p /dev/disk4s1 df wbfs tot:298.08G used:0.08G free:298.00G $ sudo ./wbfs -p /dev/disk4s1 ls wbfs empty  Then just use WBFS for macos X to add in the backup images you&rsquo;ve created previously.
   </div>
   
 </article>

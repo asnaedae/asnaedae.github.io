@@ -109,18 +109,24 @@
   </header>
   <section>
     <p>Using version 1:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ snmpget -c COMMSTRING -M /usr/local/share/snmp/mibs -v <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	-m USAGE-MIB:PROXY-MIB:REDLINE-STATS-MIB:REDLINE-STATS-MIB:REDLINE-CONFIG-MIB <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	hostname REDLINE-STATS-MIB::sessActive.0
+
+<pre><code class="language-bash">$ snmpget -c COMMSTRING -M /usr/local/share/snmp/mibs -v 1 \
+	-m USAGE-MIB:PROXY-MIB:REDLINE-STATS-MIB:REDLINE-STATS-MIB:REDLINE-CONFIG-MIB \
+	hostname REDLINE-STATS-MIB::sessActive.0
 Error in packet
-Reason: <span style="color:#f92672">(</span>noSuchName<span style="color:#f92672">)</span> There is no such variable name in this MIB.
+Reason: (noSuchName) There is no such variable name in this MIB.
 Failed object: REDLINE-STATS-MIB::sessActive.0
-</code></pre></div><p>Using version 2 (2c):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ snmpget -c COMMSTRING -M /usr/local/share/snmp/mibs -v 2c <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	-m USAGE-MIB:PROXY-MIB:REDLINE-STATS-MIB:REDLINE-STATS-MIB:REDLINE-CONFIG-MIB <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	hostname REDLINE-STATS-MIB::sessActive.0
-REDLINE-STATS-MIB::sessActive.0 <span style="color:#f92672">=</span> Counter64: <span style="color:#ae81ff">12247</span>
-</code></pre></div><p>Slightly annoying that - but makes certain sense</p>
+</code></pre>
+
+<p>Using version 2 (2c):</p>
+
+<pre><code class="language-bash">$ snmpget -c COMMSTRING -M /usr/local/share/snmp/mibs -v 2c \
+	-m USAGE-MIB:PROXY-MIB:REDLINE-STATS-MIB:REDLINE-STATS-MIB:REDLINE-CONFIG-MIB \
+	hostname REDLINE-STATS-MIB::sessActive.0
+REDLINE-STATS-MIB::sessActive.0 = Counter64: 12247
+</code></pre>
+
+<p>Slightly annoying that - but makes certain sense</p>
 
   </section>
   <footer>

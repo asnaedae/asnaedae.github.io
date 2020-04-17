@@ -106,7 +106,7 @@
   <div>
     So whilst trying to get boxen to work I needed a good method to test, so of course I turned to Vagrant and standing on the works of others (namely Graham Gilbert ) I used the following steps:
 Requirements  Packer Vagrant VMware Fusion  Steps Download and install packer, the easiest method to do this I found was using homebrew
-$ brew install packer Cloning into &#39;/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary&#39;... remote: Reusing existing pack: 143, done.
+$ brew install packer Cloning into '/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary'... remote: Reusing existing pack: 143, done.
   </div>
   
   <footer>
@@ -134,7 +134,7 @@ $ brew install packer Cloning into &#39;/opt/boxen/homebrew/Library/Taps/homebre
   <div>
     Ahh, so Apple&rsquo;s Remote Desktop is just a simpler implementation of the VNC protocol (I&rsquo;m sure there&rsquo;s some propriety extensions in there but it&rsquo;s nice to know you can use vncclient to connect to a Mac.
 Options that work well for VNC:-
-[Connection] Host=$HOSTNAME [Options] UseLocalCursor=1 UseDesktopResize=1 FullScreen=0 FullColour=1 LowColourLevel=1 PreferredEncoding=hextile AutoSelect=0 Shared=0 SendPtrEvents=1 SendKeyEvents=1 SendCutText=1 AcceptCutText=1 DisableWinKeys=1 Emulate3=0 PointerEventInterval=0 Monitor= MenuKey=F8 AutoReconnect=1 Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.
+[Connection] Host=$HOSTNAME [Options] UseLocalCursor=1 UseDesktopResize=1 FullScreen=0 FullColour=1 LowColourLevel=1 PreferredEncoding=hextile AutoSelect=0 Shared=0 SendPtrEvents=1 SendKeyEvents=1 SendCutText=1 AcceptCutText=1 DisableWinKeys=1 Emulate3=0 PointerEventInterval=0 Monitor= MenuKey=F8 AutoReconnect=1  Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.
   </div>
   
   <footer>
@@ -161,7 +161,7 @@ Options that work well for VNC:-
   </header>
   <div>
     There&rsquo;s plenty of examples of doing this already but it&rsquo;s as simple as:
-$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &#34;fusion Drive&#34; 100% Seems to be working so far, although with typical Apple there&rsquo;s no documentation on how files/objects are moved between the SSD and HDD components
+$ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolume VolumeUUID jhfs+ &quot;fusion Drive&quot; 100%  Seems to be working so far, although with typical Apple there&rsquo;s no documentation on how files/objects are moved between the SSD and HDD components
   </div>
   
 </article>
@@ -182,8 +182,8 @@ $ diskUtil coreStorage create ssdDisk hddDisk $ diskUtil coreStorage createVolum
   </header>
   <div>
     Create the following plist file somewhere useful, e.g. /Library/LaunchDaemons/com.local.noatime.plist
-&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; dict&gt; &lt;key&gt;Label&lt;/key&gt; &lt;string&gt;com.my.noatime&lt;/string&gt; &lt;key&gt;ProgramArguments&lt;/key&gt; &lt;array&gt; &lt;string&gt;mount&lt;/string&gt; &lt;string&gt;-vuwo&lt;/string&gt; &lt;string&gt;noatime&lt;/string&gt; &lt;string&gt;/&lt;/string&gt; &lt;/array&gt; &lt;key&gt;RunAtLoad&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; &lt;/plist&gt; Then run the following to pick up the change, or indeed, reboot:
-% sudo launchctl load /Library/LaunchDaemons/com.local.noatime.plist And you should now see the root file system mounted with noatime option, which should improve longevity of SSD boot drives
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt; &lt;plist version=&quot;1.0&quot;&gt; dict&gt; &lt;key&gt;Label&lt;/key&gt; &lt;string&gt;com.my.noatime&lt;/string&gt; &lt;key&gt;ProgramArguments&lt;/key&gt; &lt;array&gt; &lt;string&gt;mount&lt;/string&gt; &lt;string&gt;-vuwo&lt;/string&gt; &lt;string&gt;noatime&lt;/string&gt; &lt;string&gt;/&lt;/string&gt; &lt;/array&gt; &lt;key&gt;RunAtLoad&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; &lt;/plist&gt;  Then run the following to pick up the change, or indeed, reboot:
+% sudo launchctl load /Library/LaunchDaemons/com.local.noatime.plist  And you should now see the root file system mounted with noatime option, which should improve longevity of SSD boot drives
   </div>
   
   <footer>
@@ -250,7 +250,7 @@ So the following post steps you through re-enabling the 1.5 VM and now semi-happ
     </div>
   </header>
   <div>
-    $ umount /Volumes/UNTITLED $ sudo ./wbfs -p /dev/disk4s1 init $ sudo ./wbfs -p /dev/disk4s1 df wbfs tot:298.08G used:0.08G free:298.00G $ sudo ./wbfs -p /dev/disk4s1 ls wbfs empty Then just use WBFS for macos X to add in the backup images you&rsquo;ve created previously.
+    $ umount /Volumes/UNTITLED $ sudo ./wbfs -p /dev/disk4s1 init $ sudo ./wbfs -p /dev/disk4s1 df wbfs tot:298.08G used:0.08G free:298.00G $ sudo ./wbfs -p /dev/disk4s1 ls wbfs empty  Then just use WBFS for macos X to add in the backup images you&rsquo;ve created previously.
   </div>
   
 </article>
@@ -271,8 +271,8 @@ So the following post steps you through re-enabling the 1.5 VM and now semi-happ
   </header>
   <div>
     Show the status of spotlight on volumes:
-$ mdutil -sa /Shared Items/Public: Indexing enabled. /Volumes/Time Machine/Shared Items/Backups: Indexing and searching disabled. /Users: Indexing enabled. /Volumes/pool1: Indexing and searching disabled. /Shared Items/Backups: Indexing enabled. /Groups: Indexing enabled. I was receiving a few errors when trying to spotlight for applications (well they didn&rsquo;t appear) - running
-$ sudo mdutil -i off / Error, no index found for volume. What worked to fix this for me was to move the main volume into the privacy section of spotlight and reboot (though i&rsquo;d expect restarting fseventd might have the same effect) and then remove the volume from Privacy, 10 minutes later and disk has re-indexed and spotlight is working correctly.
+$ mdutil -sa /Shared Items/Public: Indexing enabled. /Volumes/Time Machine/Shared Items/Backups: Indexing and searching disabled. /Users: Indexing enabled. /Volumes/pool1: Indexing and searching disabled. /Shared Items/Backups: Indexing enabled. /Groups: Indexing enabled.  I was receiving a few errors when trying to spotlight for applications (well they didn&rsquo;t appear) - running
+$ sudo mdutil -i off / Error, no index found for volume.  What worked to fix this for me was to move the main volume into the privacy section of spotlight and reboot (though i&rsquo;d expect restarting fseventd might have the same effect) and then remove the volume from Privacy, 10 minutes later and disk has re-indexed and spotlight is working correctly.
   </div>
   
   <footer>
@@ -299,7 +299,7 @@ $ sudo mdutil -i off / Error, no index found for volume. What worked to fix this
   </header>
   <div>
     This little snippet will give you a new little window for all those recent applications you launch – I seem to have picked up a habit for closing applications down when I stop working with them for an hour or two (pages etc.)
-$ write com.apple.dock persistent-others -array-add \  &#39;{ &#34;tile-data&#34; = { &#34;list-type&#34; = 1; }; &#34;tile-type&#34; = &#34;recents-tile&#34;; }&#39; $ killall Dock 
+$ write com.apple.dock persistent-others -array-add \ '{ &quot;tile-data&quot; = { &quot;list-type&quot; = 1; }; &quot;tile-type&quot; = &quot;recents-tile&quot;; }' $ killall Dock  
   </div>
   
 </article>

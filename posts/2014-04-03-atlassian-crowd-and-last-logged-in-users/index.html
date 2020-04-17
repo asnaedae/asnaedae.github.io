@@ -113,15 +113,17 @@
   </header>
   <section>
     <p>This came in useful for me today to understand users that could be disabled from a <a href="http://www.atlassian.com/software/crowd">crowd</a> instance:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> cwd_user.user_name <span style="color:#66d9ef">AS</span> Username,  
-cwd_user.email_address <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Email Address</span><span style="color:#e6db74">&#34;</span>,  
-from_unixtime(cwd_user_attribute.attribute_value<span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span>)  <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Last Logged In</span><span style="color:#e6db74">&#34;</span>
-<span style="color:#66d9ef">FROM</span> cwd_user
-<span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">OUTER</span> <span style="color:#66d9ef">JOIN</span> cwd_user_attribute <span style="color:#66d9ef">ON</span> cwd_user_attribute.user_id <span style="color:#f92672">=</span> cwd_user.id
-<span style="color:#66d9ef">AND</span> cwd_user_attribute.attribute_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">lastAuthenticated</span><span style="color:#e6db74">&#39;</span>
-<span style="color:#66d9ef">WHERE</span>  active <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">T</span><span style="color:#e6db74">&#39;</span>
-<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span> ;
-</code></pre></div>
+
+<pre><code class="language-sql">SELECT cwd_user.user_name AS Username,  
+cwd_user.email_address AS &quot;Email Address&quot;,  
+from_unixtime(cwd_user_attribute.attribute_value/1000)  AS &quot;Last Logged In&quot;
+FROM cwd_user
+LEFT OUTER JOIN cwd_user_attribute ON cwd_user_attribute.user_id = cwd_user.id
+AND cwd_user_attribute.attribute_name = 'lastAuthenticated'
+WHERE  active = 'T'
+ORDER BY 3,2,1 ;
+</code></pre>
+
   </section>
   <footer>
     

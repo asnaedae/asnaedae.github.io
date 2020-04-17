@@ -101,7 +101,7 @@
   </header>
   <div>
     Nice bugs that no one seems to want to fix:-
-mysql&gt; create table test5 ( wibble varchar(500), PRIMARY KEY (wibble) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin; ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes mysql&gt; create table test5 ( wibble varchar(500), PRIMARY KEY (wibble) ) ENGINE=myisam DEFAULT CHARSET=utf8 COLLATE=utf8_bin; ERROR 1071 (42000): Specified key was too long; max key length is 1332 bytes And even with MySQL 6.
+mysql&gt; create table test5 ( wibble varchar(500), PRIMARY KEY (wibble) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin; ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes mysql&gt; create table test5 ( wibble varchar(500), PRIMARY KEY (wibble) ) ENGINE=myisam DEFAULT CHARSET=utf8 COLLATE=utf8_bin; ERROR 1071 (42000): Specified key was too long; max key length is 1332 bytes  And even with MySQL 6.
   </div>
   
   <footer>
@@ -204,8 +204,8 @@ Quite a few guides on the interweb about how to do that, but I&rsquo;m still sli
   </header>
   <div>
     Show the status of spotlight on volumes:
-$ mdutil -sa /Shared Items/Public: Indexing enabled. /Volumes/Time Machine/Shared Items/Backups: Indexing and searching disabled. /Users: Indexing enabled. /Volumes/pool1: Indexing and searching disabled. /Shared Items/Backups: Indexing enabled. /Groups: Indexing enabled. I was receiving a few errors when trying to spotlight for applications (well they didn&rsquo;t appear) - running
-$ sudo mdutil -i off / Error, no index found for volume. What worked to fix this for me was to move the main volume into the privacy section of spotlight and reboot (though i&rsquo;d expect restarting fseventd might have the same effect) and then remove the volume from Privacy, 10 minutes later and disk has re-indexed and spotlight is working correctly.
+$ mdutil -sa /Shared Items/Public: Indexing enabled. /Volumes/Time Machine/Shared Items/Backups: Indexing and searching disabled. /Users: Indexing enabled. /Volumes/pool1: Indexing and searching disabled. /Shared Items/Backups: Indexing enabled. /Groups: Indexing enabled.  I was receiving a few errors when trying to spotlight for applications (well they didn&rsquo;t appear) - running
+$ sudo mdutil -i off / Error, no index found for volume.  What worked to fix this for me was to move the main volume into the privacy section of spotlight and reboot (though i&rsquo;d expect restarting fseventd might have the same effect) and then remove the volume from Privacy, 10 minutes later and disk has re-indexed and spotlight is working correctly.
   </div>
   
   <footer>

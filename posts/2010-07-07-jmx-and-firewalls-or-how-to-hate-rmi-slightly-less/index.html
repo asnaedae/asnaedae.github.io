@@ -116,15 +116,19 @@
 to get the wonderful jvisualvm (think 1.5 visualGC) working use the following
 incantations. This requires the initial RMI registry port is open to the client.
 First the initial SSH to server enabling the SOCKS tunnel</p>
+
 <p>{% highlight bash %}
 $ ssh -D localhost:9696 servername
 {% endhighlight %}</p>
+
 <p>And now for jvisualvm:</p>
+
 <p>{% highlight bash %}
-$ jvisualvm<br>
--J-Dnetbeans.system_socks_proxy=localhost:9696<br>
--J-Djava.net.useSystemProxies=true
+$ jvisualvm <br />
+  -J-Dnetbeans.system_socks_proxy=localhost:9696 <br />
+  -J-Djava.net.useSystemProxies=true
 {% endhighlight %}</p>
+
 <p>props to <a href="http://stackoverflow.com/questions/1609961/visualvm-over-ssh">Stackoverflow</a> for the hints</p>
 
   </section>

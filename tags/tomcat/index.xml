@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tomcat on Mike&#39;s ramblings</title>
@@ -19,8 +19,7 @@
       
       <guid>https://dubdubdub.co.uk/posts/2013-06-17-http-proxy-source-ip-and-tomcat/</guid>
       <description>Run into a situation recently where proxying applications with nginx has masked the source IP - which normally is just annoying, but with Atlassian&amp;rsquo;s Crowd it&amp;rsquo;s more of a problem, this can be solved in later versions (Tomcat 6.0.32+) as follows:
-&amp;lt;Valve className=&amp;#34;org.apache.catalina.valves.RemoteIpValve&amp;#34; internalProxies=&amp;#34;proxy_IP_address&amp;#34; remoteIpHeader=&amp;#34;x-forwarded-for&amp;#34; remoteIpProxiesHeader=&amp;#34;x-forwarded-by&amp;#34; protocolHeader=&amp;#34;x-forwarded-proto&amp;#34; /&amp;gt; &amp;lt;Valve className=&amp;#34;org.apache.catalina.valves.AccessLogValve&amp;#34; directory=&amp;#34;logs&amp;#34; prefix=&amp;#34;localhost_access.&amp;#34; suffix=&amp;#34;.log&amp;#34; pattern=&amp;#34;combined&amp;#34; resolveHosts=&amp;#34;false&amp;#34; /&amp;gt; The following should be used within nginx to forward that data into tomcat.
-proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Server $host; proxy_set_header X-Forwarded-For $remote_addr; </description>
+&amp;lt;Valve className=&amp;quot;org.apache.catalina.valves.RemoteIpValve&amp;quot; internalProxies=&amp;quot;proxy_IP_address&amp;quot; remoteIpHeader=&amp;quot;x-forwarded-for&amp;quot; remoteIpProxiesHeader=&amp;quot;x-forwarded-by&amp;quot; protocolHeader=&amp;quot;x-forwarded-proto&amp;quot; /&amp;gt; &amp;lt;Valve className=&amp;quot;org.apache.catalina.valves.AccessLogValve&amp;quot; directory=&amp;quot;logs&amp;quot; prefix=&amp;quot;localhost_access.&amp;quot; suffix=&amp;quot;.log&amp;quot; pattern=&amp;quot;combined&amp;quot; resolveHosts=&amp;quot;false&amp;quot; /&amp;gt;  The following should be used within nginx to forward that data into tomcat.</description>
     </item>
     
     <item>
@@ -30,11 +29,10 @@ proxy_set_header X-Forwarded-Proto https; proxy_set_header X-Forwarded-Host $hos
       
       <guid>https://dubdubdub.co.uk/posts/2006-04-01-escenic-debian-notes/</guid>
       <description>NON-FREE APT REPOSITORIES Install openssh package if not already installed
-# apt-get install openssh-server Add the following to /etc/apt/sources.list:
-deb http://oss.oracle.com/debian unstable main non-free deb http://ftp.uk.debian.org/debian etch main contrib non-free # apt-get update Install Async IO library for Oracle
-# apt-get install libaio Install optional extras for converting the JVM to a .deb
-# apt-get install build-essential fakeroot java-package # download sun binary JDK Create the ”deb” package:
-$ su - escenic # fakeroot make-jpkg jdk-1_5_0_14-linux-i586.</description>
+# apt-get install openssh-server  Add the following to /etc/apt/sources.list:
+deb http://oss.oracle.com/debian unstable main non-free deb http://ftp.uk.debian.org/debian etch main contrib non-free # apt-get update  Install Async IO library for Oracle
+# apt-get install libaio  Install optional extras for converting the JVM to a .deb
+# apt-get install build-essential fakeroot java-package # download sun binary JDK  Create the ”deb” package:</description>
     </item>
     
   </channel>

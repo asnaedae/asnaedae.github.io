@@ -113,10 +113,12 @@
   </header>
   <section>
     <p>Getting kubernetes to start with RBAC features enabled</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ minikube start --vm-driver<span style="color:#f92672">=</span>xhyve <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	--extra-config<span style="color:#f92672">=</span>apiserver.GenericServerRunOptions.AuthorizationMode<span style="color:#f92672">=</span>RBAC,--authorization-rbac-super-user<span style="color:#f92672">=</span>minikube-admin <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	--kubernetes-version<span style="color:#f92672">=</span>v1.6.0 --memory<span style="color:#f92672">=</span><span style="color:#ae81ff">4096</span> --cpus <span style="color:#ae81ff">4</span>
-</code></pre></div>
+
+<pre><code class="language-bash">$ minikube start --vm-driver=xhyve \
+	--extra-config=apiserver.GenericServerRunOptions.AuthorizationMode=RBAC,--authorization-rbac-super-user=minikube-admin \
+	--kubernetes-version=v1.6.0 --memory=4096 --cpus 4
+</code></pre>
+
   </section>
   <footer>
     

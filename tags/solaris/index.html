@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Solaris &middot;  Mike&#39;s ramblings" />
+  <meta property="og:title" content=" solaris &middot;  Mike&#39;s ramblings" />
   
   <meta name="theme-color" content="#f0f0f0" />
  
@@ -15,7 +15,7 @@
   
 
   <title>
-     Solaris &middot;  Mike&#39;s ramblings
+     solaris &middot;  Mike&#39;s ramblings
   </title>
 
   <link rel="stylesheet" href="https://dubdubdub.co.uk/css/bootstrap.min.css" />
@@ -88,7 +88,7 @@
   <main class="container">
 
 <section class="article-list">
-  <h1>Solaris</h1>
+  <h1>solaris</h1>
   
   <hr/>
   <article>
@@ -106,7 +106,7 @@
   <div>
     Well, been playing with opensolaris and they use mercurial as a DSVN - and another benefit of that over git is that the command set is very much similar to SVN/Subversion - which is important for us people who /don&rsquo;t/ use it every day.
 Migrating was straight-forward:
-$ mkdir ~/svn &amp;&amp; cd ~/svn $ hgimportsvn https://dubdubdub.co.uk/svn/mike $ find . -name .svn -type d | xargs rm -rf One thing to note when using - which took me a bit of reading to realise - it&rsquo;s distributed, so if you&rsquo;ve your own local copy - you have to commit and then push/pull changes out!
+$ mkdir ~/svn &amp;&amp; cd ~/svn $ hgimportsvn https://dubdubdub.co.uk/svn/mike $ find . -name .svn -type d | xargs rm -rf  One thing to note when using - which took me a bit of reading to realise - it&rsquo;s distributed, so if you&rsquo;ve your own local copy - you have to commit and then push/pull changes out!
   </div>
   
   <footer>
@@ -133,7 +133,7 @@ $ mkdir ~/svn &amp;&amp; cd ~/svn $ hgimportsvn https://dubdubdub.co.uk/svn/mike
   </header>
   <div>
     well this is slightly surprising, but in a very good way, and does lead to some interesting suggestions on how to best to improve matters, but look at the following graph of FAST ESP query latency:
-Notice that the average latency drops as we use the server more . . . but WHY? Well that&rsquo;s just because we&rsquo;re running the FAST indexes on a ZFS based file system and the L2 ARC cache is making it&rsquo;s presence felt
+Notice that the average latency drops as we use the server more &hellip; but WHY? Well that&rsquo;s just because we&rsquo;re running the FAST indexes on a ZFS based file system and the L2 ARC cache is making it&rsquo;s presence felt
   </div>
   
   <footer>
@@ -187,7 +187,7 @@ ie: dladm - physical link provision/configuration ifconfig - logical link config
   </header>
   <div>
     Configure the zone you want, this is just a basic configuration (suited to a name server - that inherits the global zones /var/named)
-# zonecfg -z solzone solzone: No such zone configured Use &#39;create&#39; to begin configuring a new zone. zonecfg:solzone&gt; create zonecfg:solzone&gt; set zonepath=/u01/zones/solzone zonecfg:solzone&gt; set autoboot=true zonecfg:solzone&gt; add net zonecfg:solzone:net&gt; set address=10.10.10.20/24 zonecfg:solzone:net&gt; set physical=bge0 zonecfg:solzone:net&gt; end zonecfg:solzone&gt; add fs zonecfg:solzone:fs&gt; set type=lofs zonecfg:solzone:fs&gt; set special=/u01/zonedata/solzone zonecfg:solzone:fs&gt; set dir=/u01 zonecfg:solzone:fs&gt; end zonecfg:solzone&gt; add inherit-pkg-dir zonecfg:solzone:inherit-pkg-dir&gt; set dir=/var/named zonecfg:solzone:inherit-pkg-dir&gt; end zonecfg:solzone&gt; add attr zonecfg:solzone:attr&gt; set name=comment zonecfg:solzone:attr&gt; set type=string zonecfg:solzone:attr&gt; set value=&#34;test solaris zone&#34; zonecfg:solzone:attr&gt; end zonecfg:solzone&gt; verify zonecfg:solzone&gt; commit zonecfg:solzone&gt; exit And now install and boot the zone
+# zonecfg -z solzone solzone: No such zone configured Use 'create' to begin configuring a new zone. zonecfg:solzone&gt; create zonecfg:solzone&gt; set zonepath=/u01/zones/solzone zonecfg:solzone&gt; set autoboot=true zonecfg:solzone&gt; add net zonecfg:solzone:net&gt; set address=10.10.10.20/24 zonecfg:solzone:net&gt; set physical=bge0 zonecfg:solzone:net&gt; end zonecfg:solzone&gt; add fs zonecfg:solzone:fs&gt; set type=lofs zonecfg:solzone:fs&gt; set special=/u01/zonedata/solzone zonecfg:solzone:fs&gt; set dir=/u01 zonecfg:solzone:fs&gt; end zonecfg:solzone&gt; add inherit-pkg-dir zonecfg:solzone:inherit-pkg-dir&gt; set dir=/var/named zonecfg:solzone:inherit-pkg-dir&gt; end zonecfg:solzone&gt; add attr zonecfg:solzone:attr&gt; set name=comment zonecfg:solzone:attr&gt; set type=string zonecfg:solzone:attr&gt; set value=&quot;test solaris zone&quot; zonecfg:solzone:attr&gt; end zonecfg:solzone&gt; verify zonecfg:solzone&gt; commit zonecfg:solzone&gt; exit  And now install and boot the zone
   </div>
   
   <footer>
@@ -215,7 +215,7 @@ ie: dladm - physical link provision/configuration ifconfig - logical link config
   <div>
     It’s been a bug-bear for a long time for me that the CPU metrics when querying a Solaris 10 host are global and not zone specific (which of course makes sense, just makes it harder to track zone utilisation).
 So finally wrote a basic perl script that will provide that information via a SNMP mib, output looks like the following:
-&gt; snmpwalk -v 1 -c public localhost .1.3.6.1.4.1.2021.255.7 UCD-SNMP-MIB::ucdavis.255.7.0 = STRING: &#34;Zone name&#34; UCD-SNMP-MIB::ucdavis.
+&gt; snmpwalk -v 1 -c public localhost .1.3.6.1.4.1.2021.255.7 UCD-SNMP-MIB::ucdavis.255.7.0 = STRING: &quot;Zone name&quot; UCD-SNMP-MIB::ucdavis.
   </div>
   
   <footer>

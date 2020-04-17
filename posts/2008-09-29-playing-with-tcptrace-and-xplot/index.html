@@ -116,15 +116,21 @@
     </div>
   </header>
   <section>
-    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># tcpdump -ni en0 port 80 -w output.trace</span>
-<span style="color:#75715e"># tcptrace -G output.trace</span>
-<span style="color:#75715e"># xplot *tput.xpl</span>
-</code></pre></div><p><img src="/images/tcptrace.png" alt="TCP Trace"></p>
+    <pre><code class="language-bash"># tcpdump -ni en0 port 80 -w output.trace
+# tcptrace -G output.trace
+# xplot *tput.xpl
+</code></pre>
+
+<p><img src="/images/tcptrace.png" alt="TCP Trace" /></p>
+
 <p>From the online manpage:</p>
+
 <p>Yellow: instantaneous packets
 Red: Throughput for the last few packets
 Blue: Throughput since the start of the stream/connection</p>
+
 <p>Other useful graphs:</p>
+
 <ul>
 <li>_owin.xpl - outstanding data/congestion</li>
 <li>_rtt.xpl - round trip time/time</li>
@@ -133,6 +139,7 @@ Blue: Throughput since the start of the stream/connection</p>
 <li>_tsg.xpl - time sequence graph</li>
 <li>_tline.xpl - Timeline graph - W Richard Stevens style</li>
 </ul>
+
 <p>Just some notes here so I don&rsquo;t forget the basics - manual over at <a href="http://www.tcptrace.org/manual/node11_tf.html">here</a></p>
 
   </section>

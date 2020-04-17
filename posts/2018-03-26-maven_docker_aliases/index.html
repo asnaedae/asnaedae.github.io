@@ -113,6 +113,7 @@
   </header>
   <section>
     <p>Adding a <code>latest</code> tag to docker containers built by <a href="https://github.com/fabric8io/docker-maven-plugin">docker-maven-plugin</a></p>
+
 <pre><code>  &lt;name&gt;${project.artifactId}:${project.version}&lt;/name&gt;
   &lt;build&gt;
       &lt;tags combine.children=&quot;append&quot;&gt;
@@ -120,6 +121,7 @@
       &lt;/tags&gt;
       &lt;from&gt;${base.docker.image}&lt;/from&gt;
 </code></pre>
+
   </section>
   <footer>
     

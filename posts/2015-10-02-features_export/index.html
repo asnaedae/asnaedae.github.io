@@ -109,23 +109,34 @@
   </header>
   <section>
     <p>Had a strange error being reported when exporting features from a Drupal 7 instance, in that the resultant tar file was not extracting using any of the usual tools, such as tar etc.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ file features_export-7.x-1.0-alpha1.tar
+
+<pre><code class="language-bash">$ file features_export-7.x-1.0-alpha1.tar
 features_export-7.x-1.0-alpha1.tar: data
-</code></pre></div><p>File magic showed that the file was wrong, but looking at the file itself looked correct at first glance, and a look around on Drupal.org returned <a href="https://www.drupal.org/node/522794">this</a> old thread which lead me to</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ head features_export-7.x-1.0-alpha1.tar
+</code></pre>
 
-features_export/features_export.features.conditional_fields.inc^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@100644 ^@   <span style="color:#ae81ff">765</span> ^@   <span style="color:#ae81ff">765</span> ^@     <span style="color:#ae81ff">557662</span> 12603173414^@021333^@ ^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@ustar  ^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@&lt;?php
-</code></pre></div><p>The key being the blank first line in the above file, eventually tracked the following to the following in <code>settings.php</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$ head settings.php
+<p>File magic showed that the file was wrong, but looking at the file itself looked correct at first glance, and a look around on Drupal.org returned <a href="https://www.drupal.org/node/522794">this</a> old thread which lead me to</p>
 
-<span style="color:#75715e">&lt;?php</span>
-$databases <span style="color:#f92672">=</span> <span style="color:#66d9ef">array</span> (
-  <span style="color:#e6db74">&#39;default&#39;</span> <span style="color:#f92672">=&gt;</span>
-  <span style="color:#66d9ef">array</span> (
-</code></pre></div><p>Remove the blank line before the opening php tag and tar file successfully generates and can be extracted:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ file features_export-7.x-1.0-alpha1.tar
-features_export-7.x-1.0-alpha1.tar: POSIX tar archive <span style="color:#f92672">(</span>GNU<span style="color:#f92672">)</span>
-</code></pre></div>
+<pre><code class="language-bash">$ head features_export-7.x-1.0-alpha1.tar
+
+features_export/features_export.features.conditional_fields.inc^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@100644 ^@   765 ^@   765 ^@     557662 12603173414^@021333^@ ^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@ustar  ^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@&lt;?php
+</code></pre>
+
+<p>The key being the blank first line in the above file, eventually tracked the following to the following in <code>settings.php</code>:</p>
+
+<pre><code class="language-php">$ head settings.php
+
+&lt;?php
+$databases = array (
+  'default' =&gt;
+  array (
+</code></pre>
+
+<p>Remove the blank line before the opening php tag and tar file successfully generates and can be extracted:</p>
+
+<pre><code class="language-bash">$ file features_export-7.x-1.0-alpha1.tar
+features_export-7.x-1.0-alpha1.tar: POSIX tar archive (GNU)
+</code></pre>
+
   </section>
   <footer>
     

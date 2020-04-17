@@ -112,52 +112,75 @@
     </div>
   </header>
   <section>
-    <p>So whilst trying to get <a href="http://boxen.github.com/">boxen</a> to work I needed a good method to test, so of course I turned to <a href="http://www.vagrantup.com/">Vagrant</a> and standing on the works of others (namely <a href="http://grahamgilbert.com/blog/2013/08/23/creating-an-os-x-base-box-for-vagrant-with-packer/">Graham Gilbert</a> ) I used the following steps:</p>
+    
+
+<p>So whilst trying to get <a href="http://boxen.github.com/">boxen</a> to work I needed a good method to test, so of course I turned to <a href="http://www.vagrantup.com/">Vagrant</a> and standing on the works of others (namely <a href="http://grahamgilbert.com/blog/2013/08/23/creating-an-os-x-base-box-for-vagrant-with-packer/">Graham Gilbert</a> ) I used the following steps:</p>
+
 <h2 id="requirements">Requirements</h2>
+
 <ul>
 <li><a href="http://packer.io/downloads.html">Packer</a></li>
 <li><a href="http://www.vagrantup.com/">Vagrant</a></li>
 <li><a href="http://www.vmware.com/uk/products/fusion">VMware Fusion</a></li>
 </ul>
+
 <h2 id="steps">Steps</h2>
+
 <p>Download and install packer, the easiest method to do this I found was using <a href="http://brew.sh/">homebrew</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install packer
-Cloning into <span style="color:#e6db74">&#39;/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary&#39;</span>...
-remote: Reusing existing pack: 143, <span style="color:#66d9ef">done</span>.
-remote: Total <span style="color:#ae81ff">143</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>
-Receiving objects: 100% <span style="color:#f92672">(</span>143/143<span style="color:#f92672">)</span>, 22.89 KiB | <span style="color:#ae81ff">0</span> bytes/s, <span style="color:#66d9ef">done</span>.
-Resolving deltas: 100% <span style="color:#f92672">(</span>66/66<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
-Checking connectivity... <span style="color:#66d9ef">done</span>.
-Tapped <span style="color:#ae81ff">13</span> formula
-<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Downloading https://dl.bintray.com/mitchellh/packer/0.6.0_darwin_amd64.zip
-<span style="color:#75715e">######################################################################## 100.0%</span>
-🍺  /opt/boxen/homebrew/Cellar/packer/0.6.0: <span style="color:#ae81ff">33</span> files, 377M, built in 11.9 minutes
-</code></pre></div><p>Get the OSX template for packer</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir $HOME/tmp <span style="color:#f92672">&amp;&amp;</span> cd $HOME/tmp
+
+<pre><code class="language-bash">$ brew install packer
+Cloning into '/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary'...
+remote: Reusing existing pack: 143, done.
+remote: Total 143 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (143/143), 22.89 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (66/66), done.
+Checking connectivity... done.
+Tapped 13 formula
+==&gt; Downloading https://dl.bintray.com/mitchellh/packer/0.6.0_darwin_amd64.zip
+######################################################################## 100.0%
+🍺  /opt/boxen/homebrew/Cellar/packer/0.6.0: 33 files, 377M, built in 11.9 minutes
+</code></pre>
+
+<p>Get the OSX template for packer</p>
+
+<pre><code class="language-bash">$ mkdir $HOME/tmp &amp;&amp; cd $HOME/tmp
 $ git clone https://github.com/timsutton/osx-vm-templates.git
-Cloning into <span style="color:#e6db74">&#39;osx-vm-templates&#39;</span>...
-remote: Reusing existing pack: 193, <span style="color:#66d9ef">done</span>.
-remote: Total <span style="color:#ae81ff">193</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>
-Receiving objects: 100% <span style="color:#f92672">(</span>193/193<span style="color:#f92672">)</span>, 98.27 KiB | <span style="color:#ae81ff">0</span> bytes/s, <span style="color:#66d9ef">done</span>.
-Resolving deltas: 100% <span style="color:#f92672">(</span>77/77<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
-Checking connectivity... <span style="color:#66d9ef">done</span>.
-</code></pre></div><p>Prepare packer to install Mavericks</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd $HOME/tmp/osx-vm-templates
-$ sudo prepare_iso/prepare_iso.sh <span style="color:#e6db74">&#34;/Applications/Install OS X Mavericks.app&#34;</span> out
-</code></pre></div><p>This should result in :</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$HOME/tmp/osx-vm-templates/out/OSX_InstallESD_10.9.2_13C64.dmg
+Cloning into 'osx-vm-templates'...
+remote: Reusing existing pack: 193, done.
+remote: Total 193 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (193/193), 98.27 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (77/77), done.
+Checking connectivity... done.
+</code></pre>
+
+<p>Prepare packer to install Mavericks</p>
+
+<pre><code class="language-bash">$ cd $HOME/tmp/osx-vm-templates
+$ sudo prepare_iso/prepare_iso.sh &quot;/Applications/Install OS X Mavericks.app&quot; out
+</code></pre>
+
+<p>This should result in :</p>
+
+<pre><code class="language-bash">$HOME/tmp/osx-vm-templates/out/OSX_InstallESD_10.9.2_13C64.dmg
 -- Fixing permissions..
 -- Checksumming output image..
 -- MD5: dbe60cbeab09208e3ed20985975068b9
 -- Done. Built image is located at out/OSX_InstallESD_10.9.2_13C64.dmg. Add this iso and its checksum to your template.
-</code></pre></div><p>Then change packer/template.json to insert the DMG source and checksum</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd packer/ <span style="color:#f92672">&amp;&amp;</span> packer build template.json
-</code></pre></div><p>And once that has done it&rsquo;s thing you will end up with :</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vagrant box add osx packer_vmware-iso_vmware.box
-<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; box: Adding box <span style="color:#e6db74">&#39;osx&#39;</span> <span style="color:#f92672">(</span>v0<span style="color:#f92672">)</span> <span style="color:#66d9ef">for</span> provider:
+</code></pre>
+
+<p>Then change packer/template.json to insert the DMG source and checksum</p>
+
+<pre><code class="language-bash">$ cd packer/ &amp;&amp; packer build template.json
+</code></pre>
+
+<p>And once that has done it&rsquo;s thing you will end up with :</p>
+
+<pre><code class="language-bash">$ vagrant box add osx packer_vmware-iso_vmware.box
+==&gt; box: Adding box 'osx' (v0) for provider:
     box: Downloading: file://.../packer/packer_vmware-iso_vmware.box
-<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; box: Successfully added box <span style="color:#e6db74">&#39;osx&#39;</span> <span style="color:#f92672">(</span>v0<span style="color:#f92672">)</span> <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;vmware_desktop&#39;</span>!
-</code></pre></div>
+==&gt; box: Successfully added box 'osx' (v0) for 'vmware_desktop'!
+</code></pre>
+
   </section>
   <footer>
     

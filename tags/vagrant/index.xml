@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>vagrant on Mike&#39;s ramblings</title>
@@ -30,7 +30,7 @@ $ vagrant plugin install vagrant-vbguest Installing the &#39;vagrant-vbguest&#39
       <guid>https://dubdubdub.co.uk/posts/2014-05-12-osx-and-vagrant/</guid>
       <description>So whilst trying to get boxen to work I needed a good method to test, so of course I turned to Vagrant and standing on the works of others (namely Graham Gilbert ) I used the following steps:
 Requirements  Packer Vagrant VMware Fusion  Steps Download and install packer, the easiest method to do this I found was using homebrew
-$ brew install packer Cloning into &amp;#39;/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary&amp;#39;... remote: Reusing existing pack: 143, done.</description>
+$ brew install packer Cloning into &#39;/opt/boxen/homebrew/Library/Taps/homebrew/homebrew-binary&#39;... remote: Reusing existing pack: 143, done.</description>
     </item>
     
   </channel>

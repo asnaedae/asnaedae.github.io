@@ -109,10 +109,13 @@
   </header>
   <section>
     <p>So whilst moving between github organisations - which is relatively straight forward, I also had to move some from <a href="http://www.atlassian.com/software/stash">Atlassian Stash</a> unfortunately there&rsquo;s not as simple a method to do this, but a good way of mirroring between two repos is as follows:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://donor_repo/example1 --bare
+
+<pre><code class="language-bash">$ git clone https://donor_repo/example1 --bare
 $ git remote set-url --push origin https://destination_repo/example2.git
-$ git fetch -p origin <span style="color:#f92672">&amp;&amp;</span> git push --mirror
-</code></pre></div><p>Simples.</p>
+$ git fetch -p origin &amp;&amp; git push --mirror
+</code></pre>
+
+<p>Simples.</p>
 
   </section>
   <footer>

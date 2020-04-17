@@ -113,10 +113,12 @@
   </header>
   <section>
     <p>This little snippet will give you a new little window for all those recent applications you launch – I seem to have picked up a habit for closing applications down when I stop working with them for an hour or two (pages etc.)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ write com.apple.dock persistent-others -array-add <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#39;{ &#34;tile-data&#34; = { &#34;list-type&#34; = 1; }; &#34;tile-type&#34; = &#34;recents-tile&#34;; }&#39;</span>
+
+<pre><code class="language-bash">$ write com.apple.dock persistent-others -array-add \
+    '{ &quot;tile-data&quot; = { &quot;list-type&quot; = 1; }; &quot;tile-type&quot; = &quot;recents-tile&quot;; }'
 $ killall Dock
-</code></pre></div>
+</code></pre>
+
   </section>
   <footer>
     

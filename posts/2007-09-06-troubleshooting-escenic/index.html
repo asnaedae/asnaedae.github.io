@@ -105,13 +105,18 @@
   </header>
   <section>
     <p>Error:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">Internal error: There was a database error: \
+
+<pre><code class="language-xml">Internal error: There was a database error: \
 java.security.AccessControlException: access denied \
 (neo.xredsys.auth.UserPermission 1 create)
-</code></pre></div><p>Solution: You&rsquo;ve not followed the installation instructions and not changed the java.security settings:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">-Djava.security.policy=/u01/apps/escenic/engine-4.3-2/security/java.policy
+</code></pre>
+
+<p>Solution: You&rsquo;ve not followed the installation instructions and not changed the java.security settings:</p>
+
+<pre><code class="language-xml">-Djava.security.policy=/u01/apps/escenic/engine-4.3-2/security/java.policy
 -Djava.security.auth.login.config=/u01/apps/escenic/engine-4.3-2/security/jaas.config
-</code></pre></div>
+</code></pre>
+
   </section>
   <footer>
     

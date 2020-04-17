@@ -109,7 +109,8 @@
   </header>
   <section>
     <p>Show the status of spotlight on volumes:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mdutil -sa
+
+<pre><code class="language-bash">$ mdutil -sa
 /Shared Items/Public:
 Indexing enabled.
 /Volumes/Time Machine/Shared Items/Backups:
@@ -122,10 +123,15 @@ Indexing and searching disabled.
 Indexing enabled.
 	/Groups:
 Indexing enabled.
-</code></pre></div><p>I was receiving a few errors when trying to spotlight for applications (well they didn&rsquo;t appear) - running</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo mdutil -i off /
-Error, no index found <span style="color:#66d9ef">for</span> volume.
-</code></pre></div><p>What worked to fix this for me was to move the main volume into the privacy section of spotlight and reboot (though i&rsquo;d expect restarting fseventd might have the same effect) and then remove the volume from Privacy, 10 minutes later and disk has re-indexed and spotlight is working correctly.</p>
+</code></pre>
+
+<p>I was receiving a few errors when trying to spotlight for applications (well they didn&rsquo;t appear) - running</p>
+
+<pre><code class="language-bash">$ sudo mdutil -i off /
+Error, no index found for volume.
+</code></pre>
+
+<p>What worked to fix this for me was to move the main volume into the privacy section of spotlight and reboot (though i&rsquo;d expect restarting fseventd might have the same effect) and then remove the volume from Privacy, 10 minutes later and disk has re-indexed and spotlight is working correctly.</p>
 
   </section>
   <footer>

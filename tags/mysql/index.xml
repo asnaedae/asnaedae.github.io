@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mysql on Mike&#39;s ramblings</title>
@@ -19,7 +19,7 @@
       
       <guid>https://dubdubdub.co.uk/posts/2009-07-31-utf8-and-mysql-databases/</guid>
       <description>Nice bugs that no one seems to want to fix:-
-mysql&amp;gt; create table test5 ( wibble varchar(500), PRIMARY KEY (wibble) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin; ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes mysql&amp;gt; create table test5 ( wibble varchar(500), PRIMARY KEY (wibble) ) ENGINE=myisam DEFAULT CHARSET=utf8 COLLATE=utf8_bin; ERROR 1071 (42000): Specified key was too long; max key length is 1332 bytes And even with MySQL 6.</description>
+mysql&amp;gt; create table test5 ( wibble varchar(500), PRIMARY KEY (wibble) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin; ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes mysql&amp;gt; create table test5 ( wibble varchar(500), PRIMARY KEY (wibble) ) ENGINE=myisam DEFAULT CHARSET=utf8 COLLATE=utf8_bin; ERROR 1071 (42000): Specified key was too long; max key length is 1332 bytes  And even with MySQL 6.</description>
     </item>
     
   </channel>

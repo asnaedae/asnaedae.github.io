@@ -113,8 +113,10 @@
   </header>
   <section>
     <p>Ahh, so Apple&rsquo;s Remote Desktop is just a simpler implementation of the VNC protocol (I&rsquo;m sure there&rsquo;s some propriety extensions in there but it&rsquo;s nice to know you can use vncclient to connect to a Mac.</p>
+
 <p>Options that work well for VNC:-</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">[Connection]
+
+<pre><code class="language-xml">[Connection]
 Host=$HOSTNAME
 
 [Options]
@@ -136,7 +138,9 @@ PointerEventInterval=0
 Monitor=
 MenuKey=F8
 AutoReconnect=1
-</code></pre></div><p>Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.</p>
+</code></pre>
+
+<p>Not the fastest thing in the planet, but only enabling the Hextile option seems to work ok.</p>
 
   </section>
   <footer>

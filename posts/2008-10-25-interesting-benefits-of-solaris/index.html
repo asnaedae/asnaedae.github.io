@@ -117,55 +117,64 @@
   </header>
   <section>
     <p>well this is slightly surprising, but in a very good way, and does lead to some interesting suggestions on how to best to improve matters, but look at the following graph of FAST ESP query latency:</p>
-<p><img src="/images/fast-query-latency.png" alt="FAST Query Latency"></p>
-<p>Notice that the average latency drops as we use the server more . . . but WHY?
+
+<p><img src="/images/fast-query-latency.png" alt="FAST Query Latency" /></p>
+
+<p>Notice that the average latency drops as we use the server more &hellip; but WHY?
 Well that&rsquo;s just because we&rsquo;re running the FAST indexes on a ZFS based file system and the L2 ARC cache is making it&rsquo;s presence felt</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># arcstat.pl</span>
+
+<pre><code class="language-bash"># arcstat.pl
 Time read miss miss% dmis dm% pmis pm% mmis mm% arcsz cur
-11:25:52 13G 263M <span style="color:#ae81ff">1</span> 158M <span style="color:#ae81ff">1</span> 104M <span style="color:#ae81ff">15</span> 44M <span style="color:#ae81ff">11</span> 2G 2G
-11:25:53 29K <span style="color:#ae81ff">103</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">97</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">6</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">15</span> 2G 2G
-11:25:54 10K <span style="color:#ae81ff">161</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">156</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">9</span> 2G 2G
-11:25:55 10K <span style="color:#ae81ff">197</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">174</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">18</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">50</span> 2G 2G
-</code></pre></div><p>Of course, I&rsquo;d really like to try playing with a few Enterprise grade SSDs to supplement the L2 ARC - should be able to soak most of the &ldquo;hot&rdquo; data from SSD without going back to the spinning rust (admittedly the full index data set is only 80GB)</p>
+11:25:52 13G 263M 1 158M 1 104M 15 44M 11 2G 2G
+11:25:53 29K 103 0 97 0 6 2 2 15 2G 2G
+11:25:54 10K 161 1 156 1 5 13 1 9 2G 2G
+11:25:55 10K 197 1 174 1 23 18 3 50 2G 2G
+</code></pre>
+
+<p>Of course, I&rsquo;d really like to try playing with a few Enterprise grade SSDs to supplement the L2 ARC - should be able to soak most of the &ldquo;hot&rdquo; data from SSD without going back to the spinning rust (admittedly the full index data set is only 80GB)</p>
+
 <p><em>patiently waits for Sun to get their fingers out</em></p>
+
 <p><em>Update</em>
 Using Ben Rockwood&rsquo;s arc_summary.pl tool we get the following view into the ARC cache:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ARC Size:
-         Current Size:             <span style="color:#ae81ff">4659</span> MB <span style="color:#f92672">(</span>arcsize<span style="color:#f92672">)</span>
-         Target Size <span style="color:#f92672">(</span>Adaptive<span style="color:#f92672">)</span>:   <span style="color:#ae81ff">4659</span> MB <span style="color:#f92672">(</span>c<span style="color:#f92672">)</span>
-         Min Size <span style="color:#f92672">(</span>Hard Limit<span style="color:#f92672">)</span>:    <span style="color:#ae81ff">1023</span> MB <span style="color:#f92672">(</span>zfs_arc_min<span style="color:#f92672">)</span>
-         Max Size <span style="color:#f92672">(</span>Hard Limit<span style="color:#f92672">)</span>:    <span style="color:#ae81ff">31735</span> MB <span style="color:#f92672">(</span>zfs_arc_max<span style="color:#f92672">)</span>
+
+<pre><code class="language-bash">ARC Size:
+         Current Size:             4659 MB (arcsize)
+         Target Size (Adaptive):   4659 MB (c)
+         Min Size (Hard Limit):    1023 MB (zfs_arc_min)
+         Max Size (Hard Limit):    31735 MB (zfs_arc_max)
 
 ARC Size Breakdown:
-         Most Recently Used Cache Size:          29%    <span style="color:#ae81ff">1393</span> MB <span style="color:#f92672">(</span>p<span style="color:#f92672">)</span>
-         Most Frequently Used Cache Size:        70%    <span style="color:#ae81ff">3266</span> MB <span style="color:#f92672">(</span>c-p<span style="color:#f92672">)</span>
+         Most Recently Used Cache Size:          29%    1393 MB (p)
+         Most Frequently Used Cache Size:        70%    3266 MB (c-p)
 
 ARC Efficency:
-         Cache Access Total:             <span style="color:#ae81ff">1464939081</span>
-         Cache Hit Ratio:      91%       <span style="color:#ae81ff">1342983472</span>     <span style="color:#f92672">[</span>Defined State <span style="color:#66d9ef">for</span> buffer<span style="color:#f92672">]</span>
-         Cache Miss Ratio:      8%       <span style="color:#ae81ff">121955609</span>      <span style="color:#f92672">[</span>Undefined State <span style="color:#66d9ef">for</span> Buffer<span style="color:#f92672">]</span>
-         REAL Hit Ratio:       78%       <span style="color:#ae81ff">1146170142</span>     <span style="color:#f92672">[</span>MRU/MFU Hits Only<span style="color:#f92672">]</span>
+         Cache Access Total:             1464939081
+         Cache Hit Ratio:      91%       1342983472     [Defined State for buffer]
+         Cache Miss Ratio:      8%       121955609      [Undefined State for Buffer]
+         REAL Hit Ratio:       78%       1146170142     [MRU/MFU Hits Only]
 
          Data Demand   Efficiency:    91%
          Data Prefetch Efficiency:    86%
 
         CACHE HITS BY CACHE LIST:
-          Anon:                       10%        <span style="color:#ae81ff">142482495</span>              <span style="color:#f92672">[</span> New Customer, First Cache Hit <span style="color:#f92672">]</span>
-          Most Recently Used:          5%        <span style="color:#ae81ff">74249410</span> <span style="color:#f92672">(</span>mru<span style="color:#f92672">)</span>         <span style="color:#f92672">[</span> Return Customer <span style="color:#f92672">]</span>
-          Most Frequently Used:       79%        <span style="color:#ae81ff">1071920732</span> <span style="color:#f92672">(</span>mfu<span style="color:#f92672">)</span>       <span style="color:#f92672">[</span> Frequent Customer <span style="color:#f92672">]</span>
-          Most Recently Used Ghost:    1%        <span style="color:#ae81ff">19996413</span> <span style="color:#f92672">(</span>mru_ghost<span style="color:#f92672">)</span>   <span style="color:#f92672">[</span> Return Customer Evicted, Now Back <span style="color:#f92672">]</span>
-          Most Frequently Used Ghost:  2%        <span style="color:#ae81ff">34334422</span> <span style="color:#f92672">(</span>mfu_ghost<span style="color:#f92672">)</span>   <span style="color:#f92672">[</span> Frequent Customer Evicted, Now Back <span style="color:#f92672">]</span>
+          Anon:                       10%        142482495              [ New Customer, First Cache Hit ]
+          Most Recently Used:          5%        74249410 (mru)         [ Return Customer ]
+          Most Frequently Used:       79%        1071920732 (mfu)       [ Frequent Customer ]
+          Most Recently Used Ghost:    1%        19996413 (mru_ghost)   [ Return Customer Evicted, Now Back ]
+          Most Frequently Used Ghost:  2%        34334422 (mfu_ghost)   [ Frequent Customer Evicted, Now Back ]
         CACHE HITS BY DATA TYPE:
-          Demand Data:                53%        <span style="color:#ae81ff">712758575</span>
-          Prefetch Data:              17%        <span style="color:#ae81ff">241164086</span>
-          Demand Metadata:            20%        <span style="color:#ae81ff">280805976</span>
-          Prefetch Metadata:           8%        <span style="color:#ae81ff">108254835</span>
+          Demand Data:                53%        712758575
+          Prefetch Data:              17%        241164086
+          Demand Metadata:            20%        280805976
+          Prefetch Metadata:           8%        108254835
         CACHE MISSES BY DATA TYPE:
-          Demand Data:                52%        <span style="color:#ae81ff">64233340</span>
-          Prefetch Data:              30%        <span style="color:#ae81ff">36667246</span>
-          Demand Metadata:            15%        <span style="color:#ae81ff">19272211</span>
-          Prefetch Metadata:           1%        <span style="color:#ae81ff">1782812</span>
-</code></pre></div>
+          Demand Data:                52%        64233340
+          Prefetch Data:              30%        36667246
+          Demand Metadata:            15%        19272211
+          Prefetch Metadata:           1%        1782812
+</code></pre>
+
   </section>
   <footer>
     

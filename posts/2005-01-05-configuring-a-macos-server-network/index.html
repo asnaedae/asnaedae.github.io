@@ -104,26 +104,43 @@
     </div>
   </header>
   <section>
-    <p>So installed Leopard server over the weekend and here’s some notes and annoyances I’ve hit (and overcame)</p>
+    
+
+<p>So installed Leopard server over the weekend and here’s some notes and annoyances I’ve hit (and overcame)</p>
+
 <pre><code>services fail to start – basically forward/reverse DNS must match
 </code></pre>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">greebo:~ localad$ sudo changeip -checkhostname
 
-Primary address <span style="color:#f92672">=</span> 172.16.10.196
+<pre><code class="language-bash">greebo:~ localad$ sudo changeip -checkhostname
 
-Current HostName <span style="color:#f92672">=</span> greebo.snarc.co.uk
-DNS HostName <span style="color:#f92672">=</span> greebo.snarc.co.uk
-</code></pre></div><blockquote>
+Primary address = 172.16.10.196
+
+Current HostName = greebo.snarc.co.uk
+DNS HostName = greebo.snarc.co.uk
+</code></pre>
+
+<blockquote>
 <p>names match. There is nothing to change.</p>
 </blockquote>
+
 <p>So I cheated and am running split horizon DNS, I’ve not done the following – but is here as a reminder (and if I ever have enough disk space)</p>
+
 <p>Changing clients to use your new server (running Software Update)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CatalogURL http://greebo.snarc.co.uk:8088/
-</code></pre></div><p>And trigger an update from the command line using</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo softwareupdate –install –all
-</code></pre></div><h2 id="time-machine">Time Machine</h2>
+
+<pre><code class="language-bash">sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CatalogURL http://greebo.snarc.co.uk:8088/
+</code></pre>
+
+<p>And trigger an update from the command line using</p>
+
+<pre><code class="language-bash">$ sudo softwareupdate –install –all
+</code></pre>
+
+<h2 id="time-machine">Time Machine</h2>
+
 <p>It’s just easier to start with workgroup mode and use serveradmin to run the machine without converting it.</p>
+
 <h2 id="things-left-to-do">Things left to do:</h2>
+
 <ul>
 <li>Network home directories</li>
 <li>Portable home directories</li>

@@ -105,7 +105,7 @@
   </header>
   <div>
     Adding a latest tag to docker containers built by docker-maven-plugin
- &lt;name&gt;${project.artifactId}:${project.version}&lt;/name&gt; &lt;build&gt; &lt;tags combine.children=&quot;append&quot;&gt; &lt;tag&gt;latest&lt;/tag&gt; &lt;/tags&gt; &lt;from&gt;${base.docker.image}&lt;/from&gt; 
+ &lt;name&gt;${project.artifactId}:${project.version}&lt;/name&gt; &lt;build&gt; &lt;tags combine.children=&quot;append&quot;&gt; &lt;tag&gt;latest&lt;/tag&gt; &lt;/tags&gt; &lt;from&gt;${base.docker.image}&lt;/from&gt;  
   </div>
   
 </article>
@@ -126,7 +126,7 @@
   </header>
   <div>
     Getting kubernetes to start with RBAC features enabled
-$ minikube start --vm-driver=xhyve \ 	--extra-config=apiserver.GenericServerRunOptions.AuthorizationMode=RBAC,--authorization-rbac-super-user=minikube-admin \ 	--kubernetes-version=v1.6.0 --memory=4096 --cpus 4 
+$ minikube start --vm-driver=xhyve \ --extra-config=apiserver.GenericServerRunOptions.AuthorizationMode=RBAC,--authorization-rbac-super-user=minikube-admin \ --kubernetes-version=v1.6.0 --memory=4096 --cpus 4  
   </div>
   
 </article>
@@ -148,7 +148,7 @@ $ minikube start --vm-driver=xhyve \ 	--extra-config=apiserver.GenericServerRunO
   <div>
     Just a collection of annoyances on Kubernetes:
 kubectl config and multiple namespaces Seriously! The shear amount of YAML duplication if you have a large number of namespaces and clusters it quite rapidly becomes very annoying, do remember that this is YAML so you could have (ab)used anchors to copy commonly used fragments:
-apiVersion: v1 clusters: - cluster: server: https://cluster1.example.com name: cluster1 contexts: - context: &amp;bar-ns cluster: cluster1 namespace: bar-namespace user: &#34;cluster1-user&#34; name: cluster1-bar-namespace - context: &lt;&lt;: *bar-ns namespace: foo-namespace name: cluster1-foo-namespace - context: &lt;&lt;: *bar-ns namespace: kube-system name: cluster1-kubesystem current-context: cluster1-foo-namespace kind: Config preferences: {} users: [] CURRENT NAME CLUSTER AUTHINFO NAMESPACE * cluster1-foo-namespace cluster1 foo-namespace cluster1-kubesystem cluster1 kube-system cluster1-bar-namespace cluster1 bar-namespace Except: as soon as you use kubectl config use-context it goes and helpfully writes back the expanded YAML structure.
+apiVersion: v1 clusters: - cluster: server: https://cluster1.example.com name: cluster1 contexts: - context: &amp;bar-ns cluster: cluster1 namespace: bar-namespace user: &quot;cluster1-user&quot; name: cluster1-bar-namespace - context: &lt;&lt;: *bar-ns namespace: foo-namespace name: cluster1-foo-namespace - context: &lt;&lt;: *bar-ns namespace: kube-system name: cluster1-kubesystem current-context: cluster1-foo-namespace kind: Config preferences: {} users: []  CURRENT NAME CLUSTER AUTHINFO NAMESPACE * cluster1-foo-namespace cluster1 foo-namespace cluster1-kubesystem cluster1 kube-system cluster1-bar-namespace cluster1 bar-namespace  Except: as soon as you use kubectl config use-context it goes and helpfully writes back the expanded YAML structure.
   </div>
   
   <footer>

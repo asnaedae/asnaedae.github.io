@@ -113,22 +113,27 @@
   </header>
   <section>
     <p>Suppression of authentication log entries:-</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;Exception</span><span style="color:#f92672">&gt;</span>
+
+<pre><code class="language-xml">&lt;Exception&gt;
 	exception.id=(”authentication_redirect_from_virtual_host”,
 	“authentication_redirect_to_virtual_host”, “authentication_failed”)
 	access_log[main](no)
-</code></pre></div><p>And to get a dump of the config, though the “unencrypted” option doesn’t seem to work on SGOS 4.2.3</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">configure t
+</code></pre>
+
+<p>And to get a dump of the config, though the “unencrypted” option doesn’t seem to work on SGOS 4.2.3</p>
+
+<pre><code class="language-bash">configure t
   line-vty
-  length <span style="color:#ae81ff">0</span>
+  length 0
   show version
   show status
   show configuration with-keyrings unencrypted
-  length <span style="color:#ae81ff">80</span>
+  length 80
   exit
   exit
   exit
-</code></pre></div>
+</code></pre>
+
   </section>
   <footer>
     

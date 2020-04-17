@@ -108,14 +108,20 @@
     </div>
   </header>
   <section>
-    <p>So after many years the following changes I&rsquo;ve so far run into with CentOS 7</p>
+    
+
+<p>So after many years the following changes I&rsquo;ve so far run into with CentOS 7</p>
+
 <h3 id="firewalld">firewalld</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># firewall-cmd --zone=public --add-service=https</span>
+
+<pre><code class="language-bash"># firewall-cmd --zone=public --add-service=https
 success
-<span style="color:#75715e"># firewall-cmd --zone=public --add-service=http</span>
+# firewall-cmd --zone=public --add-service=http
 success
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># firewall-cmd --zone=public --list-all</span>
-public <span style="color:#f92672">(</span>default, active<span style="color:#f92672">)</span>
+</code></pre>
+
+<pre><code class="language-bash"># firewall-cmd --zone=public --list-all
+public (default, active)
   interfaces: eth0 eth1
   sources:
   services: dhcpv6-client http https ssh
@@ -124,16 +130,22 @@ public <span style="color:#f92672">(</span>default, active<span style="color:#f9
   forward-ports:
   icmp-blocks:
   rich rules:
-</code></pre></div><h3 id="systemd">systemd</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># systemd enable nginx</span>
-<span style="color:#75715e"># ln -s &#39;/usr/lib/systemd/system/nginx.service&#39; &#39;/etc/systemd/system/multi-user.target.wants/nginx.service&#39;</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl status nginx
+</code></pre>
+
+<h3 id="systemd">systemd</h3>
+
+<pre><code class="language-bash"># systemd enable nginx
+# ln -s '/usr/lib/systemd/system/nginx.service' '/etc/systemd/system/multi-user.target.wants/nginx.service'
+</code></pre>
+
+<pre><code class="language-bash">$ systemctl status nginx
 nginx.service - nginx - high performance web server
-   Loaded: loaded <span style="color:#f92672">(</span>/usr/lib/systemd/system/nginx.service; disabled<span style="color:#f92672">)</span>
-   Active: active <span style="color:#f92672">(</span>running<span style="color:#f92672">)</span> since Tue 2014-10-14 08:19:32 UTC; <span style="color:#ae81ff">1</span> day 3h ago
+   Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled)
+   Active: active (running) since Tue 2014-10-14 08:19:32 UTC; 1 day 3h ago
      Docs: http://nginx.org/en/docs/
 ...
-</code></pre></div>
+</code></pre>
+
   </section>
   <footer>
     

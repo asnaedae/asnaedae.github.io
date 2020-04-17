@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>smokeping on Mike&#39;s ramblings</title>
@@ -19,7 +19,7 @@
       
       <guid>https://dubdubdub.co.uk/posts/2009-09-28-smokeping-and-measuring-soap-requests/</guid>
       <description>We&amp;rsquo;ve had an issue with performance of a SOAP interface, and here&amp;rsquo;s how you go about setting up smokeping to time it:-
-extraargs = -H Content-Type:text/xml --data @/srv/scripts/soap_check/soap-test.xml urlformat = http://server.name.com/url/soap_url The only annoying problem is that the SOAP payload cannot be included as part of the command line, so any slaves would require the file manually copied into the same location</description>
+extraargs = -H Content-Type:text/xml --data @/srv/scripts/soap_check/soap-test.xml urlformat = http://server.name.com/url/soap_url  The only annoying problem is that the SOAP payload cannot be included as part of the command line, so any slaves would require the file manually copied into the same location</description>
     </item>
     
   </channel>

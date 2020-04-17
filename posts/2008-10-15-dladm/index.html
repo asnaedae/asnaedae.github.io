@@ -113,33 +113,56 @@
   </header>
   <section>
     <p>dladm is a new command with solaris 10 which can do many clever things (I think the general idea behind it is that ifconfig was becoming bloated with features and options that it was a good idea to break the link between the physical network provision and the logical usage)</p>
+
 <pre><code>ie: dladm - physical link provision/configuration
 ifconfig - logical link configuration
 </code></pre>
+
 <p>Assuming a server with two gigabit ethernet connections connected to two switches (for physical resillience):-</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># dladm show-dev</span>
-bge0 link: up speed: <span style="color:#ae81ff">1000</span> Mbps duplex: full
-bge1 link: up speed: <span style="color:#ae81ff">1000</span> Mbps duplex: full
-</code></pre></div><p>Then let us trunk these two together, ether-channel/teaming in cisco speak.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># dladm create-aggr -d bge0 -d bge1 $INDEX</span>
-</code></pre></div><p>Solaris 9 and above is able to cater for tagged VLANs using the following simple formula (as long as the physical interface driver supports of course) for ce interfaces:</p>
+
+<pre><code class="language-bash"># dladm show-dev
+bge0 link: up speed: 1000 Mbps duplex: full
+bge1 link: up speed: 1000 Mbps duplex: full
+</code></pre>
+
+<p>Then let us trunk these two together, ether-channel/teaming in cisco speak.</p>
+
+<pre><code class="language-bash"># dladm create-aggr -d bge0 -d bge1 $INDEX
+</code></pre>
+
+<p>Solaris 9 and above is able to cater for tagged VLANs using the following simple formula (as long as the physical interface driver supports of course) for ce interfaces:</p>
+
 <pre><code>VLAN_ID * 100 + instance_ID
 </code></pre>
+
 <p>Example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># ifconfig ce728003 plumb</span>
-<span style="color:#75715e"># ifconfig ce728003 10.10.10.30 netmask 255.255.255.0 broadcast 10.10.10.255</span>
-</code></pre></div><p>This should give you a interface from your 4th physical ”ce” NIC to the 728 VLAN. So using this with our existing aggregate leaves us with:-</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># dladm show-link</span>
-bge0 type: non-vlan mtu: <span style="color:#ae81ff">1500</span> device: bge0
-bge1 type: non-vlan mtu: <span style="color:#ae81ff">1500</span> device: bge1
-aggr106001 type: vlan <span style="color:#ae81ff">106</span> mtu: <span style="color:#ae81ff">1500</span> aggregation: key <span style="color:#ae81ff">1</span>
-aggr108001 type: vlan <span style="color:#ae81ff">108</span> mtu: <span style="color:#ae81ff">1500</span> aggregation: key <span style="color:#ae81ff">1</span>
-</code></pre></div><p>And now ifconfig can be used to access those aggregations</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># ifconfig aggr106001 plumb 10.0.106.1 up</span>
-<span style="color:#75715e"># ifconfig aggr108001 plumb 10.0.108.2 up</span>
-</code></pre></div><p>And of course, you could always enable jumbo-frames on the switches and change the MTU on one of those aggregations to use 8K packets! (alas this as of solaris 10 update 3 isn’t supported by the dladm driver)</p>
+
+<pre><code class="language-bash"># ifconfig ce728003 plumb
+# ifconfig ce728003 10.10.10.30 netmask 255.255.255.0 broadcast 10.10.10.255
+</code></pre>
+
+<p>This should give you a interface from your 4th physical ”ce” NIC to the 728 VLAN. So using this with our existing aggregate leaves us with:-</p>
+
+<pre><code class="language-bash"># dladm show-link
+bge0 type: non-vlan mtu: 1500 device: bge0
+bge1 type: non-vlan mtu: 1500 device: bge1
+aggr106001 type: vlan 106 mtu: 1500 aggregation: key 1
+aggr108001 type: vlan 108 mtu: 1500 aggregation: key 1
+</code></pre>
+
+<p>And now ifconfig can be used to access those aggregations</p>
+
+<pre><code class="language-bash"># ifconfig aggr106001 plumb 10.0.106.1 up
+# ifconfig aggr108001 plumb 10.0.108.2 up
+</code></pre>
+
+<p>And of course, you could always enable jumbo-frames on the switches and change the MTU on one of those aggregations to use 8K packets! (alas this as of solaris 10 update 3 isn’t supported by the dladm driver)</p>
+
 <pre><code># ifconfig aggr108001 mtu 9000
-</code></pre><p>NOTES:</p>
+</code></pre>
+
+<p>NOTES:</p>
+
 <ul>
 <li>LACP needs to be configured correctly - active on one side and passive on the other.</li>
 </ul>

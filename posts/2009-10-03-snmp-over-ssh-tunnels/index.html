@@ -109,11 +109,16 @@
   </header>
   <section>
     <p>Sometimes you just need to tunnel UDP based protocols - such as SNMP - and the easiest ways is to use socat</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ socat tcp4-listen:6667,reuseaddr,fork UDP:DESTINATION:161
+
+<pre><code class="language-bash">$ socat tcp4-listen:6667,reuseaddr,fork UDP:DESTINATION:161
 $ socat udp4-listen:161,reuseaddr,fork tcp:localhost:6667
-</code></pre></div><p>And in combination with your normal SSH tunnel</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ssh -L6667:localhost:6667 BASTION_HOST
-</code></pre></div>
+</code></pre>
+
+<p>And in combination with your normal SSH tunnel</p>
+
+<pre><code class="language-bash">$ ssh -L6667:localhost:6667 BASTION_HOST
+</code></pre>
+
   </section>
   <footer>
     

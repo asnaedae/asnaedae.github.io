@@ -113,21 +113,24 @@
   </header>
   <section>
     <p>It’s been a bug-bear for a long time for me that the CPU metrics when querying a Solaris 10 host are global and not zone specific (which of course makes sense, just makes it harder to track zone utilisation).</p>
+
 <p>So finally wrote a basic perl script that will provide that information via a SNMP mib, output looks like the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; snmpwalk -v <span style="color:#ae81ff">1</span> -c public localhost .1.3.6.1.4.1.2021.255.7
-UCD-SNMP-MIB::ucdavis.255.7.0 <span style="color:#f92672">=</span> STRING: <span style="color:#e6db74">&#34;Zone name&#34;</span>
-UCD-SNMP-MIB::ucdavis.255.7.1 <span style="color:#f92672">=</span> STRING: <span style="color:#e6db74">&#34;global&#34;</span>
-UCD-SNMP-MIB::ucdavis.255.7.2 <span style="color:#f92672">=</span> STRING: <span style="color:#e6db74">&#34;gallery&#34;</span>
-UCD-SNMP-MIB::ucdavis.255.7.3 <span style="color:#f92672">=</span> STRING: <span style="color:#e6db74">&#34;nakos&#34;</span>
-UCD-SNMP-MIB::ucdavis.255.7.4 <span style="color:#f92672">=</span> STRING: <span style="color:#e6db74">&#34;mcdougallfamily&#34;</span>
-UCD-SNMP-MIB::ucdavis.255.7.5 <span style="color:#f92672">=</span> STRING: <span style="color:#e6db74">&#34;shared&#34;</span>
-UCD-SNMP-MIB::ucdavis.255.7.6 <span style="color:#f92672">=</span> STRING: <span style="color:#e6db74">&#34;packer&#34;</span>
-UCD-SNMP-MIB::ucdavis.255.7.7 <span style="color:#f92672">=</span> STRING: <span style="color:#e6db74">&#34;si&#34;</span>
-</code></pre></div><p>Script is available at <a href="....">here</a></p>
-<p>Current bugs/issues</p>
-<blockquote>
-<p>snmpwalk will not step through all the sub-trees</p>
-</blockquote>
+
+<pre><code class="language-bash">&gt; snmpwalk -v 1 -c public localhost .1.3.6.1.4.1.2021.255.7
+UCD-SNMP-MIB::ucdavis.255.7.0 = STRING: &quot;Zone name&quot;
+UCD-SNMP-MIB::ucdavis.255.7.1 = STRING: &quot;global&quot;
+UCD-SNMP-MIB::ucdavis.255.7.2 = STRING: &quot;gallery&quot;
+UCD-SNMP-MIB::ucdavis.255.7.3 = STRING: &quot;nakos&quot;
+UCD-SNMP-MIB::ucdavis.255.7.4 = STRING: &quot;mcdougallfamily&quot;
+UCD-SNMP-MIB::ucdavis.255.7.5 = STRING: &quot;shared&quot;
+UCD-SNMP-MIB::ucdavis.255.7.6 = STRING: &quot;packer&quot;
+UCD-SNMP-MIB::ucdavis.255.7.7 = STRING: &quot;si&quot;
+</code></pre>
+
+<p>Script is available at <a href="....">here</a></p>
+
+<p>Current bugs/issues
+&gt; snmpwalk will not step through all the sub-trees</p>
 
   </section>
   <footer>

@@ -113,15 +113,24 @@
   </header>
   <section>
     <p>First I had to ensure that the stock debian packages are available for installation:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ tail /etc/apt/sources.list
+
+<pre><code class="language-bash">$ tail /etc/apt/sources.list
 deb http://archive.debian.org/debian etch main
-</code></pre></div><p>Install g++ and other dependencies</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ apt-get install g++ libpam0g-dev
-</code></pre></div><p>Download google-authenticator source code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://code.google.com/p/google-authenticator/
+</code></pre>
+
+<p>Install g++ and other dependencies</p>
+
+<pre><code class="language-bash">$ apt-get install g++ libpam0g-dev
+</code></pre>
+
+<p>Download google-authenticator source code:</p>
+
+<pre><code class="language-bash">$ git clone https://code.google.com/p/google-authenticator/
 $ cd google-authenticator/
-$ ./configure <span style="color:#f92672">&amp;&amp;</span> make <span style="color:#f92672">&amp;&amp;</span> make install
-</code></pre></div><p>Then simply follow the instructions over at <a href="http://www.linux.org/threads/google-authenticator-for-ssh.4590/">here</a></p>
+$ ./configure &amp;&amp; make &amp;&amp; make install
+</code></pre>
+
+<p>Then simply follow the instructions over at <a href="http://www.linux.org/threads/google-authenticator-for-ssh.4590/">here</a></p>
 
   </section>
   <footer>

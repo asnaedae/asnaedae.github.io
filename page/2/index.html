@@ -188,7 +188,7 @@ Status of all steps needs to be broadcast to all interested parties, and testing
   </header>
   <div>
     So after many years the following changes I&rsquo;ve so far run into with CentOS 7
-firewalld # firewall-cmd --zone=public --add-service=https success # firewall-cmd --zone=public --add-service=http success # firewall-cmd --zone=public --list-all public (default, active) interfaces: eth0 eth1 sources: services: dhcpv6-client http https ssh ports: masquerade: no forward-ports: icmp-blocks: rich rules: systemd # systemd enable nginx # ln -s &#39;/usr/lib/systemd/system/nginx.service&#39; &#39;/etc/systemd/system/multi-user.target.wants/nginx.service&#39; $ systemctl status nginx nginx.service - nginx - high performance web server Loaded: loaded (/usr/lib/systemd/system/nginx.
+firewalld # firewall-cmd --zone=public --add-service=https success # firewall-cmd --zone=public --add-service=http success  # firewall-cmd --zone=public --list-all public (default, active) interfaces: eth0 eth1 sources: services: dhcpv6-client http https ssh ports: masquerade: no forward-ports: icmp-blocks: rich rules:  systemd # systemd enable nginx # ln -s '/usr/lib/systemd/system/nginx.service' '/etc/systemd/system/multi-user.target.wants/nginx.service'  $ systemctl status nginx nginx.service - nginx - high performance web server Loaded: loaded (/usr/lib/systemd/system/nginx.
   </div>
   
   <footer>
@@ -217,7 +217,7 @@ firewalld # firewall-cmd --zone=public --add-service=https success # firewall-cm
   </header>
   <div>
     So whilst moving between github organisations - which is relatively straight forward, I also had to move some from Atlassian Stash unfortunately there&rsquo;s not as simple a method to do this, but a good way of mirroring between two repos is as follows:
-$ git clone https://donor_repo/example1 --bare $ git remote set-url --push origin https://destination_repo/example2.git $ git fetch -p origin &amp;&amp; git push --mirror Simples.
+$ git clone https://donor_repo/example1 --bare $ git remote set-url --push origin https://destination_repo/example2.git $ git fetch -p origin &amp;&amp; git push --mirror  Simples.
   </div>
   
 </article>

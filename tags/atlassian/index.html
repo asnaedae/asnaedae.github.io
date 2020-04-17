@@ -132,7 +132,7 @@ Unfortunately that might have been true back with Jira 4.3, although in the last
   </header>
   <div>
     This came in useful for me today to understand users that could be disabled from a crowd instance:
-SELECT cwd_user.user_name AS Username, cwd_user.email_address AS &#34;Email Address&#34;, from_unixtime(cwd_user_attribute.attribute_value/1000) AS &#34;Last Logged In&#34; FROM cwd_user LEFT OUTER JOIN cwd_user_attribute ON cwd_user_attribute.user_id = cwd_user.id AND cwd_user_attribute.attribute_name = &#39;lastAuthenticated&#39; WHERE active = &#39;T&#39; ORDER BY 3,2,1 ; 
+SELECT cwd_user.user_name AS Username, cwd_user.email_address AS &quot;Email Address&quot;, from_unixtime(cwd_user_attribute.attribute_value/1000) AS &quot;Last Logged In&quot; FROM cwd_user LEFT OUTER JOIN cwd_user_attribute ON cwd_user_attribute.user_id = cwd_user.id AND cwd_user_attribute.attribute_name = 'lastAuthenticated' WHERE active = 'T' ORDER BY 3,2,1 ;  
   </div>
   
 </article>

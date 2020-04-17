@@ -102,7 +102,7 @@
   <div>
     It’s been a bug-bear for a long time for me that the CPU metrics when querying a Solaris 10 host are global and not zone specific (which of course makes sense, just makes it harder to track zone utilisation).
 So finally wrote a basic perl script that will provide that information via a SNMP mib, output looks like the following:
-&gt; snmpwalk -v 1 -c public localhost .1.3.6.1.4.1.2021.255.7 UCD-SNMP-MIB::ucdavis.255.7.0 = STRING: &#34;Zone name&#34; UCD-SNMP-MIB::ucdavis.
+&gt; snmpwalk -v 1 -c public localhost .1.3.6.1.4.1.2021.255.7 UCD-SNMP-MIB::ucdavis.255.7.0 = STRING: &quot;Zone name&quot; UCD-SNMP-MIB::ucdavis.
   </div>
   
   <footer>
@@ -131,11 +131,10 @@ So finally wrote a basic perl script that will provide that information via a SN
   </header>
   <div>
     NON-FREE APT REPOSITORIES Install openssh package if not already installed
-# apt-get install openssh-server Add the following to /etc/apt/sources.list:
-deb http://oss.oracle.com/debian unstable main non-free deb http://ftp.uk.debian.org/debian etch main contrib non-free # apt-get update Install Async IO library for Oracle
-# apt-get install libaio Install optional extras for converting the JVM to a .deb
-# apt-get install build-essential fakeroot java-package # download sun binary JDK Create the ”deb” package:
-$ su - escenic # fakeroot make-jpkg jdk-1_5_0_14-linux-i586.
+# apt-get install openssh-server  Add the following to /etc/apt/sources.list:
+deb http://oss.oracle.com/debian unstable main non-free deb http://ftp.uk.debian.org/debian etch main contrib non-free # apt-get update  Install Async IO library for Oracle
+# apt-get install libaio  Install optional extras for converting the JVM to a .deb
+# apt-get install build-essential fakeroot java-package # download sun binary JDK  Create the ”deb” package:
   </div>
   
   <footer>
@@ -215,7 +214,7 @@ Had a restricted ammo loadout game which was seriously good fun, Mr MP5K with a 
   </header>
   <div>
     So installed Leopard server over the weekend and here’s some notes and annoyances I’ve hit (and overcame)
-services fail to start – basically forward/reverse DNS must match  greebo:~ localad$ sudo changeip -checkhostname Primary address = 172.16.10.196 Current HostName = greebo.snarc.co.uk DNS HostName = greebo.snarc.co.uk  names match. There is nothing to change.
+services fail to start – basically forward/reverse DNS must match  greebo:~ localad$ sudo changeip -checkhostname Primary address = 172.16.10.196 Current HostName = greebo.snarc.co.uk DNS HostName = greebo.snarc.co.uk   names match. There is nothing to change.
  So I cheated and am running split horizon DNS, I’ve not done the following – but is here as a reminder (and if I ever have enough disk space)
   </div>
   

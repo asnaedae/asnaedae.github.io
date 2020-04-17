@@ -113,21 +113,26 @@
   </header>
   <section>
     <p>Nice bugs that no one seems to want to fix:-</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> test5 (
-wibble varchar(<span style="color:#ae81ff">500</span>), <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (wibble)
-) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin;
-ERROR <span style="color:#ae81ff">1071</span> (<span style="color:#ae81ff">42000</span>): Specified <span style="color:#66d9ef">key</span> was too long; <span style="color:#66d9ef">max</span> <span style="color:#66d9ef">key</span> <span style="color:#66d9ef">length</span> <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">767</span> bytes
 
-mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> test5 (
-wibble varchar(<span style="color:#ae81ff">500</span>), <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (wibble)
-) ENGINE<span style="color:#f92672">=</span>myisam <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin;
-ERROR <span style="color:#ae81ff">1071</span> (<span style="color:#ae81ff">42000</span>): Specified <span style="color:#66d9ef">key</span> was too long; <span style="color:#66d9ef">max</span> <span style="color:#66d9ef">key</span> <span style="color:#66d9ef">length</span> <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">1332</span> bytes
-</code></pre></div><p>And even with MySQL 6.0.9 (using the Falcon engine which is still brand new)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> test5 (
-wibble varchar(<span style="color:#ae81ff">500</span>), <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (wibble)
-) ENGINE<span style="color:#f92672">=</span>falcon <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin;
-ERROR <span style="color:#ae81ff">1071</span> (<span style="color:#ae81ff">42000</span>): Specified <span style="color:#66d9ef">key</span> was too long; <span style="color:#66d9ef">max</span> <span style="color:#66d9ef">key</span> <span style="color:#66d9ef">length</span> <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">1100</span> bytes
-</code></pre></div>
+<pre><code class="language-sql">mysql&gt; create table test5 (
+wibble varchar(500), PRIMARY KEY (wibble)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes
+
+mysql&gt; create table test5 (
+wibble varchar(500), PRIMARY KEY (wibble)
+) ENGINE=myisam DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+ERROR 1071 (42000): Specified key was too long; max key length is 1332 bytes
+</code></pre>
+
+<p>And even with MySQL 6.0.9 (using the Falcon engine which is still brand new)</p>
+
+<pre><code class="language-sql">mysql&gt; create table test5 (
+wibble varchar(500), PRIMARY KEY (wibble)
+) ENGINE=falcon DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+ERROR 1071 (42000): Specified key was too long; max key length is 1100 bytes
+</code></pre>
+
   </section>
   <footer>
     

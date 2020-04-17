@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>networking on Mike&#39;s ramblings</title>
@@ -18,7 +18,7 @@
       <pubDate>Mon, 29 Sep 2008 00:00:00 +0000</pubDate>
       
       <guid>https://dubdubdub.co.uk/posts/2008-09-29-playing-with-tcptrace-and-xplot/</guid>
-      <description># tcpdump -ni en0 port 80 -w output.trace # tcptrace -G output.trace # xplot *tput.xpl From the online manpage:
+      <description># tcpdump -ni en0 port 80 -w output.trace # tcptrace -G output.trace # xplot *tput.xpl  From the online manpage:
 Yellow: instantaneous packets Red: Throughput for the last few packets Blue: Throughput since the start of the stream/connection
 Other useful graphs:
  _owin.xpl - outstanding data/congestion _rtt.xpl - round trip time/time _ssize.xpl - segment size/time _tput.xpl - throughput/time _tsg.xpl - time sequence graph _tline.xpl - Timeline graph - W Richard Stevens style  Just some notes here so I don&amp;rsquo;t forget the basics - manual over at here</description>

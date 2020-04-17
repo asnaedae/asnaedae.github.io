@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dock on Mike&#39;s ramblings</title>
@@ -19,7 +19,7 @@
       
       <guid>https://dubdubdub.co.uk/posts/2008-02-07-recent-applications-window/</guid>
       <description>This little snippet will give you a new little window for all those recent applications you launch – I seem to have picked up a habit for closing applications down when I stop working with them for an hour or two (pages etc.)
-$ write com.apple.dock persistent-others -array-add \  &amp;#39;{ &amp;#34;tile-data&amp;#34; = { &amp;#34;list-type&amp;#34; = 1; }; &amp;#34;tile-type&amp;#34; = &amp;#34;recents-tile&amp;#34;; }&amp;#39; $ killall Dock </description>
+$ write com.apple.dock persistent-others -array-add \ &#39;{ &amp;quot;tile-data&amp;quot; = { &amp;quot;list-type&amp;quot; = 1; }; &amp;quot;tile-type&amp;quot; = &amp;quot;recents-tile&amp;quot;; }&#39; $ killall Dock  </description>
     </item>
     
   </channel>

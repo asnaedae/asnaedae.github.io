@@ -109,36 +109,41 @@
   </header>
   <section>
     <p>Configure the zone you want, this is just a basic configuration (suited to a name server - that inherits the global zones /var/named)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># zonecfg -z solzone</span>
+
+<pre><code class="language-bash"># zonecfg -z solzone
 solzone: No such zone configured
-Use <span style="color:#e6db74">&#39;create&#39;</span> to begin configuring a new zone.
+Use 'create' to begin configuring a new zone.
 zonecfg:solzone&gt; create
-zonecfg:solzone&gt; set zonepath<span style="color:#f92672">=</span>/u01/zones/solzone
-zonecfg:solzone&gt; set autoboot<span style="color:#f92672">=</span>true
+zonecfg:solzone&gt; set zonepath=/u01/zones/solzone
+zonecfg:solzone&gt; set autoboot=true
 zonecfg:solzone&gt; add net
-zonecfg:solzone:net&gt; set address<span style="color:#f92672">=</span>10.10.10.20/24
-zonecfg:solzone:net&gt; set physical<span style="color:#f92672">=</span>bge0
+zonecfg:solzone:net&gt; set address=10.10.10.20/24
+zonecfg:solzone:net&gt; set physical=bge0
 zonecfg:solzone:net&gt; end
 zonecfg:solzone&gt; add fs
-zonecfg:solzone:fs&gt; set type<span style="color:#f92672">=</span>lofs
-zonecfg:solzone:fs&gt; set special<span style="color:#f92672">=</span>/u01/zonedata/solzone
-zonecfg:solzone:fs&gt; set dir<span style="color:#f92672">=</span>/u01
+zonecfg:solzone:fs&gt; set type=lofs
+zonecfg:solzone:fs&gt; set special=/u01/zonedata/solzone
+zonecfg:solzone:fs&gt; set dir=/u01
 zonecfg:solzone:fs&gt; end
 zonecfg:solzone&gt; add inherit-pkg-dir
-zonecfg:solzone:inherit-pkg-dir&gt; set dir<span style="color:#f92672">=</span>/var/named
+zonecfg:solzone:inherit-pkg-dir&gt; set dir=/var/named
 zonecfg:solzone:inherit-pkg-dir&gt; end
 zonecfg:solzone&gt; add attr
-zonecfg:solzone:attr&gt; set name<span style="color:#f92672">=</span>comment
-zonecfg:solzone:attr&gt; set type<span style="color:#f92672">=</span>string
-zonecfg:solzone:attr&gt; set value<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test solaris zone&#34;</span>
+zonecfg:solzone:attr&gt; set name=comment
+zonecfg:solzone:attr&gt; set type=string
+zonecfg:solzone:attr&gt; set value=&quot;test solaris zone&quot;
 zonecfg:solzone:attr&gt; end
 zonecfg:solzone&gt; verify
 zonecfg:solzone&gt; commit
 zonecfg:solzone&gt; exit
-</code></pre></div><p>And now install and boot the zone</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># zoneadm -z solzone install</span>
-<span style="color:#75715e"># zoneadm -z solzone boot</span>
-</code></pre></div>
+</code></pre>
+
+<p>And now install and boot the zone</p>
+
+<pre><code class="language-bash"># zoneadm -z solzone install
+# zoneadm -z solzone boot
+</code></pre>
+
   </section>
   <footer>
     

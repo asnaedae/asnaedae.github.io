@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>escenic on Mike&#39;s ramblings</title>
@@ -19,11 +19,10 @@
       
       <guid>https://dubdubdub.co.uk/posts/2006-04-01-escenic-debian-notes/</guid>
       <description>NON-FREE APT REPOSITORIES Install openssh package if not already installed
-# apt-get install openssh-server Add the following to /etc/apt/sources.list:
-deb http://oss.oracle.com/debian unstable main non-free deb http://ftp.uk.debian.org/debian etch main contrib non-free # apt-get update Install Async IO library for Oracle
-# apt-get install libaio Install optional extras for converting the JVM to a .deb
-# apt-get install build-essential fakeroot java-package # download sun binary JDK Create the ”deb” package:
-$ su - escenic # fakeroot make-jpkg jdk-1_5_0_14-linux-i586.</description>
+# apt-get install openssh-server  Add the following to /etc/apt/sources.list:
+deb http://oss.oracle.com/debian unstable main non-free deb http://ftp.uk.debian.org/debian etch main contrib non-free # apt-get update  Install Async IO library for Oracle
+# apt-get install libaio  Install optional extras for converting the JVM to a .deb
+# apt-get install build-essential fakeroot java-package # download sun binary JDK  Create the ”deb” package:</description>
     </item>
     
   </channel>

@@ -114,30 +114,38 @@
   <section>
     <p>Create the following plist file somewhere useful, e.g.
 /Library/LaunchDaemons/com.local.noatime.plist</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
-<span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
-dict&gt;
-<span style="color:#f92672">&lt;key</span><span style="color:#f92672">&gt;</span>Label<span style="color:#f92672">&lt;/key&gt;</span>
-<span style="color:#f92672">&lt;string</span><span style="color:#f92672">&gt;</span>com.my.noatime<span style="color:#f92672">&lt;/string&gt;</span>
 
-<span style="color:#f92672">&lt;key</span><span style="color:#f92672">&gt;</span>ProgramArguments<span style="color:#f92672">&lt;/key&gt;</span>
-<span style="color:#f92672">&lt;array</span><span style="color:#f92672">&gt;</span>
-<span style="color:#f92672">&lt;string</span><span style="color:#f92672">&gt;</span>mount<span style="color:#f92672">&lt;/string&gt;</span>
-<span style="color:#f92672">&lt;string</span><span style="color:#f92672">&gt;</span>-vuwo<span style="color:#f92672">&lt;/string&gt;</span>
-<span style="color:#f92672">&lt;string</span><span style="color:#f92672">&gt;</span>noatime<span style="color:#f92672">&lt;/string&gt;</span>
-<span style="color:#f92672">&lt;string</span><span style="color:#f92672">&gt;</span>/<span style="color:#f92672">&lt;/string&gt;</span>
-<span style="color:#f92672">&lt;/array&gt;</span>
-<span style="color:#f92672">&lt;key</span><span style="color:#f92672">&gt;</span>RunAtLoad<span style="color:#f92672">&lt;/key&gt;</span>
-<span style="color:#f92672">&lt;true</span><span style="color:#f92672">/&gt;</span>
-<span style="color:#f92672">&lt;/dict&gt;</span>
-<span style="color:#f92672">&lt;/plist&gt;</span>
-</code></pre></div><p>Then run the following to pick up the change, or indeed, reboot:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% sudo launchctl load /Library/LaunchDaemons/com.local.noatime.plist
-</code></pre></div><p>And you should now see the root file system mounted with noatime option, which should improve longevity of SSD boot drives</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># mount</span>
-/dev/disk0s2 on / <span style="color:#f92672">(</span>hfs, local, journaled, noatime<span style="color:#f92672">)</span>
-</code></pre></div>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+dict&gt;
+&lt;key&gt;Label&lt;/key&gt;
+&lt;string&gt;com.my.noatime&lt;/string&gt;
+
+&lt;key&gt;ProgramArguments&lt;/key&gt;
+&lt;array&gt;
+&lt;string&gt;mount&lt;/string&gt;
+&lt;string&gt;-vuwo&lt;/string&gt;
+&lt;string&gt;noatime&lt;/string&gt;
+&lt;string&gt;/&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;RunAtLoad&lt;/key&gt;
+&lt;true/&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+
+<p>Then run the following to pick up the change, or indeed, reboot:</p>
+
+<pre><code class="language-bash">% sudo launchctl load /Library/LaunchDaemons/com.local.noatime.plist
+</code></pre>
+
+<p>And you should now see the root file system mounted with noatime option, which should improve longevity of SSD boot drives</p>
+
+<pre><code class="language-bash"># mount
+/dev/disk0s2 on / (hfs, local, journaled, noatime)
+</code></pre>
+
   </section>
   <footer>
     

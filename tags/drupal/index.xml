@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>drupal on Mike&#39;s ramblings</title>
@@ -19,7 +19,7 @@
       
       <guid>https://dubdubdub.co.uk/posts/2015-10-02-features_export/</guid>
       <description>Had a strange error being reported when exporting features from a Drupal 7 instance, in that the resultant tar file was not extracting using any of the usual tools, such as tar etc.
-$ file features_export-7.x-1.0-alpha1.tar features_export-7.x-1.0-alpha1.tar: data File magic showed that the file was wrong, but looking at the file itself looked correct at first glance, and a look around on Drupal.org returned this old thread which lead me to</description>
+$ file features_export-7.x-1.0-alpha1.tar features_export-7.x-1.0-alpha1.tar: data  File magic showed that the file was wrong, but looking at the file itself looked correct at first glance, and a look around on Drupal.org returned this old thread which lead me to</description>
     </item>
     
   </channel>

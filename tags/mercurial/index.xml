@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mercurial on Mike&#39;s ramblings</title>
@@ -20,7 +20,7 @@
       <guid>https://dubdubdub.co.uk/posts/2008-12-30-playing-with-mercurial/</guid>
       <description>Well, been playing with opensolaris and they use mercurial as a DSVN - and another benefit of that over git is that the command set is very much similar to SVN/Subversion - which is important for us people who /don&amp;rsquo;t/ use it every day.
 Migrating was straight-forward:
-$ mkdir ~/svn &amp;amp;&amp;amp; cd ~/svn $ hgimportsvn https://dubdubdub.co.uk/svn/mike $ find . -name .svn -type d | xargs rm -rf One thing to note when using - which took me a bit of reading to realise - it&amp;rsquo;s distributed, so if you&amp;rsquo;ve your own local copy - you have to commit and then push/pull changes out!</description>
+$ mkdir ~/svn &amp;amp;&amp;amp; cd ~/svn $ hgimportsvn https://dubdubdub.co.uk/svn/mike $ find . -name .svn -type d | xargs rm -rf  One thing to note when using - which took me a bit of reading to realise - it&amp;rsquo;s distributed, so if you&amp;rsquo;ve your own local copy - you have to commit and then push/pull changes out!</description>
     </item>
     
   </channel>

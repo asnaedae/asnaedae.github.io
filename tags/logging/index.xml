@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>logging on Mike&#39;s ramblings</title>
@@ -19,8 +19,8 @@
       
       <guid>https://dubdubdub.co.uk/posts/2007-06-18-bluecoat-bits/</guid>
       <description>Suppression of authentication log entries:-
-&amp;lt;Exception&amp;gt; exception.id=(”authentication_redirect_from_virtual_host”, “authentication_redirect_to_virtual_host”, “authentication_failed”) access_log[main](no) And to get a dump of the config, though the “unencrypted” option doesn’t seem to work on SGOS 4.2.3
-configure t line-vty length 0 show version show status show configuration with-keyrings unencrypted length 80 exit exit exit </description>
+&amp;lt;Exception&amp;gt; exception.id=(”authentication_redirect_from_virtual_host”, “authentication_redirect_to_virtual_host”, “authentication_failed”) access_log[main](no)  And to get a dump of the config, though the “unencrypted” option doesn’t seem to work on SGOS 4.2.3
+configure t line-vty length 0 show version show status show configuration with-keyrings unencrypted length 80 exit exit exit  </description>
     </item>
     
   </channel>

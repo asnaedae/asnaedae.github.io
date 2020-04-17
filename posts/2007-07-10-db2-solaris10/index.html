@@ -105,14 +105,22 @@
   </header>
   <section>
     <p>Hmm, nice little error when trying to start db2 on solaris 10, stating that it was unable to start up the database and i should check my SHM settings!</p>
+
 <p>Arrgh!</p>
+
 <p>prctl reported correct project settings, so tried truss:-</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># truss -f db2start</span>
+
+<pre><code class="language-bash"># truss -f db2start
 truss: cannot trace set-id or unreadable object file: db2start
-</code></pre></div><p>Cue alarm bells, proven by trusty &ldquo;ls&rdquo;:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># truss -f db2start</span>
--rwsr-xr-x <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">238584</span> Jul <span style="color:#ae81ff">10</span> 12:28 db2start
-</code></pre></div><p>Add root to the user.db2inst1 project with a quick projmod -a -U root user.db2inst1 and try again.</p>
+</code></pre>
+
+<p>Cue alarm bells, proven by trusty &ldquo;ls&rdquo;:</p>
+
+<pre><code class="language-bash"># truss -f db2start
+-rwsr-xr-x 1 root root 238584 Jul 10 12:28 db2start
+</code></pre>
+
+<p>Add root to the user.db2inst1 project with a quick projmod -a -U root user.db2inst1 and try again.</p>
 
   </section>
   <footer>

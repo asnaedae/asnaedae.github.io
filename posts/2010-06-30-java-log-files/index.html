@@ -114,12 +114,15 @@
   <section>
     <p>So debugging java can be a mighty pain, a little few lines of ways to make
 it simpler.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># grep -m 1 -n &#39;^2010-06-30 14:20:&#39; catalina.out</span>
+
+<pre><code class="language-bash"># grep -m 1 -n '^2010-06-30 14:20:' catalina.out
 11746233:2010-06-30 14:20:01,011 DEBUG com.beginning.of.line
-<span style="color:#75715e"># grep -m 1 -n &#39;^2010-06-30 14:21:&#39; catalina.out</span>
+# grep -m 1 -n '^2010-06-30 14:21:' catalina.out
 11747788:2010-06-30 14:21:00,161 WARN org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended
-<span style="color:#75715e"># sed -n &#39;11746233,11747788p&#39; &lt; catalina.out</span>
-</code></pre></div><p>This gives start line and end line between any two greps and then the body of the log file from those two lines.</p>
+# sed -n '11746233,11747788p' &lt; catalina.out
+</code></pre>
+
+<p>This gives start line and end line between any two greps and then the body of the log file from those two lines.</p>
 
   </section>
   <footer>

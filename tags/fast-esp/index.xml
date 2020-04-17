@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>fast esp on Mike&#39;s ramblings</title>
@@ -19,7 +19,7 @@
       
       <guid>https://dubdubdub.co.uk/posts/2008-10-25-interesting-benefits-of-solaris/</guid>
       <description>well this is slightly surprising, but in a very good way, and does lead to some interesting suggestions on how to best to improve matters, but look at the following graph of FAST ESP query latency:
-Notice that the average latency drops as we use the server more . . . but WHY? Well that&amp;rsquo;s just because we&amp;rsquo;re running the FAST indexes on a ZFS based file system and the L2 ARC cache is making it&amp;rsquo;s presence felt</description>
+Notice that the average latency drops as we use the server more &amp;hellip; but WHY? Well that&amp;rsquo;s just because we&amp;rsquo;re running the FAST indexes on a ZFS based file system and the L2 ARC cache is making it&amp;rsquo;s presence felt</description>
     </item>
     
   </channel>

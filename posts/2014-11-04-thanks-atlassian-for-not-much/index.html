@@ -112,38 +112,47 @@
     </div>
   </header>
   <section>
-    <h3 id="user-access-times-with-atlassian-tools">User access times with Atlassian tools</h3>
+    
+
+<h3 id="user-access-times-with-atlassian-tools">User access times with Atlassian tools</h3>
+
 <p>You&rsquo;d be mistaken if you had a few searches on the internet and found the following <a href="https://confluence.atlassian.com/display/JIRAKB/Retrieve+last+login+dates+for+users+from+the+database">page</a> suggesting that you could just query the application <code>cwd_user</code> table except when using <a href="http://www.atlassian.com/software/crowd">Crowd</a> when you should query against the crowd <code>cwd_user_attribute</code> table.</p>
+
 <p>Unfortunately that might have been true back with <a href="http://www.atlassian.com/software/jira">Jira</a> 4.3, although in the last few years mixing the Atlassian tools (with <a href="http://www.atlassian.com/software/crowd">Crowd</a> as SSO provider) this is no longer the case and I&rsquo;ve found the following MySQL query works well to find out login times for each application</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">c</span>.user_name <span style="color:#66d9ef">AS</span> Username,
-<span style="color:#66d9ef">c</span>.email_address <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Email Address</span><span style="color:#e6db74">&#34;</span>,
-from_unixtime(cua.attribute_value<span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span>) <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Crowd Access</span><span style="color:#e6db74">&#34;</span>,
-j.updated_date <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Jira Access</span><span style="color:#e6db74">&#34;</span>,
-co.updated_date <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Confluence Access</span><span style="color:#e6db74">&#34;</span>,
-s.updated_date <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Stash Access</span><span style="color:#e6db74">&#34;</span>
-<span style="color:#66d9ef">FROM</span>
-  crowddb.cwd_user <span style="color:#66d9ef">c</span>,
+
+<pre><code class="language-sql">SELECT c.user_name AS Username,
+c.email_address AS &quot;Email Address&quot;,
+from_unixtime(cua.attribute_value/1000) AS &quot;Crowd Access&quot;,
+j.updated_date AS &quot;Jira Access&quot;,
+co.updated_date AS &quot;Confluence Access&quot;,
+s.updated_date AS &quot;Stash Access&quot;
+FROM
+  crowddb.cwd_user c,
   jiradb.cwd_user j,
   crowddb.cwd_user_attribute cua,
   confluencedb.cwd_user co,
   stashdb.cwd_user s
-<span style="color:#66d9ef">WHERE</span>  <span style="color:#66d9ef">c</span>.active <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">T</span><span style="color:#e6db74">&#39;</span>
-<span style="color:#66d9ef">AND</span> <span style="color:#66d9ef">c</span>.user_name <span style="color:#f92672">=</span> j.user_name
-<span style="color:#66d9ef">AND</span> <span style="color:#66d9ef">c</span>.user_name <span style="color:#f92672">=</span> co.user_name
-<span style="color:#66d9ef">AND</span> <span style="color:#66d9ef">c</span>.user_name <span style="color:#f92672">=</span> s.user_name
-<span style="color:#66d9ef">AND</span> cua.user_id <span style="color:#f92672">=</span> <span style="color:#66d9ef">c</span>.id
-<span style="color:#66d9ef">AND</span> cua.attribute_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">lastAuthenticated</span><span style="color:#e6db74">&#39;</span>
-<span style="color:#66d9ef">AND</span> DATE_SUB(CURDATE(),INTERVAL <span style="color:#ae81ff">60</span> <span style="color:#66d9ef">DAY</span>) <span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span> from_unixtime(cua.attribute_value<span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span>)
-<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>;
-</code></pre></div><p>And you should end up query data similar to:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">+</span><span style="color:#75715e">--------------+-------------------+---------------------+---------------------+---------------------+---------------------+
-</span><span style="color:#75715e"></span><span style="color:#f92672">|</span> Username     <span style="color:#f92672">|</span> Email Address     <span style="color:#f92672">|</span> Crowd <span style="color:#66d9ef">Access</span>        <span style="color:#f92672">|</span> Jira <span style="color:#66d9ef">Access</span>         <span style="color:#f92672">|</span> Confluence <span style="color:#66d9ef">Access</span>   <span style="color:#f92672">|</span> Stash <span style="color:#66d9ef">Access</span>        <span style="color:#f92672">|</span>
-<span style="color:#f92672">+</span><span style="color:#75715e">--------------+-------------------+---------------------+---------------------+---------------------+---------------------+
-</span><span style="color:#75715e"></span><span style="color:#f92672">|</span> user1        <span style="color:#f92672">|</span> user1<span style="color:#f92672">@</span>example.com <span style="color:#f92672">|</span> <span style="color:#ae81ff">2013</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span> <span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span> <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2013</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span> <span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span> <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span>
-<span style="color:#f92672">|</span> user2        <span style="color:#f92672">|</span> user2<span style="color:#f92672">@</span>example.com <span style="color:#f92672">|</span> <span style="color:#ae81ff">2013</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span> <span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span> <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2013</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span> <span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span> <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span>
-<span style="color:#f92672">|</span> user3        <span style="color:#f92672">|</span> user3<span style="color:#f92672">@</span>example.com <span style="color:#f92672">|</span> <span style="color:#ae81ff">2013</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span> <span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span> <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2013</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span> <span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span> <span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">20</span>:<span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span>
-<span style="color:#f92672">+</span><span style="color:#75715e">--------------+-------------------+---------------------+---------------------+---------------------+---------------------+
-</span></code></pre></div>
+WHERE  c.active = 'T'
+AND c.user_name = j.user_name
+AND c.user_name = co.user_name
+AND c.user_name = s.user_name
+AND cua.user_id = c.id
+AND cua.attribute_name = 'lastAuthenticated'
+AND DATE_SUB(CURDATE(),INTERVAL 60 DAY) &gt;= from_unixtime(cua.attribute_value/1000)
+ORDER BY 5,6,1,2;
+</code></pre>
+
+<p>And you should end up query data similar to:</p>
+
+<pre><code class="language-sql">+--------------+-------------------+---------------------+---------------------+---------------------+---------------------+
+| Username     | Email Address     | Crowd Access        | Jira Access         | Confluence Access   | Stash Access        |
++--------------+-------------------+---------------------+---------------------+---------------------+---------------------+
+| user1        | user1@example.com | 2013-04-05 10:20:30 | 2012-01-02 20:20:00 | 2013-04-05 10:20:30 | 2012-01-02 20:20:00 |
+| user2        | user2@example.com | 2013-04-05 10:20:30 | 2012-01-02 20:20:00 | 2013-04-05 10:20:30 | 2012-01-02 20:20:00 |
+| user3        | user3@example.com | 2013-04-05 10:20:30 | 2012-01-02 20:20:00 | 2013-04-05 10:20:30 | 2012-01-02 20:20:00 |
++--------------+-------------------+---------------------+---------------------+---------------------+---------------------+
+</code></pre>
+
   </section>
   <footer>
     

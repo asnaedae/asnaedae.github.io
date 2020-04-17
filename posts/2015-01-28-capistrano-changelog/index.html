@@ -104,16 +104,23 @@
     </div>
   </header>
   <section>
-    <h3 id="capistrano-and-changelogs">Capistrano and Changelogs</h3>
+    
+
+<h3 id="capistrano-and-changelogs">Capistrano and Changelogs</h3>
+
 <p>I needed a more atomic method of listing changes between two deployments whilst using capistrano, so used the following task to perform a git log between two revisions:</p>
+
 <p>use the following to display:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cap deploy:changelog
+
+<pre><code class="language-bash">$ cap deploy:changelog
 INFO Changes between 04e7f9a and 3fd3e88 releases
 INFO e7770ab Built Deployable files from Drush make
 8f9d13c Built Deployable files from Drush make
 3872d29 Built Deployable files from Drush make
 193aaad Built Deployable files from Drush make
-</code></pre></div><p>You can then of course include within any other tasks using the normal <a href="https://github.com/capistrano/capistrano">capistrano</a> methods</p>
+</code></pre>
+
+<p>You can then of course include within any other tasks using the normal <a href="https://github.com/capistrano/capistrano">capistrano</a> methods</p>
 
   </section>
   <footer>
